@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="row" >
+  <div class="col-2 position-relative">
+    <app-sidebar></app-sidebar>
+  </div>
+
+   <div class="col-10 position-relative" style=" zoom: 71%; background-color: #fff; text-align: center; overflow: auto; height:785px; border-radius: 8px;">
+
+     <div class="row">
+
+      <h2 style="font-size: 20px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">الخطابات الصادرة من مكتب العميد</h2>
+
+       <table class="table">
+        <thead style=" position: sticky; top: 40px; background-color: #fff;">
+        <tr>
+            <th scope="col">رقم الخطاب</th>
+            <th scope="col">تاريخ الصادر</th>
+            <th scope="col">عدد المرفقات</th>
+            <th scope="col">الجهة الصادر اليها</th>
+            <th scope="col">ملخص الخطاب</th>
+            <th scope="col">المستلم</th>
+            <th scope="col"> رقم الاستعجال</th>
+            <th scope="col">تاريخ الاستعجال</th>
+            <th scope="col"> رقم الرد</th>
+            <th scope="col"> تاريخ الرد</th>
+            <th scope="col">رقم الملف</th>
+
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+
+           <tr *ngFor="let item of showAllExport ">
+            <td>{{item.id}}</td>
+            <td>{{item.date}}</td>
+            <td>{{item.numberOfAttachments}}</td>
+             <td>{{item.receiver}}</td>
+             <td>{{item.summary}}</td>
+             <td>{{item.recipientName}}</td>
+             <td>{{item.urgentNum}}</td>
+            <td>{{item.urgentDate}}</td>
+            <td>{{item.responseNumber}}</td>
+            <td>{{item.responseDate}}</td>
+            <td>{{item.typeNumber}}/{{item.num}}</td>
+             <td>
+                <button type="submit"  class="btn btn-success w-50"  style="padding:5px; "   routerLink="/exports-pagination?id/{{item.id}}">عرض الملف</button>
+             </td>
+          </tr>
+          </tbody>
+        </table>
+
+
+
+       </div>
+   </div>
+  </div>
+

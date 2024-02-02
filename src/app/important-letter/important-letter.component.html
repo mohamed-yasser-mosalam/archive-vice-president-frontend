@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<div class="row" >
+  <div class="col-2 position-relative">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-10 position-relative" style=" zoom: 75%; background-color: #fff; text-align: center; overflow: auto; height:785px; border-radius: 8px;">
+    <div class="row">
+
+      <h2 style="font-size: 20px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">الخطابات الهامة</h2>
+      <table class="table">
+        <thead style=" position: sticky; top: 40px; background-color: #fff;">
+        <tr>
+          <th scope="col">رقم القيد</th>
+          <th scope="col">تاريخ الورود</th>
+          <th scope="col">عدد المرفقات</th>
+          <th scope="col">الجهةالوارد منها</th>
+          <th scope="col">رقم الخطاب الوارد</th>
+          <th scope="col">تاريخ الخطاب الوارد</th>
+          <th scope="col">ملخص الخطاب</th>
+          <th scope="col">المستلم</th>
+          <th scope="col">تاريخ الاستلام</th>
+          <th scope="col">رقم الرد</th>
+          <th scope="col">تاريخ الرد</th>
+          <th scope="col">الجهة الصادر اليها</th>
+          <th scope="col">رقم الملف</th>
+          <th scope="col">التاريخ المتوقع للرد</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of showAllImportant">
+          <td>{{item.id}}</td>
+          <td>{{item.incomeDate}}</td>
+          <td>{{item.numberOfAttachments}}</td>
+          <td>{{item.sender}}</td>
+          <td>{{item.incomingLetterNumber}}</td>
+          <td>{{item.incomingLetterDate}}</td>
+          <td>{{item.summary}}</td>
+          <td>{{item.recipientName}}</td>
+          <td>{{item.recipientDate}}</td>
+          <td>{{item.responseNumber}}</td>
+          <td>{{item.responseDate}}</td>
+          <td>{{item.responseSide}}</td>
+          <td>{{item.typeNumber}}/{{item.num}}</td>
+          <td>{{item.expectResponseDate}}</td>
+          <td>
+            <i class="bi bi-pencil-square p-4" style="font-size:24px; color:#00f;"></i>
+            <i class="bi bi-trash" style="font-size:24px; color:#f00 "></i>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+</div>

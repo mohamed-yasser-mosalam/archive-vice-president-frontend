@@ -1,0 +1,52 @@
+
+<app-navbar></app-navbar>
+<div class="row" >
+  <div class="col-2 position-relative">
+    <app-sidebar></app-sidebar>
+  </div>
+  <form class="col-8" style="zoom: 80%" #registerForm="ngForm" (ngSubmit)="createUser(registerForm.value)">
+
+    <div class="wrapper">
+      <legend class="text-center">تسجيل مستخدم جديد </legend>
+
+      <div style="display: flex;  justify-content: space-between;">
+        <div class="input-container">
+          <div class="input-data">
+            <input type="text" required  id="firstName" name="firstName" ngModel>
+            <div class="underLine"></div>
+            <label for="firstName">الاسم الاول</label>
+          </div>
+
+          <div class="input-data">
+            <input  cols="40" rows="1" required id="lastName" name="lastName" ngModel>
+            <div class="underLine-text"></div>
+            <label for="lastName"> الاسم الثاني</label>
+          </div>
+
+          <button type="submit"  class="btn btn-success w-100"  style="padding:10px;">    حفظ  </button>
+
+        </div>
+
+
+        <div class="input-container">
+
+          <div class="input-data">
+            <input type="text" required  id="username"name="username" ngModel>
+            <div class="underLine"></div>
+            <label for="username">اسم المستخدم</label>
+          </div>
+
+          <div class="input-data">
+            <input type="number" required id="password" name="password"ngModel>
+            <div class="undlerLine"></div>
+            <label for="password">الرقم السري</label>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+</div>
+

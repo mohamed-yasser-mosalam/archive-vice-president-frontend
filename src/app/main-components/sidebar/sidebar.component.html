@@ -1,0 +1,71 @@
+<div class="row"  style="zoom: 80%;">
+  <div class=" position-relative">
+    <div class="menu">
+      <ul class="nav flex-column" style="height:90vh;">
+
+        <li class="nav-item">
+          <a routerLink="/home">
+            <p>Home</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/getallImports">
+            <p>Imports</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/getallexports">
+            <p>Export</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/allfiles">
+            <p>AllFiles</p>
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a routerLink="/exports-pagination?page/{{1}}">
+            <p>ExportPagination</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/allfiles">
+            <p>ImportPagination</p>
+          </a>
+        </li>
+
+
+
+        <div class="btn-group">
+          <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" >
+            Setting
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/register">Register</a></li>
+           </ul>
+        </div>
+
+         <div class="btn-group">
+          <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" >
+            ADD
+          </button>
+           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/addexportfile">ADD Export</a></li>
+            <li><a class="dropdown-item" routerLink="/addimportfile">ADD Import</a></li>
+          </ul>
+        </div>
+
+
+        <li class="log-out">
+          <a href="#">
+            <button type="submit"  class="btn btn-success w-100"  style="padding:5px; "  (click)="clearToken()" > Log out </button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div >
+</div>

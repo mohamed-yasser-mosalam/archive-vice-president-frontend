@@ -1,0 +1,77 @@
+<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
+<div class="row" >
+  <div class="col-2 position-relative">
+    <app-sidebar></app-sidebar>
+  </div>
+  <form class="col-8" style="zoom: 80%"  [formGroup]="showExport" >
+
+    <div class="wrapper">
+      <legend class="text-center">  {{page}} عرض خطاب الصادر رقم </legend>
+
+      <div style="display: flex;  justify-content: space-between;">
+        <div class="input-container ">
+
+            <div class="input-data">
+                <input type="text" required  readonly id="date" formControlName="date"  >
+                <label for="date">تاريخ الصادر</label>
+            </div>
+
+            <div class="input-data">
+                <input type="text" required  readonly id="numberOfAttachments" numberOfAttachments="date"  >
+                <label for="numberOfAttachments">عدد المرفقات</label>
+            </div>
+
+            <div class="input-data">
+            <input type="text" required  readonly id="receiver" formControlName="receiver"  >
+             <label for="receiver">الجهة الصادر اليها الخطاب</label>
+          </div>
+
+
+          <div class="col-md-9 pag" style="padding-left: 5%">
+            <ngb-pagination
+              [(page)]="page"
+              [pageSize]="size"
+              [collectionSize]="pageLength"
+              (pageChange)="change()"
+              [maxSize]="5"
+              [boundaryLinks]="true"
+              [ellipses]="false"
+              [rotate]="false"
+              routerLink="/exports-pagination?id/{{page}}">
+            </ngb-pagination>
+           </div>
+
+        </div>
+
+        <div class="input-container">
+
+            <div class="input-data">
+                <input  cols="40" rows="1" readonly required id="summary"  formControlName="summary" >
+                <label for="summary">ملخص الخطاب</label>
+            </div>
+
+
+            <div class="input-data">
+            <input type="text" required readonly id="recipientName"  formControlName="recipientName"  >
+             <label for="recipientName">المستلم</label>
+          </div>
+
+          <div class="input-data">
+            <input type="number" required readonly id="num" formControlName="num" >
+             <label for="num">رقم الملف</label>
+          </div>
+
+          <button type="submit"  class="btn btn-success w-50"  style="padding:10px;margin: 10px"  routerLink="/updateexport/{{page}}" >    تعديل  </button>
+
+          <button type="submit"  class="btn btn-success w-50"  style="padding:10px;margin:10px "  routerLink="/add-urgent/{{page}}" >    اضافة استعجال  </button>
+          <button type="submit"  class="btn btn-success w-50"  style="padding:10px;margin:10px "  routerLink="/add-export-response/{{page}}" >    اضافة رد  </button>
+
+        </div>
+
+
+      </div>
+    </div>
+  </form>
+</div>
+
+

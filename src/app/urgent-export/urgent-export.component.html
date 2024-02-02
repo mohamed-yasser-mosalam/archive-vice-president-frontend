@@ -1,0 +1,55 @@
+
+<app-navbar></app-navbar>
+<div class="row" >
+  <div class="col-2 position-relative">
+    <app-sidebar></app-sidebar>
+  </div>
+  <form class="col-8" style="zoom: 80%" #UrgentForm="ngForm" (ngSubmit)="addUrgentFile(UrgentForm.value)" >
+
+    <div class="wrapper">
+      <legend class="text-center"> {{x}} ادخال استعجال لملف رقم </legend>
+
+      <div style="display: flex;  justify-content: space-between;">
+        <div class="input-container">
+          <div class="input-data">
+            <input type="text" required  id="receiver" name="receiver" ngModel>
+            <div class="underLine"></div>
+            <label for="receiver">الجهة الصادر اليها الخطاب</label>
+          </div>
+
+          <div class="input-data">
+            <input  cols="40" rows="1" required id="summary" name="summary" ngModel>
+            <div class="underLine-text"></div>
+            <label for="summary">ملخص الخطاب</label>
+          </div>
+
+          <button type="submit"  class="btn btn-success w-100"  style="padding:10px;">    حفظ  </button>
+
+        </div>
+
+
+        <div class="input-container">
+
+          <div class="input-data">
+            <input type="text" required  id="recipientName"name="recipientName" ngModel>
+            <div class="underLine"></div>
+            <label for="recipientName">المستلم</label>
+          </div>
+
+          <div class="input-data">
+            <input type="number" required id="num" name="num"ngModel>
+            <div class="undlerLine"></div>
+            <label for="num">رقم الملف</label>
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+</div>
+
+

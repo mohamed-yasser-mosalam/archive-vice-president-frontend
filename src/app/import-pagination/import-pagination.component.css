@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  align-items: center;
+  justify-content: center;
+  margin-left: 49%;
+  height: 300px;
+  position: fixed;
+
+  /*position: fixed;*/
+  /*bottom: 0;*/
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  /*margin-left: 50%;*/
+  /*!* top: -30px; *!*/
+}
+
+.wrapper {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.wrapper .input-data {
+  height: 40px;
+  width: 100%;
+  position: relative;
+  margin: 50px 0;
+}
+
+.wrapper .input-data input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  border-bottom: 2px solid silver;
+}
+
+.wrapper .input-data textarea {
+  border: none;
+  font-size: 18px;
+  border-bottom: 2px solid silver;
+}
+
+.input-data input:focus,
+.input-data textarea:focus {
+  outline: none;
+  border: none;
+}
+
+.wrapper .input-data label {
+  position: absolute;
+  bottom: 10px;
+  right: 7%;
+  color: #04b702;
+  pointer-events: none;
+  transition: .3s ease;
+  text-align: center;
+}
+
+.wrapper .input-data .underLine {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+}
+
+.wrapper .input-data .underLine::before,
+.wrapper .input-data .underLine-text::before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #04b702;
+  transform: scaleX(0);
+  transition: all .3s ease-in-out;
+}
+
+.wrapper .input-data .underLine-text::before {
+  bottom: -123px;
+}
+
+.input-data input:focus~.underLine::before,
+.input-data input:valid~.underLine::before,
+.input-data textarea:focus~.underLine-text::before,
+.input-data textarea:valid~.underLine-text::before {
+  transform: scaleX(1);
+}
+
+.input-container {
+  width: 45%;
+}
+
+ul li a,
+.dropdown-toggle {
+  display: block;
+  width: 3em;
+  padding: 5px;
+
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

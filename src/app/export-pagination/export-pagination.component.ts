@@ -15,13 +15,15 @@ export class ExportPaginationComponent implements OnInit{
   showExports: any;
   size:number=1;
    showExport = new FormGroup({
-    date:new FormControl(''),
-    numberOfAttachments:new FormControl(' '),
-    receiver: new FormControl(''),
-    summary: new FormControl(''),
-    recipientName: new FormControl(''),
-    num: new FormControl()
-
+     date:new FormControl(''),
+     receiver: new FormControl(''),
+     numberOfAttachments:new FormControl(''),
+     id: new FormControl(''),
+     recipientName: new FormControl(''),
+     summary: new FormControl(''),
+     urgentDate: new FormControl(''),
+     responseDate: new FormControl(''),
+     responseNumber: new FormControl(''),
   })
   ngOnInit(): void {
     this.getExportCount();
@@ -30,11 +32,14 @@ export class ExportPaginationComponent implements OnInit{
      subscribe((result) => {
       this.showExport = new FormGroup({
         date:new FormControl(result['date']),
-        numberOfAttachments:new FormControl(result['numberOfAttachments']),
         receiver: new FormControl(result['receiver']),
-        summary: new FormControl(result['summary']),
+        numberOfAttachments:new FormControl(result['numberOfAttachments']),
+        id: new FormControl(result['id']),
         recipientName: new FormControl(result['recipientName']),
-        num: new FormControl(result['num'])
+        summary: new FormControl(result['summary']),
+        urgentDate: new FormControl(result['receiver']),
+        responseDate: new FormControl(result['recipientDate']),
+        responseNumber: new FormControl(result['responseNumber'])
       })
     })
 
@@ -63,11 +68,14 @@ export class ExportPaginationComponent implements OnInit{
     subscribe((result) => {
       this.showExport = new FormGroup({
         date:new FormControl(result['date']),
-        numberOfAttachments:new FormControl(result['numberOfAttachments']),
         receiver: new FormControl(result['receiver']),
-        summary: new FormControl(result['summary']),
+        numberOfAttachments:new FormControl(result['numberOfAttachments']),
+        id: new FormControl(result['id']),
         recipientName: new FormControl(result['recipientName']),
-        num: new FormControl(result['num'])
+        summary: new FormControl(result['summary']),
+        urgentDate: new FormControl(result['receiver']),
+        responseDate: new FormControl(result['recipientDate']),
+        responseNumber: new FormControl(result['responseNumber'])
       })
     })
 

@@ -36,6 +36,7 @@ import {HttpInterceterBaseAuthService} from "./Services/Security/http-interceter
 import { UrgentExportComponent } from './urgent-export/urgent-export.component';
 import { ResponsExportComponent } from './respons-export/respons-export.component';
 import { ResponsImportComponent } from './respons-import/respons-import.component';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { ResponsImportComponent } from './respons-import/respons-import.componen
     ExportPaginationComponent,
     UrgentExportComponent,
     ResponsExportComponent,
-    ResponsImportComponent
+    ResponsImportComponent,
+    ImageSliderComponent
 
 
   ],

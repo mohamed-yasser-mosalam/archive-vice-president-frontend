@@ -43,13 +43,16 @@
             <td>{{item.responseDate}}</td>
             <td>{{item.typeNumber}}/{{item.num}}</td>
              <td>
-                <button type="submit"  class="btn btn-success w-50"  style="padding:5px; "   routerLink="/exports-pagination?id/{{item.id}}">عرض الملف</button>
+                <button type="submit"  class="btn btn-success w-50"  style="padding:5px; "   routerLink="/export-pagination?id/{{item.id}}">عرض الملف</button>
              </td>
           </tr>
           </tbody>
         </table>
 
 
+
+         <input type="file" name="img" accept="image/*" (change)="onImageSelected($event)" >
+         <label >اختار الصورة:</label>
 
        </div>
    </div>

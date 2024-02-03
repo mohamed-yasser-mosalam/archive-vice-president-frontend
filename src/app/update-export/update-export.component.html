@@ -4,111 +4,124 @@
   <div class="col-2 position-relative">
     <app-sidebar></app-sidebar>
   </div>
-  <form class="col-8" style="zoom: 80%"  [formGroup]="editExport" (ngSubmit)="update()" >
+
+    <form class="col-6" style="zoom: 80%"  [formGroup]="editExport" (ngSubmit)="update()" >
 
     <div class="wrapper">
-      <legend class="text-center">  {{x}} تعديل ملف الصادر رقم </legend>
+      <legend class="text-center"> {{x}} عرض خطاب صادر رقم </legend>
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container ">
 
           <div class="input-data">
-            <input type="text" required  readonly  id="date" formControlName="date"  >
+            <input type="Date" required readonly id="date" formControlName="date">
             <label for="date">تاريخ الصادر</label>
           </div>
-
-          <div class="input-data">
-            <input type="text" required  readonly  id="numberOfAttachments" numberOfAttachments="date"  >
-            <label for="numberOfAttachments">عدد المرفقات</label>
-          </div>
-
-          <div class="input-data">
-            <input type="text" required    id="receiver" formControlName="receiver"  >
+          <div class="input-data" style="top:30px">
+            <input type="text" required   id="receiver" formControlName="receiver">
             <label for="receiver">الجهة الصادر اليها الخطاب</label>
           </div>
-
-
-
         </div>
-
         <div class="input-container">
-
-          <div class="input-data">
-            <input  cols="40" rows="1"   required id="summary"  formControlName="summary" >
-            <label for="summary">ملخص الخطاب</label>
+          <div class="d-flex">
+            <div class="input-data" style="width: 65%">
+              <input type="text" required   id="numberOfAttachments" numberOfAttachments="date">
+              <label for="numberOfAttachments">عدد المرفقات</label>
+            </div>
+            <div class="input-data " style="width:30%; margin-left:auto;">
+              <input type="number"   readonly id="id" formControlName="id">
+              <label for="id">رقم الملف</label>
+            </div>
           </div>
-
-
           <div class="input-data">
-            <input type="text" required   id="recipientName"  formControlName="recipientName"  >
+            <input type="text" required id="recipientName" formControlName="recipientName">
             <label for="recipientName">المستلم</label>
           </div>
-
-          <div class="input-data">
-            <input type="number" required  id="num" formControlName="num" >
-            <label for="num">رقم الملف</label>
-          </div>
-
-          <button type="submit"  class="btn btn-success w-100"  style="padding:10px;"  routerLink="/updateexport/{{x}}" >    تعديل  </button>
-
         </div>
-
-
       </div>
-    </div>
+      <div class="input-data">
+        <input cols="40" rows="1" style="height:60px"   required id="summary" formControlName="summary">
+        <label for="summary">ملخص الخطاب</label>
+      </div>
+
+      <div class="mt-5" style="display: flex;  justify-content: space-between;">
+        <div style="display: flex;">
+          <div class="input-data" style="width:65%">
+            <input type="number" required readonly id="urgentDate" formControlName="urgentDate">
+            <label for="urgentDate">تاريخ الاستعجال</label>
+          </div>
+          <div class="input-data" style="width:30%; margin-left:10px;">
+            <input type="number" required readonly id="urgentNum" formControlName="urgentNum">
+            <label for="urgentNum">رقم الاستعجال</label>
+          </div>
+        </div>
+        <div style="display: flex;">
+          <div class="input-data w-50">
+            <input type="Date" required readonly id="responseDate" formControlName="responseDate">
+            <label for="responseDate">تاريخ الرد</label>
+          </div>
+          <div class="input-data" style="width:35%; margin-left:auto;">
+            <input type="text" required readonly id="responseNumber" formControlName="responseNumber">
+            <label for="responseNumber">الرد</label>
+          </div>
+        </div>
+      </div>
+      <button type="submit"  class="btn btn-success w-50"  style="padding:10px; margin: 20px;margin-left: 20%"  routerLink="/updateexport/{{x}}" >    تعديل  </button>
+    </div >
   </form>
-</div>
 
-
-
-
-<!--<app-navbar></app-navbar>-->
-<!--<div class="row" >-->
-<!--  <div class="col-2 position-relative">-->
-<!--    <app-sidebar></app-sidebar>-->
-<!--  </div>-->
 <!--  <form class="col-8" style="zoom: 80%"  [formGroup]="editExport" (ngSubmit)="update()" >-->
 
 <!--    <div class="wrapper">-->
-<!--      <legend class="text-center">تعديل الصادر</legend>-->
+<!--      <legend class="text-center">  {{x}} تعديل ملف الصادر رقم </legend>-->
 
 <!--      <div style="display: flex;  justify-content: space-between;">-->
-<!--        <div class="input-container">-->
+<!--        <div class="input-container ">-->
+
 <!--          <div class="input-data">-->
-<!--            <input type="text" required  id="receiver" formControlName="receiver"  >-->
-<!--            <div class="underLine"></div>-->
+<!--            <input type="text" required  readonly  id="date" formControlName="date"  >-->
+<!--            <label for="date">تاريخ الصادر</label>-->
+<!--          </div>-->
+
+<!--          <div class="input-data">-->
+<!--            <input type="text" required  readonly  id="numberOfAttachments" numberOfAttachments="date"  >-->
+<!--            <label for="numberOfAttachments">عدد المرفقات</label>-->
+<!--          </div>-->
+
+<!--          <div class="input-data">-->
+<!--            <input type="text" required    id="receiver" formControlName="receiver"  >-->
 <!--            <label for="receiver">الجهة الصادر اليها الخطاب</label>-->
 <!--          </div>-->
 
-<!--          <div class="input-data">-->
-<!--            <input  cols="40" rows="1" required id="summary"  formControlName="summary" >-->
-<!--            <div class="underLine-text"></div>-->
-<!--            <label for="summary">ملخص الخطاب</label>-->
-<!--          </div>-->
 
-<!--          <button type="submit"  class="btn btn-success w-100"  style="padding:10px;">    حفظ  </button>-->
 
 <!--        </div>-->
-
 
 <!--        <div class="input-container">-->
 
 <!--          <div class="input-data">-->
-<!--            <input type="text" required  id="recipientName"  formControlName="recipientName"  >-->
-<!--            <div class="underLine"></div>-->
+<!--            <input  cols="40" rows="1"   required id="summary"  formControlName="summary" >-->
+<!--            <label for="summary">ملخص الخطاب</label>-->
+<!--          </div>-->
+
+
+<!--          <div class="input-data">-->
+<!--            <input type="text" required   id="recipientName"  formControlName="recipientName"  >-->
 <!--            <label for="recipientName">المستلم</label>-->
 <!--          </div>-->
 
 <!--          <div class="input-data">-->
-<!--            <input type="number" required id="num" formControlName="num" >-->
-<!--            <div class="undlerLine"></div>-->
+<!--            <input type="number" required  id="num" formControlName="num" >-->
 <!--            <label for="num">رقم الملف</label>-->
 <!--          </div>-->
 
+<!--          <button type="submit"  class="btn btn-success w-100"  style="padding:10px;"  routerLink="/updateexport/{{x}}" >    تعديل  </button>-->
+
 <!--        </div>-->
+
 
 <!--      </div>-->
 <!--    </div>-->
 <!--  </form>-->
-<!--</div>-->
+</div>
 

@@ -10,17 +10,21 @@ import {ImportServiceService} from "../Services/ImportsServices/import-service.s
   styleUrls: ['./update-import.component.css']
 })
 export class UpdateImportComponent implements OnInit{
-
+  x=this.routes.snapshot.params['id']
   editImport = new FormGroup({
-    incomeDate: new FormControl(''),
+    numberOfAttachments: new FormControl(''),
     sender: new FormControl(''),
+    incomeDate: new FormControl(''),
+    id: new FormControl(''),
+    incomingLetterDate: new FormControl(''),
     incomingLetterNumber: new FormControl(''),
-    incomingLetterDate: new FormControl(),
-    summary: new FormControl(''),
-    recipientName: new FormControl(''),
+    summary: new FormControl(' '),
+    receiver: new FormControl(''),
     recipientDate: new FormControl(''),
-    num: new FormControl(''),
-    expectResponseDate: new FormControl(''),
+    responseDate: new FormControl(''),
+    responseSide: new FormControl(''),
+    recipientName: new FormControl(''),
+    archiveId: new FormControl(''),
   })
 
   ngOnInit(): void {
@@ -28,15 +32,19 @@ export class UpdateImportComponent implements OnInit{
     this.serviceImport.getImportById(this.routes.snapshot.params['id']).
     subscribe((result) => {
       this.editImport = new FormGroup({
-        incomeDate: new FormControl(result['incomeDate']),
+        numberOfAttachments: new FormControl(result['numberOfAttachments']),
         sender: new FormControl(result['sender']),
-        incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
+        incomeDate: new FormControl(result['incomeDate']),
+        id: new FormControl(result['id']),
         incomingLetterDate: new FormControl(result['incomingLetterDate']),
+        incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
         summary: new FormControl(result['summary']),
-        recipientName: new FormControl(result['recipientName']),
+        receiver: new FormControl(result['receiver']),
         recipientDate: new FormControl(result['recipientDate']),
-        num: new FormControl(result['num']),
-        expectResponseDate: new FormControl(result['expectResponseDate']),
+        responseDate: new FormControl(result['responseDate']),
+        responseSide: new FormControl(result['responseSide']),
+        recipientName: new FormControl(result['recipientName']),
+        archiveId: new FormControl(result['archiveId']),
       })
     })
   }

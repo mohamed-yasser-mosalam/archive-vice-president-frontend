@@ -1,0 +1,8 @@
+.wrapper {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 30px;
+  flex-direction: column;
+  height: 100px;
+}

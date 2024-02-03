@@ -18,6 +18,7 @@ import {ExportPaginationComponent} from "./export-pagination/export-pagination.c
 import {UrgentExportComponent} from "./urgent-export/urgent-export.component";
 import {ResponsExportComponent} from "./respons-export/respons-export.component";
 import {ResponsImportComponent} from "./respons-import/respons-import.component";
+import {ImportPaginationComponent} from "./import-pagination/import-pagination.component";
 
   const routes: Routes = [
   {path:'home',component:WelcomeComponent},
@@ -35,7 +36,8 @@ import {ResponsImportComponent} from "./respons-import/respons-import.component"
   {path:'updateexport/:id',component:UpdateExportComponent},
    {path:'allfiles',component:AllFilesComponent},
    {path:'register',component:RegisterComponent},
-   {path:'exports-pagination?id/:id',component:ExportPaginationComponent},
+   {path:'export-pagination?id/:id',component:ExportPaginationComponent},
+    {path:'import-pagination?id/:id',component:ImportPaginationComponent},
     {path:'add-urgent/:id',component:UrgentExportComponent},
     {path:'add-export-response/:id',component:ResponsExportComponent},
     {path:'add-import-response/:id',component:ResponsImportComponent}

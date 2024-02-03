@@ -28,8 +28,7 @@ export class UpdateImportComponent implements OnInit{
   })
 
   ngOnInit(): void {
-    console.log(this.routes.snapshot.params['id'])
-    this.serviceImport.getImportById(this.routes.snapshot.params['id']).
+     this.serviceImport.getImportById(this.routes.snapshot.params['id']).
     subscribe((result) => {
       this.editImport = new FormGroup({
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
@@ -53,10 +52,8 @@ export class UpdateImportComponent implements OnInit{
   }
 
   update() {
-    console.warn(this.editImport.value)
-    this.serviceImport.updateImport(this.routes.snapshot.params['id'], this.editImport.value).subscribe((result) => {
-      console.warn(result),
-          this.router.navigateByUrl('/getallImports')
+     this.serviceImport.updateImport(this.routes.snapshot.params['id'], this.editImport.value).subscribe((result) => {
+           this.router.navigateByUrl('/getallImports')
 
     })
   }

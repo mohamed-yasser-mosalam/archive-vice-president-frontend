@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
+import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 
 @Component({
   selector: 'app-update-export',
@@ -14,7 +15,7 @@ export class UpdateExportComponent implements OnInit {
     numberOfAttachments: new FormControl(''),
     sender: new FormControl(''),
     incomeDate: new FormControl(''),
-    num: new FormControl(''),
+    id: new FormControl(''),
     incomingLetterDate: new FormControl(''),
     incomingLetterNumber: new FormControl(''),
     summary: new FormControl(' '),
@@ -34,7 +35,7 @@ export class UpdateExportComponent implements OnInit {
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
         sender: new FormControl(result['sender']),
         incomeDate: new FormControl(result['incomeDate']),
-        num: new FormControl(result['num']),
+        id: new FormControl(result['id']),
         incomingLetterDate: new FormControl(result['incomingLetterDate']),
         incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
         summary: new FormControl(result['summary']),
@@ -48,13 +49,13 @@ export class UpdateExportComponent implements OnInit {
     })
   }
 
-  constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router) {
+  constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
+              private aut:AuthenticationServiceService) {
   }
 
   update() {
      this.serviceExport.updateExport(this.routes.snapshot.params['id'], this.editExport.value).subscribe((result) => {
           this.router.navigateByUrl('/getallexports')
-
     })
   }
 

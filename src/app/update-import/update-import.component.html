@@ -3,27 +3,27 @@
   <div class="col-2 position-relative">
     <app-sidebar></app-sidebar>
   </div>
-   <form class="col-7" style="zoom: 70% " [formGroup]="editImport" (ngSubmit)="update()">
+  <app-image-slider class="col-4"></app-image-slider>
+     <form class="col-6" style="zoom: 70% " [formGroup]="editImport" (ngSubmit)="update()">
 
     <div class="wrapper">
-      <legend class="text-center" style="margin-top: 10px">{{x}} تعديل ملف وارد رقم</legend>
-
+      <legend class="text-center">{{x}} تعديل ملف وارد رقم</legend>
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container ">
 
           <div class="input-data">
-            <input type="text" required   id="numberOfAttachments" formControlName="numberOfAttachments">
+            <input type="text" required id="numberOfAttachments" formControlName="numberOfAttachments">
             <label for="numberOfAttachments">عدد المرفقات</label>
           </div>
           <div class="input-data" style="top:55px">
-            <input type="text" required  id="sender" formControlName="sender">
+            <input type="text" required   id="sender" formControlName="sender">
             <label for="sender">الجهة الوارد منها الخطاب</label>
           </div>
         </div>
         <div class="input-container">
           <div class="d-flex">
             <div class="input-data" style="width: 65%">
-              <input type="Date" required   id="incomeDate" formControlName="incomeDate">
+              <input type="text" required readonly id="incomeDate" formControlName="incomeDate">
               <label for="incomeDate">تاريخ الورود</label>
             </div>
             <div class="input-data " style="width:30%; margin-left:auto;">
@@ -33,7 +33,7 @@
           </div>
           <div class="d-flex">
             <div class="input-data" style="width: 55%">
-              <input type="Date" required   id="incomingLetterDate" formControlName="incomingLetterDate">
+              <input type="text" required  id="incomingLetterDate" formControlName="incomingLetterDate">
               <label for="incomingLetterDate">تاريخه</label>
             </div>
             <div class="input-data " style="width:40%; margin-left:auto;">
@@ -43,26 +43,23 @@
           </div>
         </div>
       </div>
-      <div class="input-data" style="bottom:60px">
-        <input cols="40" rows="1" style="height: 70px;"   required id="summary"
-               formControlName="summary">
+      <div class="input-data" style="bottom:20px">
+        <input type="text" style="height: 50px;"   required id="summary" formControlName="summary">
         <label for="summary" >ملخص الخطاب</label>
       </div>
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container position-relative" style="bottom:60px">
           <div class="input-data">
-            <input type="text" required   id="responseSide" formControlName="responseSide">
+            <input type="text" required readonly id="responseSide" formControlName="responseSide">
             <label for="responseSide">الجهة الصادر اليها </label>
           </div>
           <div class="input-data">
-            <input type="text" required   id="recipientDate" formControlName="recipientDate">
+            <input type="text" required id="recipientDate" formControlName="recipientDate">
             <label for="recipientDate">تاريخ الاستلام</label>
           </div>
           <div class="input-data">
-            <button type="submit"  class="btn btn-success w-100"  style="padding:10px; bottom:60px">    حفظ  </button>
           </div>
-
 
         </div>
         <div class="input-container position-relative" style="bottom:60px">
@@ -72,19 +69,21 @@
               <label for="responseDate">تاريخ الرد</label>
             </div>
             <div class="input-data" style="width:35%; margin-left:auto;">
-              <input type="text" required   id="responseNumber" formControlName="responseNumber">
+              <input type="text" required readonly id="responseNumber" formControlName="responseNumber">
               <label for="responseNumber">الرد</label>
             </div>
           </div>
           <div class="input-data" style="bottom: 55px;">
-            <input type="text" required   id="recipientName" formControlName="recipientName">
+            <input type="text" required  id="recipientName" formControlName="recipientName">
             <label for="recipientName">المستلم</label>
           </div>
           <div class="input-data" style="bottom: 55px;">
-            <input type="text" required   id="archiveId" formControlName="archiveId">
-            <label for="archiveId">رقم الملف</label>
+            <input type="text" required  id="typeNumber" formControlName="typeNumber">
+            <label for="typeNumber">رقم الملف</label>
           </div>
-
+          <div class="input-data"style="bottom: 55px; ">
+             <button type="submit"  class="btn btn-success w-100"  style="padding:10px; bottom:60px">    حفظ  </button>
+          </div>
         </div>
 
       </div>
@@ -95,90 +94,187 @@
 </div>
 
 
-<!--<app-navbar></app-navbar>-->
-<!--<div class="row" >-->
+<!--<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>-->
+<!--<div class="row">-->
 <!--  <div class="col-2 position-relative">-->
 <!--    <app-sidebar></app-sidebar>-->
 <!--  </div>-->
-<!--  <form class="col-8" style="zoom: 80%"  [formGroup]="editImport" (ngSubmit)="update()" >-->
+<!--   <form class="col-7" style="zoom: 70% " [formGroup]="editImport" (ngSubmit)="update()">-->
+
 <!--    <div class="wrapper">-->
-<!--      <legend class="text-center"> {{x}} تعديل ملف وارد رقم </legend>-->
+<!--      <legend class="text-center" style="margin-top: 10px">{{x}} تعديل ملف وارد رقم</legend>-->
+
 <!--      <div style="display: flex;  justify-content: space-between;">-->
-
-<!--        <div class="input-container">-->
-
+<!--        <div class="input-container ">-->
 
 <!--          <div class="input-data">-->
-<!--            <input type="date" required id="incomeDate" formControlName="incomeDate">-->
-<!--            <div class="underLine"></div>-->
-<!--            <label for="incomeDate">تاريخ الورود</label>-->
+<!--            <input type="text" required   id="numberOfAttachments" formControlName="numberOfAttachments">-->
+<!--            <label for="numberOfAttachments">عدد المرفقات</label>-->
 <!--          </div>-->
-
-<!--          <div class="input-data">-->
-<!--            <input type="text" required  id="sender"  formControlName="sender">-->
-<!--            <div class="underLine"></div>-->
+<!--          <div class="input-data" style="top:55px">-->
+<!--            <input type="text" required  id="sender" formControlName="sender">-->
 <!--            <label for="sender">الجهة الوارد منها الخطاب</label>-->
 <!--          </div>-->
-
-
-<!--          <div class="input-data">-->
-<!--            <input type="number" required id="incomingLetterNumber"  formControlName="incomingLetterNumber">-->
-<!--            <div class="undlerLine"></div>-->
-<!--            <label for="incomingLetterNumber">رقم الخطاب الوارد</label>-->
-<!--          </div>-->
-
-
-<!--          <div class="input-data">-->
-<!--            <input type="date" required id="incomingLetterDate" formControlName="incomingLetterDate" >-->
-<!--            <div class="undlerLine"></div>-->
-<!--            <label for="incomingLetterDate">تاريخ الخطاب الوارد</label>-->
-<!--          </div>-->
-
-<!--          <button type="submit"  class="btn btn-success w-100"  style="padding:10px;">    حفظ  </button>-->
-
 <!--        </div>-->
-
 <!--        <div class="input-container">-->
-
-
-<!--          <div class="input-data">-->
-<!--            <input  cols="40" rows="1" required id="summary" formControlName="summary"  >-->
-<!--            <div class="underLine-text"></div>-->
-<!--            <label for="summary">ملخص الخطاب</label>-->
+<!--          <div class="d-flex">-->
+<!--            <div class="input-data" style="width: 65%">-->
+<!--              <input type="Date" required   id="incomeDate" formControlName="incomeDate">-->
+<!--              <label for="incomeDate">تاريخ الورود</label>-->
+<!--            </div>-->
+<!--            <div class="input-data " style="width:30%; margin-left:auto;">-->
+<!--              <input type="number" required readonly id="id" formControlName="id">-->
+<!--              <label for="id">رقم القيد</label>-->
+<!--            </div>-->
 <!--          </div>-->
-
-
-
-<!--          <div class="input-data">-->
-<!--            <input type="text" required  id="recipientName"formControlName="recipientName"  >-->
-<!--            <div class="underLine"></div>-->
-<!--            <label for="recipientName">المستلم</label>-->
+<!--          <div class="d-flex">-->
+<!--            <div class="input-data" style="width: 55%">-->
+<!--              <input type="Date" required   id="incomingLetterDate" formControlName="incomingLetterDate">-->
+<!--              <label for="incomingLetterDate">تاريخه</label>-->
+<!--            </div>-->
+<!--            <div class="input-data " style="width:40%; margin-left:auto;">-->
+<!--              <input type="number" required   id="incomingLetterNumber" formControlName="incomingLetterNumber">-->
+<!--              <label for="incomingLetterNumber">رقم الخطاب الوارد</label>-->
+<!--            </div>-->
 <!--          </div>-->
-
-<!--          <div class="input-data">-->
-<!--            <input type="date" required id="recipientDate" formControlName="recipientDate">-->
-<!--            <div class="underLine"></div>-->
-<!--            <label for="recipientDate">تاريخ الاستلام</label>-->
-<!--          </div>-->
-
-
-<!--          <div class="input-data">-->
-<!--            <input type="number" required id="num" formControlName="num" >-->
-<!--            <div class="undlerLine"></div>-->
-<!--            <label for="num">رقم الملف</label>-->
-<!--          </div>-->
-
-<!--          <div class="input-data">-->
-<!--            <input type="date" required id="expectResponseDate" formControlName="expectResponseDate"  >-->
-<!--            <div class="underLine"></div>-->
-<!--            <label for="expectResponseDate">تاريخ المتوقع للرد </label>-->
-<!--          </div>-->
-
 <!--        </div>-->
 <!--      </div>-->
+<!--      <div class="input-data" style="bottom:60px">-->
+<!--        <input cols="40" rows="1" style="height: 70px;"   required id="summary"-->
+<!--               formControlName="summary">-->
+<!--        <label for="summary" >ملخص الخطاب</label>-->
+<!--      </div>-->
+
+<!--      <div style="display: flex;  justify-content: space-between;">-->
+<!--        <div class="input-container position-relative" style="bottom:60px">-->
+<!--          <div class="input-data">-->
+<!--            <input type="text" required   id="responseSide" formControlName="responseSide">-->
+<!--            <label for="responseSide">الجهة الصادر اليها </label>-->
+<!--          </div>-->
+<!--          <div class="input-data">-->
+<!--            <input type="text" required   id="recipientDate" formControlName="recipientDate">-->
+<!--            <label for="recipientDate">تاريخ الاستلام</label>-->
+<!--          </div>-->
+<!--          <div class="input-data">-->
+<!--            <button type="submit"  class="btn btn-success w-100"  style="padding:10px; bottom:60px">    حفظ  </button>-->
+<!--          </div>-->
+
+
+<!--        </div>-->
+<!--        <div class="input-container position-relative" style="bottom:60px">-->
+<!--          <div style="display: flex;">-->
+<!--            <div class="input-data w-50">-->
+<!--              <input type="Date" required   id="responseDate" formControlName="responseDate">-->
+<!--              <label for="responseDate">تاريخ الرد</label>-->
+<!--            </div>-->
+<!--            <div class="input-data" style="width:35%; margin-left:auto;">-->
+<!--              <input type="text" required   id="responseNumber" formControlName="responseNumber">-->
+<!--              <label for="responseNumber">الرد</label>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="input-data" style="bottom: 55px;">-->
+<!--            <input type="text" required   id="recipientName" formControlName="recipientName">-->
+<!--            <label for="recipientName">المستلم</label>-->
+<!--          </div>-->
+<!--          <div class="input-data" style="bottom: 55px;">-->
+<!--            <input type="text" required   id="archiveId" formControlName="archiveId">-->
+<!--            <label for="archiveId">رقم الملف</label>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+
 
 <!--    </div>-->
 <!--  </form>-->
 <!--</div>-->
+
+
+<!--&lt;!&ndash;<app-navbar></app-navbar>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="row" >&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="col-2 position-relative">&ndash;&gt;-->
+<!--&lt;!&ndash;    <app-sidebar></app-sidebar>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  <form class="col-8" style="zoom: 80%"  [formGroup]="editImport" (ngSubmit)="update()" >&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="wrapper">&ndash;&gt;-->
+<!--&lt;!&ndash;      <legend class="text-center"> {{x}} تعديل ملف وارد رقم </legend>&ndash;&gt;-->
+<!--&lt;!&ndash;      <div style="display: flex;  justify-content: space-between;">&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="input-container">&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;          <div class="input-data">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="date" required id="incomeDate" formControlName="incomeDate">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="underLine"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="incomeDate">تاريخ الورود</label>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;          <div class="input-data">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" required  id="sender"  formControlName="sender">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="underLine"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="sender">الجهة الوارد منها الخطاب</label>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;          <div class="input-data">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="number" required id="incomingLetterNumber"  formControlName="incomingLetterNumber">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="undlerLine"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="incomingLetterNumber">رقم الخطاب الوارد</label>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;          <div class="input-data">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="date" required id="incomingLetterDate" formControlName="incomingLetterDate" >&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="undlerLine"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="incomingLetterDate">تاريخ الخطاب الوارد</label>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;          <button type="submit"  class="btn btn-success w-100"  style="padding:10px;">    حفظ  </button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="input-container">&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;          <div class="input-data">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input  cols="40" rows="1" required id="summary" formControlName="summary"  >&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="underLine-text"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="summary">ملخص الخطاب</label>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;          <div class="input-data">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" required  id="recipientName"formControlName="recipientName"  >&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="underLine"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="recipientName">المستلم</label>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;          <div class="input-data">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="date" required id="recipientDate" formControlName="recipientDate">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="underLine"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="recipientDate">تاريخ الاستلام</label>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;          <div class="input-data">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="number" required id="num" formControlName="num" >&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="undlerLine"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="num">رقم الملف</label>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;          <div class="input-data">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="date" required id="expectResponseDate" formControlName="expectResponseDate"  >&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="underLine"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="expectResponseDate">تاريخ المتوقع للرد </label>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </form>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
 

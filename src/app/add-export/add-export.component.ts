@@ -10,7 +10,8 @@ import { Router} from "@angular/router";
 })
 export class AddExportComponent{
 
-  constructor(private serviceExport: ExportServiceService,private router:Router) {
+  constructor(private serviceExport: ExportServiceService,private router:Router,
+              ) {
 
   }
 

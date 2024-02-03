@@ -10,28 +10,39 @@ import {HttpClient} from "@angular/common/http";
 })
 export class RegisterComponent {
    id:number
-
-    constructor(private RegisterService:RegisterService,
+  x:any
+    constructor(private registerService:RegisterService,
                 private route:Router,
                 private http:HttpClient) {
     }
     createUser(data:any){
-      this.RegisterService.createUser(data).subscribe(result=>{
-        this.route.navigateByUrl("/home")
-      })
-    }
+            this.x=data
+   }
 
-    OnImageSelected(event){
-      var file=event.target.files[0]
-      const formDate:FormData=new FormData()
-      formDate.append("file",file.name)
-      this.http.post('http://localhost:1200/image/upload?id=5&pathType=users',formDate.get(file)).subscribe(
-        response=>{
-          console.log("successfully")
-        }
-      )
-       console.log(formDate.get(file))
-    }
+  onImageSelected(event){
+    console.log(this.x)
+    const file=event.target.files[0]
+    const formDate:FormData=new FormData()
+    formDate.append("file",file)
+    formDate.append('dto',this.x)
+    this.http.post('http://localhost:1200/register?id=1&pathType=users',formDate).subscribe(
+      response=>{
+      }
+    )
+  }
 
+
+    // OnImageSelected(event){
+    //   var file=event.target.files[0]
+    //   const formDate:FormData=new FormData()
+    //   formDate.append("file",file.name)
+    //   this.http.post('http://localhost:1200/image/upload?id=5&pathType=users',formDate.get(file)).subscribe(
+    //     response=>{
+    //       console.log("successfully")
+    //     }
+    //   )
+    //    console.log(formDate.get(file))
+    // }
+    //
 
 }

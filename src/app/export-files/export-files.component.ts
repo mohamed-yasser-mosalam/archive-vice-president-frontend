@@ -10,6 +10,7 @@ import {HttpClient} from "@angular/common/http";
 export class ExportFilesComponent implements OnInit{
   showAllExport: Showallexport[]=[];
     page: number=1;
+    x:any;
      constructor(private service: ExportServiceService, private http: HttpClient){
 
   }
@@ -24,14 +25,14 @@ export class ExportFilesComponent implements OnInit{
   }
 
     onImageSelected(event){
-     const file=event.target.files[0]
+      const file=event.target.files[0]
       const formDate:FormData=new FormData()
-      formDate.append("file",file)
+      this.x= formDate.append("file",file)
+      console.log(this.x)
       this.http.post('http://localhost:1200/image/upload?id=5&pathType=users',formDate).subscribe(
         response=>{
           console.log("successfully")
         }
       )
-     }
-
+    }
   }

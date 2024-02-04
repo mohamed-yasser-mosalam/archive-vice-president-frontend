@@ -24,13 +24,12 @@ export class ImportPaginationComponent {
     incomingLetterDate: new FormControl(''),
     incomingLetterNumber: new FormControl(''),
     summary: new FormControl(' '),
-    receiver: new FormControl(''),
     recipientDate: new FormControl(''),
     responseDate: new FormControl(''),
     responseSide: new FormControl(''),
+    responseNumber: new FormControl(''),
     recipientName: new FormControl(''),
-    typeNumber: new FormControl(''),
-    num: new FormControl(''),
+     num: new FormControl(''),
 
   })
 
@@ -46,17 +45,15 @@ export class ImportPaginationComponent {
         incomingLetterDate: new FormControl(result['incomingLetterDate']),
         incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
         summary: new FormControl(result['summary']),
-        receiver: new FormControl(result['receiver']),
         recipientDate: new FormControl(result['recipientDate']),
         responseDate: new FormControl(result['responseDate']),
         responseSide: new FormControl(result['responseSide']),
+        responseNumber: new FormControl(result['responseNumber']),
         recipientName: new FormControl(result['recipientName']),
-        typeNumber: new FormControl(result['typeNumber']),
-        num: new FormControl(result['num']),
-
+         num: new FormControl(result['num']),
       })
     })
-
+    console.log(this.showImport)
   }
 
   constructor(private importService: ImportServiceService, private routes: ActivatedRoute, private router: Router,
@@ -89,13 +86,12 @@ export class ImportPaginationComponent {
         incomingLetterDate: new FormControl(result['incomingLetterDate']),
         incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
         summary: new FormControl(result['summary']),
-        receiver: new FormControl(result['receiver']),
+        responseSide: new FormControl(result['responseSide']),
         recipientDate: new FormControl(result['recipientDate']),
         responseDate: new FormControl(result['responseDate']),
-        responseSide: new FormControl(result['responseSide']),
+        responseNumber: new FormControl(result['responseNumber']),
         recipientName: new FormControl(result['recipientName']),
-        typeNumber: new FormControl(result['typeNumber']),
-        num: new FormControl(result['num']),
+         num: new FormControl(result['num']),
 
       })
     })

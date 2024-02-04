@@ -7,66 +7,66 @@
         <form class="col-6" style="zoom: 70%"  [formGroup]="editExport" (ngSubmit)="update()" >
 
     <div class="wrapper">
-            <legend class="text-center"> {{x}} عرض خطاب صادر رقم </legend>
+            <legend class="text-center"> {{x}} تعديل خطاب صادر رقم </legend>
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container ">
 
           <div class="input-data">
-            <input type="Date" required readonly id="date" formControlName="date">
+            <input type="Date" id="date" formControlName="date">
             <label for="date">تاريخ الصادر</label>
           </div>
           <div class="input-data" style="top:32px">
-            <input type="text" required readonly id="receiver" formControlName="receiver">
+            <input type="text"  id="receiver" formControlName="receiver">
             <label for="receiver">الجهة الصادر اليها الخطاب</label>
           </div>
         </div>
         <div class="input-container">
           <div class="d-flex">
             <div class="input-data" style="width: 65%">
-              <input type="text" required readonly id="numberOfAttachments" numberOfAttachments="date">
+              <input type="number" id="numberOfAttachments" formControlName="numberOfAttachments">
               <label for="numberOfAttachments">عدد المرفقات</label>
             </div>
             <div class="input-data " style="width:30%; margin-left:auto;">
-              <input type="number" required readonly id="id" formControlName="id">
-              <label for="id">رقم الملف</label>
+              <input type="number"   id="num" formControlName="num">
+               <label for="num">رقم الملف</label>
             </div>
           </div>
           <div class="input-data">
-            <input type="text" required readonly id="recipientName" formControlName="recipientName">
+            <input type="text"  id="recipientName" formControlName="recipientName">
             <label for="recipientName">المستلم</label>
           </div>
         </div>
       </div>
       <div class="input-data">
-        <input cols="40" rows="1" style="height:60px" readonly required id="summary" formControlName="summary">
+        <input cols="40" rows="1" style="height:60px" id="summary" formControlName="summary">
         <label for="summary">ملخص الخطاب</label>
       </div>
 
       <div class="mt-5" style="display: flex;  justify-content: space-between;">
         <div style="display: flex;">
           <div class="input-data" style="width:65%">
-            <input type="number" required readonly id="urgentDate" formControlName="urgentDate">
+            <input type="Date"  id="urgentDate" formControlName="urgentDate">
             <label for="urgentDate">تاريخ الاستعجال</label>
           </div>
           <div class="input-data" style="width:30%; margin-left:10px;">
-            <input type="number" required readonly id="urgentNum" formControlName="urgentNum">
+            <input type="number" id="urgentNum" formControlName="urgentNum">
             <label for="urgentNum">رقم الاستعجال</label>
           </div>
         </div>
         <div style="display: flex;">
           <div class="input-data w-50">
-            <input type="Date" required readonly id="responseDate" formControlName="responseDate">
+            <input type="Date"     id="responseDate" formControlName="responseDate">
             <label for="responseDate">تاريخ الرد</label>
           </div>
           <div class="input-data" style="width:35%; margin-left:auto;">
-            <input type="text" required readonly id="responseNumber" formControlName="responseNumber">
+            <input type="text"  id="responseNumber" formControlName="responseNumber">
             <label for="responseNumber">الرد</label>
           </div>
         </div>
       </div>
       <div class="input-data"style="bottom: 55px; ">
-        <button type="submit"  class="btn btn-success w-50"  style="padding:10px; bottom:80px;margin-top: 50px;margin-left:25%">    حفظ  </button>
+        <button type="submit"  class="btn btn-success w-50"  style="padding:10px; bottom:80px;margin-top: 50px;margin-left:25%">   حفظ  </button>
       </div>
      </div>
   </form>

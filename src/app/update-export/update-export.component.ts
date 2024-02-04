@@ -12,41 +12,36 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
 export class UpdateExportComponent implements OnInit {
   x=this.routes.snapshot.params['id']
   editExport = new FormGroup({
-    numberOfAttachments: new FormControl(''),
-    sender: new FormControl(''),
-    incomeDate: new FormControl(''),
-    id: new FormControl(''),
-    incomingLetterDate: new FormControl(''),
-    incomingLetterNumber: new FormControl(''),
-    summary: new FormControl(' '),
+    date:new FormControl(''),
     receiver: new FormControl(''),
-    recipientDate: new FormControl(''),
-    responseDate: new FormControl(''),
-    responseSide: new FormControl(''),
+    numberOfAttachments:new FormControl(''),
+    typeNumber: new FormControl(''),
+    num: new FormControl(''),
     recipientName: new FormControl(''),
-    archiveId: new FormControl(''),
-
+    summary: new FormControl(''),
+    urgentDate: new FormControl(''),
+    urgentNum:new FormControl( ''),
+    responseDate: new FormControl(''),
+    responseNumber: new FormControl(''),
   })
 
   ngOnInit(): void {
      this.serviceExport.getExportById(this.routes.snapshot.params['id']).
       subscribe((result) => {
-      this.editExport = new FormGroup({
-        numberOfAttachments: new FormControl(result['numberOfAttachments']),
-        sender: new FormControl(result['sender']),
-        incomeDate: new FormControl(result['incomeDate']),
-        id: new FormControl(result['id']),
-        incomingLetterDate: new FormControl(result['incomingLetterDate']),
-        incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
-        summary: new FormControl(result['summary']),
-        receiver: new FormControl(result['receiver']),
-        recipientDate: new FormControl(result['recipientDate']),
-        responseDate: new FormControl(result['responseDate']),
-        responseSide: new FormControl(result['responseSide']),
-        recipientName: new FormControl(result['recipientName']),
-        archiveId: new FormControl(result['archiveId']),
-      })
-    })
+       this.editExport = new FormGroup({
+         date:new FormControl(result['date']),
+         receiver: new FormControl(result['receiver']),
+         numberOfAttachments:new FormControl(result['numberOfAttachments']),
+         typeNumber: new FormControl(result['typeNumber']),
+         num: new FormControl(result['num']),
+         recipientName: new FormControl(result['recipientName']),
+         summary: new FormControl(result['summary']),
+         urgentDate: new FormControl(result['urgentDate']),
+         urgentNum:new FormControl( result['urgentNum']),
+         responseDate: new FormControl(result['responseDate']),
+         responseNumber: new FormControl(result['responseNumber'])
+       })
+     })
   }
 
   constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
@@ -54,10 +49,10 @@ export class UpdateExportComponent implements OnInit {
   }
 
   update() {
-     this.serviceExport.updateExport(this.routes.snapshot.params['id'], this.editExport.value).subscribe((result) => {
-          this.router.navigateByUrl('/getallexports')
+    this.serviceExport.updateExport(this.routes.snapshot.params['id'],this.editExport.value).subscribe((result) => {
+      this.router.navigateByUrl('/getallexports')
     })
+    console.log(this.editExport.value)
   }
-
 }
 

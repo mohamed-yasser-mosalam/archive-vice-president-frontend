@@ -21,7 +21,6 @@ export class UrgentExportComponent  implements OnInit{
     this.serviceExport.getExportById(this.routes.snapshot.params['id']).
     subscribe((result) => {
       this.addUrgent = new FormGroup({
-
         receiver: new FormControl(result['receiver']),
         summary: new FormControl(result['summary']),
         recipientName: new FormControl(result['recipientName']),

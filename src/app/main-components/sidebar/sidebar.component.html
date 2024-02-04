@@ -8,14 +8,17 @@
             <p>Home</p>
           </a>
         </li>
+
+
         <li class="nav-item">
-          <a routerLink="/getallImports">
-            <p>Imports</p>
+          <a routerLink="/export-pagination?id/{{1}}">
+            <p>Exports</p>
           </a>
         </li>
+
         <li class="nav-item">
-          <a routerLink="/getallexports">
-            <p>Export</p>
+          <a routerLink="/import-pagination?id/{{1}}">
+            <p>Imports</p>
           </a>
         </li>
 
@@ -25,47 +28,14 @@
           </a>
         </li>
 
-
-        <li class="nav-item">
-          <a routerLink="/export-pagination?id/{{1}}">
-            <p>ExportPagination</p>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a routerLink="/import-pagination?id/{{1}}">
-            <p>ImportPagination</p>
-          </a>
-        </li>
-
-
-
-        <div class="btn-group">
-          <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" >
-            Setting
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/register">Register</a></li>
-           </ul>
-        </div>
-
-         <div class="btn-group">
-          <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" >
-            ADD
-          </button>
-           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/addexportfile">ADD Export</a></li>
-            <li><a class="dropdown-item" routerLink="/addimportfile">ADD Import</a></li>
-          </ul>
-        </div>
-
+            <li><a class="dropdown-item" routerLink="/register"><p>Register</p></a></li>
 
         <li class="log-out">
           <a href="#">
-            <button type="submit"  class="btn btn-success w-100"  style="padding:5px; "  (click)="clearToken()" > Log out </button>
+            <button type="submit"  class="btn btn-success w-100"  style="padding:5px; "  (click)="clearToken()"> Log out </button>
           </a>
         </li>
       </ul>
     </div>
-  </div >
+  </div>
 </div>

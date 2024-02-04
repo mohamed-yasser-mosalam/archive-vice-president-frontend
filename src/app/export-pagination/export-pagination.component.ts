@@ -22,6 +22,7 @@ export class ExportPaginationComponent implements OnInit{
      recipientName: new FormControl(''),
      summary: new FormControl(''),
      urgentDate: new FormControl(''),
+     urgentNum:new FormControl( ''),
      responseDate: new FormControl(''),
      responseNumber: new FormControl(''),
   })
@@ -37,8 +38,9 @@ export class ExportPaginationComponent implements OnInit{
         id: new FormControl(result['id']),
         recipientName: new FormControl(result['recipientName']),
         summary: new FormControl(result['summary']),
-        urgentDate: new FormControl(result['receiver']),
-        responseDate: new FormControl(result['recipientDate']),
+        urgentDate: new FormControl(result['urgentDate']),
+        urgentNum:new FormControl( result['urgentNum']),
+        responseDate: new FormControl(result['responseDate']),
         responseNumber: new FormControl(result['responseNumber'])
       })
     })
@@ -73,7 +75,8 @@ export class ExportPaginationComponent implements OnInit{
         id: new FormControl(result['id']),
         recipientName: new FormControl(result['recipientName']),
         summary: new FormControl(result['summary']),
-        urgentDate: new FormControl(result['receiver']),
+        urgentDate: new FormControl(result['urgentDate']),
+        urgentNum:new FormControl( result['urgentNum']),
         responseDate: new FormControl(result['recipientDate']),
         responseNumber: new FormControl(result['responseNumber'])
       })

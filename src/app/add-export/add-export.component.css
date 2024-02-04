@@ -27,6 +27,7 @@ form{
   border: none;
   font-size: 18px;
   border-bottom: 2px solid silver;
+  direction: rtl;
 }
 .wrapper .input-data textarea{
   border: none;
@@ -54,6 +55,7 @@ form{
   pointer-events: none;
   transition: .3s ease;
   text-align: center;
+  direction: rtl;
 }
 .wrapper .input-data .underLine{
   position: absolute;

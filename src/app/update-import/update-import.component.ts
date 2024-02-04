@@ -24,7 +24,9 @@ export class UpdateImportComponent implements OnInit{
     responseDate: new FormControl(''),
     responseSide: new FormControl(''),
     recipientName: new FormControl(''),
-    archiveId: new FormControl(''),
+    typeNumber: new FormControl(''),
+    num: new FormControl(''),
+
   })
 
   ngOnInit(): void {
@@ -43,7 +45,8 @@ export class UpdateImportComponent implements OnInit{
         responseDate: new FormControl(result['responseDate']),
         responseSide: new FormControl(result['responseSide']),
         recipientName: new FormControl(result['recipientName']),
-        archiveId: new FormControl(result['archiveId']),
+        typeNumber: new FormControl(result['typeNumber']),
+        num: new FormControl(result['num']),
       })
     })
   }

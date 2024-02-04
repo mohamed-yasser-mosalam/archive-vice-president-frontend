@@ -34,7 +34,7 @@
           </div>
           <div class="d-flex">
             <div class="input-data" style="width: 55%">
-              <input type="text" required readonly id="incomingLetterDate" formControlName="incomingLetterDate">
+              <input type="Date" required readonly id="incomingLetterDate" formControlName="incomingLetterDate">
               <label for="incomingLetterDate">تاريخه</label>
             </div>
             <div class="input-data " style="width:40%; margin-left:auto;">
@@ -44,20 +44,20 @@
           </div>
         </div>
       </div>
-      <div class="input-data" style="bottom:60px">
-        <input style="height: 50px;"  readonly required id="summary"
+      <div class="input-data" style="bottom:20px">
+        <input style="height:60px;"  readonly required id="summary"
                formControlName="summary">
-        <label for="summary" >ملخص الخطاب</label>
+        <label for="summary" style="margin-bottom: 20px" >ملخص الخطاب</label>
       </div>
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container position-relative" style="bottom:60px">
           <div class="input-data">
-            <input type="text" required readonly id="responseSide" formControlName="responseSide">
-            <label for="responseSide">الجهة الصادر اليها </label>
+            <input type="text"  required readonly id="responseSide" formControlName="responseSide">
+            <label for="responseSide" style="margin-bottom: 30px">الجهة الصادر اليها </label>
           </div>
           <div class="input-data">
-            <input type="text" required readonly id="recipientDate" formControlName="recipientDate">
+            <input type="Date" required readonly id="recipientDate" formControlName="recipientDate">
             <label for="recipientDate">تاريخ الاستلام</label>
           </div>
           <div class="input-data">
@@ -83,7 +83,7 @@
         <div class="input-container position-relative" style="bottom:60px">
           <div style="display: flex;">
             <div class="input-data w-50">
-              <input type="text" required readonly id="responseDate" formControlName="responseDate">
+              <input type="Date" required readonly id="responseDate" formControlName="responseDate">
               <label for="responseDate">تاريخ الرد</label>
             </div>
             <div class="input-data" style="width:35%; margin-left:auto;">
@@ -96,8 +96,8 @@
             <label for="recipientName">المستلم</label>
           </div>
           <div class="input-data" style="bottom: 55px;">
-            <input type="text" required readonly id="typeNumber" formControlName="typeNumber">
-            <label for="typeNumber">رقم الملف</label>
+            <input type="text" required readonly id="num" formControlName="num">
+            <label for="num">رقم الملف</label>
           </div>
           <div class="input-data"style="bottom: 55px; ">
             <button type="submit" class="btn btn-success w-25" style="padding:10px;margin-right: 10px"  routerLink="/updateimport/{{page}}" >

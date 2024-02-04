@@ -16,7 +16,7 @@
             <input type="Date" required readonly id="date" formControlName="date">
             <label for="date">تاريخ الصادر</label>
           </div>
-          <div class="input-data" style="top:55px">
+          <div class="input-data" style="top:32px">
             <input type="text" required readonly id="receiver" formControlName="receiver">
             <label for="receiver">الجهة الصادر اليها الخطاب</label>
           </div>
@@ -46,7 +46,7 @@
       <div class="mt-5" style="display: flex;  justify-content: space-between;">
         <div style="display: flex;">
           <div class="input-data" style="width:65%">
-            <input type="number" required readonly id="urgentDate" formControlName="urgentDate">
+            <input type="Date" required readonly id="urgentDate" formControlName="urgentDate">
             <label for="urgentDate">تاريخ الاستعجال</label>
           </div>
           <div class="input-data" style="width:30%; margin-left:10px;">
@@ -84,7 +84,7 @@
 
       <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px;margin-left: 25%">
         <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"
-                        [maxSize]="3" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
+                        [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
                         routerLink="/exports-pagination?id/{{page}}">
         </ngb-pagination>
       </div >

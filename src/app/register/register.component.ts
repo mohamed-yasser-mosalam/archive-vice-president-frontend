@@ -16,19 +16,19 @@ export class RegisterComponent {
                 private http:HttpClient) {
     }
     createUser(data:any){
-            this.x=data
-   }
+      this.http.post('http://localhost:1200/register?id=1&pathType=users',data).subscribe(
+        response => this.route.navigateByUrl('/getallexports')
+      )
+      console.log(this.x)
+    }
 
   onImageSelected(event){
-    console.log(this.x)
     const file=event.target.files[0]
     const formDate:FormData=new FormData()
-    formDate.append("file",file)
+     this.x=formDate.append("file",file)
     formDate.append('dto',this.x)
-    this.http.post('http://localhost:1200/register?id=1&pathType=users',formDate).subscribe(
-      response=>{
-      }
-    )
+    // this.x=formDate.get("file")
+    console.log(this.x)
   }
 
 

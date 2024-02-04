@@ -18,8 +18,8 @@ export class RegisterComponent {
                 private serviceExport: ExportServiceService,private router:Router,) {
     }
     createUser(data:any){
-      this.http.post('http://localhost:1200/register?id=1&pathType=users',data).subscribe(
-        response => this.route.navigateByUrl('/getallexports')
+      this.serviceExport.createUser(data).subscribe(
+        response => this.route.navigateByUrl('/home')
       )
       console.log(this.x)
     }

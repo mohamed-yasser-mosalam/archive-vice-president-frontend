@@ -31,4 +31,7 @@ export class ExportServiceService {
   addExportResponse(id:number,data:any){
     return this.http.put(`http://localhost:1200/export/export-add-response?id=${id}`,data)
   }
+  createUser(data:any){
+     return this.http.post("http://localhost:1200/register",data)
+  }
   }

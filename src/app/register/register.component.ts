@@ -2,6 +2,7 @@ import {Component, numberAttribute} from '@angular/core';
 import {RegisterService} from "../Services/Register/register.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,8 @@ export class RegisterComponent {
   x:any
     constructor(private registerService:RegisterService,
                 private route:Router,
-                private http:HttpClient) {
+                private http:HttpClient,
+                private serviceExport: ExportServiceService,private router:Router,) {
     }
     createUser(data:any){
       this.http.post('http://localhost:1200/register?id=1&pathType=users',data).subscribe(
@@ -44,5 +46,13 @@ export class RegisterComponent {
     //    console.log(formDate.get(file))
     // }
     //
+
+
+  AddExportFile(data: any) {
+    this.serviceExport.addExportFile(data).subscribe(
+      response => this.router.navigateByUrl('/getallexports')
+    )
+  }
+
 
 }

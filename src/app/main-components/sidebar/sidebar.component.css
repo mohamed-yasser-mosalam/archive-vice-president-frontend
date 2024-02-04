@@ -48,4 +48,5 @@ ul li a:hover p
 .log-out {
   position: absolute;
   bottom:0;
+  margin-right: 60px;
 }

@@ -77,7 +77,7 @@ export class ExportPaginationComponent implements OnInit{
         summary: new FormControl(result['summary']),
         urgentDate: new FormControl(result['urgentDate']),
         urgentNum:new FormControl( result['urgentNum']),
-        responseDate: new FormControl(result['recipientDate']),
+        responseDate: new FormControl(result['responseDate']),
         responseNumber: new FormControl(result['responseNumber'])
       })
     })

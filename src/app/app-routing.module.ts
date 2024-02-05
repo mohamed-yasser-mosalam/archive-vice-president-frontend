@@ -19,6 +19,8 @@ import {UrgentExportComponent} from "./urgent-export/urgent-export.component";
 import {ResponsExportComponent} from "./respons-export/respons-export.component";
 import {ResponsImportComponent} from "./respons-import/respons-import.component";
 import {ImportPaginationComponent} from "./import-pagination/import-pagination.component";
+import {UpdateLoginInformatioComponent} from "./update-login-informatio/update-login-informatio.component";
+import {AnyThingComponent} from "./any-thing/any-thing.component";
 
   const routes: Routes = [
   {path:'home',component:WelcomeComponent},
@@ -40,7 +42,9 @@ import {ImportPaginationComponent} from "./import-pagination/import-pagination.c
     {path:'import-pagination?id/:id',component:ImportPaginationComponent},
     {path:'add-urgent/:id',component:UrgentExportComponent},
     {path:'add-export-response/:id',component:ResponsExportComponent},
-    {path:'add-import-response/:id',component:ResponsImportComponent}
+    {path:'add-import-response/:id',component:ResponsImportComponent},
+    {path:'update-login-information',component:UpdateLoginInformatioComponent},
+    {path:'anything',component:AnyThingComponent}
 
   ];
 

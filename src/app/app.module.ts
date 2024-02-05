@@ -37,6 +37,8 @@ import { UrgentExportComponent } from './urgent-export/urgent-export.component';
 import { ResponsExportComponent } from './respons-export/respons-export.component';
 import { ResponsImportComponent } from './respons-import/respons-import.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
+import { UpdateLoginInformatioComponent } from './update-login-informatio/update-login-informatio.component';
+import { AnyThingComponent } from './any-thing/any-thing.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +64,9 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
     UrgentExportComponent,
     ResponsExportComponent,
     ResponsImportComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    UpdateLoginInformatioComponent,
+    AnyThingComponent
 
 
   ],

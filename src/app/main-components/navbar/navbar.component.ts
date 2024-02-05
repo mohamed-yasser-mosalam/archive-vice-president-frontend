@@ -14,13 +14,13 @@ export class NavbarComponent implements OnInit{
   img: string ;
 
   constructor(private route:Router,
-              private AuthenticationServiceService:AuthenticationServiceService,
-              private overlay:OverlayContainer) {
+              private auth:AuthenticationServiceService,
+              ) {
   }
 
   ngOnInit(): void {
-    this.fullName = this.AuthenticationServiceService.getUserName()
-    this.img = this.AuthenticationServiceService.getUserImage()
+    this.fullName = this.auth.getUserName()
+    this.img = this.auth.getUserImage()
   }
 
 }

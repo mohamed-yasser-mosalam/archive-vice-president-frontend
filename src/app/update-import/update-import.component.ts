@@ -23,6 +23,7 @@ export class UpdateImportComponent implements OnInit{
     recipientDate: new FormControl(''),
     responseDate: new FormControl(''),
     responseSide: new FormControl(''),
+    responseNumber: new FormControl('' ),
     recipientName: new FormControl(''),
     typeNumber: new FormControl(''),
     num: new FormControl(''),
@@ -31,7 +32,7 @@ export class UpdateImportComponent implements OnInit{
 
   ngOnInit(): void {
      this.serviceImport.getImportById(this.routes.snapshot.params['id']).
-    subscribe((result) => {
+     subscribe((result) => {
       this.editImport = new FormGroup({
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
         sender: new FormControl(result['sender']),
@@ -44,6 +45,7 @@ export class UpdateImportComponent implements OnInit{
         recipientDate: new FormControl(result['recipientDate']),
         responseDate: new FormControl(result['responseDate']),
         responseSide: new FormControl(result['responseSide']),
+        responseNumber: new FormControl(result['responseNumber']),
         recipientName: new FormControl(result['recipientName']),
         typeNumber: new FormControl(result['typeNumber']),
         num: new FormControl(result['num']),

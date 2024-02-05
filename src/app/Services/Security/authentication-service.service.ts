@@ -14,6 +14,7 @@ export class AuthenticationServiceService {
     return this.http.post<any>('http://localhost:1200/login',{username,password})
       .pipe(map(
         response=>{
+          sessionStorage.setItem('id',response.id)
           sessionStorage.setItem("imagePath",response.imagePath)
           sessionStorage.setItem("username",response.name)
           sessionStorage.setItem("token",`Bearer ${response.token}`)
@@ -21,6 +22,9 @@ export class AuthenticationServiceService {
         }))
   }
 
+  getuserId(){
+    return sessionStorage.getItem('id')||""
+  }
   getUserImage(){
     return sessionStorage.getItem('imagePath')||"";
   }
@@ -33,4 +37,10 @@ export class AuthenticationServiceService {
   clearToken(){
      sessionStorage.clear()
   }
+   getUserInformation(){
+     sessionStorage.getItem('id')||"";
+     sessionStorage.getItem('imagePath')||"";
+     sessionStorage.getItem('username')||"";
+     sessionStorage.getItem('token')||"";
+   }
 }

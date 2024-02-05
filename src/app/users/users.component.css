@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid #333; */
+}
+table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+}
+
+::-webkit-scrollbar{
+  width:15px;
+  height: 5px;
+}
+::-webkit-scrollbar:hover{
+  width:20px;
+  height: 10px;
+}
+::-webkit-scrollbar-track{
+  background-color: #33333332;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #72bc76;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: #72bc76;
+}

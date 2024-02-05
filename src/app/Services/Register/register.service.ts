@@ -16,6 +16,10 @@ export class RegisterService {
     return this.http.get(`http://localhost:1200/user/user?id=${id}`)
   }
 
+  getAllUsers(){
+    return this.http.get('http://localhost:1200/user/users')
+  }
+
 
   update(id :number,data:any){
     return this.http.put(`http://localhost:1200/user/user?id=${id}`,data)

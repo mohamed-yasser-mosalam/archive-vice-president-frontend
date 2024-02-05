@@ -39,6 +39,7 @@ import { ResponsImportComponent } from './respons-import/respons-import.componen
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { UpdateLoginInformatioComponent } from './update-login-informatio/update-login-informatio.component';
 import { AnyThingComponent } from './any-thing/any-thing.component';
+import { UsersComponent } from './users/users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,8 @@ import { AnyThingComponent } from './any-thing/any-thing.component';
     ResponsImportComponent,
     ImageSliderComponent,
     UpdateLoginInformatioComponent,
-    AnyThingComponent
+    AnyThingComponent,
+    UsersComponent
 
 
   ],

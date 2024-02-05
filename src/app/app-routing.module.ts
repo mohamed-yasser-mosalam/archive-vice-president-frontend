@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {WelcomeComponent} from "./main-components/welcome/welcome.component";
 import {ImportFilesComponent} from "./import-files/import-files.component";
 import {ExportFilesComponent} from "./export-files/export-files.component";
@@ -21,35 +21,39 @@ import {ResponsImportComponent} from "./respons-import/respons-import.component"
 import {ImportPaginationComponent} from "./import-pagination/import-pagination.component";
 import {UpdateLoginInformatioComponent} from "./update-login-informatio/update-login-informatio.component";
 import {AnyThingComponent} from "./any-thing/any-thing.component";
+import {UsersComponent} from "./users/users.component";
+import {RouteActivatedServiceService} from "./Services/routeActivatedService/route-activated-service.service";
+import {CanActivate} from "./auth.guard";
 
-  const routes: Routes = [
-  {path:'home',component:WelcomeComponent},
-  {path:'getallImports',component:ImportFilesComponent},
-  {path:'getallexports',component:ExportFilesComponent},
-  {path:'filehasgone',component:FileHasGoneComponent},
-  {path:'filehadgone',component:FileHadGoneComponent},
-  {path:'filenotcome',component:FileNotComeComponent},
-  {path:'importantletter',component:ImportantLetterComponent},
-  {path:'login',component:LoginComponent},
-  {path:'',component:LoginComponent},
-  {path:'addexportfile',component:AddExportComponent},
-  {path:'addimportfile',component:AddImportComponent},
-  {path:'updateimport/:id',component:UpdateImportComponent},
-  {path:'updateexport/:id',component:UpdateExportComponent},
-   {path:'allfiles',component:AllFilesComponent},
-   {path:'register',component:RegisterComponent},
-   {path:'export-pagination?id/:id',component:ExportPaginationComponent},
-    {path:'import-pagination?id/:id',component:ImportPaginationComponent},
-    {path:'add-urgent/:id',component:UrgentExportComponent},
-    {path:'add-export-response/:id',component:ResponsExportComponent},
-    {path:'add-import-response/:id',component:ResponsImportComponent},
-    {path:'update-login-information',component:UpdateLoginInformatioComponent},
-    {path:'anything',component:AnyThingComponent}
+const routes: Routes = [
+  {path: 'home', component: WelcomeComponent,canActivate:[CanActivate]},
+  {path: 'getallImports', component: ImportFilesComponent,canActivate:[CanActivate]},
+  {path: 'getallexports', component: ExportFilesComponent,canActivate:[CanActivate]},
+  {path: 'filehasgone', component: FileHasGoneComponent,canActivate:[CanActivate]},
+  {path: 'filehadgone', component: FileHadGoneComponent,canActivate:[CanActivate]},
+  {path: 'filenotcome', component: FileNotComeComponent,canActivate:[CanActivate]},
+  {path: 'importantletter', component: ImportantLetterComponent,canActivate:[CanActivate]},
+  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent,canActivate:[CanActivate]},
+  {path: 'addexportfile', component: AddExportComponent,canActivate:[CanActivate]},
+  {path: 'addimportfile', component: AddImportComponent,canActivate:[CanActivate]},
+  {path: 'updateimport/:id', component: UpdateImportComponent,canActivate:[CanActivate]},
+  {path: 'updateexport/:id', component: UpdateExportComponent,canActivate:[CanActivate]},
+  {path: 'allfiles', component: AllFilesComponent,canActivate:[CanActivate]},
+  {path: 'register', component: RegisterComponent,canActivate:[CanActivate]},
+  {path: 'export-pagination?id/:id', component: ExportPaginationComponent,canActivate:[CanActivate]},
+  {path: 'import-pagination?id/:id', component: ImportPaginationComponent,canActivate:[CanActivate]},
+  {path: 'add-urgent/:id', component: UrgentExportComponent,canActivate:[CanActivate]},
+  {path: 'add-export-response/:id', component: ResponsExportComponent,canActivate:[CanActivate]},
+  {path: 'add-import-response/:id', component: ResponsImportComponent,canActivate:[CanActivate]},
+  {path: 'update-login-information', component: UpdateLoginInformatioComponent,canActivate:[CanActivate]},
+  {path: 'users', component: UsersComponent,canActivate:[CanActivate]}
 
-  ];
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

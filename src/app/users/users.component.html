@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="row" >
+  <div class="col-2 position-relative">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <div class="col-10 position-relative" style=" zoom: 71%; background-color: #fff; text-align: center; overflow: auto; height:785px; border-radius: 8px;">
+
+    <div class="row">
+
+      <h2 style="font-size: 20px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">الخطابات الصادرة من مكتب العميد</h2>
+
+      <table class="table">
+        <thead style=" position: sticky; top: 40px; background-color: #fff;">
+        <tr>
+          <th scope="col">الاسم الاول</th>
+          <th scope="col">الاسم الثاني</th>
+          <th scope="col">اسم المستخدم</th>
+          <th scope="col">النشاط</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let item of showUsers ">
+          <td>{{item.firstName}}</td>
+          <td>{{item.lastName}}</td>
+          <td>{{item.username}}</td>
+          <td>{{item.isActive}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+
+    </div>
+  </div>
+</div>
+

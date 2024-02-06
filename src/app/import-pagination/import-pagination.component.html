@@ -3,7 +3,7 @@
   <app-image-slider class="col-4"></app-image-slider>
   <form class="col-6" style="zoom: 60%;" [formGroup]="showImport">
     <div class="wrapper">
-      <legend class="text-center"> عرض الخطابات الواردة</legend>
+      <legend class="text-center" style="font-weight: bold"> عرض الخطابات الواردة</legend>
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container ">
@@ -94,15 +94,15 @@
             <label for="num">رقم الملف</label>
           </div>
           <div class="input-data" style="bottom: 55px; ">
-            <button type="submit" class="btn btn-success w-25" style="padding:10px;margin-right: 10px"
+            <button type="submit" class="btn btn-success w-25" style="padding:10px;margin-right: 10px;color: white;background: #333333"
                     routerLink="/updateimport/{{page}}">
               تعديل
             </button>
-            <button type="submit" class="btn btn-success w-25" style="padding:10px;margin-right: 10px"
+            <button type="submit" class="btn btn-success w-25" style="padding:10px;margin-right: 10px;color: white;background: #333333"
                     routerLink="/addimportfile">
               اضافة
             </button>
-            <button type="submit" class="btn btn-success w-25" style="padding:10px;margin-right: 10px"
+            <button type="submit" class="btn  w-25" style="padding:10px;margin-right: 10px;color: white;background: #333333"
                     routerLink="/add-import-response/{{page}}">
               اضافه رد
             </button>

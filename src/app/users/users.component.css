@@ -6,13 +6,19 @@
 table th {
   position: sticky;
   top: 0;
-  z-index: 1;
   background: #fff;
+  margin-right: 0!important;
+}
+* {
+  margin: 0;
+  padding: 0;
+
 }
 
 ::-webkit-scrollbar{
-  width:15px;
-  height: 5px;
+  width:10px;
+  height: 2px;
+
 }
 ::-webkit-scrollbar:hover{
   width:20px;
@@ -22,9 +28,9 @@ table th {
   background-color: #33333332;
 }
 ::-webkit-scrollbar-thumb{
-  background-color: #72bc76;
+  background: #333333;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover{
-  background-color: #72bc76;
+  background: #333333;
 }

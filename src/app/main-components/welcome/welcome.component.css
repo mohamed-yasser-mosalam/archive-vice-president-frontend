@@ -8,12 +8,11 @@
 .box {
   margin: 10px;
   background-color: #fff;
-  height: 82px;
-  flex-grow: 1;
-  border-radius: 8px;
-  display: flex;
+  height: 83px;
+   border-radius: 8px;
+  display:flex;
   transition: 0.5s;
-}
+ }
 
 .box .data p
  {
@@ -45,6 +44,8 @@
   margin-left: 50px;
   color: #333;
   margin-bottom: 20px;
+  height: 100px;
+
 }
 
 .title-book {

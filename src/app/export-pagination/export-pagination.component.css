@@ -57,7 +57,7 @@ form {
   position: absolute;
   bottom: 40px;
   right: 7px;
-  color: #04b702;
+  color: #333333;
   pointer-events: none;
   transition: .3s ease;
   text-align: center;
@@ -76,7 +76,7 @@ form {
   content: "";
   height: 2px;
   width: 100%;
-  background-color: #04b702;
+  background-color: #333333;
   transform: scaleX(0);
   transition: all .3s ease-in-out;
 }

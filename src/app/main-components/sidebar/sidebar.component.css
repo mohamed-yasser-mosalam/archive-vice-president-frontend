@@ -14,6 +14,7 @@
   background: #333333;
   margin-top: 0;
   position: fixed;
+
  }
 
 .menu ul li p,
@@ -40,14 +41,7 @@ ul li a,
   gap: 20px;
 }
 
-.dropdown-toggle:hover,
-ul li a:hover,
-.active-menu,
-ul li a:hover p {
-  text-decoration: none;
-  background-color: #ffffff;
-  color: black;
-}
+
 
 .log-out {
   position: absolute;

@@ -46,7 +46,7 @@ form{
 .input-data textarea:valid ~ label{
   transform: translateY(-35px);
   font-size: 15px;
-  color: #04b702
+  color: #333333;
 }
 .wrapper .input-data label{
   position: absolute;
@@ -70,7 +70,7 @@ form{
   content:"";
   height: 2px;
   width: 100%;
-  background-color: #04b702;
+  background: #333333;
   transform: scaleX(0);
   transition: all .3s ease-in-out;
 }

@@ -1,10 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="height: 75px; zoom: 55%;" >
-  <div  style="margin-top:5px;margin-left:20px!important;">
-    <h1> {{userName}}</h1>
-  </div>
+
   <a>
     <div class="dropdown" >
-      <img src="{{img}}" style="height:70px;width:70px; margin-left: 15px; border-radius:100%">
+      <img src="{{img}}" style="height:70px;width:70px; margin-left: 15px; border-radius:100%;margin-top: 10px">
       <div class="dropdown-content" style="margin-right: 100px">
         <a routerLink="/update-login-information">   تعديل البيانات </a>
         <a routerLink="/changepassword/{{userName}}">تغيير الرقم السري</a>
@@ -15,7 +13,9 @@
     </div>
   </a>
 
-
+  <div style="margin-top:10px;margin-left:20px!important;">
+    <h1> {{name}}</h1>
+  </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

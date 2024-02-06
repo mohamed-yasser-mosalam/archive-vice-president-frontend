@@ -8,7 +8,7 @@
 
     <div class="row">
 
-      <h2 style="font-size: 20px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">الخطابات الصادرة من مكتب العميد</h2>
+      <h2 style="font-size: 20px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">عرض المستخدمين  </h2>
 
       <table class="table">
         <thead style=" position: sticky; top: 40px; background-color: #fff;">
@@ -16,6 +16,7 @@
           <th scope="col">الاسم الاول</th>
           <th scope="col">الاسم الثاني</th>
           <th scope="col">اسم المستخدم</th>
+          <th scope="col">صلاحيات</th>
           <th scope="col">النشاط</th>
         </tr>
         </thead>
@@ -25,6 +26,7 @@
           <td>{{item.firstName}}</td>
           <td>{{item.lastName}}</td>
           <td>{{item.username}}</td>
+          <td>{{item.authorities}}</td>
           <td>{{item.isActive}}</td>
         </tr>
         </tbody>

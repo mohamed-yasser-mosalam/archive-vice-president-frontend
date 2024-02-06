@@ -11,10 +11,11 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  userName: string;
+  name: string;
   img: string;
   x:any;
-  id:string
+  id:string;
+  userName:string
   constructor(private route: Router,
               private auth: AuthenticationServiceService,
               private http: HttpClient
@@ -22,9 +23,10 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userName = this.auth.getUserName()
+    this.name = this.auth.getName()
     this.img = this.auth.getUserImage()
     this.id=this.auth.getuserId()
+    this.userName=this.auth.getUserName()
   }
 
   onImageSelected(event) {

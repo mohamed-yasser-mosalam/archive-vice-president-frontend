@@ -48,7 +48,8 @@ const routes: Routes = [
   {path: 'add-import-response/:id', component: ResponsImportComponent,canActivate:[CanActivate]},
   {path: 'update-login-information', component: UpdateLoginInformatioComponent,canActivate:[CanActivate]},
   {path: 'users', component: UsersComponent,canActivate:[CanActivate]},
-  {path:'changepassword/:username',component:ChangePasswordComponent,canActivate:[CanActivate]}
+  {path:'changepassword/:username',component:ChangePasswordComponent,canActivate:[CanActivate]},
+  {path:'any',component:AnyThingComponent}
 
 ];
 

@@ -15,11 +15,13 @@ export class NavbarComponent implements OnInit {
   img: string;
   x:any;
   id:string;
-  userName:string
+  userName:string;
+  isComponentBGDark: boolean;
+
   constructor(private route: Router,
               private auth: AuthenticationServiceService,
-              private http: HttpClient
-  ) {
+              private http: HttpClient,
+   ) {
   }
 
   ngOnInit(): void {
@@ -27,6 +29,8 @@ export class NavbarComponent implements OnInit {
     this.img = this.auth.getUserImage()
     this.id=this.auth.getuserId()
     this.userName=this.auth.getUserName()
+
+
   }
 
   onImageSelected(event) {

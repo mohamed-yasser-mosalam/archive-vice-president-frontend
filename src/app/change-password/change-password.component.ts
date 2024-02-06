@@ -1,9 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {RegisterService} from "../Services/Register/register.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
-import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 import {UpdateUserInformationService} from "../Services/updateUserInformation/update-user-information.service";
 
@@ -14,24 +10,32 @@ import {UpdateUserInformationService} from "../Services/updateUserInformation/up
 })
 export class ChangePasswordComponent implements OnInit {
   username: string;
+  errorMessage:string
 
   constructor(private updateUserInformationService: UpdateUserInformationService,
               private router: Router,
               private auth: AuthenticationServiceService,
   ) {
   }
+
   ngOnInit(): void {
     this.username = this.auth.getUserName()
   }
 
   changePassword(data: any) {
-  this.updateUserInformationService.changePassword(this.username, data).subscribe(
-      response =>{
+    this.updateUserInformationService.changePassword(this.username, data).subscribe(
+      response => {
         this.router.navigateByUrl("/login"),
-        this.auth.clearToken()
+          this.auth.clearToken()
+      },
+      (err)=>{
+        this.errorMessage=err.message
+        // if(this.errorMessage!=null){
+        //   alert('الرقم السري المدخل غير صحيح')
+        // }
       }
-  )
-    console.log(data)
+    )
+
   }
 }
 

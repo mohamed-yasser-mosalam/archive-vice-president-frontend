@@ -1,10 +1,7 @@
 <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
 <div class="row">
-  <div class="col-2 position-relative">
-    <app-sidebar></app-sidebar>
-  </div>
   <app-image-slider class="col-4"></app-image-slider>
-        <form class="col-6" style="zoom: 70%"  [formGroup]="editExport" (ngSubmit)="update()" >
+        <form class="col-6" style="zoom: 70%;direction: ltr"  [formGroup]="editExport" (ngSubmit)="update()" >
 
     <div class="wrapper">
             <legend class="text-center"> {{x}} تعديل خطاب صادر رقم </legend>
@@ -70,6 +67,9 @@
       </div>
      </div>
   </form>
+  <div class="col-2 position-relative">
+    <app-sidebar></app-sidebar>
+  </div>
 </div>
 
 

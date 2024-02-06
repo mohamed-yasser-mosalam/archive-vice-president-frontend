@@ -7,10 +7,8 @@
 form {
   align-items: center;
   justify-content: center;
-  margin-left: 51%;
+  margin-left:0px;
   height: 300px;
-  position: fixed;
-  width:900px;
 
 }
 

@@ -6,18 +6,9 @@
 form {
   align-items: center;
   justify-content: center;
-  margin-left: 49%;
-  height: 300px;
-  position: fixed;
-
-  /*position: fixed;*/
-  /*bottom: 0;*/
-  /*display: flex;*/
-  /*align-items: center;*/
-  /*justify-content: center;*/
-  /*margin-left: 50%;*/
-  /*!* top: -30px; *!*/
-}
+  margin-left:0px;
+  height: 500px;
+ }
 
 .wrapper {
   position: relative;

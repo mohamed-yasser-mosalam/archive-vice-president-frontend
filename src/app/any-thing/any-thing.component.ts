@@ -7,14 +7,7 @@ import {FormControl, FormGroup} from "@angular/forms";
   templateUrl: './any-thing.component.html',
   styleUrls: ['./any-thing.component.css']
 })
-export class AnyThingComponent implements OnInit {
+export class AnyThingComponent  {
 
 
-  constructor(private registerService: RegisterService,
-  ) {
-  }
-
-  ngOnInit(): void {
-
-}
 }

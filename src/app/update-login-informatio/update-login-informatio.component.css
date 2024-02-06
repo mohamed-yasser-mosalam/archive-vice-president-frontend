@@ -5,9 +5,9 @@
 }
 form{
   position: relative;
-  display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 8%;
 }
 .wrapper{
   width: 75%;

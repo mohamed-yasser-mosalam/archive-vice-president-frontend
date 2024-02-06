@@ -1,13 +1,11 @@
 <app-navbar></app-navbar>
 <div class="row" >
-  <div class="col-2 position-relative">
-    <app-sidebar></app-sidebar>
-  </div>
+
   <div class="col-10 position-relative" style=" zoom: 75%; background-color: #fff; text-align: center; overflow: auto; height:785px; border-radius: 8px;">
     <div class="row">
 
       <h2 style="font-size: 20px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">الخطابات التي لم يحن موعدها </h2>
-      <table class="table">
+      <table class="table" style="direction: rtl">
         <thead style=" position: sticky; top: 40px; background-color: #fff;">
         <tr>
           <th scope="col">رقم القيد</th>
@@ -51,6 +49,8 @@
       </table>
     </div>
   </div>
-
+  <div class="col-2 position-relative">
+    <app-sidebar></app-sidebar>
+  </div>
 
 </div>

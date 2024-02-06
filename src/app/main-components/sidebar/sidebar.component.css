@@ -2,19 +2,19 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
-
-
+  direction: rtl;
+  background: #f9f9f9;
   /* border: 1px solid #333; */
 }
 
 .menu {
-  height: 90vh;
+  height: 117%;
   padding: 30px;
 
 }
 
-.menu ul li p ,
-.dropdown-toggle{
+.menu ul li p,
+.dropdown-toggle {
   color: rgba(1, 1, 1, 1);
   font-weight: bold;
 }
@@ -24,8 +24,8 @@ ul {
   position: relative;
 }
 
-ul li a ,
-.dropdown-toggle{
+ul li a,
+.dropdown-toggle {
   display: block;
   width: 15em;
   padding: 5px 5px;
@@ -35,11 +35,11 @@ ul li a ,
   align-items: center;
   gap: 20px;
 }
+
 .dropdown-toggle:hover,
 ul li a:hover,
 .active-menu,
-ul li a:hover p
-{
+ul li a:hover p {
   text-decoration: none;
   background-color: #72bc76;
   color: #00000050;
@@ -47,6 +47,6 @@ ul li a:hover p
 
 .log-out {
   position: absolute;
-  bottom:0;
+  bottom: 0;
   margin-right: 60px;
 }

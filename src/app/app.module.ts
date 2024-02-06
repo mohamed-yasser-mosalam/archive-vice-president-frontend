@@ -40,6 +40,7 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { UpdateLoginInformatioComponent } from './update-login-informatio/update-login-informatio.component';
 import { AnyThingComponent } from './any-thing/any-thing.component';
 import { UsersComponent } from './users/users.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +69,8 @@ import { UsersComponent } from './users/users.component';
     ImageSliderComponent,
     UpdateLoginInformatioComponent,
     AnyThingComponent,
-    UsersComponent
+    UsersComponent,
+    ChangePasswordComponent
 
 
   ],

@@ -15,8 +15,6 @@ export class AnyThingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  this.registerService.getUserInformationById(2).subscribe((result)=>{
-    console.log(result)
-  })
+
 }
 }

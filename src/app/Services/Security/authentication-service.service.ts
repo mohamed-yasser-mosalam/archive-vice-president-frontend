@@ -16,17 +16,21 @@ export class AuthenticationServiceService {
         response=>{
           sessionStorage.setItem('id',response.id)
           sessionStorage.setItem("imagePath",response.imagePath)
-          sessionStorage.setItem("username",response.name)
+          sessionStorage.setItem("username",response.username)
+          sessionStorage.setItem("name",response.name)
           sessionStorage.setItem("token",`Bearer ${response.token}`)
           return response;
         }))
   }
 
-  getuserId(){
+  getuserId() {
     return sessionStorage.getItem('id')||""
   }
   getUserImage(){
     return sessionStorage.getItem('imagePath')||"";
+  }
+  getName(){
+    return sessionStorage.getItem('name')||"";
   }
   getUserName(){
     return sessionStorage.getItem('username')||"";

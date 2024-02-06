@@ -22,8 +22,8 @@ import {ImportPaginationComponent} from "./import-pagination/import-pagination.c
 import {UpdateLoginInformatioComponent} from "./update-login-informatio/update-login-informatio.component";
 import {AnyThingComponent} from "./any-thing/any-thing.component";
 import {UsersComponent} from "./users/users.component";
-import {RouteActivatedServiceService} from "./Services/routeActivatedService/route-activated-service.service";
 import {CanActivate} from "./auth.guard";
+import {ChangePasswordComponent} from "./change-password/change-password.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent,canActivate:[CanActivate]},
@@ -47,7 +47,8 @@ const routes: Routes = [
   {path: 'add-export-response/:id', component: ResponsExportComponent,canActivate:[CanActivate]},
   {path: 'add-import-response/:id', component: ResponsImportComponent,canActivate:[CanActivate]},
   {path: 'update-login-information', component: UpdateLoginInformatioComponent,canActivate:[CanActivate]},
-  {path: 'users', component: UsersComponent,canActivate:[CanActivate]}
+  {path: 'users', component: UsersComponent,canActivate:[CanActivate]},
+  {path:'changepassword/:username',component:ChangePasswordComponent,canActivate:[CanActivate]}
 
 ];
 

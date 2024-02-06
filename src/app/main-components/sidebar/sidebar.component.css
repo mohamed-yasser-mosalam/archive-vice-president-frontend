@@ -34,7 +34,7 @@ ul li a ,
   display: flex;
   align-items: center;
   gap: 20px;
- }
+}
 .dropdown-toggle:hover,
 ul li a:hover,
 .active-menu,

@@ -4,6 +4,7 @@ import {ExportServiceService} from "../Services/ExportsServices/export-service.s
 import {HttpClient} from "@angular/common/http";
 import {Users} from "../Models/Users/users";
 import {RegisterService} from "../Services/Register/register.service";
+import {UpdateUserInformationService} from "../Services/updateUserInformation/update-user-information.service";
 
 @Component({
   selector: 'app-users',
@@ -14,7 +15,7 @@ export class UsersComponent {
   showUsers :Users[]=[];
   message:string="yes"
   x:any;
-  constructor(private registerService: RegisterService, private http: HttpClient){
+  constructor(private updateUserInformationService: UpdateUserInformationService, private http: HttpClient){
 
   }
   ngOnInit(): void {
@@ -22,14 +23,10 @@ export class UsersComponent {
   }
 
   getAllUsers() {
-    return this.registerService.getAllUsers().subscribe((getAllusers:any)=>{
+    return this.updateUserInformationService.getAllUsers().subscribe((getAllusers:any)=>{
       this.showUsers=getAllusers;
     })
   }
 
-  isActive(num: number){
-    if(num){
-      this.message
-    }
-  }
+
 }

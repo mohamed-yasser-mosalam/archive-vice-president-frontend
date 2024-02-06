@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit{
           Validators.required,
           Validators.pattern('^([a-zA-Z0-9]{5,})$')
         ]),
-        password:['']
+        password:['',[Validators.minLength(7)]]
       })
     })
   }

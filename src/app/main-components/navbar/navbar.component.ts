@@ -45,5 +45,4 @@ export class NavbarComponent implements OnInit {
   clearToken(){
     this.auth.clearToken()
   }
-
 }

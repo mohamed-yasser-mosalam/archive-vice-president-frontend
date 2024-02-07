@@ -4,6 +4,7 @@ import {ExportServiceService} from "../Services/ExportsServices/export-service.s
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
+import {Showallexport} from "../Models/showAllExports/showallexport";
 
 @Component({
   selector: 'app-export-pagination',
@@ -18,6 +19,8 @@ export class ExportPaginationComponent implements OnInit {
   pageLength: any;
   showExports: any;
   size: number = 1;
+  paths:string[]
+  showAttachments: Showallexport[]=[];
   showExport = new FormGroup({
     date: new FormControl(''),
     receiver: new FormControl(''),
@@ -32,6 +35,7 @@ export class ExportPaginationComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    console.log(this.paths)
     this.getExportCount();
     this.showExportFile();
     this.serviceExport.getExportById(this.routes.snapshot.params['id']).subscribe((result) => {
@@ -60,6 +64,7 @@ export class ExportPaginationComponent implements OnInit {
   showExportFile() {
     this.serviceExport.getExportById(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
+      this.paths=this.showExports.paths
     })
   }
 

@@ -14,7 +14,7 @@ export class ImageSliderComponent implements OnInit{
    }
   ngOnInit(): void {
      this.getAttachments();
-   }
+    }
   getAttachments(){
      this.exportService.getAllExports().subscribe((getAllAttachments:any)=>{
        this.showAttachments=getAllAttachments;

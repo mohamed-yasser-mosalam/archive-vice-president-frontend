@@ -1,12 +1,15 @@
 <app-navbar></app-navbar>
-<div class="row" >
+<div class="row">
 
 
-  <div class="col-10 position-relative" style=" zoom: 71%; background-color: #fff; text-align: center; overflow: auto; height:785px; border-radius: 8px;">
+  <div class="col-10 position-relative"
+       style=" zoom: 71%; background-color: #fff; text-align: center; overflow: auto; height:785px; border-radius: 8px;">
 
     <div class="row">
 
-      <h2 style="font-size: 20px; padding: 10px 0; background-color: #fff; color:black;; position: sticky; top: 0; width: 100%;font-weight: bold">عرض المستخدمين  </h2>
+      <h2
+        style="font-size: 20px; padding: 10px 0; background-color: #fff; color:black;; position: sticky; top: 0; width: 100%;font-weight: bold">
+        عرض المستخدمين </h2>
 
       <table class="table" style="direction: rtl">
         <thead style=" position: sticky; top: 40px; background-color: #fff;">
@@ -21,11 +24,17 @@
         <tbody>
 
         <tr *ngFor="let item of showUsers ">
-          <td>{{item.firstName}}</td>
-          <td>{{item.lastName}}</td>
-          <td>{{item.username}}</td>
-          <td>{{item.roles}}</td>
-          <td>{{item.isActive}}</td>
+          <td>{{ item.firstName }}</td>
+          <td>{{ item.lastName }}</td>
+          <td>{{ item.username }}</td>
+          <td>{{ item.roles }}</td>
+          <td *ngIf="item.isActive">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill"
+                 viewBox="0 0 16 16">
+              <path
+                d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+            </svg>
+          </td>
         </tr>
         </tbody>
       </table>

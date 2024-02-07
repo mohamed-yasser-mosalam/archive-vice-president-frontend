@@ -6,6 +6,7 @@ form{
   position: relative;
   align-items: center;
   justify-content: center;
+
 }
 .wrapper{
   width: 75%;
@@ -27,6 +28,7 @@ form{
   border: none;
   font-size: 18px;
   border-bottom: 2px solid silver;
+  direction: rtl;
 }
 .wrapper .input-data textarea{
   border: none;

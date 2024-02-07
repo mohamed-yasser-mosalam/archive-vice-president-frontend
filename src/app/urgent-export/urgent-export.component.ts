@@ -35,7 +35,7 @@ export class UrgentExportComponent  implements OnInit{
 
   addUrgentFile(data:any) {
     this.serviceExport.addUrgentFile(this.routes.snapshot.params['id'],data).subscribe(
-      response => this.router.navigateByUrl('/getallexports')
+      response => this.router.navigate([`/export-pagination?id/`,this.x])
     )
   }
 

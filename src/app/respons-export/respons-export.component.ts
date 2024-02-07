@@ -45,9 +45,9 @@ export class ResponsExportComponent {
 
   }
 
-  addxResponse(data:any) {
+  addResponse(data:any) {
     this.serviceExport.addExportResponse(this.routes.snapshot.params['id'],data).subscribe(
-      response => this.router.navigateByUrl('/getallexports')
+      response => this.router.navigateByUrl('/getallImports')
     )
   }
 

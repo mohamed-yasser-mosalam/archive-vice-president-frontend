@@ -16,6 +16,7 @@ export class UpdateExportComponent implements OnInit {
     receiver: new FormControl(''),
     numberOfAttachments:new FormControl(''),
     typeNumber: new FormControl(''),
+    id: new FormControl(''),
     num: new FormControl(''),
     recipientName: new FormControl(''),
     summary: new FormControl(''),
@@ -33,6 +34,7 @@ export class UpdateExportComponent implements OnInit {
          receiver: new FormControl(result['receiver']),
          numberOfAttachments:new FormControl(result['numberOfAttachments']),
          typeNumber: new FormControl(result['typeNumber']),
+         id: new FormControl(result['id']),
          num: new FormControl(result['num']),
          recipientName: new FormControl(result['recipientName']),
          summary: new FormControl(result['summary']),
@@ -50,9 +52,9 @@ export class UpdateExportComponent implements OnInit {
 
   update() {
     this.serviceExport.updateExport(this.routes.snapshot.params['id'],this.editExport.value).subscribe((result) => {
-      this.router.navigateByUrl('/getallexports')
+      this.router.navigate([`/export-pagination?id/`,this.x])
     })
-    console.log(this.editExport.value)
+
   }
 }
 

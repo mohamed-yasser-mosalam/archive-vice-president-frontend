@@ -15,7 +15,7 @@ export class UsersComponent {
   showUsers :Users[]=[];
   message:string="yes"
   x:any;
-  constructor(private updateUserInformationService: UpdateUserInformationService, private http: HttpClient){
+   constructor(private updateUserInformationService: UpdateUserInformationService, private http: HttpClient){
 
   }
   ngOnInit(): void {

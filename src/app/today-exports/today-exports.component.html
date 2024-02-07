@@ -8,7 +8,7 @@
 
       <h2
         style="font-size: 20px; padding: 10px 0; background-color: #fff; color: #333333; position: sticky; top: 0; width: 100%;font-weight: bold">
-        الخطابات الصادرة من مكتب العميد</h2>
+        صادر اليوم</h2>
 
       <table class="table" style="direction: rtl">
         <thead style=" position: sticky; top: 40px; background-color: #fff;direction: rtl">
@@ -30,7 +30,7 @@
         </thead>
         <tbody>
 
-        <tr *ngFor="let item of showAllExport ">
+        <tr *ngFor="let item of showTodayExport ">
           <td>{{ item.id }}</td>
           <td>{{ item.date }}</td>
           <td>{{ item.numberOfAttachments }}</td>
@@ -55,6 +55,7 @@
         </tr>
         </tbody>
       </table>
+
 
     </div>
   </div>

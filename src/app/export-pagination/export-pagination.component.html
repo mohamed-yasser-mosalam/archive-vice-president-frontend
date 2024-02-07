@@ -63,7 +63,6 @@
         </div>
       </div>
 
-
       <div  class="input-data"style="bottom: 0px; ">
         <button type="submit" class="btn btn-success" style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
                 routerLink="/updateexport/{{page}}">
@@ -79,11 +78,16 @@
                 routerLink="/add-export-response/{{page}}">
           اضافه رد</button>
 
-      <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px;margin-left: 25%">
+        <div class="input-data">
+          <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)">
+
+        </div>
+        <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px;margin-left: 25%">
         <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"
                         [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
                         routerLink="/exports-pagination?id/{{page}}">
         </ngb-pagination>
+
       </div >
       </div>
     </div>

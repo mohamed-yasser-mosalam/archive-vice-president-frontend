@@ -19,7 +19,7 @@ export class AddImportComponent {
   addImportFile(data: any) {
 
     this.serviceImport.addImportFile(data).subscribe(
-      response => this.router.navigateByUrl('/getallImports')
+      response => this.router.navigateByUrl('/home')
     )
   }
 }

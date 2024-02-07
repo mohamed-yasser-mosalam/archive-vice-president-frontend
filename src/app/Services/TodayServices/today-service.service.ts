@@ -16,5 +16,4 @@ export class TodayServiceService {
     getAllTodayImport() {
         return this.http.get('http://localhost:1200/import/import-date')
     }
-
 }

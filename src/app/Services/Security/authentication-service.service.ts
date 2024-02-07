@@ -38,13 +38,8 @@ export class AuthenticationServiceService {
   getToken() {
     return sessionStorage.getItem('token')||"";
   }
-  clearToken(){
-     sessionStorage.clear()
+  clearToken() {
+    sessionStorage.clear()
   }
-   getUserInformation(){
-     sessionStorage.getItem('id')||"";
-     sessionStorage.getItem('imagePath')||"";
-     sessionStorage.getItem('username')||"";
-     sessionStorage.getItem('token')||"";
-   }
+
 }

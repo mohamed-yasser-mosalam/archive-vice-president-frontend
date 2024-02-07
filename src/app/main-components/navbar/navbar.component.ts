@@ -14,14 +14,14 @@ export class NavbarComponent implements OnInit {
   name: string;
   img: string;
   x:any;
+  y:any
   id:string;
   userName:string;
-  isComponentBGDark: boolean;
 
   constructor(private route: Router,
               private auth: AuthenticationServiceService,
               private http: HttpClient,
-   ) {
+    ) {
   }
 
   ngOnInit(): void {
@@ -29,19 +29,21 @@ export class NavbarComponent implements OnInit {
     this.img = this.auth.getUserImage()
     this.id=this.auth.getuserId()
     this.userName=this.auth.getUserName()
-
-
   }
 
   onImageSelected(event) {
     const file = event.target.files[0]
     const formDate: FormData = new FormData()
     this.x = formDate.append("file", file)
-    console.log(this.x)
-    this.http.post(`http://localhost:1200/register/add-image?pathType=users&username=${this.userName}&id=${this.id}`, formDate).subscribe(
-      response => {
-        console.log("successfully")
-      }
-    )
+     this.http.post(`http://localhost:1200/register/add-image?pathType=users&username=${this.userName}&id=${this.id}`,formDate).subscribe(
+      (result) => {
+        this.route.navigateByUrl('/login'),
+         this.auth.clearToken()
+       })
+
+   }
+  clearToken(){
+    this.auth.clearToken()
   }
+
 }

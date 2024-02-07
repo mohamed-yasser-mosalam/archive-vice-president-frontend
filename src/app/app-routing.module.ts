@@ -24,6 +24,8 @@ import {AnyThingComponent} from "./any-thing/any-thing.component";
 import {UsersComponent} from "./users/users.component";
 import {CanActivate} from "./auth.guard";
 import {ChangePasswordComponent} from "./change-password/change-password.component";
+import {TodayExportsComponent} from "./today-exports/today-exports.component";
+import {TodayImportsComponent} from "./today-imports/today-imports.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent,canActivate:[CanActivate]},
@@ -33,6 +35,8 @@ const routes: Routes = [
   {path: 'filehadgone', component: FileHadGoneComponent,canActivate:[CanActivate]},
   {path: 'filenotcome', component: FileNotComeComponent,canActivate:[CanActivate]},
   {path: 'importantletter', component: ImportantLetterComponent,canActivate:[CanActivate]},
+  {path: 'todeyexports', component: TodayExportsComponent,canActivate:[CanActivate]},
+  {path: 'todayimports', component: TodayImportsComponent,canActivate:[CanActivate]},
   {path: 'login', component: LoginComponent},
   {path: '', component: LoginComponent,canActivate:[CanActivate]},
   {path: 'addexportfile', component: AddExportComponent,canActivate:[CanActivate]},

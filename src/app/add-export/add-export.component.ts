@@ -15,10 +15,9 @@ export class AddExportComponent{
 
   }
 
-
   AddExportFile(data: any) {
     this.serviceExport.addExportFile(data).subscribe(
-      response => this.router.navigateByUrl('/getallexports')
+      response => this.router.navigateByUrl('/home')
     )
   }
 

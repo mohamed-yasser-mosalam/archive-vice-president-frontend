@@ -2,20 +2,20 @@ export class Users {
   username: string;
   firstName: string;
   lastName: string;
-  authorities:string
+  roles:string
   isActive: number;
 
   constructor(
     username: string,
     firstName: string,
     lastName: string,
-    authorities:string,
+    roles:string,
     isActive: number
   ) {
     this.username=username;
     this.firstName=firstName;
     this.lastName=lastName;
-    this.authorities=authorities;
+    this.roles=roles;
     this.isActive=isActive
   }
 }

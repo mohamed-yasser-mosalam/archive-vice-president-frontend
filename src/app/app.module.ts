@@ -41,6 +41,8 @@ import { UpdateLoginInformatioComponent } from './update-login-informatio/update
 import { AnyThingComponent } from './any-thing/any-thing.component';
 import { UsersComponent } from './users/users.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { TodayExportsComponent } from './today-exports/today-exports.component';
+import { TodayImportsComponent } from './today-imports/today-imports.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +72,9 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     UpdateLoginInformatioComponent,
     AnyThingComponent,
     UsersComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    TodayExportsComponent,
+    TodayImportsComponent
 
 
   ],

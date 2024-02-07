@@ -9,7 +9,7 @@
   margin: 10px;
   background-color: #fff;
   height: 83px;
-   border-radius: 8px;
+  border-radius: 8px;
   display:flex;
   transition: 0.5s;
  }
@@ -82,14 +82,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #33333332;
+  background-color: #333333;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #72bc76;
+  background-color: #333333;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #72bc76;
+  background-color: #333333;
 }

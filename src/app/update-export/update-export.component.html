@@ -25,7 +25,7 @@
               <label for="numberOfAttachments">عدد المرفقات</label>
             </div>
             <div class="input-data " style="width:30%; margin-left:auto;">
-              <input type="number"   id="num" formControlName="num">
+              <input type="number"  readonly id="num" formControlName="num">
                <label for="num">رقم الملف</label>
             </div>
           </div>
@@ -43,21 +43,21 @@
       <div class="mt-5" style="display: flex;  justify-content: space-between;">
         <div style="display: flex;">
           <div class="input-data" style="width:65%">
-            <input type="Date"  id="urgentDate" formControlName="urgentDate">
+            <input type="Date" readonly id="urgentDate" formControlName="urgentDate">
             <label for="urgentDate">تاريخ الاستعجال</label>
           </div>
           <div class="input-data" style="width:30%; margin-left:10px;">
-            <input type="number" id="urgentNum" formControlName="urgentNum">
+            <input type="number" readonly id="urgentNum" formControlName="urgentNum">
             <label for="urgentNum">رقم الاستعجال</label>
           </div>
         </div>
         <div style="display: flex;">
           <div class="input-data w-50">
-            <input type="Date"     id="responseDate" formControlName="responseDate">
+            <input type="Date" readonly    id="responseDate" formControlName="responseDate">
             <label for="responseDate">تاريخ الرد</label>
           </div>
           <div class="input-data" style="width:35%; margin-left:auto;">
-            <input type="text"  id="responseNumber" formControlName="responseNumber">
+            <input type="text" readonly id="responseNumber" formControlName="responseNumber">
             <label for="responseNumber">الرد</label>
           </div>
         </div>

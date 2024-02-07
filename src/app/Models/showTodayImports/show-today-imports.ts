@@ -1,27 +1,56 @@
 export class ShowTodayImports {
-    id:number;
-    sender: string;
-    summary:string;
-    recipientName:string;
-    typeNumber: number;
-    num:number;
+  id: number;
+  incomeDate:Date;
+  numberOfAttachments: number;
+  sender: string;
+  incomingLetterNumber:number;
+  incomingLetterDate:Date;
+  summary: string;
+  recipientName: string;
+  recipientDate: Date;
+  responseNumber: number;
+  responseDate: Date;
+  responseSide: string;
+  archiveId: number;
+  typeNumber: number;
+  num: number;
+  expectResponseDate:Date;
+  receiver:string
 
-    constructor(
-        id:number,
-        sender: string,
-        summary:string,
-        recipientName:string,
-        typeNumber: number,
-        num:number)
-    {
-        this.id=id;
-        this.sender=sender;
-        this.summary=summary;
-        this.recipientName=recipientName;
-        this.typeNumber=typeNumber;
-        this.num=num
-    }
+  constructor( id: number,
+               incomeDate:Date,
+               numberOfAttachments: number,
+               sender: string,
+               incomingLetterNumber:number,
+               incomingLetterDate:Date,
+               summary: string,
+               recipientName: string,
+               recipientDate: Date,
+               responseNumber: number,
+               responseDate: Date,
+               responseSide: string,
+               archiveId: number,
+               typeNumber: number,
+               num: number,
+               expectResponseDate:Date,
+               receiver:string
+  ) {
+    this.id = id;
+    this.incomeDate = incomeDate;
+    this.numberOfAttachments = numberOfAttachments;
+    this.sender = sender;
+    this.incomingLetterNumber = incomingLetterNumber;
+    this.incomingLetterDate = incomingLetterDate
+    this.summary = summary;
+    this.recipientName = recipientName;
+    this.recipientDate = recipientDate;
+    this.responseNumber = responseNumber;
+    this.responseDate = responseDate;
+    this.responseSide = responseSide;
+    this.archiveId = archiveId;
+    this.typeNumber = typeNumber;
+    this.num = num;
+    this.expectResponseDate =expectResponseDate;
+    this.receiver=receiver
+  }
 }
-
-
-

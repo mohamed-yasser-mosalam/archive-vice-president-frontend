@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
 <div class="row" >
 
-  <div class="col-10 position-relative" style=" zoom: 75%; background-color: #fff; text-align: center; overflow: auto; height:785px; border-radius: 8px;">
+  <div class="col-10 position-relative" style=" zoom: 70%; background-color: #fff; text-align: center; overflow: auto; height:785px; border-radius: 8px;">
     <div class="row">
 
-      <h2 style="font-size: 20px; padding: 10px 0; background-color: #fff; color: black; position: sticky; top: 0; width: 100%;font-weight: bold">الخطابات التي ذهب موعدها</h2>
+      <h2 style="font-size: 20px; padding: 10px 0; background-color: #fff; color: black; position: sticky; top: 0; width: 100%;font-weight: bold">الخطابات الواردة الي مكتب العميد</h2>
       <table class="table" style="direction: rtl">
         <thead style=" position: sticky; top: 40px; background-color: #fff;">
         <tr>
@@ -25,7 +25,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of showAllFileHadGone">
+        <tr *ngFor="let item of showTodayImports">
           <td>{{item.id}}</td>
           <td>{{item.incomeDate}}</td>
           <td>{{item.numberOfAttachments}}</td>
@@ -56,5 +56,4 @@
   <div class="col-2 position-relative">
     <app-sidebar></app-sidebar>
   </div>
-
 </div>

@@ -24,15 +24,6 @@ export class ExportFilesComponent implements OnInit{
     })
   }
 
-    onImageSelected(event){
-      const file=event.target.files[0]
-      const formDate:FormData=new FormData()
-      this.x= formDate.append("file",file)
-      console.log(this.x)
-      this.http.post('http://localhost:1200/image/upload?id=5&pathType=users',formDate).subscribe(
-        response=>{
-          console.log("successfully")
-        }
-      )
-    }
+
+
   }

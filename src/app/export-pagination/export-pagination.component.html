@@ -21,7 +21,7 @@
         <div class="input-container">
           <div class="d-flex">
             <div class="input-data" style="width: 65%">
-              <input type="text" required readonly id="numberOfAttachments" numberOfAttachments="date">
+              <input type="text" required readonly id="numberOfAttachments" formControlName="numberOfAttachments">
               <label for="numberOfAttachments">عدد المرفقات</label>
             </div>
             <div class="input-data " style="width:30%; margin-left:auto;">
@@ -78,11 +78,8 @@
                 routerLink="/add-export-response/{{page}}">
           اضافه رد</button>
 
-        <div class="input-data">
-          <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)">
-
-        </div>
-        <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px;margin-left: 25%">
+           <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)" style="margin-top: 20px;margin-left:0">
+         <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px;margin-left: 25%">
         <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"
                         [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
                         routerLink="/exports-pagination?id/{{page}}">

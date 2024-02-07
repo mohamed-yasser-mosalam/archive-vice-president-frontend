@@ -11,7 +11,7 @@ export class ExportFilesComponent implements OnInit{
   showAllExport: Showallexport[]=[];
     page: number=1;
     x:any;
-     constructor(private service: ExportServiceService, private http: HttpClient){
+     constructor(private service: ExportServiceService){
 
   }
   ngOnInit(): void {

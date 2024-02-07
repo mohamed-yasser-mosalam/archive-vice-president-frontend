@@ -11,7 +11,6 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./export-pagination.component.css']
 })
 export class ExportPaginationComponent implements OnInit {
-
   x: any;
   y: any
   id: string;
@@ -53,7 +52,7 @@ export class ExportPaginationComponent implements OnInit {
   }
 
   constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient, private route: Router,
+              private http: HttpClient,
               private auth: AuthenticationServiceService,
   ) {
   }
@@ -71,7 +70,6 @@ export class ExportPaginationComponent implements OnInit {
   }
 
   change() {
-    alert(this.page)
     this.page;
     this.showExportFile();
     this.serviceExport.getExportById(this.page).subscribe((result) => {
@@ -94,8 +92,8 @@ export class ExportPaginationComponent implements OnInit {
   onImageSelected(event) {
     const file = event.target.files[0]
     const formDate: FormData = new FormData()
-    this.x = formDate.append("file", file)
-    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=exports`,formDate).subscribe(
+    this.x = formDate.append("files", file)
+    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=exports`, formDate).subscribe(
       (result) => {
       })
 

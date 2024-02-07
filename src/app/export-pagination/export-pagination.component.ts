@@ -35,7 +35,7 @@ export class ExportPaginationComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    console.log(this.paths)
+
     this.getExportCount();
     this.showExportFile();
     this.serviceExport.getExportById(this.routes.snapshot.params['id']).subscribe((result) => {

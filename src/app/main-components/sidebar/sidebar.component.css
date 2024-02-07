@@ -1,76 +1,27 @@
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  direction: rtl;
-
-   /* border: 1px solid #333; */
-}
-
-
-.menu {
-  height: 117%;
-  padding: 30px;
-  background: #333333;
-  margin-top: 0;
-  position: fixed;
-
- }
-
-.menu ul li p,
-.dropdown-toggle {
-  color: rgb(255, 255, 255);
-  font-weight: bolder;
-  font-size: large;
-}
-
-ul {
-  list-style: none;
-  position: relative;
-}
-
-ul li a,
-.dropdown-toggle {
-  display: block;
-  width: 15em;
-  padding: 5px 5px;
-  margin: 10px 0;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-
-
-.log-out {
-  position: absolute;
-  bottom: 0;
-  margin-right: 60px;
-}
-
-
-
 /** {*/
 /*  margin: 0;*/
 /*  padding: 0;*/
 /*  text-decoration: none;*/
 /*  direction: rtl;*/
+
 /*   !* border: 1px solid #333; *!*/
 /*}*/
+
 
 /*.menu {*/
 /*  height: 117%;*/
 /*  padding: 30px;*/
-/*  background;*/
+/*  background: #ffffff;*/
+/*  margin-top: 0;*/
+/*  position: fixed;*/
 
-
-/*}*/
+/* }*/
 
 /*.menu ul li p,*/
 /*.dropdown-toggle {*/
-/*  color: rgba(1, 1, 1, 1);*/
-/*  font-weight: bold;*/
+/*  color: rgb(255, 255, 255);*/
+/*  font-weight: bolder;*/
+/*  font-size: large;*/
 /*}*/
 
 /*ul {*/
@@ -90,17 +41,66 @@ ul li a,
 /*  gap: 20px;*/
 /*}*/
 
-/*.dropdown-toggle:hover,*/
-/*ul li a:hover,*/
-/*.active-menu,*/
-/*ul li a:hover p {*/
-/*  text-decoration: none;*/
-/*  background-color: #72bc76;*/
-/*  color: #00000050;*/
-/*}*/
+
 
 /*.log-out {*/
 /*  position: absolute;*/
 /*  bottom: 0;*/
 /*  margin-right: 60px;*/
 /*}*/
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  direction: rtl;
+   /* border: 1px solid #333; */
+}
+
+.menu {
+  height: 117%;
+  padding: 30px;
+  background:white;
+
+
+}
+
+.menu ul li p,
+.dropdown-toggle {
+  color: rgba(1, 1, 1, 1);
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  position: relative;
+}
+
+ul li a,
+.dropdown-toggle {
+  display: block;
+  width: 15em;
+  padding: 5px 5px;
+  margin: 10px 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dropdown-toggle:hover,
+ul li a:hover,
+.active-menu,
+ul li a:hover p {
+  text-decoration: none;
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.log-out {
+  position: absolute;
+  bottom: 0;
+  margin-right: 60px;
+}

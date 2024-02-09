@@ -43,6 +43,8 @@ import { UsersComponent } from './users/users.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { TodayExportsComponent } from './today-exports/today-exports.component';
 import { TodayImportsComponent } from './today-imports/today-imports.component';
+import { SearchComponent } from './search/search.component';
+import { SearchPipe } from './search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +76,9 @@ import { TodayImportsComponent } from './today-imports/today-imports.component';
     UsersComponent,
     ChangePasswordComponent,
     TodayExportsComponent,
-    TodayImportsComponent
+    TodayImportsComponent,
+    SearchComponent,
+    SearchPipe
 
 
   ],

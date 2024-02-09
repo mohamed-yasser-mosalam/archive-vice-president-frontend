@@ -53,7 +53,8 @@ const routes: Routes = [
   {path: 'update-login-information', component: UpdateLoginInformatioComponent,canActivate:[CanActivate]},
   {path: 'users', component: UsersComponent,canActivate:[CanActivate]},
   {path:'changepassword/:username',component:ChangePasswordComponent,canActivate:[CanActivate]},
-  {path:'any',component:AnyThingComponent}
+  {path:'any',component:AnyThingComponent},
+  {path:'exportfile/:summary',component:ExportFilesComponent}
 
 ];
 

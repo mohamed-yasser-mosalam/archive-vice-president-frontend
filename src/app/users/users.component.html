@@ -18,6 +18,8 @@
           <th scope="col">الاسم الثاني</th>
           <th scope="col">اسم المستخدم</th>
           <th scope="col">صلاحيات</th>
+          <th scope="col">نفعيل </th>
+          <th scope="col">الغاء تفعيل</th>
           <th scope="col">النشاط</th>
         </tr>
         </thead>
@@ -30,7 +32,12 @@
           <td>{{ item.roles }}</td>
           <td>
             <form (ngSubmit)="activatedUser(item.username)">
-              <button type="submit" class="btn w-30"  style="padding:10px;background: #333333;color: white;margin-left: 85%">  تفعيل </button>
+              <button type="submit" class="btn w-30"  style="padding:10px;background: #333333;color: white">  تفعيل </button>
+            </form>
+          </td>
+          <td>
+            <form (ngSubmit)="unActivateUser(item.username)">
+              <button type="submit" class="btn w-50"  style="padding:10px;background: #333333;color: white;"> الغاء تفعيل  </button>
             </form>
           </td>
           <td *ngIf="item.isActive;else notActive">

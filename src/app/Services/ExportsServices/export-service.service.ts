@@ -34,4 +34,7 @@ export class ExportServiceService {
   createUser(data:any){
      return this.http.post("http://localhost:1200/register",data)
   }
+  findExportBySummary(summary:string){
+     return this.http.get(`http://localhost:1200/export/export-summary?summary=${summary}`)
+  }
   }

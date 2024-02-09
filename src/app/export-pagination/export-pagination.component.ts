@@ -19,8 +19,10 @@ export class ExportPaginationComponent implements OnInit {
   pageLength: any;
   showExports: any;
   size: number = 1;
-  paths:string[]
-  showAttachments: Showallexport[]=[];
+  paths: string[];
+  numbers: any = [];
+  localImg:any = [];
+  showAttachments: Showallexport[] = [];
   showExport = new FormGroup({
     date: new FormControl(''),
     receiver: new FormControl(''),
@@ -36,7 +38,11 @@ export class ExportPaginationComponent implements OnInit {
   })
 
   ngOnInit(): void {
-
+    this.localImg = [
+      {id:0,name:"img0",url:'assets/exports/1-Screenshot 2024-01-27 215958.png'},
+      {id:1,name:"img0",url:'assets/exports/1-Screenshot 2024-01-27 215958.png'},
+      {id:2,name:"img0",url:'assets/exports/1-Screenshot 2024-01-27 215958.png'},
+    ]
     this.getExportCount();
     this.showExportFile();
     this.serviceExport.getExportById(this.routes.snapshot.params['id']).subscribe((result) => {
@@ -66,7 +72,7 @@ export class ExportPaginationComponent implements OnInit {
   showExportFile() {
     this.serviceExport.getExportById(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
-      this.paths=this.showExports.paths
+      this.paths = this.showExports.paths
     })
   }
 

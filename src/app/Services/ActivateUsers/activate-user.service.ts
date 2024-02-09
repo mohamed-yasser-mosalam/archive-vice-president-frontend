@@ -9,9 +9,9 @@ export class ActivateUserService {
   constructor(private http:HttpClient) { }
 
   activateUser(username:string){
-   this.http.get(`http://localhost:1200/user/activated?username=${username}`)
+   this.http.post(`http://localhost:1200/user/activated?username=${username}`,null).subscribe()
   }
   unActivateUser(username:string){
-   return  this.http.get(`http://localhost:1200/user/unactivated?username=${username}`)
+   this.http.post(`http://localhost:1200/user/unactivated?username=${username}`,null).subscribe()
    }
 }

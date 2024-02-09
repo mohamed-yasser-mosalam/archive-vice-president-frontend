@@ -6,11 +6,17 @@
 
     <div class="row">
 
-      <h2
-        style="font-size: 20px; padding: 10px 0; background-color: #fff; color: #333333; position: sticky; top: 0; width: 100%;font-weight: bold">
-        الخطابات الصادرة من مكتب العميد</h2>
 
-      <table class="table" style="direction: rtl">
+      <div class="d-flex"
+           style="font-size: 20px; padding: 10px 0;margin-left: 50%; background-color: #fff; color: #333333; position: sticky; top: 0; width: 50%;font-weight: bold">
+        <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
+        <div class="input-data ">
+          <h2 style="font-weight: bold;margin-left: 30px">الخطابات الصادرة من مكتب العميد</h2>
+        </div>
+      </div>
+
+
+      <table class="table" style="direction: rtl;height:100%">
         <thead style=" position: sticky; top: 40px; background-color: #fff;direction: rtl">
         <tr>
           <th scope="col">رقم الخطاب</th>
@@ -24,13 +30,11 @@
           <th scope="col"> رقم الرد</th>
           <th scope="col"> تاريخ الرد</th>
           <th scope="col">رقم الملف</th>
-
-          <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
-
-        <tr *ngFor="let item of showAllExport ">
+        <tr *ngFor="let item of showAllExport | search:searchText">
+          <!--       *ngIf="searchText===''||item.summary.toLocaleLowerCase().includes(searchText)"-->
           <td>{{ item.id }}</td>
           <td>{{ item.date }}</td>
           <td>{{ item.numberOfAttachments }}</td>
@@ -42,7 +46,7 @@
           <td>{{ item.responseNumber }}</td>
           <td>{{ item.responseDate }}</td>
           <td>{{ item.typeNumber }}/{{ item.num }}</td>
-            <td>
+          <td>
             <a routerLink="/export-pagination?id/{{item.id}}">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                    class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:#333333">
@@ -52,6 +56,7 @@
                       d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
               </svg>
             </a></td>
+
         </tr>
         </tbody>
       </table>

@@ -30,8 +30,10 @@ export class UsersComponent {
     })
   }
   activatedUser(username:string){
-    this.activateUserService.activateUser(username)
-     console.log(username)
-  }
+     this.activateUserService.activateUser(username)
+   }
+   unActivateUser(username:string){
+    this.activateUserService.unActivateUser(username)
+   }
 
 }

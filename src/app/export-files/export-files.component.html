@@ -34,7 +34,6 @@
         </thead>
         <tbody>
         <tr *ngFor="let item of showAllExport | search:searchText">
-          <!--       *ngIf="searchText===''||item.summary.toLocaleLowerCase().includes(searchText)"-->
           <td>{{ item.id }}</td>
           <td>{{ item.date }}</td>
           <td>{{ item.numberOfAttachments }}</td>

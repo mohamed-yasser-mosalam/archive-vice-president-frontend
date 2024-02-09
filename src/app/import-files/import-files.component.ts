@@ -11,16 +11,21 @@ import {ImportServiceService} from "../Services/ImportsServices/import-service.s
 })
 export class ImportFilesComponent implements OnInit{
   showAllImport: Showallimport[]=[]
+  searchText:string
 
   constructor(private service:ImportServiceService) {
   }
   ngOnInit(): void {
-    this.getAllImports()
+    this.getAllImports();
+
   }
   getAllImports() {
     return this.service.getAllImports().subscribe((getAllImport:any)=>{
       this.showAllImport=getAllImport;
     })
+  }
+  onsearchTextEntered(searchValue){
+    this.searchText=searchValue
   }
 
 }

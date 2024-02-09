@@ -1,0 +1,113 @@
+<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
+<div class="row" >
+  <ngb-carousel class="col-4" >
+    <ng-template ngbSlide *ngFor="let item of paths">
+      <div class="carousel-wrapper">
+        <img  src="{{item}}" style="height:87vh">
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  <form class="col-6" style="zoom: 70%;direction: ltr" [formGroup]="showExport">
+
+    <div class="wrapper">
+      <legend class="text-center"style="font-weight: bold"> الملفات الخاصة (3/0) </legend>
+
+      <div style="display: flex;  justify-content: space-between;">
+        <div class="input-container ">
+
+          <div class="input-data">
+            <input type="Date" required readonly id="date" formControlName="date">
+            <label for="date">تاريخ الصادر</label>
+          </div>
+          <div class="input-data" style="top:32px">
+            <input type="text" required readonly id="receiver" formControlName="receiver">
+            <label for="receiver">الجهة الصادر اليها الخطاب</label>
+          </div>
+        </div>
+        <div class="input-container">
+          <div class="d-flex">
+            <div class="input-data" style="width: 65%">
+              <input type="text" required readonly id="numberOfAttachments" formControlName="numberOfAttachments">
+              <label for="numberOfAttachments">عدد المرفقات</label>
+            </div>
+            <div class="input-data " style="width:30%; margin-left:auto;">
+              <input type="number" required readonly id="id" formControlName="id">
+              <label for="id">رقم الخطاب</label>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="input-data" style="width: 65%">
+              <input type="text" required readonly id="recipientName" formControlName="recipientName">
+              <label for="recipientName">المستلم</label>
+            </div>
+            <div class="input-data " style="width:30%; margin-left:auto;">
+              <input type="text" required readonly id="num" formControlName="num">
+              <label for="num">رقم الملف</label>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="input-data">
+        <input cols="40" rows="1" style="height:60px" readonly required id="summary" formControlName="summary">
+        <label for="summary">ملخص الخطاب</label>
+      </div>
+
+      <div class="mt-5" style="display: flex;  justify-content: space-between;">
+        <div style="display: flex;">
+          <div class="input-data" style="width:65%">
+            <input type="Date" required readonly id="urgentDate" formControlName="urgentDate">
+            <label for="urgentDate">تاريخ الاستعجال</label>
+          </div>
+          <div class="input-data" style="width:30%; margin-left:10px;">
+            <input type="number" required readonly id="urgentNum" formControlName="urgentNum">
+            <label for="urgentNum">رقم الاستعجال</label>
+          </div>
+        </div>
+        <div style="display: flex;">
+          <div class="input-data w-50">
+            <input type="Date" required readonly id="responseDate" formControlName="responseDate">
+            <label for="responseDate">تاريخ الرد</label>
+          </div>
+          <div class="input-data" style="width:35%; margin-left:auto;">
+            <input type="text" required readonly id="responseNumber" formControlName="responseNumber">
+            <label for="responseNumber">الرد</label>
+          </div>
+
+        </div>
+      </div>
+
+      <div  class="input-data"style="bottom: 0px; ">
+        <button type="submit" class="btn btn-success" style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
+                routerLink="/updateexport/{{page}}">
+          تعديل </button>
+        <button type="submit" class="btn btn-success" style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
+                routerLink="/addexportfile">
+          اضافه </button>
+
+        <button type="submit" class="btn btn-success" style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
+                routerLink="/add-urgent/{{page}}">
+          اضافه الاستعجال</button>
+        <button type="submit" class="btn" style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
+                routerLink="/add-export-response/{{page}}">
+          اضافه رد</button>
+
+        <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)" style="margin-top: 20px;margin-left:0">
+        <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px;margin-left: 25%">
+          <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"
+                          [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
+                          routerLink="/exports-pagination?id/{{page}}">
+          </ngb-pagination>
+
+        </div >
+      </div>
+    </div>
+  </form>
+  <div class="col-2 position-relative">
+    <app-sidebar></app-sidebar>
+  </div>
+</div>
+
+
+

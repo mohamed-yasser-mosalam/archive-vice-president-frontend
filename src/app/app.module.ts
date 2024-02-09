@@ -45,6 +45,10 @@ import { TodayExportsComponent } from './today-exports/today-exports.component';
 import { TodayImportsComponent } from './today-imports/today-imports.component';
 import { SearchComponent } from './search/search.component';
 import { SearchPipe } from './search.pipe';
+import { ArchiveImportComponent } from './archive-import/archive-import.component';
+import { ArchiveExportComponent } from './archive-export/archive-export.component';
+import { SpecialfileComponent } from './specialfile/specialfile.component';
+import { SpecialPaginationComponent } from './special-pagination/special-pagination.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +82,11 @@ import { SearchPipe } from './search.pipe';
     TodayExportsComponent,
     TodayImportsComponent,
     SearchComponent,
-    SearchPipe
+    SearchPipe,
+    ArchiveImportComponent,
+    ArchiveExportComponent,
+    SpecialfileComponent,
+    SpecialPaginationComponent
 
 
   ],

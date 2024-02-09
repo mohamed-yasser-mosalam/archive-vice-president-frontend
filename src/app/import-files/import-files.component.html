@@ -35,7 +35,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let item of showAllImport">
+          <tr *ngFor="let item of showAllImport | search:searchText">
             <td>{{item.id}}</td>
             <td>{{item.incomeDate}}</td>
             <td>{{item.numberOfAttachments}}</td>

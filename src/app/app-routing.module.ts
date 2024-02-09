@@ -26,6 +26,10 @@ import {CanActivate} from "./auth.guard";
 import {ChangePasswordComponent} from "./change-password/change-password.component";
 import {TodayExportsComponent} from "./today-exports/today-exports.component";
 import {TodayImportsComponent} from "./today-imports/today-imports.component";
+import {ArchiveExportComponent} from "./archive-export/archive-export.component";
+import {ArchiveImportComponent} from "./archive-import/archive-import.component";
+import {SpecialfileComponent} from "./specialfile/specialfile.component";
+import {SpecialPaginationComponent} from "./special-pagination/special-pagination.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent,canActivate:[CanActivate]},
@@ -53,9 +57,12 @@ const routes: Routes = [
   {path: 'update-login-information', component: UpdateLoginInformatioComponent,canActivate:[CanActivate]},
   {path: 'users', component: UsersComponent,canActivate:[CanActivate]},
   {path:'changepassword/:username',component:ChangePasswordComponent,canActivate:[CanActivate]},
-  {path:'any',component:AnyThingComponent},
-  {path:'exportfile/:summary',component:ExportFilesComponent}
-
+  {path:'any',component:AnyThingComponent,canActivate:[CanActivate]},
+  {path:'exportfile/:summary',component:ExportFilesComponent,canActivate:[CanActivate]},
+  {path:'archiveexport/:id',component:ArchiveExportComponent,canActivate:[CanActivate]},
+  {path:'archiveimport/:id',component:ArchiveImportComponent,canActivate:[CanActivate]},
+  {path:'specialfile',component:SpecialfileComponent,canActivate:[CanActivate]},
+  {path:'special-pagination?id/:id',component:SpecialPaginationComponent,canActivate:[CanActivate]},
 ];
 
 @NgModule({

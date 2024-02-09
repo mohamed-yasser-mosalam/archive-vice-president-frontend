@@ -1,7 +1,12 @@
 <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
 <div class="row">
-  <app-image-slider class="col-4"></app-image-slider>
-  <form class="col-6" style="zoom: 60%;" [formGroup]="showImport">
+  <ngb-carousel class="col-4" >
+    <ng-template ngbSlide *ngFor="let item of paths">
+      <div class="carousel-wrapper">
+        <img  src="{{item}}" style="height:87vh">
+      </div>
+    </ng-template>
+  </ngb-carousel>  <form class="col-6" style="zoom: 60%;" [formGroup]="showImport">
     <div class="wrapper">
       <legend class="text-center" style="font-weight: bold"> الخطابات الواردة (1/0)</legend>
 
@@ -56,6 +61,7 @@
             <input type="Date" required readonly id="recipientDate" formControlName="recipientDate">
             <label for="recipientDate">تاريخ الاستلام</label>
           </div>
+          <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)" style="margin-top: 20px;margin-left:0">
           <div class="input-data"style="margin-left: 80px;margin-top:30px;bottom: 0px ">
             <div class="col-md-3">
               <ngb-pagination

@@ -11,11 +11,12 @@ import {ImportServiceService} from "../Services/ImportsServices/import-service.s
   styleUrls: ['./import-pagination.component.css']
 })
 export class ImportPaginationComponent {
-
+  x:any
   page = this.routes.snapshot.params['id'];
   pageLength: any;
   showImports: any;
   size: number = 1;
+  paths: string[];
   showImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
     sender: new FormControl(''),
@@ -53,8 +54,7 @@ export class ImportPaginationComponent {
          num: new FormControl(result['num']),
       })
     })
-    console.log(this.showImport)
-  }
+   }
 
   constructor(private importService: ImportServiceService, private routes: ActivatedRoute, private router: Router,
               private http: HttpClient) {
@@ -63,6 +63,8 @@ export class ImportPaginationComponent {
   showImportFile() {
     this.importService.getImportById(this.page).subscribe((getImport: any) => {
       this.showImports = getImport;
+      this.paths = this.showImports.paths
+
     })
   }
 
@@ -73,7 +75,6 @@ export class ImportPaginationComponent {
   }
 
   change() {
-    console.log(this.pageLength)
     this.page;
     this.showImportFile();
     this.importService.getImportById(this.page).
@@ -96,4 +97,14 @@ export class ImportPaginationComponent {
       })
     })
   }
+  onImageSelected(event) {
+    const file = event.target.files[0]
+    const formDate: FormData = new FormData()
+    this.x = formDate.append("files", file)
+    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=imports`, formDate).subscribe(
+      (result) => {
+      })
+
+  }
+
 }

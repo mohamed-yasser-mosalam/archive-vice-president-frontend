@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 import {Showallexport} from "../Models/showAllExports/showallexport";
+import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-export-pagination',
@@ -21,8 +22,6 @@ export class ExportPaginationComponent implements OnInit {
   size: number = 1;
   paths: string[];
   numbers: any = [];
-  localImg:any = [];
-  showAttachments: Showallexport[] = [];
   showExport = new FormGroup({
     date: new FormControl(''),
     receiver: new FormControl(''),
@@ -38,11 +37,6 @@ export class ExportPaginationComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.localImg = [
-      {id:0,name:"img0",url:'assets/exports/1-Screenshot 2024-01-27 215958.png'},
-      {id:1,name:"img0",url:'assets/exports/1-Screenshot 2024-01-27 215958.png'},
-      {id:2,name:"img0",url:'assets/exports/1-Screenshot 2024-01-27 215958.png'},
-    ]
     this.getExportCount();
     this.showExportFile();
     this.serviceExport.getExportById(this.routes.snapshot.params['id']).subscribe((result) => {
@@ -112,4 +106,5 @@ export class ExportPaginationComponent implements OnInit {
       })
 
   }
-}
+
+ }

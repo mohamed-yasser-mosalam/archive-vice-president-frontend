@@ -1,10 +1,11 @@
 export class Showallimport {
   id: number;
-  incomeDate:Date;
+  incomeDate: Date;
   numberOfAttachments: number;
+  paths: string [];
   sender: string;
-  incomingLetterNumber:number;
-  incomingLetterDate:Date;
+  incomingLetterNumber: number;
+  incomingLetterDate: Date;
   summary: string;
   recipientName: string;
   recipientDate: Date;
@@ -14,30 +15,32 @@ export class Showallimport {
   archiveId: number;
   typeNumber: number;
   num: number;
-  expectResponseDate:Date;
-  receiver:string
+  expectResponseDate: Date;
+  receiver: string
 
-  constructor( id: number,
-  incomeDate:Date,
-  numberOfAttachments: number,
-  sender: string,
-  incomingLetterNumber:number,
-  incomingLetterDate:Date,
-  summary: string,
-  recipientName: string,
-  recipientDate: Date,
-  responseNumber: number,
-  responseDate: Date,
-  responseSide: string,
-  archiveId: number,
-  typeNumber: number,
-  num: number,
-  expectResponseDate:Date,
-  receiver:string
-) {
+  constructor(id: number,
+              incomeDate: Date,
+              numberOfAttachments: number,
+              paths: string [],
+              sender: string,
+              incomingLetterNumber: number,
+              incomingLetterDate: Date,
+              summary: string,
+              recipientName: string,
+              recipientDate: Date,
+              responseNumber: number,
+              responseDate: Date,
+              responseSide: string,
+              archiveId: number,
+              typeNumber: number,
+              num: number,
+              expectResponseDate: Date,
+              receiver: string
+  ) {
     this.id = id;
     this.incomeDate = incomeDate;
     this.numberOfAttachments = numberOfAttachments;
+    this.paths=paths;
     this.sender = sender;
     this.incomingLetterNumber = incomingLetterNumber;
     this.incomingLetterDate = incomingLetterDate
@@ -50,7 +53,7 @@ export class Showallimport {
     this.archiveId = archiveId;
     this.typeNumber = typeNumber;
     this.num = num;
-    this.expectResponseDate =expectResponseDate;
-    this.receiver=receiver
+    this.expectResponseDate = expectResponseDate;
+    this.receiver = receiver
   }
 }

@@ -30,7 +30,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {ImportPaginationComponent } from './import-pagination/import-pagination.component';
 import {ExportPaginationComponent} from "./export-pagination/export-pagination.component";
-import { NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbCarouselModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 import {NgxPaginationModule} from 'ngx-pagination';
 import {HttpInterceterBaseAuthService} from "./Services/Security/http-interceter-base-auth.service";
 import { UrgentExportComponent } from './urgent-export/urgent-export.component';
@@ -96,7 +96,8 @@ import { SearchPipe } from './search.pipe';
     MatIconModule,
     MatListModule,
     NgbPaginationModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgbCarouselModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:HttpInterceterBaseAuthService,multi:true}

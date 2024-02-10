@@ -3,6 +3,7 @@ import {ExportServiceService} from "../Services/ExportsServices/export-service.s
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-update-export',
@@ -47,14 +48,24 @@ export class UpdateExportComponent implements OnInit {
   }
 
   constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
+              private http:HttpClient
               ) {
   }
 
   update() {
     this.serviceExport.updateExport(this.routes.snapshot.params['id'],this.editExport.value).subscribe((result) => {
-      this.router.navigate([`/export-pagination?id/`,this.x])
+      this.router.navigate([`/export-pagination?id/`,this.routes.snapshot.params['id']])
     })
 
   }
+  onImageSelected(event) {
+    const file = event.target.files[0]
+    const formDate: FormData = new FormData()
+    this.x = formDate.append("files", file)
+    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.routes.snapshot.params['id']}&pathType=exports`, formDate).subscribe(
+      (result) => {
+      })
+   }
 }
+
 

@@ -1,7 +1,7 @@
 <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
 <div class="row">
 
-  <app-image-slider class="col-4"></app-image-slider>
+  <div class="col-4"></div>
      <form class="col-6" style="zoom: 60% " [formGroup]="editImport" (ngSubmit)="update()">
 
     <div class="wrapper">
@@ -79,6 +79,11 @@
           <div class="input-data" style="bottom: 55px;">
             <input type="text"    id="num" formControlName="num">
             <label for="num">رقم الملف</label>
+          </div>
+          <div class="input-data">
+            <input  id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)"  >
+            <div class="underLine"></div>
+            <label for="AddingAttachment"style="padding-bottom:20px" >اختيار مرفق</label>
           </div>
         </div>
       </div>

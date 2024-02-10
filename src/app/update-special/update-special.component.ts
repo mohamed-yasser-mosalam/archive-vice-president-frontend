@@ -56,16 +56,20 @@ export class UpdateSpecialComponent implements OnInit{
   showSpecialFile() {
     this.specialService.getSpecialFileById(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
-      console.log(this.showSpecials)
-    })
+     })
   }
   update() {
     this.specialService.updateSpecial(this.editSpecial.value).subscribe((result) => {
-      this.router.navigate([`/special-pagination?id/`,this.x]);
-      console.log('of')
-    })
+      this.router.navigate([`/special-pagination?id/`,this.routes.snapshot.params['id']]);
+     })
 
   }
-
+  onImageSelected(event) {
+    const file = event.target.files[0]
+    const formDate: FormData = new FormData()
+    this.x = formDate.append("files", file)
+    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.routes.snapshot.params['id']}&pathType=exports`, formDate).subscribe(
+      (result) => {
+      })
+  }
 }
-

@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ImportServiceService} from "../Services/ImportsServices/import-service.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-update-import',
@@ -53,14 +54,25 @@ export class UpdateImportComponent implements OnInit{
     })
   }
 
-  constructor(private serviceImport: ImportServiceService, private routes: ActivatedRoute, private router: Router) {
+  constructor(private serviceImport: ImportServiceService, private routes: ActivatedRoute, private router: Router,
+              private http:HttpClient) {
   }
 
   update() {
      this.serviceImport.updateImport(this.routes.snapshot.params['id'], this.editImport.value).subscribe((result) => {
-           this.router.navigate([`/import-pagination?id/`,this.x])
+           this.router.navigate([`/import-pagination?id/`,this.routes.snapshot.params['id']])
 
     })
+  }
+
+  onImageSelected(event) {
+    const file = event.target.files[0]
+    const formDate: FormData = new FormData()
+    this.x = formDate.append("files", file)
+    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.routes.snapshot.params['id']}&pathType=imports`, formDate).subscribe(
+      (result) => {
+      })
+
   }
 
 }

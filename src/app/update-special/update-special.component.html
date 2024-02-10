@@ -46,13 +46,14 @@
         <label for="summary">ملخص الخطاب</label>
       </div>
 
-      <div class="mt-5" style="display: flex;  justify-content: space-between;">
-        <div style="display: flex;">
-          <div class="input-data" style="width:65%">
-
+         <div style="display: flex;">
+          <div class="input-data">
+            <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)"  >
+            <div class="underLine"></div>
+            <label for="AddingAttachment">اختيار مرفق</label>
           </div>
         </div>
-      </div>
+
 
       <div  class="input-data"style="bottom: 0px; ">
         <button type="submit"  class="btn w-25"  style="padding:10px;background: #333333;color: white;margin-left:35%;margin-top: 20px">    حفظ  </button>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {ImportServiceService} from "../Services/ImportsServices/import-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {SpecialService} from "../Services/SpecialService/special.service";
 
 @Component({
   selector: 'app-add-special',
@@ -14,19 +15,16 @@ export class AddSpecialComponent {
   y: any
   id: string;
   page = this.routes.snapshot.params['id'];
-  constructor(private serviceImport: ImportServiceService,private router:Router,
+  constructor(private specialService: SpecialService,private router:Router,
               private http: HttpClient, private routes: ActivatedRoute) {
-    this.serviceImport.getAllImports().subscribe((data) => {
-      this.Imports = data;
-    });
+
   }
 
   addImportFile(data: any) {
-
-    this.serviceImport.addImportFile(data).subscribe(
-      response => this.router.navigateByUrl('/home')
+    this.specialService.addSpecialFile(data).subscribe(
+      response => this.router.navigateByUrl('/getallexports')
     )
-  }
+   }
 
   onImageSelected(event) {
     const file = event.target.files[0]

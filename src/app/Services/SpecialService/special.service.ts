@@ -14,11 +14,11 @@ export class SpecialService {
   getSpecialFileById(id:number){
     return this.http.get(`http://localhost:1200/special/special?id=${id}`)
   }
-  getExportById(id: number){
-    return this.http.get(`http://localhost:1200/export/export-id?id=${id}`)
-  }
-  updateSpecial(data:any){
+  updateSpecial(id:number,data:any){
     return this.http.put(`http://localhost:1200/special/special`,data)
+  }
+  addSpecialFile(data:any){
+    return  this.http.post(`http://localhost:1200/special/special`,data)
   }
 
 }

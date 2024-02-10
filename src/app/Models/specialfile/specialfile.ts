@@ -1,6 +1,6 @@
 export class Specialfile {
   id: number;
-  name: string;
+  importNum: number;
   summary: string;
   numberOfAttachments: number;
   paths: string[];
@@ -14,7 +14,7 @@ export class Specialfile {
 
   constructor(
     id: number,
-    name: string,
+    importNum: number,
     summary: string,
     numberOfAttachments: number,
     paths: string[],
@@ -26,7 +26,7 @@ export class Specialfile {
     num: number
   ) {
     this.id = id;
-    this.name = name;
+    this.importNum = importNum;
     this.summary = summary;
     this.numberOfAttachments = numberOfAttachments;
     this.paths=paths;

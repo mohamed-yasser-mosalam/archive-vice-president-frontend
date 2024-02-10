@@ -21,8 +21,7 @@ export class AddExportComponent{
     this.serviceExport.addExportFile(data).subscribe(
       response => this.router.navigateByUrl('/getallexports')
     )
-    console.log(data)
-  }
+   }
   form=this.formbuilder.group({
     items:this.formbuilder.array([]),
   })

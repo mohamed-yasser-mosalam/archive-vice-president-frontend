@@ -42,6 +42,15 @@
           </div>
 
         </div>
+        <div [formGroup]="form">
+          <button (click)="addItem()">Add</button>
+          <div formArrayName="items">
+            <div *ngFor="let item of items.controls;let i=index" [formGroupName]="i">
+              <input placeholder="name" formControlName="name" type="text">
+              <button (click)="deleteItems(i)">Delete</button>
+            </div>
+          </div>
+        </div>
 
       </div>
       </div>

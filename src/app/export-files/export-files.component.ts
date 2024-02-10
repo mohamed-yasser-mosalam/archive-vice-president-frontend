@@ -9,7 +9,6 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ExportFilesComponent implements OnInit{
   showAllExport: Showallexport[]
-    page: number=1;
     x:any;
     searchText:string
 

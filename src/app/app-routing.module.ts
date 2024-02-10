@@ -30,6 +30,8 @@ import {ArchiveExportComponent} from "./archive-export/archive-export.component"
 import {ArchiveImportComponent} from "./archive-import/archive-import.component";
 import {SpecialfileComponent} from "./specialfile/specialfile.component";
 import {SpecialPaginationComponent} from "./special-pagination/special-pagination.component";
+import {UpdateSpecialComponent} from "./update-special/update-special.component";
+import {AddSpecialComponent} from "./add-special/add-special.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent,canActivate:[CanActivate]},
@@ -63,7 +65,9 @@ const routes: Routes = [
   {path:'archiveimport/:id',component:ArchiveImportComponent,canActivate:[CanActivate]},
   {path:'specialfile',component:SpecialfileComponent,canActivate:[CanActivate]},
   {path:'special-pagination?id/:id',component:SpecialPaginationComponent,canActivate:[CanActivate]},
-];
+  {path:'update-special/:id',component:UpdateSpecialComponent,canActivate:[CanActivate]},
+  {path:'addspecialfile',component:AddSpecialComponent,canActivate:[CanActivate]},
+ ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

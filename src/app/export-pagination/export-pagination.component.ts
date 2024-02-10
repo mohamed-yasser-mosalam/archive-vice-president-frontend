@@ -59,15 +59,15 @@ export class ExportPaginationComponent implements OnInit {
 
   constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
               private http: HttpClient,
-              private auth: AuthenticationServiceService,
+
   ) {
   }
 
   showExportFile() {
     this.serviceExport.getExportById(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
-      this.paths = this.showExports.paths
-    })
+      this.paths = this.showExports.paths;
+     })
   }
 
   getExportCount() {

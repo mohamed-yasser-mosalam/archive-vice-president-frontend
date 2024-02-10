@@ -47,7 +47,7 @@ export class UpdateExportComponent implements OnInit {
   }
 
   constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
-              private aut:AuthenticationServiceService) {
+              ) {
   }
 
   update() {

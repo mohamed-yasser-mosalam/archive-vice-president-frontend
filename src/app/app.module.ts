@@ -49,6 +49,8 @@ import { ArchiveImportComponent } from './archive-import/archive-import.componen
 import { ArchiveExportComponent } from './archive-export/archive-export.component';
 import { SpecialfileComponent } from './specialfile/specialfile.component';
 import { SpecialPaginationComponent } from './special-pagination/special-pagination.component';
+import { UpdateSpecialComponent } from './update-special/update-special.component';
+import { AddSpecialComponent } from './add-special/add-special.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +88,9 @@ import { SpecialPaginationComponent } from './special-pagination/special-paginat
     ArchiveImportComponent,
     ArchiveExportComponent,
     SpecialfileComponent,
-    SpecialPaginationComponent
+    SpecialPaginationComponent,
+    UpdateSpecialComponent,
+    AddSpecialComponent
 
 
   ],

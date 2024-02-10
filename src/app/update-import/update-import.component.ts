@@ -28,6 +28,8 @@ export class UpdateImportComponent implements OnInit{
     recipientName: new FormControl(''),
     typeNumber: new FormControl(''),
     num: new FormControl(''),
+    expectResponseDate:new FormControl('')
+
 
   })
 
@@ -50,6 +52,8 @@ export class UpdateImportComponent implements OnInit{
         recipientName: new FormControl(result['recipientName']),
         typeNumber: new FormControl(result['typeNumber']),
         num: new FormControl(result['num']),
+        expectResponseDate:new FormControl(result['expectResponseDate'])
+
       })
     })
   }
@@ -65,14 +69,5 @@ export class UpdateImportComponent implements OnInit{
     })
   }
 
-  onImageSelected(event) {
-    const file = event.target.files[0]
-    const formDate: FormData = new FormData()
-    this.x = formDate.append("files", file)
-    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.routes.snapshot.params['id']}&pathType=imports`, formDate).subscribe(
-      (result) => {
-      })
-
-  }
 
 }

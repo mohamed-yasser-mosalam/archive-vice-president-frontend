@@ -6,7 +6,7 @@
         <img  src="{{item}}" style="height:87vh">
       </div>
     </ng-template>
-  </ngb-carousel>  <form class="col-6" style="zoom: 60%;" [formGroup]="showImport">
+  </ngb-carousel>  <form class="col-6" style="zoom: 55%;" [formGroup]="showImport">
     <div class="wrapper">
       <legend class="text-center" style="font-weight: bold"> الخطابات الواردة (1/0)</legend>
 
@@ -61,8 +61,12 @@
             <input type="Date" required readonly id="recipientDate" formControlName="recipientDate">
             <label for="recipientDate">تاريخ الاستلام</label>
           </div>
-<!--          <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)" style="margin-top: 20px;margin-left:0;font-size:30px">-->
-          <div class="input-data"style="margin-left: 80px;margin-top:30px;bottom: 0px ">
+
+          <div class="input-data" style="width:35%; margin-left:auto;">
+            <input type="date" required readonly id="expectResponseDate" formControlName="expectResponseDate">
+            <label for="expectResponseDate">التاريخ المتوقع للرد</label>
+          </div>
+          <div class="input-data"style="margin-left: 150px;margin-top:140px;bottom: 0px ">
             <div class="col-md-3">
               <ngb-pagination
                  [(page)]="page"
@@ -100,6 +104,7 @@
             <label for="num">رقم الملف</label>
           </div>
           <div class="input-data" style="bottom: 55px; ">
+            <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)" style="margin-top: 20px;margin-bottom:40px;font-size:30px">
             <button type="submit" class="btn btn-success w-25" style="padding:10px;margin-right: 10px;color: white;background: #333333"
                     routerLink="/updateimport/{{page}}">
               تعديل

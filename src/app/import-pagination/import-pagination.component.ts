@@ -31,6 +31,7 @@ export class ImportPaginationComponent {
     responseNumber: new FormControl(''),
     recipientName: new FormControl(''),
      num: new FormControl(''),
+    expectResponseDate:new FormControl('')
 
   })
 
@@ -52,6 +53,7 @@ export class ImportPaginationComponent {
         responseNumber: new FormControl(result['responseNumber']),
         recipientName: new FormControl(result['recipientName']),
          num: new FormControl(result['num']),
+        expectResponseDate:new FormControl(result['expectResponseDate'])
       })
     })
    }
@@ -92,7 +94,9 @@ export class ImportPaginationComponent {
         responseDate: new FormControl(result['responseDate']),
         responseNumber: new FormControl(result['responseNumber']),
         recipientName: new FormControl(result['recipientName']),
-         num: new FormControl(result['num']),
+        num: new FormControl(result['num']),
+        expectResponseDate: new FormControl(result['expectResponseDate']),
+
 
       })
     })

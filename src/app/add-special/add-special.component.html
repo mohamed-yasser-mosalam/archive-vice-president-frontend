@@ -14,11 +14,17 @@
             <label for="sender">الجهة الوارد منها الخطاب</label>
           </div>
 
+
           <div class="input-data">
-            <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)"  >
-            <div class="underLine"></div>
-            <label for="AddingAttachment">اختيار مرفق</label>
+            <button type="submit" id="attachment"  class="btn w-100"  style="padding:10px;background: #333333;color: white">    حفظ  </button>
           </div>
+
+
+          <!--          <div class="input-data">-->
+<!--            <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)"  >-->
+<!--            <div class="underLine"></div>-->
+<!--            <label for="AddingAttachment">اختيار مرفق</label>-->
+<!--          </div>-->
 
 
         </div>
@@ -40,9 +46,6 @@
             <input type="number" required id="num" name="num"ngModel>
             <div class="underLine"></div>
             <label for="num">رقم الملف</label>
-          </div>
-          <div class="input-data">
-          <button type="submit" id="attachment"  class="btn w-100"  style="padding:10px;background: #333333;color: white">    حفظ  </button>
           </div>
 
         </div>

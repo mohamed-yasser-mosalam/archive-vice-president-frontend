@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
 import { Router} from "@angular/router";
 import {FormArray, FormBuilder} from "@angular/forms";
@@ -9,7 +9,7 @@ import {FormArray, FormBuilder} from "@angular/forms";
   templateUrl: './add-export.component.html',
   styleUrls: ['./add-export.component.css']
 })
-export class AddExportComponent{
+export class AddExportComponent implements OnInit{
 
   constructor(private serviceExport: ExportServiceService,private router:Router,
               private formbuilder:FormBuilder
@@ -39,7 +39,9 @@ export class AddExportComponent{
     }))
   }
 
-
+  ngOnInit(): void {
+    this.addItem()
+  }
 
 
 }

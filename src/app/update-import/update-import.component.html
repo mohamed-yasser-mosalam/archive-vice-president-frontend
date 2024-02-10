@@ -56,6 +56,10 @@
             <input type="Date"   id="recipientDate" formControlName="recipientDate">
             <label for="recipientDate">تاريخ الاستلام</label>
           </div>
+          <div class="input-data" style="width:35%; margin-left:auto;">
+            <input type="date" required   id="expectResponseDate" formControlName="expectResponseDate">
+            <label for="expectResponseDate">التاريخ المتوقع للرد</label>
+          </div>
           <div class="input-data"style="bottom: 0px; ">
             <button type="submit"  class="btn  w-50"  style="padding:10px; bottom:60px;color: white;background: #333333;margin-left:25%">    حفظ  </button>
           </div>
@@ -80,11 +84,7 @@
             <input type="text"    id="num" formControlName="num">
             <label for="num">رقم الملف</label>
           </div>
-          <div class="input-data">
-            <input  id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)"  >
-            <div class="underLine"></div>
-            <label for="AddingAttachment"style="padding-bottom:20px" >اختيار مرفق</label>
-          </div>
+
         </div>
       </div>
     </div>

@@ -60,7 +60,7 @@ export class SpecialPaginationComponent implements OnInit {
 
 
   showSpecialFile() {
-    this.specialService.getSpecialFileById(this.routes.snapshot.params['id']).subscribe((getSpecial: any) => {
+    this.specialService.getSpecialFileById(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
       this.paths = this.showSpecials.paths;
       this.summary = this.showSpecials.summary;

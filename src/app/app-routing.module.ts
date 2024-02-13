@@ -32,6 +32,7 @@ import {SpecialfileComponent} from "./specialfile/specialfile.component";
 import {SpecialPaginationComponent} from "./special-pagination/special-pagination.component";
 import {UpdateSpecialComponent} from "./update-special/update-special.component";
 import {AddSpecialComponent} from "./add-special/add-special.component";
+import {ArchiveSpecialComponent} from "./archive-special/archive-special.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent,canActivate:[CanActivate]},
@@ -63,6 +64,7 @@ const routes: Routes = [
   {path:'exportfile/:summary',component:ExportFilesComponent,canActivate:[CanActivate]},
   {path:'archiveexport/:id',component:ArchiveExportComponent,canActivate:[CanActivate]},
   {path:'archiveimport/:id',component:ArchiveImportComponent,canActivate:[CanActivate]},
+  {path:'archivespecial/:id',component:ArchiveSpecialComponent,canActivate:[CanActivate]},
   {path:'specialfile',component:SpecialfileComponent,canActivate:[CanActivate]},
   {path:'special-pagination?id/:id',component:SpecialPaginationComponent,canActivate:[CanActivate]},
   {path:'update-special/:id',component:UpdateSpecialComponent,canActivate:[CanActivate]},

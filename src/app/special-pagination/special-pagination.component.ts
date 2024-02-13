@@ -70,15 +70,16 @@ export class SpecialPaginationComponent implements OnInit {
   }
 
   getSpecialCount() {
-    this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
-      this.pageLength = numberOfExportFiles;
+    this.http.get('http://localhost:1200/special/count').subscribe((numberOfSpecialFiles: any) => {
+      this.pageLength = numberOfSpecialFiles;
     })
   }
 
   change() {
     this.page;
     this.showSpecialFile();
-    this.specialService.getSpecialFileById(this.page).subscribe((result) => {
+    this.specialService.getSpecialFileById(this.page).
+    subscribe((result) => {
       this.showSpecial = new FormGroup({
         id: new FormControl(result['id']),
         name: new FormControl(result['name']),

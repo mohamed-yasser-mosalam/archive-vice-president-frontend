@@ -13,13 +13,15 @@ export class SpecialPaginationComponent implements OnInit {
   x: any;
   y: any
   id: string;
-  summary:string;
+  summary: string;
   page = this.routes.snapshot.params['id'];
   pageLength: any;
   showSpecials: any;
   size: number = 1;
   paths: string[];
-  numbers: any = [];
+  numbers: any[];
+  subjects: any[];
+  decisions: any[];
   showSpecial = new FormGroup({
     id: new FormControl(''),
     name: new FormControl(''),
@@ -58,10 +60,12 @@ export class SpecialPaginationComponent implements OnInit {
 
 
   showSpecialFile() {
-    this.specialService.getSpecialFileById(this.page).subscribe((getSpecial: any) => {
+    this.specialService.getSpecialFileById(this.routes.snapshot.params['id']).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
       this.paths = this.showSpecials.paths;
-      this.summary=this.showSpecials.summary
+      this.summary = this.showSpecials.summary;
+      this.subjects = this.showSpecials.subjects;
+      this.decisions=this.showSpecials.subjects.decisions;
      })
   }
 
@@ -94,12 +98,11 @@ export class SpecialPaginationComponent implements OnInit {
     const file = event.target.files[0]
     const formDate: FormData = new FormData()
     this.x = formDate.append("files", file)
-    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=specials`,formDate).subscribe(
+    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=specials`, formDate).subscribe(
       (result) => {
       })
 
   }
-
 
 
 }

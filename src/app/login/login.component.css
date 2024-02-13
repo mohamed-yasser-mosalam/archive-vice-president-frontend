@@ -26,14 +26,14 @@ form {
 
 .wrapper .input-data {
   height: 40px;
-  width: 50%;
+  width: 30%;
   position: relative;
   margin: 55px 0;
 }
 
 .wrapper .input-data input {
   height: 100%;
-  width: 50%;
+  width: 30% !important;
   font-size: 18px;
   direction: rtl!important;
   margin-top: 20px!important;

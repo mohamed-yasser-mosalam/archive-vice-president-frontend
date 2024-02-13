@@ -1,23 +1,26 @@
 <app-navbar></app-navbar>
-<div class="row" >
+<div class="row">
 
-  <div class="col-10 position-relative" style=" zoom: 75%; background-color: #fff; text-align: center; overflow: auto; height:785px; border-radius: 8px;">
+  <div class="col-10 position-relative"
+       style=" zoom: 75%; background-color: #fff; text-align: center; overflow: auto; height:785px; ">
     <div class="row">
 
-      <h2 style="font-size: 20px; padding: 10px 0; background-color: #fff; color: black; position: sticky; top: 0; width: 100%;font-weight: bold;margin-left:90px">ملفات الارشيف  </h2>
+      <h2
+        style="font-size: 20px; padding: 10px 0; background-color: #fff; color: black; position: sticky; top: 0; width: 100%;font-weight: bold;margin-left:90px">
+        ملفات الارشيف </h2>
       <table class="table" style="direction: rtl">
         <thead style=" position: sticky; top: 40px; background-color: #fff;">
         <tr>
-          <th scope="col">رقم القيد</th>
-          <th scope="col"> الاسم  </th>
-          <th scope="col">رقم الملف</th>
+          <th>رقم القيد</th>
+          <th> الاسم</th>
+          <th>رقم الملف</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let item of AllFiles">
-          <td>{{item.id}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.typeNumber}}/{{item.num}}</td>
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.typeNumber }}/{{ item.num }}</td>
           <td *ngIf="item.id<=21;else first">
             <a routerLink="/archiveimport/{{item.id}}">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
@@ -40,7 +43,7 @@
               </svg>
             </a>
           </ng-template>
-          <ng-template #second >
+          <ng-template #second>
             <a *ngIf="item.id >=43" routerLink="/specialfile">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                    class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:#333333">

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Specialfile} from "../Models/specialfile/specialfile";
 import {SpecialService} from "../Services/SpecialService/special.service";
 import {ActivatedRoute} from "@angular/router";
+import {Special} from "../Models/Special/special";
 
 @Component({
   selector: 'app-archive-special',
@@ -9,7 +9,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./archive-special.component.css']
 })
 export class ArchiveSpecialComponent implements OnInit{
-  specialFile: Specialfile[] = []
+  specialFile: Special[] = []
   searchText: string
 
   constructor(private specialService: SpecialService,private routes:ActivatedRoute) {

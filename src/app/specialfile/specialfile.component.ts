@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {Specialfile} from "../Models/specialfile/specialfile";
 import {SpecialService} from "../Services/SpecialService/special.service";
+import {Special} from "../Models/Special/special";
 
 @Component({
-  selector: 'app-specialfile',
+  selector: 'app-Special',
   templateUrl: './specialfile.component.html',
   styleUrls: ['./specialfile.component.css']
 })
 export class SpecialfileComponent implements OnInit {
-  specialFile: Specialfile[] = []
+  specialFile: Special[] = []
   searchText: string
 
   constructor(private specialService: SpecialService) {

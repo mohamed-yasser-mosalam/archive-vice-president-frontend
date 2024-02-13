@@ -63,14 +63,22 @@
             <table class="table m-0" style="max-height: 100px;direction: rtl">
               <thead style=" position: sticky; top: 0; background-color: #fff;">
               <tr>
-                <th scope="col" style="font-size: 20px">{{summary}} </th>
+                <th scope="col" style="font-size: 20px">{{ summary }}</th>
               </tr>
               </thead>
-              <tbody>
-               <tr >
-                <td>esraa</td>
-              </tr>
+              <tbody *ngFor="let item of subjects">
+              <tr *ngFor="let item of item.decisions">
+                <td>{{item.summary}}</td>
+               </tr>
               </tbody>
+<!--              ده بيعرض المواضيع-->
+<!--              <tbody>-->
+<!--              <tr *ngFor="let item of subjects">-->
+<!--                <td>{{item.head}}</td>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+
+
             </table>
           </div>
         </div>

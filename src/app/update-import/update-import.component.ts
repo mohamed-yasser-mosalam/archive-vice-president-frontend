@@ -11,6 +11,8 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./update-import.component.css']
 })
 export class UpdateImportComponent implements OnInit{
+  showImports: any;
+  paths:string;
   x=this.routes.snapshot.params['id']
   editImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
@@ -52,10 +54,11 @@ export class UpdateImportComponent implements OnInit{
         recipientName: new FormControl(result['recipientName']),
         typeNumber: new FormControl(result['typeNumber']),
         num: new FormControl(result['num']),
-        expectResponseDate:new FormControl(result['expectResponseDate'])
-
+        expectResponseDate:new FormControl(result['expectResponseDate']),
       })
     })
+    this.showImportFile()
+
   }
 
   constructor(private serviceImport: ImportServiceService, private routes: ActivatedRoute, private router: Router,
@@ -68,6 +71,10 @@ export class UpdateImportComponent implements OnInit{
 
     })
   }
-
-
+  showImportFile() {
+    this.serviceImport.getImportById(this.routes.snapshot.params['id']).subscribe((getImport: any) => {
+      this.showImports = getImport;
+      this.paths = this.showImports.paths
+    })
+  }
 }

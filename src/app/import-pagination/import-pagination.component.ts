@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -10,7 +10,7 @@ import {ImportServiceService} from "../Services/ImportsServices/import-service.s
   templateUrl: './import-pagination.component.html',
   styleUrls: ['./import-pagination.component.css']
 })
-export class ImportPaginationComponent {
+export class ImportPaginationComponent implements OnInit{
   x:any
   page = this.routes.snapshot.params['id'];
   pageLength: any;

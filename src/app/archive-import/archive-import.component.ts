@@ -1,24 +1,25 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Showallimport} from "../Models/showAllImports/showallimport";
 import {ImportServiceService} from "../Services/ImportsServices/import-service.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-archive-import',
   templateUrl: './archive-import.component.html',
   styleUrls: ['./archive-import.component.css']
 })
-export class ArchiveImportComponent {
+export class ArchiveImportComponent implements OnInit{
   showAllImport: Showallimport[]=[]
   searchText:string
 
-  constructor(private service:ImportServiceService) {
+  constructor(private importservice:ImportServiceService,private routes:ActivatedRoute) {
   }
   ngOnInit(): void {
     this.getAllImports();
 
   }
   getAllImports() {
-    return this.service.getAllImports().subscribe((getAllImport:any)=>{
+    return this.importservice.getImportsById(this.routes.snapshot.params['id']).subscribe((getAllImport:any)=>{
       this.showAllImport=getAllImport;
     })
   }

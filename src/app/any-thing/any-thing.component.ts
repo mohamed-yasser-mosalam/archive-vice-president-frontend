@@ -1,11 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RegisterService} from "../Services/Register/register.service";
-import {FormControl, FormGroup} from "@angular/forms";
-import {Showallexport} from "../Models/showAllExports/showallexport";
-import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
-import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
+import { v4 as uuidv4 } from "uuid";
 
 @Component({
   selector: 'app-any-thing',
@@ -13,98 +7,58 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./any-thing.component.css']
 })
 export class AnyThingComponent{
-  x: any;
-  y: any
-  id: string;
-  page = this.routes.snapshot.params['id'];
-  pageLength: any;
-  showExports: any;
-  size: number = 1;
-  paths:string[]
-  showAttachments: Showallexport[]=[];
-  showExport = new FormGroup({
-    date: new FormControl(''),
-    receiver: new FormControl(''),
-    numberOfAttachments: new FormControl(''),
-    id: new FormControl(''),
-    num: new FormControl(''),
-    recipientName: new FormControl(''),
-    summary: new FormControl(''),
-    urgentDate: new FormControl(''),
-    urgentNum: new FormControl(''),
-    responseDate: new FormControl(''),
-    responseNumber: new FormControl(''),
-  })
+  studentData: any = [
+    {
+      studentId: uuidv4(),
+      name: "",
+      class: "",
+      age: "",
+      subjects: [
+        {
+          subjectId: uuidv4(),
+          subject: "",
+          marks: "",
+        },
+      ],
+    },
+  ];
 
-  ngOnInit(): void {
-
-    this.getExportCount();
-    this.showExportFile();
-    this.serviceExport.getExportById(this.routes.snapshot.params['id']).subscribe((result) => {
-      this.showExport = new FormGroup({
-        date: new FormControl(result['date']),
-        receiver: new FormControl(result['receiver']),
-        numberOfAttachments: new FormControl(result['numberOfAttachments']),
-        id: new FormControl(result['id']),
-        num: new FormControl(result['num']),
-        recipientName: new FormControl(result['recipientName']),
-        summary: new FormControl(result['summary']),
-        urgentDate: new FormControl(result['urgentDate']),
-        urgentNum: new FormControl(result['urgentNum']),
-        responseDate: new FormControl(result['responseDate']),
-        responseNumber: new FormControl(result['responseNumber'])
-      })
-    })
-
+  submitForm(form: any) {
+    console.log(this.studentData);
   }
 
-  constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient,
-              private auth: AuthenticationServiceService,
-  ) {
+  track(item: any, index: number) {
+    return index;
   }
 
-  showExportFile() {
-    this.serviceExport.getExportById(this.page).subscribe((getExport: any) => {
-      this.showExports = getExport;
-      this.paths=this.showExports.paths
-    })
+  addNewStudent() {
+    this.studentData.push({
+      id: uuidv4(),
+      name: "",
+      class: "",
+      age: "",
+      subjects: [
+        {
+          subjectId: uuidv4(),
+          subject: "",
+          marks: "",
+        },
+      ],
+    });
   }
 
-  getExportCount() {
-    this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
-      this.pageLength = numberOfExportFiles;
-    })
+  removeStudent(studentIndex: number) {
+    this.studentData.splice(studentIndex, 1);
   }
 
-  change() {
-    this.page;
-    this.showExportFile();
-    this.serviceExport.getExportById(this.page).subscribe((result) => {
-      this.showExport = new FormGroup({
-        date: new FormControl(result['date']),
-        receiver: new FormControl(result['receiver']),
-        numberOfAttachments: new FormControl(result['numberOfAttachments']),
-        id: new FormControl(result['id']),
-        num: new FormControl(result['num']),
-        recipientName: new FormControl(result['recipientName']),
-        summary: new FormControl(result['summary']),
-        urgentDate: new FormControl(result['urgentDate']),
-        urgentNum: new FormControl(result['urgentNum']),
-        responseDate: new FormControl(result['responseDate']),
-        responseNumber: new FormControl(result['responseNumber'])
-      })
-    })
-
+  addNewSubject(i: number) {
+    this.studentData[i].subjects.push({
+      subject: "",
+      marks: "",
+    });
   }
 
-  onImageSelected(event) {
-    const file = event.target.files[0]
-    const formDate: FormData = new FormData()
-    this.x = formDate.append("files", file)
-    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=exports`, formDate).subscribe(
-      (result) => {
-      })
-
+  removeSubject(studentIndex: number, subjectIndex: number) {
+    this.studentData[studentIndex].subjects.splice(subjectIndex, 1);
   }
 }

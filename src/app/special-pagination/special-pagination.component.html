@@ -2,7 +2,7 @@
 <div class="row">
   <ngb-carousel class="col-4">
     <ng-template ngbSlide *ngFor="let item of paths">
-      <div class="carousel-wrapper">
+      <div class="carousel-wrapper" style="margin-top: 20px;margin-left: 20px">
         <img src="{{item}}" style="height:87vh">
       </div>
     </ng-template>
@@ -10,7 +10,7 @@
   <form class="col-6" style="zoom: 70%;direction: ltr" [formGroup]="showSpecial">
 
     <div class="wrapper">
-      <legend class="text-center" style="font-weight: bold"> الملفات الخاصة (3/0)</legend>
+      <legend class="text-center" style="font-weight: bold"> الملفات الخاصة (0/3)</legend>
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container ">
@@ -63,25 +63,11 @@
             <table class="table m-0" style="max-height: 100px;direction: rtl">
               <thead style=" position: sticky; top: 0; background-color: #fff;">
               <tr>
-                <th scope="col" style="font-size: 20px">موضوعات المجلس </th>
+                <th scope="col" style="font-size: 20px">{{summary}} </th>
               </tr>
               </thead>
               <tbody>
-              <tr >
-                <td>esraa</td>
-              </tr>
-              <tr >
-                <td>esraa</td>
-              </tr>
-              <tr >
-                <td>esraa</td>
-              </tr> <tr >
-                <td>esraa</td>
-              </tr> <tr >
-                <td>esraa</td>
-              </tr> <tr >
-                <td>esraa</td>
-              </tr> <tr >
+               <tr >
                 <td>esraa</td>
               </tr>
               </tbody>

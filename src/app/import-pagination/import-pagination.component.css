@@ -12,11 +12,11 @@ form {
 
 .wrapper {
   position: relative;
-  bottom: 0;
   width: 100%;
-  padding: 20px;
   display: flex;
+  padding-top: 20px;
   flex-direction: column;
+
 
 }
 

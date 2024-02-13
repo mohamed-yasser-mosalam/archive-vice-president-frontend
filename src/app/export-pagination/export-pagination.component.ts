@@ -104,7 +104,6 @@ export class ExportPaginationComponent implements OnInit {
     this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=exports`, formDate).subscribe(
       (result) => {
       })
-
   }
 
  }

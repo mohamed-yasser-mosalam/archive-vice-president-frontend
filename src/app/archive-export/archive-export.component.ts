@@ -11,15 +11,17 @@ import {ActivatedRoute} from "@angular/router";
 export class ArchiveExportComponent implements OnInit{
 
   showAllExport: Showallexport[]
-  page: number = 1;
-  x: any;
-  searchText: string
+   x: any;
+  searchText: string;
+  page = this.routes.snapshot.params['id'];
+
 
   onsearchTextEntered(searchValue) {
     this.searchText = searchValue
   }
 
-  constructor(private service: ExportServiceService, private activatedRoute: ActivatedRoute) {
+  constructor(private service: ExportServiceService, private activatedRoute: ActivatedRoute,
+              private routes: ActivatedRoute,) {
 
   }
 
@@ -29,7 +31,7 @@ export class ArchiveExportComponent implements OnInit{
   }
 
   getAllExports() {
-    return this.service.getAllExports().subscribe((getAllExport: any) => {
+    return this.service.getExportsById( this.routes.snapshot.params['id']).subscribe((getAllExport: any) => {
       this.showAllExport = getAllExport;
     })
   }

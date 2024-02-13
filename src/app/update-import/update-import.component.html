@@ -1,11 +1,15 @@
 <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
 <div class="row">
-
-  <div class="col-4"></div>
-     <form class="col-6" style="zoom: 60% " [formGroup]="editImport" (ngSubmit)="update()">
+  <ngb-carousel class="col-4">
+    <ng-template ngbSlide *ngFor="let item of paths">
+      <div class="carousel-wrapper" style="margin-top: 20px;margin-left: 20px">
+        <img src="{{item}}" style="height:87vh">
+      </div>
+    </ng-template>
+  </ngb-carousel>     <form class="col-6" style="zoom: 60% " [formGroup]="editImport" (ngSubmit)="update()">
 
     <div class="wrapper">
-      <legend class="text-center" style="font-weight: bold">{{x}} تعديل ملف وارد رقم</legend>
+      <legend class="text-center" style="font-weight: bold;font-size:25px">{{x}} تعديل ملف وارد رقم</legend>
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container ">
 
@@ -56,12 +60,12 @@
             <input type="Date"   id="recipientDate" formControlName="recipientDate">
             <label for="recipientDate">تاريخ الاستلام</label>
           </div>
-          <div class="input-data" style="width:35%; margin-left:auto;">
-            <input type="date" required   id="expectResponseDate" formControlName="expectResponseDate">
+          <div class="input-data"  >
+            <input type="Date" required   id="expectResponseDate" formControlName="expectResponseDate">
             <label for="expectResponseDate">التاريخ المتوقع للرد</label>
           </div>
           <div class="input-data"style="bottom: 0px; ">
-            <button type="submit"  class="btn  w-50"  style="padding:10px; bottom:60px;color: white;background: #333333;margin-left:25%">    حفظ  </button>
+            <button type="submit"  class="btn  w-50"  style="padding:10px; bottom:60px;color: white;background: #333333;margin-left:90%">    حفظ  </button>
           </div>
 
         </div>

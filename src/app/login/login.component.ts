@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit{
           Validators.required,
           Validators.pattern('^([a-zA-Z0-9]{5,})$')
         ]),
-        password:['',[Validators.minLength(7)]]
+          password:['',[Validators.minLength(7)]]
       })
     })
   }
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit{
         this.router.navigateByUrl("/home")
       },
       error:err => {
-        alert("Invaild login")
+        alert("خطأ في تسجيل الدخول")
       }
     })
 

@@ -10,6 +10,9 @@ export class ImportServiceService {
   getAllImports(){
     return this.http.get('http://localhost:1200/import/imports')
   }
+  getImportsById(id:number){
+    return this.http.get(`http://localhost:1200/import/import-archive?id=${id}`)
+  }
   addImportFile( Data:any){
     return this.http.post('http://localhost:1200/import/import',Data)
   }

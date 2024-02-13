@@ -1,14 +1,15 @@
 <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
 <div class="row">
-  <ngb-carousel class="col-4" >
+  <ngb-carousel class="col-4">
     <ng-template ngbSlide *ngFor="let item of paths">
-      <div class="carousel-wrapper">
-        <img  src="{{item}}" style="height:87vh">
+      <div class="carousel-wrapper" style="margin-top: 20px;margin-left: 20px">
+        <img src="{{item}}" style="height:87vh">
       </div>
     </ng-template>
-  </ngb-carousel>  <form class="col-6" style="zoom: 55%;" [formGroup]="showImport">
+  </ngb-carousel>
+  <form class="col-6" style="zoom:55%;" [formGroup]="showImport">
     <div class="wrapper">
-      <legend class="text-center" style="font-weight: bold"> الخطابات الواردة (1/0)</legend>
+      <legend class="text-center" style="font-weight: bolder;font-size: 30px"> الخطابات الواردة (0/1)</legend>
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container ">
@@ -66,21 +67,6 @@
             <input type="date" required readonly id="expectResponseDate" formControlName="expectResponseDate">
             <label for="expectResponseDate">التاريخ المتوقع للرد</label>
           </div>
-          <div class="input-data"style="margin-left: 150px;margin-top:140px;bottom: 0px ">
-            <div class="col-md-3">
-              <ngb-pagination
-                 [(page)]="page"
-                [pageSize]="size"
-                [collectionSize]="pageLength"
-                (pageChange)="change()"
-                [maxSize]="1"
-                [boundaryLinks]="true"
-                [ellipses]="false"
-                [rotate]="false"
-                routerLink="/imports-pagination?id/{{page}}">
-              </ngb-pagination>
-            </div>
-          </div>
 
 
         </div>
@@ -103,23 +89,37 @@
             <input type="text" required readonly id="num" formControlName="num">
             <label for="num">رقم الملف</label>
           </div>
-          <div class="input-data" style="bottom: 55px; ">
-            <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)" style="margin-top: 20px;margin-bottom:40px;font-size:30px">
-            <button type="submit" class="btn btn-success w-25" style="padding:10px;margin-right: 10px;color: white;background: #333333"
-                    routerLink="/updateimport/{{page}}">
-              تعديل
-            </button>
-            <button type="submit" class="btn btn-success w-25" style="padding:10px;margin-right: 10px;color: white;background: #333333"
-                    routerLink="/addimportfile">
-              اضافة
-            </button>
-            <button type="submit" class="btn  w-25" style="padding:10px;margin-right: 10px;color: white;background: #333333"
-                    routerLink="/add-import-response/{{page}}">
-              اضافه رد
-            </button>
-
+          <div class="input-data" style="bottom: 55px;">
+            <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)"
+                   style="margin-top: 20px;margin-bottom:40px;font-size:30px">
+            <label for="AddingAttachment" style="font-size: 25px;margin-top: 10px">اضافة مرفق</label>
           </div>
         </div>
+      </div>
+      <div class="input-data" style="bottom:150px;margin-left: 20% ">
+
+        <button type="submit" class="btn btn-success w-25"
+                style="padding:10px;margin-right: 10px;color: white;background: #333333"
+                routerLink="/updateimport/{{page}}">
+          تعديل
+        </button>
+        <button type="submit" class="btn btn-success w-25"
+                style="padding:10px;margin-right: 10px;color: white;background: #333333"
+                routerLink="/addimportfile">
+          اضافة
+        </button>
+        <button type="submit" class="btn  w-25" style="padding:10px;margin-right: 10px;color: white;background: #333333"
+                routerLink="/add-import-response/{{page}}">
+          اضافه رد
+        </button>
+
+        <div class="col-md-9 pag" style="padding-left: 10%;margin-top:60px;bottom:0px;margin-left: 25%">
+          <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"
+                          [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
+                          routerLink="/imports-pagination?id/{{page}}">
+          </ngb-pagination>
+        </div>
+
 
       </div>
     </div>

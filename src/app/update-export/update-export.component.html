@@ -1,7 +1,12 @@
 <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
 <div class="row">
-  <div class="col-4"></div>
-  <form class="col-6" style="zoom: 70%;direction: ltr"  [formGroup]="editExport" (ngSubmit)="update()" >
+  <ngb-carousel class="col-4">
+    <ng-template ngbSlide *ngFor="let item of paths">
+      <div class="carousel-wrapper" style="margin-top: 20px;margin-left: 20px">
+        <img src="{{item}}" style="height:87vh">
+      </div>
+    </ng-template>
+  </ngb-carousel>  <form class="col-6" style="zoom: 70%;direction: ltr"  [formGroup]="editExport" (ngSubmit)="update()" >
 
     <div class="wrapper">
             <legend class="text-center"style="font-weight: bold"> {{x}}  تعديل خطاب صادر رقم  </legend>
@@ -35,7 +40,7 @@
               <label for="recipientName">المستلم</label>
             </div>
             <div class="input-data " style="width:30%; margin-left:auto;">
-              <input type="text" required readonly id="num" formControlName="num">
+              <input type="text" required  id="num" formControlName="num">
               <label for="num">رقم الملف</label>
             </div>
           </div>

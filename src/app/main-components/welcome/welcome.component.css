@@ -61,15 +61,6 @@
   margin-bottom: 30px;
 }
 
-.state-book {
-  margin: 130px 130px 100px;
-  padding: 10px 25px;
-  border: 1px solid black;
-  border-radius: 10px;
-  color: #079d07;
-  background-color: #23f42326;
-  font-size: 20px;
-}
 
 ::-webkit-scrollbar {
   width: 10px;

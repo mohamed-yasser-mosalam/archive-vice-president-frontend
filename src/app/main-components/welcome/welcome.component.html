@@ -83,7 +83,7 @@
             style="font-size: 22px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
             <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/filehasgone">خطابات حان
               موعدها</a></h2>
-          <table class="table">
+          <table class="table" style="direction: rtl">
             <thead style=" position: sticky; top: 44px; background-color: #fff;">
             <tr>
               <th scope="col">رقم الخطاب</th>
@@ -128,7 +128,7 @@
             <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/todayexport">وارد اليوم</a>
           </h2>
 
-          <table class="table">
+          <table class="table" style="direction: rtl">
             <thead style=" position: sticky; top: 44px; background-color: #fff;">
             <tr>
               <th scope="col">رقم الخطاب</th>
@@ -177,7 +177,7 @@
             <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/todeyexports">صادر اليوم</a>
           </h2>
 
-          <table class="table">
+          <table class="table" style="direction: rtl">
             <thead style=" position: sticky; top: 44px; background-color: #fff;">
             <tr>
               <th scope="col">رقم الخطاب</th>
@@ -188,11 +188,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr  *ngFor="let item of showAllTodayExports">
-                          <td>{{ item.id }}</td>
-                          <td>{{ item.receiver }}</td>
-                          <td>{{ item.summary }}</td>
-                          <td>{{ item.recipientName }}</td>
+            <tr *ngFor="let item of showAllTodayExports">
+              <td>{{ item.id }}</td>
+              <td>{{ item.receiver }}</td>
+              <td>{{ item.summary }}</td>
+              <td>{{ item.recipientName }}</td>
             </tr>
             </tbody>
           </table>
@@ -202,47 +202,6 @@
 
     </div>
 
-    <!--    <div class="row mx-3">-->
-    <!--      <div class="col-md-8  m-3 position-relative "-->
-    <!--           style="background-color: #fff; text-align: center; overflow: auto; height:315px; border-radius: 8px;zoom:91%">-->
-    <!--        <h2-->
-    <!--          style="font-size: 22px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">-->
-
-    <!--          <a>-->
-    <!--            <button type="button" class="btn btn w-20"-->
-    <!--                    style="padding:5px;margin-right:700px;margin-top:10px;color:white;background: #333333;width:150px"-->
-    <!--                    routerLink="/addexportfile">-->
-    <!--              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg"-->
-    <!--                   viewBox="0 0 16 16">-->
-    <!--                <path fill-rule="evenodd"-->
-    <!--                      d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>-->
-    <!--              </svg>-->
-    <!--              اضافة-->
-    <!--            </button>-->
-    <!--          </a>-->
-
-    <!--          <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/todeyexports">صادر اليوم</a>-->
-    <!--        </h2>-->
-    <!--        <table class="table m-0" style="max-height: 200px;direction: rtl">-->
-    <!--          <thead style=" position: sticky; top: 44px; background-color: #fff;">-->
-    <!--          <tr>-->
-    <!--            <th scope="col">رقم الخطاب</th>-->
-    <!--            <th scope="col">الجهة الصادر منها الخطاب</th>-->
-    <!--            <th scope="col">ملخص الخطاب</th>-->
-    <!--            <th scope="col">المستلم</th>-->
-    <!--          </tr>-->
-    <!--          </thead>-->
-    <!--          <tbody>-->
-    <!--          <tr *ngFor="let item of showAllTodayExports">-->
-    <!--            <td>{{ item.id }}</td>-->
-    <!--            <td>{{ item.receiver }}</td>-->
-    <!--            <td>{{ item.summary }}</td>-->
-    <!--            <td>{{ item.recipientName }}</td>-->
-    <!--          </tr>-->
-    <!--          </tbody>-->
-    <!--        </table>-->
-    <!--      </div>-->
-    <!--    </div>-->
   </div>
   <div class="col-2 position-relative">
     <app-sidebar></app-sidebar>

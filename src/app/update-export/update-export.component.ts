@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 import {HttpClient} from "@angular/common/http";
+import {NgConfirmService} from "ng-confirm-box";
 
 @Component({
   selector: 'app-update-export',
@@ -11,6 +12,8 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./update-export.component.css']
 })
 export class UpdateExportComponent implements OnInit {
+  showExports: any;
+  paths:any
   x = this.routes.snapshot.params['id']
   editExport = new FormGroup({
     date: new FormControl(''),
@@ -44,19 +47,26 @@ export class UpdateExportComponent implements OnInit {
         responseNumber: new FormControl(result['responseNumber'])
       })
     })
+    this.showExportFile()
   }
 
   constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient
-  ) {
+   ) {
   }
 
   update() {
-    this.serviceExport.updateExport(this.routes.snapshot.params['id'], this.editExport.value).subscribe((result) => {
-      this.router.navigate([`/export-pagination?id/`, this.routes.snapshot.params['id']])
+    if (confirm('هل بالتأكيد تريد التعديل'))
+    this.serviceExport.updateExport(this.routes.snapshot.params['id'], this.editExport.value)
+      .subscribe((result) => {
+       this.router.navigate([`/export-pagination?id/`, this.routes.snapshot.params['id']]),
+        alert("تم التعديل بنجاح")
     })
+  }
 
+  showExportFile() {
+    this.serviceExport.getExportById(this.routes.snapshot.params['id']).subscribe((getExport: any) => {
+      this.showExports = getExport;
+      this.paths = this.showExports.paths;
+    })
   }
 }
-
-

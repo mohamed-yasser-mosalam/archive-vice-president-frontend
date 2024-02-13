@@ -51,6 +51,8 @@ import { SpecialfileComponent } from './specialfile/specialfile.component';
 import { SpecialPaginationComponent } from './special-pagination/special-pagination.component';
 import { UpdateSpecialComponent } from './update-special/update-special.component';
 import { AddSpecialComponent } from './add-special/add-special.component';
+import { ArchiveSpecialComponent } from './archive-special/archive-special.component';
+import {NgConfirmModule, NgConfirmService} from "ng-confirm-box";
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +92,8 @@ import { AddSpecialComponent } from './add-special/add-special.component';
     SpecialfileComponent,
     SpecialPaginationComponent,
     UpdateSpecialComponent,
-    AddSpecialComponent
+    AddSpecialComponent,
+    ArchiveSpecialComponent
 
 
   ],
@@ -109,7 +112,8 @@ import { AddSpecialComponent } from './add-special/add-special.component';
     MatListModule,
     NgbPaginationModule,
     NgxPaginationModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    NgConfirmModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:HttpInterceterBaseAuthService,multi:true}

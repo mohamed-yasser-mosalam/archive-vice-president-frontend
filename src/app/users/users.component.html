@@ -18,8 +18,6 @@
           <th scope="col">الاسم الثاني</th>
           <th scope="col">اسم المستخدم</th>
           <th scope="col">صلاحيات</th>
-          <th scope="col">نفعيل </th>
-          <th scope="col">الغاء تفعيل</th>
           <th scope="col">النشاط</th>
         </tr>
         </thead>
@@ -30,16 +28,16 @@
           <td>{{ item.lastName }}</td>
           <td>{{ item.username }}</td>
           <td>{{ item.roles }}</td>
-          <td>
-            <form (ngSubmit)="activatedUser(item.username)">
-              <button type="submit" class="btn w-30"  style="padding:10px;background: #333333;color: white">  تفعيل </button>
-            </form>
-          </td>
-          <td>
-            <form (ngSubmit)="unActivateUser(item.username)">
-              <button type="submit" class="btn w-50"  style="padding:10px;background: #333333;color: white;"> الغاء تفعيل  </button>
-            </form>
-          </td>
+          <td *ngIf="item.isActive==1;else notactive">
+               <button  (click)="unActivateUser(item.username)" type="button" class="btn w-25" style="padding:10px;background: #333333;color: white;"> الغاء
+                تفعيل
+              </button>
+           </td>
+          <ng-template #notactive>
+               <button (click)="activatedUser(item.username)" type="button" class="btn w-25"  style="padding:8px;background: #333333;color: white;margin-top: 7px;margin-right:15px">  تفعيل </button>
+           </ng-template>
+
+
           <td *ngIf="item.isActive;else notActive">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill"
                  viewBox="0 0 16 16">

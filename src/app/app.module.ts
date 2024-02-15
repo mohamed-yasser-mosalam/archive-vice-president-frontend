@@ -53,6 +53,8 @@ import { UpdateSpecialComponent } from './update-special/update-special.componen
 import { AddSpecialComponent } from './add-special/add-special.component';
 import { ArchiveSpecialComponent } from './archive-special/archive-special.component';
 import {NgConfirmModule, NgConfirmService} from "ng-confirm-box";
+import { UserActivityComponent } from './user-activity/user-activity.component';
+import { ChangePasswordByAdminComponent } from './change-password-by-admin/change-password-by-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +95,9 @@ import {NgConfirmModule, NgConfirmService} from "ng-confirm-box";
     SpecialPaginationComponent,
     UpdateSpecialComponent,
     AddSpecialComponent,
-    ArchiveSpecialComponent
+    ArchiveSpecialComponent,
+    UserActivityComponent,
+    ChangePasswordByAdminComponent
 
 
   ],

@@ -33,6 +33,8 @@ import {SpecialPaginationComponent} from "./special-pagination/special-paginatio
 import {UpdateSpecialComponent} from "./update-special/update-special.component";
 import {AddSpecialComponent} from "./add-special/add-special.component";
 import {ArchiveSpecialComponent} from "./archive-special/archive-special.component";
+import {UserActivityComponent} from "./user-activity/user-activity.component";
+import {ChangePasswordByAdminComponent} from "./change-password-by-admin/change-password-by-admin.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent,canActivate:[CanActivate]},
@@ -69,7 +71,11 @@ const routes: Routes = [
   {path:'special-pagination?id/:id',component:SpecialPaginationComponent,canActivate:[CanActivate]},
   {path:'update-special/:id',component:UpdateSpecialComponent,canActivate:[CanActivate]},
   {path:'addspecialfile',component:AddSpecialComponent,canActivate:[CanActivate]},
- ];
+  {path:'useractivity',component:UserActivityComponent,canActivate:[CanActivate]},
+  {path:'changepasswordbyadmin/:id',component:ChangePasswordByAdminComponent,canActivate:[CanActivate]},
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

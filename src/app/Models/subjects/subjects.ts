@@ -3,12 +3,12 @@ import {Decision} from "../decisions/decision";
 export class Subjects {
   num:number;
   head:string;
-  decisions:Decision[]
+  decision:Decision[]
 
 
-  constructor(num: number, head: string, decisions: Decision[]) {
+  constructor(num: number, head: string, decision: Decision[]) {
     this.num = num;
     this.head = head;
-    this.decisions = decisions;
+    this.decision = decision;
   }
 }

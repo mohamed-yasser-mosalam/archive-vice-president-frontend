@@ -55,23 +55,30 @@
         </div>
       </div>
 
-      <div class="input-data" style="bottom:38px;margin-right: 10px">
+         <div  style="direction: rtl" *ngFor="let item of subjects">
+        <label style="font-weight: bold">{{item.head }} </label>
+           <div *ngFor="let i of item.decisions" >
+           <ol  style="margin-right: 10px">
+             <li> {{i.summary}}</li>
+            </ol>
+           </div>
+        </div>
 
-        <div class="row mx-3">
-          <div class=" m-3 position-relative "
-               style="background-color: #fff; text-align: center; overflow: auto; height:200px; border-radius: 8px;zoom:91%">
-            <table class="table m-0" style="max-height: 100px;direction: rtl">
-              <thead style=" position: sticky; top: 0; background-color: #fff;">
-              <tr>
-                <th scope="col" style="font-size: 20px">{{ summary }}</th>
-              </tr>
-              </thead>
-              <tbody *ngFor="let item of subjects">
-              <tr *ngFor="let item of item.decisions">
-                <td>{{item.summary}}</td>
-               </tr>
-              </tbody>
-<!--              ده بيعرض المواضيع-->
+        <!--        <div class="row mx-3">-->
+<!--          <div class=" m-3 position-relative "-->
+<!--               style="background-color: #fff; text-align: center; overflow: auto; height:200px; border-radius: 8px;zoom:91%">-->
+<!--            <table class="table m-0" style="max-height: 100px;direction: rtl">-->
+<!--              <thead style=" position: sticky; top: 0; background-color: #fff;">-->
+<!--              <tr>-->
+<!--                <th scope="col" style="font-size: 20px">{{ summary }}</th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--&lt;!&ndash;              <tbody *ngFor="let item of subjects">&ndash;&gt;-->
+<!--&lt;!&ndash;              <tr *ngFor="let item of item.decisions">&ndash;&gt;-->
+<!--&lt;!&ndash;                <td>{{item.summary}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;               </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;              </tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;              ده بيعرض المواضيع&ndash;&gt;-->
 <!--              <tbody>-->
 <!--              <tr *ngFor="let item of subjects">-->
 <!--                <td>{{item.head}}</td>-->
@@ -79,10 +86,9 @@
 <!--              </tbody>-->
 
 
-            </table>
-          </div>
-        </div>
-      </div>
+<!--            </table>-->
+<!--          </div>-->
+<!--        </div>-->
 
       <div class="input-data" style="margin-left: 20%;margin-top: 105px">
         <button type="submit" class="btn btn-success"

@@ -18,24 +18,36 @@
           <th scope="col">الاسم الثاني</th>
           <th scope="col">اسم المستخدم</th>
           <th scope="col">صلاحيات</th>
+          <th scope="col">تغيير الرقم السري</th>
           <th scope="col">النشاط</th>
         </tr>
         </thead>
         <tbody>
 
         <tr *ngFor="let item of showUsers ">
-          <td>{{ item.firstName }}</td>
+           <td>{{ item.firstName }}</td>
           <td>{{ item.lastName }}</td>
           <td>{{ item.username }}</td>
           <td>{{ item.roles }}</td>
+          <td>
+            <a routerLink="/changepasswordbyadmin/{{item.id}}">
+            <button  type="submit" class="btn w-50"
+                    style="padding:10px;background: #333333;color: white;"> تغيير الرقم السري
+            </button>
+            </a>
+          </td>
+
           <td *ngIf="item.isActive==1;else notactive">
-               <button  (click)="unActivateUser(item.username)" type="button" class="btn w-25" style="padding:10px;background: #333333;color: white;"> الغاء
-                تفعيل
-              </button>
-           </td>
+            <button (click)="unActivateUser(item.username)" type="button" class="btn w-50"
+                    style="padding:10px;background: #333333;color: white;"> الغاء
+              تفعيل
+            </button>
+          </td>
           <ng-template #notactive>
-               <button (click)="activatedUser(item.username)" type="button" class="btn w-25"  style="padding:8px;background: #333333;color: white;margin-top: 7px;margin-right:15px">  تفعيل </button>
-           </ng-template>
+            <button (click)="activatedUser(item.username)" type="button" class="btn w-50"
+                    style="padding:8px;background: #333333;color: white;margin-top: 7px;margin-right:15px"> تفعيل
+            </button>
+          </ng-template>
 
 
           <td *ngIf="item.isActive;else notActive">
@@ -46,8 +58,10 @@
             </svg>
           </td>
           <ng-template #notActive>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-slash-fill" viewBox="0 0 16 16">
-              <path d="M5.164 14H15c-1.5-1-2-5.902-2-7q0-.396-.06-.776zm6.288-10.617A5 5 0 0 0 8.995 2.1a1 1 0 1 0-1.99 0A5 5 0 0 0 3 7c0 .898-.335 4.342-1.278 6.113zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-bell-slash-fill" viewBox="0 0 16 16">
+              <path
+                d="M5.164 14H15c-1.5-1-2-5.902-2-7q0-.396-.06-.776zm6.288-10.617A5 5 0 0 0 8.995 2.1a1 1 0 1 0-1.99 0A5 5 0 0 0 3 7c0 .898-.335 4.342-1.278 6.113zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
             </svg>
           </ng-template>
         </tr>
@@ -59,23 +73,6 @@
     <app-sidebar></app-sidebar>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!--<app-navbar></app-navbar>-->

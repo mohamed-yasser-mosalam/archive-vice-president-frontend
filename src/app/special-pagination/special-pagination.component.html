@@ -56,11 +56,12 @@
       </div>
 
          <div  style="direction: rtl" *ngFor="let item of subjects">
-        <label style="font-weight: bold">{{item.head }} </label>
+
+        <label style="font-weight: bold"> ({{item.num}}/0){{item.head }} </label>
            <div *ngFor="let i of item.decisions" >
-           <ol  style="margin-right: 10px">
-             <li> {{i.summary}}</li>
-            </ol>
+           <ul  style="margin-right: 10px">
+             <li>({{i.num}}/{{item.num}}) {{i.summary}}</li>
+            </ul>
            </div>
         </div>
 

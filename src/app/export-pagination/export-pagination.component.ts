@@ -16,6 +16,7 @@ export class ExportPaginationComponent implements OnInit {
   x: any;
   y: any
   id: string;
+  idOfUser=this.auth.getuserId()
   page = this.routes.snapshot.params['id'];
   pageLength: any;
   showExports: any;
@@ -58,7 +59,7 @@ export class ExportPaginationComponent implements OnInit {
   }
 
   constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient,
+              private http: HttpClient,private auth:AuthenticationServiceService
 
   ) {
   }

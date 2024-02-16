@@ -98,7 +98,8 @@
       </div>
       <div class="input-data" style="bottom:150px;margin-left: 20% ">
 
-        <button type="submit" class="btn btn-success w-25"
+        <button *ngIf="idOfUser=='1'||idOfUser=='2'"
+          type="submit" class="btn btn-success w-25"
                 style="padding:10px;margin-right: 10px;color: white;background: #333333"
                 routerLink="/updateimport/{{page}}">
           تعديل
@@ -119,7 +120,6 @@
                           routerLink="/imports-pagination?id/{{page}}">
           </ngb-pagination>
         </div>
-
 
       </div>
     </div>

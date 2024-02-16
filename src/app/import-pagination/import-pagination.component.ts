@@ -4,6 +4,7 @@ import {ExportServiceService} from "../Services/ExportsServices/export-service.s
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {ImportServiceService} from "../Services/ImportsServices/import-service.service";
+import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 
 @Component({
   selector: 'app-import-pagination',
@@ -17,6 +18,7 @@ export class ImportPaginationComponent implements OnInit{
   showImports: any;
   size: number = 1;
   paths: string[];
+  idOfUser=this.auth.getuserId()
   showImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
     sender: new FormControl(''),
@@ -59,7 +61,7 @@ export class ImportPaginationComponent implements OnInit{
    }
 
   constructor(private importService: ImportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient) {
+              private http: HttpClient,private auth:AuthenticationServiceService) {
   }
 
   showImportFile() {

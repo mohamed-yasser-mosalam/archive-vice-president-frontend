@@ -26,7 +26,7 @@ export class ExportFilesComponent implements OnInit{
   getAllExports() {
     return this.service.getAllExports().subscribe((getAllExport:any)=>{
       this.showAllExport=getAllExport;
-    })
+     })
   }
 
 

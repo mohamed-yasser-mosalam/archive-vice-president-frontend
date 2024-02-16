@@ -10,10 +10,11 @@ import {Users} from "../Models/Users/users";
   styleUrls: ['./change-password-by-admin.component.css']
 })
 export class ChangePasswordByAdminComponent implements OnInit {
-  username: string;
-  errorMessage: string
-  InformationUserById: any
 
+  informationUserById:Users[]
+  id=+this.routes.snapshot.params['id']
+  username:string
+  changePasswordByAdmin:any
   constructor(private updateUserInformationService: UpdateUserInformationService,
               private router: Router, private routes: ActivatedRoute,
               private auth: AuthenticationServiceService,
@@ -21,24 +22,21 @@ export class ChangePasswordByAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getInformationUserById()
+    this.getUserName()
+   }
+
+
+  changePassword(data:any) {
+    this.updateUserInformationService.changePasswordByAdmin(this.username,data).subscribe((InformationUserById: any) => {
+      this.changePasswordByAdmin = InformationUserById;
+     })
   }
 
-
-  getInformationUserById() {
-    this.updateUserInformationService.getUserInformationById(this.routes.snapshot.paramMap['id']).subscribe((InformationUserById: any) => {
-      this.InformationUserById = InformationUserById;
-      console.log(this.InformationUserById.username)
+  getUserName(){
+    this.updateUserInformationService.getUserInformationById(this.routes.snapshot.params['id']).subscribe((InformationUserById: any) => {
+      this.informationUserById = InformationUserById;
     })
+        console.log(this.informationUserById)
   }
 
-  // changePassword(data: any) {
-  //   this.updateUserInformationService.changePasswordByAdmin(this.username, data).subscribe(
-  //     response => {
-  //       this.router.navigateByUrl("/users")
-  //     },
-  //   )
-  //
-  // }
-  changePassword(data){}
-}
+ }

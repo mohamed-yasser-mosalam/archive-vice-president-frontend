@@ -8,9 +8,10 @@
     </ng-template>
   </ngb-carousel>
   <form class="col-6" style="zoom: 70%;direction: ltr" [formGroup]="showSpecial">
+    <legend class="text-center" style="font-weight: bold;margin-top: 30px;margin-left:90px"> الملفات الخاصة (0/3)
+    </legend>
 
     <div class="wrapper">
-      <legend class="text-center" style="font-weight: bold"> الملفات الخاصة (0/3)</legend>
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container ">
@@ -53,65 +54,56 @@
           <input type="text" readonly required id="summary" formControlName="summary">
           <label for="summary">ملخص الخطاب</label>
         </div>
+
       </div>
 
-         <div  style="direction: rtl" *ngFor="let item of subjects">
+      <div class="row mx-5 ">
+        <div class="col-8 position-relative"
 
-        <label style="font-weight: bold"> ({{item.num}}/0){{item.head }} </label>
-           <div *ngFor="let i of item.decisions" >
-           <ul  style="margin-right: 10px">
-             <li>({{i.num}}/{{item.num}}) {{i.summary}}</li>
-            </ul>
-           </div>
+             style="background-color: #fff; height: 300px; overflow: auto; border-radius: 8px;
+              zoom:95%;width:600px;margin-left:350px;margin-top: 20px ">
+          <div
+            style="background-color: #fff; overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+            <table class="table table  table-borderless" style="direction: rtl;background-color:beige">
+              <thead style=" position: sticky; top: 44px; background-color: #fff;">
+              <tr>
+              </tr>
+              <tbody *ngFor="let item of subjects">
+              <td style="font-weight: bolder;font-size:25px;margin-right:100%;margin-top: 10px">({{ item.num }}
+                /0) {{ item.head }}
+              </td>
+              <tr *ngFor="let i of item.decisions">
+                <td style="font-size: 20px"> ({{ item.num }}/{{ i.num }}){{ i.summary }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <!--        <div class="row mx-3">-->
-<!--          <div class=" m-3 position-relative "-->
-<!--               style="background-color: #fff; text-align: center; overflow: auto; height:200px; border-radius: 8px;zoom:91%">-->
-<!--            <table class="table m-0" style="max-height: 100px;direction: rtl">-->
-<!--              <thead style=" position: sticky; top: 0; background-color: #fff;">-->
-<!--              <tr>-->
-<!--                <th scope="col" style="font-size: 20px">{{ summary }}</th>-->
-<!--              </tr>-->
-<!--              </thead>-->
-<!--&lt;!&ndash;              <tbody *ngFor="let item of subjects">&ndash;&gt;-->
-<!--&lt;!&ndash;              <tr *ngFor="let item of item.decisions">&ndash;&gt;-->
-<!--&lt;!&ndash;                <td>{{item.summary}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;               </tr>&ndash;&gt;-->
-<!--&lt;!&ndash;              </tbody>&ndash;&gt;-->
-<!--&lt;!&ndash;              ده بيعرض المواضيع&ndash;&gt;-->
-<!--              <tbody>-->
-<!--              <tr *ngFor="let item of subjects">-->
-<!--                <td>{{item.head}}</td>-->
-<!--              </tr>-->
-<!--              </tbody>-->
+        <div class="input-container" style="margin-left:30%">
+          <div class="input-data" style="margin-left:15%;margin-top: 10px">
+            <button type="submit" class="btn"
+                    style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
+                    routerLink="/addspecialfile">
+              اضافه
+            </button>
+            <button *ngIf="idOfUser=='1'||idOfUser=='2'"
+                    type="submit" class="btn "
+                    style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
+                    routerLink="/update-special/{{page}}">
+              تعديل
+            </button>
+          </div>
+            <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px; ">
+              <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"
+                              [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
+                              routerLink="/special-pagination?id/{{page}}">
+              </ngb-pagination>
+            </div>
 
-
-<!--            </table>-->
-<!--          </div>-->
-<!--        </div>-->
-
-      <div class="input-data" style="margin-left: 20%;margin-top: 105px">
-        <button type="submit" class="btn btn-success"
-                style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
-                routerLink="/addspecialfile">
-          اضافه
-        </button>
-        <button type="submit" class="btn btn-success"
-                style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
-                routerLink="/update-special/{{page}}">
-          تعديل
-        </button>
+        </div>
 
       </div>
-
-      <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px;margin-left: 25%">
-        <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"
-                        [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
-                        routerLink="/special-pagination?id/{{page}}">
-        </ngb-pagination>
-      </div>
-
     </div>
   </form>
   <div class="col-2 position-relative">

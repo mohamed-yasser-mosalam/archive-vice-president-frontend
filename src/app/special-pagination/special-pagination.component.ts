@@ -3,6 +3,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {SpecialService} from "../Services/SpecialService/special.service";
+import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 
 @Component({
   selector: 'app-special-pagination',
@@ -14,6 +15,7 @@ export class SpecialPaginationComponent implements OnInit {
   y: any
   id: string;
   summary: string;
+  idOfUser=this.auth.getuserId()
   page = this.routes.snapshot.params['id'];
   pageLength: any;
   showSpecials: any;
@@ -54,7 +56,7 @@ export class SpecialPaginationComponent implements OnInit {
   }
 
   constructor(private specialService: SpecialService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient
+              private http: HttpClient,private auth:AuthenticationServiceService
   ) {
   }
 

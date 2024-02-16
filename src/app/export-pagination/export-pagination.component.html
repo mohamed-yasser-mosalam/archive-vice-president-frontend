@@ -82,12 +82,14 @@
                style="margin-bottom: 20px;margin-right:10px">
         <label for="AddingAttachment" style="font-size: 20px">اضافة مرفق</label>
 
-        <button type="submit" class="btn btn-success"
+        <button *ngIf="idOfUser=='1'||idOfUser=='2'"
+          type="submit" class="btn btn-success"
                 style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
                 routerLink="/updateexport/{{page}}">
           تعديل
         </button>
-        <button type="submit" class="btn btn-success"
+        <button
+          type="submit" class="btn btn-success"
                 style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
                 routerLink="/addexportfile">
           اضافه

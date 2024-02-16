@@ -1,8 +1,7 @@
 
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {SpecialService} from "../Services/SpecialService/special.service";
-import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-any-thing',
@@ -55,6 +54,9 @@ export class AnyThingComponent implements OnInit{
   onSubmit(): void {
     // Handle form submission
     console.log(this.meetingForm.value);
+  }
+  getControls() {
+    return (this.meetingForm.get('controlName') as FormArray).controls;
   }
 }
 

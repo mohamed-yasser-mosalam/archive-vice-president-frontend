@@ -41,112 +41,110 @@
 <!--</div>-->
 
 
-
 <!--&lt;!&ndash;<form class="col-8" style="zoom: 80%;margin-top:200px;margin-right:243px;margin-left: 41px;height: 500px"&ndash;&gt;-->
 <!--&lt;!&ndash;      [formGroup]="SpecialForm" (ngSubmit)="addSpecialFile(SpecialForm.value)" class="mt-5 w-50">&ndash;&gt;-->
-<!--&lt;!&ndash;  <div class="wrapper">&ndash;&gt;-->
-<!--&lt;!&ndash;    <legend class="text-center">ادخال ملف خاص</legend>&ndash;&gt;-->
-<!--&lt;!&ndash;    <div style="display: flex;  justify-content: space-between;">&ndash;&gt;-->
+<!--  <div class="wrapper">-->
+<!--    <legend class="text-center">ادخال ملف خاص</legend>-->
+<!--    <div style="display: flex;  justify-content: space-between;">-->
 
-<!--&lt;!&ndash;      <div class="input-container">&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="input-data">&ndash;&gt;-->
-<!--&lt;!&ndash;          <input type="Date" required id="incomeDate" name="incomeDate" formControlName="incomeDate">&ndash;&gt;-->
-<!--&lt;!&ndash;          <div class="underLine"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;          <label for="incomeDate">تاريخ الورود</label>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      <div class="input-container">-->
+<!--        <div class="input-data">-->
+<!--          <input type="Date" required id="incomeDate" name="incomeDate" formControlName="incomeDate">-->
+<!--          <div class="underLine"></div>-->
+<!--          <label for="incomeDate">تاريخ الورود</label>-->
+<!--        </div>-->
 
-<!--&lt;!&ndash;        <div class="input-data">&ndash;&gt;-->
-<!--&lt;!&ndash;          <input type="text" required id="sender" name="sender"formControlName="sender">&ndash;&gt;-->
-<!--&lt;!&ndash;          <div class="underLine"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;          <label for="sender">الجهة الوارد منها الخطاب</label>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--        <div class="input-data">-->
+<!--          <input type="text" required id="sender" name="sender"formControlName="sender">-->
+<!--          <div class="underLine"></div>-->
+<!--          <label for="sender">الجهة الوارد منها الخطاب</label>-->
+<!--        </div>-->
+<!--      </div>-->
 
-<!--&lt;!&ndash;      <div class="input-container">&ndash;&gt;-->
+<!--      <div class="input-container">-->
 
-<!--&lt;!&ndash;        <div class="input-data">&ndash;&gt;-->
-<!--&lt;!&ndash;          <input type="number" required id="num" name="num" formControlName="num">&ndash;&gt;-->
-<!--&lt;!&ndash;          <div class="underLine"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;          <label for="num">رقم الملف</label>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;        <div class="input-data">&ndash;&gt;-->
-<!--&lt;!&ndash;          <input type="text" required id="summary" name="summary" formControlName="summary">&ndash;&gt;-->
-<!--&lt;!&ndash;          <div class="underLine"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;          <label for="summary">ملخص الخطاب</label>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;    </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;    <div  class="border" formArrayName="subjects" style="overflow: scroll;margin-top: 20px;color: #333333 ">&ndash;&gt;-->
-
-<!--&lt;!&ndash;      <div *ngFor="let student of subjectListArray().controls; let i = index">&ndash;&gt;-->
-<!--&lt;!&ndash;        <div [formGroupName]="i" class=" border border-dark my-2 " style="overflow: scroll">&ndash;&gt;-->
-<!--&lt;!&ndash;          <div style="display: flex; justify-content: space-between;">&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="input-container" style="display:inline-flex; ">&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="input-data">&ndash;&gt;-->
-<!--&lt;!&ndash;                <input id="subjectId" type="number"   formControlName="num"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="underLine"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <label for="subjectId">رقم الموضوع</label>&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="input-data">&ndash;&gt;-->
-<!--&lt;!&ndash;                <input id="subject" type="text"   formControlName="head"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="underLine"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <label for="subject">الموضوع</label>&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;          <button type="button" *ngIf="subjectListArray().length > 1" (click)="removeSubject(i)"&ndash;&gt;-->
-<!--&lt;!&ndash;                  class="btn btn-sm btn-danger ms-1" style="&ndash;&gt;-->
-<!--&lt;!&ndash;       height: 30px;width:170px;margin-top: 10px;margin-left: 10px">ازالة الموضوع&ndash;&gt;-->
-<!--&lt;!&ndash;          </button>&ndash;&gt;-->
-
-<!--&lt;!&ndash;          <div [formGroup]="subjectsFormGroup(i)">&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <div formArrayName="decisions">&ndash;&gt;-->
-
-<!--&lt;!&ndash;              <div *ngFor="let studentSub of subjectsArray(i).controls; let j = index;">&ndash;&gt;-->
-
-<!--&lt;!&ndash;                <div [formGroupName]="j">&ndash;&gt;-->
-<!--&lt;!&ndash;                  <div style="display: flex; justify-content: space-between;">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="input-container" style="display:inline-flex; ">&ndash;&gt;-->
-<!--&lt;!&ndash;                      <div class="input-data">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <input id="decisionId" type="number"  formControlName="num"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <div class="underLine"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <label for="decisionId">رقم القرار</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                      <div class="input-data">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <input id="decision" type="text"   formControlName="summary"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <div class="underLine"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <label for="decision">االقرار</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                  <button type="button" *ngIf="subjectsArray(i).length > 1" (click)="removeNewDecision(i, j)"&ndash;&gt;-->
-<!--&lt;!&ndash;                          class="btn btn-sm btn-danger ms-1" style="&ndash;&gt;-->
-<!--&lt;!&ndash;       height: 25px;width:170px;margin-top: 10px;margin-left: 15px">ازالة القرار&ndash;&gt;-->
-<!--&lt;!&ndash;                  </button>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--        <div class="input-data">-->
+<!--          <input type="number" required id="num" name="num" formControlName="num">-->
+<!--          <div class="underLine"></div>-->
+<!--          <label for="num">رقم الملف</label>-->
+<!--        </div>-->
 
 
+<!--        <div class="input-data">-->
+<!--          <input type="text" required id="summary" name="summary" formControlName="summary">-->
+<!--          <div class="underLine"></div>-->
+<!--          <label for="summary">ملخص الخطاب</label>-->
+<!--        </div>-->
 
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;          <button type="button" (click)="addNewDecision(i)" class="btn btn-sm mt-2" style="color: white;background: #333333;&ndash;&gt;-->
-<!--&lt;!&ndash;       height: 30px;width:170px;margin-top: 10px;margin-left: 10px">اضافة قرار جديد&ndash;&gt;-->
-<!--&lt;!&ndash;          </button>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
 
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    <div  class="border" formArrayName="subjects" style="overflow: scroll;margin-top: 20px;color: #333333 ">-->
 
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;  <button type="button" (click)="addSubject()" class="btn mt-4 mb-5" style="color: white;background: #333333;&ndash;&gt;-->
-<!--&lt;!&ndash;       height: 30px;width:170px">اضافة موضوع جديد&ndash;&gt;-->
-<!--&lt;!&ndash;  </button>&ndash;&gt;-->
-<!--&lt;!&ndash;  <button type="submit" class="btn btn-sm btn-success mt-4 ms-2 mb-5" style=" height: 30px;width:100px">تأكيد</button>&ndash;&gt;-->
-<!--&lt;!&ndash;</form>&ndash;&gt;-->
+<!--      <div *ngFor="let student of subjectListArray().controls; let i = index">-->
+<!--        <div [formGroupName]="i" class=" border border-dark my-2 " style="overflow: scroll">-->
+<!--          <div style="display: flex; justify-content: space-between;">-->
+<!--            <div class="input-container" style="display:inline-flex; ">-->
+<!--              <div class="input-data">-->
+<!--                <input id="subjectId" type="number"   formControlName="num"/>-->
+<!--                <div class="underLine"></div>-->
+<!--                <label for="subjectId">رقم الموضوع</label>-->
+<!--              </div>-->
+<!--              <div class="input-data">-->
+<!--                <input id="subject" type="text"   formControlName="head"/>-->
+<!--                <div class="underLine"></div>-->
+<!--                <label for="subject">الموضوع</label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <button type="button" *ngIf="subjectListArray().length > 1" (click)="removeSubject(i)"-->
+<!--                  class="btn btn-sm btn-danger ms-1" style="-->
+<!--       height: 30px;width:170px;margin-top: 10px;margin-left: 10px">ازالة الموضوع-->
+<!--          </button>-->
+
+<!--          <div [formGroup]="subjectsFormGroup(i)">-->
+
+<!--            <div formArrayName="decisions">-->
+
+<!--              <div *ngFor="let studentSub of subjectsArray(i).controls; let j = index;">-->
+
+<!--                <div [formGroupName]="j">-->
+<!--                  <div style="display: flex; justify-content: space-between;">-->
+<!--                    <div class="input-container" style="display:inline-flex; ">-->
+<!--                      <div class="input-data">-->
+<!--                        <input id="decisionId" type="number"  formControlName="num"/>-->
+<!--                        <div class="underLine"></div>-->
+<!--                        <label for="decisionId">رقم القرار</label>-->
+<!--                      </div>-->
+<!--                      <div class="input-data">-->
+<!--                        <input id="decision" type="text"   formControlName="summary"/>-->
+<!--                        <div class="underLine"></div>-->
+<!--                        <label for="decision">االقرار</label>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <button type="button" *ngIf="subjectsArray(i).length > 1" (click)="removeNewDecision(i, j)"-->
+<!--                          class="btn btn-sm btn-danger ms-1" style="-->
+<!--       height: 25px;width:170px;margin-top: 10px;margin-left: 15px">ازالة القرار-->
+<!--                  </button>-->
+<!--                </div>-->
+
+<!--              </div>-->
+
+
+<!--            </div>-->
+<!--          </div>-->
+<!--          <button type="button" (click)="addNewDecision(i)" class="btn btn-sm mt-2" style="color: white;background: #333333;-->
+<!--       height: 30px;width:170px;margin-top: 10px;margin-left: 10px">اضافة قرار جديد-->
+<!--          </button>-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <button type="button" (click)="addSubject()" class="btn mt-4 mb-5" style="color: white;background: #333333;-->
+<!--       height: 30px;width:170px">اضافة موضوع جديد-->
+<!--  </button>-->
+<!--  <button type="submit" class="btn btn-sm btn-success mt-4 ms-2 mb-5" style=" height: 30px;width:100px">تأكيد</button>-->
+<!--</form>-->

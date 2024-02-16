@@ -36,7 +36,7 @@ export class ChangePasswordByAdminComponent implements OnInit {
     this.updateUserInformationService.getUserInformationById(this.routes.snapshot.params['id']).subscribe((InformationUserById: any) => {
       this.informationUserById = InformationUserById;
     })
-        console.log(this.informationUserById)
+        console.log(this.routes.snapshot.params['id'])
   }
 
  }

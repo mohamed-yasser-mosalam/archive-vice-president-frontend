@@ -3,17 +3,7 @@
 
   <div class="dashboard col-10" style="background-color: #f9f9f9; zoom: 80%">
     <div class="row">
-      <div class="col-md-2">
-        <div class="box">
-          <div class="data">
-            <p
-              style="font-size: 25px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/filehasgone">خطابات حان
-                موعدها</a></p>
-            <span> {{ NumberOfFileHasGone }}</span>
-          </div>
-        </div>
-      </div>
+
       <div class="col-md-2">
         <div class="box">
           <div class="data">
@@ -52,6 +42,17 @@
           <div class="data">
             <p
               style="font-size: 25px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
+              <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/filehasgone">خطابات حان
+                موعدها</a></p>
+            <span> {{ NumberOfFileHasGone }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="box">
+          <div class="data">
+            <p
+              style="font-size: 25px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
               <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/getallImports">عدد الخطابات
                 الواردة</a></p>
             <span> {{ NumberOfAllImports }}</span>
@@ -76,13 +77,9 @@
       <div class="col-5 m-1  m-3 position-relative"
 
            style="background-color: #fff; height: 300px; overflow: auto; border-radius: 8px; zoom:95%;width:600px ">
-        <div
-          style="background-color: #fff; overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+        <div style="background-color: #fff; overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+              <h2 style="font-size: 22px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;"><a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/filehasgone">خطابات حان موعدها</a></h2>
 
-          <h2
-            style="font-size: 22px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-            <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/filehasgone">خطابات حان
-              موعدها</a></h2>
           <table class="table" style="direction: rtl">
             <thead style=" position: sticky; top: 44px; background-color: #fff;">
             <tr>

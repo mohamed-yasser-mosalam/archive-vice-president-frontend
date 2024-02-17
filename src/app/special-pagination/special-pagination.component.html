@@ -80,31 +80,63 @@
           </div>
         </div>
 
-        <div class="input-container" style="margin-left:30%">
+
+        <div class="input-data" style="bottom: 0px; ">
           <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)"
                  style="margin-bottom: 20px;margin-right:10px">
           <label for="AddingAttachment" style="font-size: 20px">اضافة مرفق</label>
-          <div class="input-data" style="margin-left:15%;margin-top: 10px">
-            <button type="submit" class="btn"
-                    style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
-                    routerLink="/addspecialfile">
+
+          <div class="d-flex" style="margin-left:30%">
+            <button
+              type="submit" class="btn btn-success"
+              style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
+              routerLink="/addspecialfile">
               اضافه
             </button>
-            <button *ngIf="idOfUser=='manager'"
-                    type="submit" class="btn"
+
+            <button type="submit" class="btn btn-success"
                     style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
                     routerLink="/update-special/{{page}}">
               تعديل
             </button>
-          </div>
-            <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px; ">
-              <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"
-                              [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
-                              routerLink="/special-pagination?id/{{page}}">
-              </ngb-pagination>
-            </div>
 
+          </div>
+          <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px;margin-left: 25%">
+            <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"
+                            [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
+                            routerLink="/exports-pagination?id/{{page}}">
+            </ngb-pagination>
+
+          </div>
         </div>
+
+
+        <!--        <div class="input-container" style="margin-left: 40%">-->
+        <!--          <div class="d-flex">-->
+        <!--            <div class="input-data" style="margin-bottom:0px">-->
+        <!--              <button type="submit" class="btn w-50"-->
+        <!--                      style="  padding:10px;margin: 8px;color: white;background: #333333"-->
+        <!--                      routerLink="/addspecialfile">-->
+        <!--                اضافه-->
+        <!--              </button>-->
+        <!--              <button *ngIf="idOfUser=='manager'||'admin'"-->
+        <!--                      type="submit" class="btn w-50"-->
+        <!--                      style="  padding:10px;margin: 8px;color: white;background: #333333"-->
+        <!--                      routerLink="/update-special/{{page}}">-->
+        <!--                تعديل-->
+        <!--              </button>-->
+        <!--            </div>-->
+
+
+        <!--          </div>-->
+        <!--          <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px; ">-->
+        <!--            <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"-->
+        <!--                            [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"-->
+        <!--                            routerLink="/special-pagination?id/{{page}}">-->
+        <!--            </ngb-pagination>-->
+        <!--          </div>-->
+
+        <!--        </div>-->
 
       </div>
     </div>

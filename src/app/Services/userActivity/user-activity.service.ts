@@ -9,7 +9,6 @@ export class UserActivityService {
   constructor( private http:HttpClient) { }
 
  getUserActivity(){
-    return this.http.get(`http://localhost:1200/user-activity/exports`)
+    return this.http.get(`http://localhost:1200/user/user-activity`)
  }
-
 }

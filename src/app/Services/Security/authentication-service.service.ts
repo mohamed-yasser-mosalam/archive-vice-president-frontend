@@ -14,6 +14,7 @@ export class AuthenticationServiceService {
     return this.http.post<any>('http://localhost:1200/login',{username,password})
       .pipe(map(
         response=>{
+          sessionStorage.setItem('roles',response.roles)
           sessionStorage.setItem('id',response.id)
           sessionStorage.setItem("imagePath",response.imagePath)
           sessionStorage.setItem("username",response.username)
@@ -23,6 +24,9 @@ export class AuthenticationServiceService {
         }))
   }
 
+  getUserRoles(){
+   return sessionStorage.getItem('roles')||""
+  }
   getuserId() {
     return sessionStorage.getItem('id')||""
   }

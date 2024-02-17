@@ -15,7 +15,7 @@ export class SidebarComponent  implements OnInit{
    }
 
   ngOnInit(): void {
-    this.idOfUser=this.auth.getuserId()
+    this.idOfUser=this.auth.getUserRoles()
   }
 
 }

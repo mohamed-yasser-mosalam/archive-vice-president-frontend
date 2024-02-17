@@ -65,15 +65,7 @@
             </a>
           </li>
 
-          <!--        <li class="nav-item">-->
-          <!--          <a routerLink="/any">-->
-          <!--            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16" style="color: #333333">-->
-          <!--              <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>-->
-          <!--            </svg>-->
-          <!--            <p>anyThing</p>-->
-          <!--          </a>-->
-          <!--        </li>-->
-          <div class="dropdown" *ngIf="idOfUser=='1'">
+          <div class="dropdown" *ngIf="idOfUser=='admin'">
             <button class="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false"
                     style="color:#333333;font-weight: bold">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -85,7 +77,7 @@
               اعدادات المستخدمين
             </button>
             <ul class="dropdown-menu">
-              <li class="nav-item dropdown-item" *ngIf="idOfUser=='1'">
+              <li class="nav-item dropdown-item"  *ngIf="idOfUser=='admin'">
                 <a routerLink="/useractivity">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                        class="bi bi-justify" viewBox="0 0 16 16" style="color: #333333">
@@ -95,7 +87,7 @@
                   <p>نشاط المستخدمين</p>
                 </a>
               </li>
-              <li class="nav-item dropdown-item" *ngIf="idOfUser=='1'">
+              <li class="nav-item dropdown-item"  *ngIf="idOfUser=='admin'">
                 <a routerLink="/users">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                        class="bi bi-person-circle" viewBox="0 0 16 16" style="color: #333333">
@@ -107,7 +99,7 @@
                 </a>
               </li>
 
-              <li class="nav-item dropdown-item" *ngIf="idOfUser=='1'">
+              <li class="nav-item dropdown-item" *ngIf="idOfUser=='admin'">
                 <a class="dropdown-item" routerLink="/register">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                        class="bi bi-person-plus" viewBox="0 0 16 16" style="color: #333333">

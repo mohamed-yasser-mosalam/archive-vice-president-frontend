@@ -15,7 +15,7 @@ export class SpecialPaginationComponent implements OnInit {
   y: any
   id: string;
   summary: string;
-  idOfUser=this.auth.getuserId()
+  idOfUser=this.auth.getUserRoles()
   page = this.routes.snapshot.params['id'];
   pageLength: any;
   showSpecials: any;
@@ -104,9 +104,7 @@ export class SpecialPaginationComponent implements OnInit {
     this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=specials`, formDate).subscribe(
       (result) => {
       })
-
   }
-
 
 }
 

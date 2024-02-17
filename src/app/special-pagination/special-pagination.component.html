@@ -81,14 +81,17 @@
         </div>
 
         <div class="input-container" style="margin-left:30%">
+          <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)"
+                 style="margin-bottom: 20px;margin-right:10px">
+          <label for="AddingAttachment" style="font-size: 20px">اضافة مرفق</label>
           <div class="input-data" style="margin-left:15%;margin-top: 10px">
             <button type="submit" class="btn"
                     style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
                     routerLink="/addspecialfile">
               اضافه
             </button>
-            <button *ngIf="idOfUser=='1'||idOfUser=='2'"
-                    type="submit" class="btn "
+            <button *ngIf="idOfUser=='manager'"
+                    type="submit" class="btn"
                     style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
                     routerLink="/update-special/{{page}}">
               تعديل

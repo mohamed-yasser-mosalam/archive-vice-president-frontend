@@ -10,15 +10,13 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit{
   loginParentGroup:FormGroup;
-  constructor(private formChildGroup:FormBuilder,
+   constructor(private formChildGroup:FormBuilder,
               private auth:AuthenticationServiceService,
               private router:Router
   ) {
   }
-
   ngOnInit(): void {
     this.myFormLogin()
-
   }
   myFormLogin(){
     this.loginParentGroup = this.formChildGroup.group({
@@ -40,7 +38,8 @@ export class LoginComponent implements OnInit{
         this.router.navigateByUrl("/home")
       },
       error:err => {
-        alert("خطأ في تسجيل الدخول")
+        alert(this.loginParentGroup.controls['user'].value.password)
+        alert(this.loginParentGroup.controls['user'].value.username)
       }
     })
 

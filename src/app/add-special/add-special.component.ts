@@ -12,6 +12,7 @@ export class AddSpecialComponent implements OnInit {
   formData: FormGroup;
   subjectForm:FormGroup
   formBuilder = inject(FormBuilder)
+  num='0'
   constructor(private specialService:SpecialService,private router:Router,) {
   }
 
@@ -68,4 +69,5 @@ export class AddSpecialComponent implements OnInit {
       response => this.router.navigateByUrl('/specialfile')
     )
   }
+
 }

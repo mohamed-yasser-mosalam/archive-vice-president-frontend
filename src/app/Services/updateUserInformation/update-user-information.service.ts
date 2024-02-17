@@ -22,7 +22,7 @@ export class UpdateUserInformationService {
 changePassword(username:string,data:any){
   return this.http.put(`http://localhost:1200/user/changePassword?username=${username}`,data)
 }
-changePasswordByAdmin(username:string,id:number){
-    return this.http.put(`http://localhost:1200/user/changePassword-admin?username=${username}&password=${id}`,null)
+changePasswordByAdmin(id:number,password:number){
+    return this.http.put(`http://localhost:1200/user/changePassword-admin?id=${id}&password=${password}`,null)
 }
 }

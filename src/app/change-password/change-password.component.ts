@@ -23,6 +23,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   changePassword(data: any) {
+
     this.updateUserInformationService.changePassword(this.username, data).subscribe(
       response => {
         this.router.navigateByUrl("/login"),

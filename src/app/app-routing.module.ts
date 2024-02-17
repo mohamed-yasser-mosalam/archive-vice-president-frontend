@@ -73,8 +73,7 @@ const routes: Routes = [
   {path:'addspecialfile',component:AddSpecialComponent,canActivate:[CanActivate]},
   {path:'useractivity',component:UserActivityComponent,canActivate:[CanActivate]},
   {path:'changepasswordbyadmin/:id',component:ChangePasswordByAdminComponent,canActivate:[CanActivate]},
-
-
+  {path:'updatespecial/:id',component:UpdateSpecialComponent,canActivate:[CanActivate]},
 ];
 
 @NgModule({

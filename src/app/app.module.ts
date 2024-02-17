@@ -55,7 +55,7 @@ import { ArchiveSpecialComponent } from './archive-special/archive-special.compo
 import {NgConfirmModule, NgConfirmService} from "ng-confirm-box";
 import { UserActivityComponent } from './user-activity/user-activity.component';
 import { ChangePasswordByAdminComponent } from './change-password-by-admin/change-password-by-admin.component';
-@NgModule({
+ @NgModule({
   declarations: [
     AppComponent,
     MainComponentsComponent,
@@ -97,9 +97,7 @@ import { ChangePasswordByAdminComponent } from './change-password-by-admin/chang
     AddSpecialComponent,
     ArchiveSpecialComponent,
     UserActivityComponent,
-    ChangePasswordByAdminComponent
-
-
+    ChangePasswordByAdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,23 +4,21 @@
   <form class="col-8" style="zoom: 80%" #registerForm="ngForm" (ngSubmit)="createUser(registerForm.value)">
 
     <div class="wrapper">
-      <legend class="text-center">تسجيل مستخدم جديد </legend>
+      <legend class="text-center">تسجيل مستخدم جديد</legend>
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container">
           <div class="input-data">
-            <input type="text" required  id="firstName" name="firstName" ngModel>
+            <input type="text" required id="firstName" name="firstName" ngModel>
             <div class="underLine"></div>
             <label for="firstName">الاسم الاول</label>
           </div>
 
           <div class="input-data">
-            <input  cols="40" rows="1" required id="lastName" name="lastName" ngModel>
+            <input cols="40" rows="1" required id="lastName" name="lastName" ngModel>
             <div class="underLine-text"></div>
             <label for="lastName"> الاسم الثاني</label>
           </div>
-
-          <button type="submit"  class="btn w-50"  style="padding:10px;background: #333333;color: white;margin-left: 85%">    حفظ  </button>
 
         </div>
 
@@ -28,21 +26,21 @@
         <div class="input-container">
 
           <div class="input-data">
-            <input type="text" required  id="username"name="username" ngModel>
+            <input type="text" required id="username" name="username" ngModel>
             <div class="underLine"></div>
             <label for="username">اسم المستخدم</label>
           </div>
 
           <div class="input-data">
-            <input type="password" required id="password" name="password"ngModel>
+            <input type="password" required id="password" name="password" ngModel>
             <div class="undlerLine"></div>
             <label for="password">الرقم السري</label>
           </div>
-
-<!--          <input type="file" name="img" accept="image/*" (change)="onImageSelected($event)">-->
-<!--          <label >اختار الصورة:</label>-->
         </div>
       </div>
+      <button type="submit" class="btn  "
+              style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%"> حفظ
+      </button>
     </div>
   </form>
   <div class="col-2 position-relative">

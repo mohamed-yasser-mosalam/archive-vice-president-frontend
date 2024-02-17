@@ -6,10 +6,11 @@
         <img src="{{item}}" style="height:87vh">
       </div>
     </ng-template>
-  </ngb-carousel>     <form class="col-6" style="zoom: 60% " [formGroup]="editImport" (ngSubmit)="update()">
+  </ngb-carousel>
+  <form class="col-6" style="zoom: 60% " [formGroup]="editImport" (ngSubmit)="update()">
 
     <div class="wrapper">
-      <legend class="text-center" style="font-weight: bold;font-size:25px">{{x}} تعديل ملف وارد رقم</legend>
+      <legend class="text-center" style="font-weight: bold;font-size:25px">{{ x }} تعديل ملف وارد رقم</legend>
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container ">
 
@@ -18,14 +19,14 @@
             <label for="numberOfAttachments">عدد المرفقات</label>
           </div>
           <div class="input-data" style="top:50px">
-            <input type="text"   id="sender" formControlName="sender">
+            <input type="text" id="sender" formControlName="sender">
             <label for="sender">الجهة الوارد منها الخطاب</label>
           </div>
         </div>
         <div class="input-container">
           <div class="d-flex">
             <div class="input-data" style="width: 65%">
-              <input type="Date"  id="incomeDate" formControlName="incomeDate">
+              <input type="Date" id="incomeDate" formControlName="incomeDate">
               <label for="incomeDate">تاريخ الورود</label>
             </div>
             <div class="input-data " style="width:30%; margin-left:auto;">
@@ -46,8 +47,8 @@
         </div>
       </div>
       <div class="input-data" style="bottom:20px">
-        <input type="text" style="height: 50px;"  id="summary" formControlName="summary">
-        <label for="summary" >ملخص الخطاب</label>
+        <input type="text" style="height: 50px;" id="summary" formControlName="summary">
+        <label for="summary">ملخص الخطاب</label>
       </div>
 
       <div style="display: flex;  justify-content: space-between;">
@@ -56,36 +57,40 @@
             <input type="text" readonly id="responseSide" formControlName="responseSide">
             <label for="responseSide">الجهة الصادر اليها </label>
           </div>
-          <div class="input-data" >
-            <input type="Date"   id="recipientDate" formControlName="recipientDate">
+          <div class="input-data">
+            <input type="Date" id="recipientDate" formControlName="recipientDate">
             <label for="recipientDate">تاريخ الاستلام</label>
           </div>
-          <div class="input-data"  >
-            <input type="Date" required   id="expectResponseDate" formControlName="expectResponseDate">
+          <div class="input-data">
+            <input type="Date" required id="expectResponseDate" formControlName="expectResponseDate">
             <label for="expectResponseDate">التاريخ المتوقع للرد</label>
           </div>
-          <div class="input-data"style="bottom: 0px; ">
-            <button type="submit"  class="btn  w-50"  style="padding:10px; bottom:60px;color: white;background: #333333;margin-left:90%">    حفظ  </button>
+
+            <div class="input-data" style="bottom:0px; ">
+              <button type="submit" class="btn  "
+                      style="width:150px; padding:5px;color: white;background: #333333;font-size:25px;margin-left:96%"
+              > حفظ
+              </button>
           </div>
 
         </div>
         <div class="input-container position-relative" style="bottom:60px">
           <div style="display: flex;">
             <div class="input-data w-50">
-              <input type="Date"  readonly   id="responseDate" formControlName="responseDate">
+              <input type="Date" readonly id="responseDate" formControlName="responseDate">
               <label for="responseDate">تاريخ الرد</label>
             </div>
             <div class="input-data" style="width:35%; margin-left:auto;">
-              <input type="text"   readonly  id="responseNumber" formControlName="responseNumber">
+              <input type="text" readonly id="responseNumber" formControlName="responseNumber">
               <label for="responseNumber">الرد</label>
             </div>
           </div>
           <div class="input-data" style="bottom: 50px;">
-            <input type="text"    id="recipientName" formControlName="recipientName">
+            <input type="text" id="recipientName" formControlName="recipientName">
             <label for="recipientName" style="margin-top: 40px;">المستلم</label>
           </div>
           <div class="input-data" style="bottom: 55px;">
-            <input type="text"    id="num" formControlName="num">
+            <input type="text" id="num" formControlName="num">
             <label for="num">رقم الملف</label>
           </div>
 

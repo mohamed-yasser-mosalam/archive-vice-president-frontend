@@ -104,9 +104,9 @@ export class ImportPaginationComponent implements OnInit{
     })
   }
   onImageSelected(event) {
-    const file = event.target.files[0]
+    const files = event.target.files[0]
     const formDate: FormData = new FormData()
-    this.x = formDate.append("files", file)
+    this.x = formDate.append("files", files)
     this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=imports`, formDate).subscribe(
       (result) => {
       })

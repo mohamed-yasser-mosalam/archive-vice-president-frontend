@@ -8,66 +8,61 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './add-special.component.html',
   styleUrls: ['./add-special.component.css']
 })
-export class AddSpecialComponent implements OnInit {
-  formData: FormGroup;
-  subjectForm:FormGroup
-  formBuilder = inject(FormBuilder)
-  num='0'
-  constructor(private specialService:SpecialService,private router:Router,) {
-  }
+export class AddSpecialComponent {
+  form: FormGroup;
 
-  ngOnInit(): void {
-    this.formData = this.formBuilder.group({
-      incomeDate: [],
+  constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router) {
+    this.form = this.fb.group({
+      incomeDate: [null],
       sender: [''],
-      num: [],
+      num: [null],
       summary: [''],
-      subjects: this.formBuilder.array([this.subjectsForm()])
+      subjects: this.fb.array([this.createSubject()])
     });
-    this.subjectsForm
   }
 
-  get getSubject() {
-    return this.formData.get('subjects') as FormArray
-  }
-
-  subjectsForm():FormGroup  {
-    this.subjectForm= this.formBuilder.group({
-      num: [],
+  createSubject() {
+    return this.fb.group({
+      num: [null],
       head: [''],
-      decision: this.formBuilder.array([this.decisionForm()])
+      decision: this.fb.array([this.createDecision()])
     });
-     return this.subjectForm
   }
-    getDecision(i:number) {
-    return this.subjectForm.get('decision') as FormArray
-  }
-  decisionForm(): FormGroup {
-    return this.formBuilder.group({
-      num: [],
+
+  createDecision() {
+    return this.fb.group({
+      num: [null],
       summary: ['']
     });
   }
-  removeSubject(index: number) {
-    this.getSubject.removeAt(index)
 
-  }
-  addSubjects() {
-    this.getSubject.push(this.subjectsForm())
-   }
-  addDecision(i:number) {
-    this.getDecision(i).push(this.decisionForm())
-
-  }
-  deleteDecision(i:number,j:number) {
-    this.getDecision(i).removeAt(j)
+  get subjects() {
+    return this.form.get('subjects') as FormArray;
   }
 
+  addSubject() {
+    this.subjects.push(this.createSubject());
+  }
+
+  deleteSubject(index: number) {
+    this.subjects.removeAt(index);
+  }
+
+  getDecisions(subjectIndex: number) {
+    return (this.subjects.at(subjectIndex).get('decision') as FormArray);
+  }
+
+  addDecision(subjectIndex: number) {
+    this.getDecisions(subjectIndex).push(this.createDecision());
+  }
+
+  deleteDecision(subjectIndex: number, decisionIndex: number) {
+    this.getDecisions(subjectIndex).removeAt(decisionIndex);
+  }
 
   AddSpecialFile(data) {
     this.specialService.addSpecialFile(data).subscribe(
       response => this.router.navigateByUrl('/specialfile')
     )
   }
-
 }

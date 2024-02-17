@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="row">
   <div class="col-2"></div>
-  <form class="col-8" style="zoom: 80%" [formGroup]="formData" (ngSubmit)="AddSpecialFile(formData.value)">
+  <form class="col-8" style="zoom: 80%" [formGroup]="form" (ngSubmit)="AddSpecialFile(form.value)">
 
     <div class="wrapper">
       <legend class="text-center">ادخال ملف خاص</legend>
@@ -33,17 +33,17 @@
         </div>
       </div>
       <div formArrayName="subjects" style="overflow: scroll">
-        <div *ngFor="let item of getSubject.controls;let i=index" [formGroupName]="i">
-          <div class="subjects input-container" style="display:inline-flex;width: 100% ">
+        <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i">
+          <div class="subjects  input-container" style="display:inline-flex;width: 100% ">
 
-            <a (click)="removeSubject(i)">
+            <a (click)="deleteSubject(i)">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16" style="color: red;margin-right: 10px">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
               </svg>
             </a>
 
-            <a (click)="addSubjects()">
+            <a (click)="addSubject()">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" style="color: green">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
@@ -63,14 +63,25 @@
           </div>
 
           <div formArrayName="decision" style="overflow: scroll">
-            <div *ngFor="let item of getDecision(i).controls;let j=index;" [formGroupName]='j+i'>
-              <button type="button" class="btn" style="color: white;background-color: #333333;width:100px;height: 30px;"
-                      (click)="addDecision(i)"> اضافة قرار
-              </button>
-              <button *ngIf="getDecision(i).length>1"
-                type="button" class="btn" style="color: white;background-color: #333333;width:100px;height: 30px;"
-                      (click)="deleteDecision(i,j)"> حذف القرار
-              </button>
+            <div *ngFor="let decision of getDecisions(i).controls; let j = index" [formGroupName]="j">
+
+              <a (click)="deleteDecision(i,j)" style="margin-left: 0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-dash-circle" viewBox="0 0 16 16" style="color: red;margin-right: 10px">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                  <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
+                </svg>
+              </a>
+
+              <a (click)="addDecision(i)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-plus-circle" viewBox="0 0 16 16" style="color: blue">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                  <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                </svg>
+              </a>
+
               <div class="subjects input-container" style="display:inline-flex;width: 100% ">
 
                 <div class="input-data">
@@ -92,7 +103,7 @@
       </div>
 
 
-      {{ formData.value|json }}
+<!--      {{ form.value|json }}-->
 
     </div>
 

@@ -98,13 +98,14 @@ export class SpecialPaginationComponent implements OnInit {
   }
 
   onImageSelected(event) {
-    const file = event.target.files
+    const file = event.target.files[0]
     const formDate: FormData = new FormData()
     this.x = formDate.append("files", file)
     this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=specials`, formDate).subscribe(
       (result) => {
       })
   }
+
 
 }
 

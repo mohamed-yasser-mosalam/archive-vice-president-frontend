@@ -18,6 +18,7 @@ export class ImportPaginationComponent implements OnInit{
   showImports: any;
   size: number = 1;
   paths: string[];
+  urls = new Array<string>();
   idOfUser=this.auth.getuserId()
   showImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
@@ -104,12 +105,14 @@ export class ImportPaginationComponent implements OnInit{
     })
   }
   onImageSelected(event) {
-    const files = event.target.files
+    this.urls = [];
+    const files = event.target.files[0]
     const formDate: FormData = new FormData()
     this.x = formDate.append("files", files)
     this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=imports`, formDate).subscribe(
       (result) => {
       })
+
   }
 
 }

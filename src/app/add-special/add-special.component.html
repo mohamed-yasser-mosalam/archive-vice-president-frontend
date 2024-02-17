@@ -23,14 +23,12 @@
             <div class="underLine"></div>
             <label for="num">رقم الملف</label>
           </div>
-
-
-          <div class="input-data">
-            <input type="text" required id="summary" name="summary" formControlName="summary">
-            <div class="underLine"></div>
-            <label for="summary">ملخص الخطاب</label>
-          </div>
         </div>
+      </div>
+      <div class="input-data"  >
+        <input type="text" required id="summary" name="summary" formControlName="summary">
+        <div class="underLine"></div>
+        <label for="summary" style="margin-right: 0!important;">ملخص الخطاب</label>
       </div>
       <div formArrayName="subjects" style="overflow: scroll">
         <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i">

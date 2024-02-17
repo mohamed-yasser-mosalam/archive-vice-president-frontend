@@ -57,23 +57,21 @@
 
       </div>
 
-      <div class="row mx-5 ">
-        <div class="col-8 position-relative"
+         <div class="col-8 position-relative"
 
              style="background-color: #fff; height: 300px; overflow: auto; border-radius: 8px;
-              zoom:95%;width:600px;margin-left:350px;margin-top: 20px ">
+              zoom:95%;width:1000px ;margin-top: 20px ">
           <div
-            style="background-color: #fff; overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+            style="background-color: #fff; overflow: auto; height: 280px; text-align:center;  border-radius: 8px;">
             <table class="table table  table-borderless" style="direction: rtl;background-color:beige">
               <thead style=" position: sticky; top: 44px; background-color: #fff;">
               <tr>
               </tr>
               <tbody *ngFor="let item of subjects">
-              <td style="font-weight: bolder;font-size:25px;margin-right:100%;margin-top: 10px">({{ item.num }}
-                /0) {{ item.head }}
+              <td style="font-weight: bolder;font-size:25px;margin-right:100%;margin-top: 10px">({{ item.num }}/0) {{ item.head }}
               </td>
               <tr *ngFor="let i of item.decisions">
-                <td style="font-size: 20px"> ({{ item.num }}/{{ i.num }}){{ i.summary }}</td>
+                <td style="font-size: 20px"> ({{ i.num }}/{{ item.num }}){{ i.summary }}</td>
               </tr>
               </tbody>
             </table>
@@ -83,25 +81,25 @@
 
         <div class="input-data" style="bottom: 0px; ">
           <input id="AddingAttachment" type="file" name="img" accept="image/*" (change)="onImageSelected($event)"
-                 style="margin-bottom: 20px;margin-right:10px">
+                 style="margin-bottom: 20px;margin-right:200px">
           <label for="AddingAttachment" style="font-size: 20px">اضافة مرفق</label>
 
           <div class="d-flex" style="margin-left:30%">
             <button
-              type="submit" class="btn btn-success"
+              type="submit" class="btn "
               style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
               routerLink="/addspecialfile">
               اضافه
             </button>
 
-            <button type="submit" class="btn btn-success"
+            <button type="submit" class="btn "
                     style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"
                     routerLink="/update-special/{{page}}">
               تعديل
             </button>
 
           </div>
-          <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px;margin-left: 25%">
+          <div class="col-md-9 pag" style="padding-left: 10%; margin:10px;bottom:55px;margin-left: 25%">
             <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"
                             [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
                             routerLink="/exports-pagination?id/{{page}}">
@@ -109,140 +107,10 @@
 
           </div>
         </div>
-
-
-        <!--        <div class="input-container" style="margin-left: 40%">-->
-        <!--          <div class="d-flex">-->
-        <!--            <div class="input-data" style="margin-bottom:0px">-->
-        <!--              <button type="submit" class="btn w-50"-->
-        <!--                      style="  padding:10px;margin: 8px;color: white;background: #333333"-->
-        <!--                      routerLink="/addspecialfile">-->
-        <!--                اضافه-->
-        <!--              </button>-->
-        <!--              <button *ngIf="idOfUser=='manager'||'admin'"-->
-        <!--                      type="submit" class="btn w-50"-->
-        <!--                      style="  padding:10px;margin: 8px;color: white;background: #333333"-->
-        <!--                      routerLink="/update-special/{{page}}">-->
-        <!--                تعديل-->
-        <!--              </button>-->
-        <!--            </div>-->
-
-
-        <!--          </div>-->
-        <!--          <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px; ">-->
-        <!--            <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"-->
-        <!--                            [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"-->
-        <!--                            routerLink="/special-pagination?id/{{page}}">-->
-        <!--            </ngb-pagination>-->
-        <!--          </div>-->
-
-        <!--        </div>-->
-
       </div>
-    </div>
-  </form>
+   </form>
   <div class="col-2 position-relative">
     <app-sidebar></app-sidebar>
   </div>
 </div>
-
-
-<!--<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>-->
-<!--<div class="row">-->
-<!--  <ngb-carousel class="col-4">-->
-<!--    <ng-template ngbSlide *ngFor="let item of paths">-->
-<!--      <div class="carousel-wrapper">-->
-<!--        <img src="{{item}}" style="height:87vh">-->
-<!--      </div>-->
-<!--    </ng-template>-->
-<!--  </ngb-carousel>-->
-<!--  <form class="col-6" style="zoom: 70%;direction: ltr" [formGroup]="showSpecial">-->
-
-<!--    <div class="wrapper">-->
-<!--      <legend class="text-center" style="font-weight: bold"> الملفات الخاصة (3/0)</legend>-->
-
-<!--      <div style="display: flex;  justify-content: space-between;">-->
-<!--        <div class="input-container ">-->
-<!--          <div class="input-data">-->
-<!--            <input type="number" required readonly id="archiveId" formControlName="archiveId">-->
-<!--            <label for="archiveId">رقم الخطاب</label>-->
-<!--          </div>-->
-<!--          <div class="input-data" style="top:32px">-->
-<!--            <input type="text" required readonly id="sender" formControlName="sender">-->
-<!--            <label for="sender">الجهة الوارد منها اليها الخطاب</label>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="input-container">-->
-<!--          <div class="d-flex">-->
-<!--            <div class="input-data" style="width: 65%">-->
-<!--              <input type="text" required readonly id="numberOfAttachments" formControlName="numberOfAttachments">-->
-<!--              <label for="numberOfAttachments">عدد المرفقات</label>-->
-<!--            </div>-->
-<!--            <div class="input-data " style="width:30%; margin-left:auto;">-->
-<!--              <input type="number" required readonly id="id" formControlName="id">-->
-<!--              <label for="id">رقم القيد</label>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="d-flex">-->
-<!--            <div class="input-data" style="width: 65%">-->
-<!--              <input type="text" required readonly id="incomeDate" formControlName="incomeDate">-->
-<!--              <label for="incomeDate">تاريخ الورود</label>-->
-<!--            </div>-->
-<!--            <div class="input-data " style="width:30%; margin-left:auto;">-->
-<!--              <input type="text" required readonly id="num" formControlName="num">-->
-<!--              <label for="num">رقم الملف</label>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="d-flex">-->
-<!--      <div class="input-data"style="bottom:38px;margin-right: 10px">-->
-<!--        <table class="table table-bordered border-dark"style="height:50px ;direction: rtl;bottom: 50px">-->
-<!--          <thead style=" position: sticky; background-color: #fff;direction: rtl">-->
-<!--          <tr>-->
-<!--            <th scope="col">موضوعات المجلس</th>-->
-<!--          </tr>-->
-<!--          </thead>-->
-<!--          <tbody>-->
-<!--          <tr>-->
-<!--            <td>Yousef</td>-->
-<!--          </tr>-->
-<!--          </tbody>-->
-<!--        </table>-->
-<!--      </div>-->
-<!--        <div class="input-data" >-->
-<!--          <input type="text" readonly required id="summary" formControlName="summary">-->
-<!--          <label for="summary">ملخص الخطاب</label>-->
-<!--        </div>-->
-<!--      </div>-->
-
-
-<!--      <div class="input-data" style="bottom: 0px;margin-left: 20%">-->
-<!--        <button type="submit" class="btn btn-success"-->
-<!--                style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"-->
-<!--                routerLink="/update-special/{{page}}">-->
-<!--          تعديل-->
-<!--        </button>-->
-<!--        <button type="submit" class="btn btn-success"-->
-<!--                style="width: 23%; padding:10px;margin: 8px;color: white;background: #333333"-->
-<!--                routerLink="/addspecialfile">-->
-<!--          اضافه-->
-<!--        </button>-->
-<!--        <div class="col-md-9 pag" style="padding-left: 10%; margin:30px;bottom:55px;margin-left: 25%">-->
-<!--          <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change()"-->
-<!--                          [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"-->
-<!--                          routerLink="/exports-pagination?id/{{page}}">-->
-<!--          </ngb-pagination>-->
-
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </form>-->
-<!--  <div class="col-2 position-relative">-->
-<!--    <app-sidebar></app-sidebar>-->
-<!--  </div>-->
-<!--</div>-->
-<!-- -->
-
 

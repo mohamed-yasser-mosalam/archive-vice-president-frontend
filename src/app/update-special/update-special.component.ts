@@ -13,11 +13,13 @@ export class UpdateSpecialComponent implements OnInit {
   form: FormGroup;
   page = this.routes.snapshot.params['id'];
   showSpecials: any;
+  subject: any;
+  decision: any[];
+
 
   constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router,
               private routes: ActivatedRoute) {
     this.form = this.fb.group({
-      incomeDate: [null],
       sender: [''],
       num: [null],
       summary: [''],
@@ -73,6 +75,7 @@ export class UpdateSpecialComponent implements OnInit {
   showSpecialFile() {
     this.specialService.getSpecialFileById(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
+      this.subject=this.showSpecials.subject
     })
   }
 
@@ -83,9 +86,14 @@ export class UpdateSpecialComponent implements OnInit {
         summary: new FormControl(result['summary']),
         sender: new FormControl(result['sender']),
         num: new FormControl(result['num']),
-       })
+        head:new FormControl(result['head']),
+        });
     })
-  }
+    console.log(this.subject)
+   }
+
+
+
 }
 
 //   x: any;

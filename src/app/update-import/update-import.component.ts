@@ -31,8 +31,6 @@ export class UpdateImportComponent implements OnInit{
     typeNumber: new FormControl(''),
     num: new FormControl(''),
     expectResponseDate:new FormControl('')
-
-
   })
 
   ngOnInit(): void {

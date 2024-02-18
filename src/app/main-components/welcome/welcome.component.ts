@@ -19,6 +19,7 @@ export class WelcomeComponent implements OnInit {
   NumberOfImportantLetter: any;
   NumberOfAllExports: any;
   NumberOfAllImports: any;
+  numberOfAllFiles:any
   showAllTodayExports: ShowTodayExports[] = []
   showAllTodayImports: ShowTodayImports[] = []
   showLetterHasGone:ShowAllImportantFile[]=[]
@@ -38,7 +39,7 @@ export class WelcomeComponent implements OnInit {
     this.getAllTodayExports();
     this.getAllTodayImports();
     this.getLetterHasGone();
-  }
+   }
 
   getNumberOfFileHadGone() {
     this.http.get('http://localhost:1200/import/count-response-date-passed').subscribe((numberOfFileHadGone) => {

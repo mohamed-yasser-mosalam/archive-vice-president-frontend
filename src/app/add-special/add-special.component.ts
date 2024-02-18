@@ -32,7 +32,8 @@ export class AddSpecialComponent {
   createDecision() {
     return this.fb.group({
       num: [null],
-      summary: ['']
+      summary: [''],
+      qarar:['']
     });
   }
 

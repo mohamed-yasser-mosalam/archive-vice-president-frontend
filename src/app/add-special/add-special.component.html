@@ -31,7 +31,7 @@
         <label for="summary" style="margin-right: 0!important;">ملخص الخطاب</label>
       </div>
       <div formArrayName="subjects" style="overflow: scroll">
-        <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i">
+        <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i"  class="border" style="margin-top:40px">
           <div class="subjects  input-container" style="display:inline-flex;width: 100% ">
 
             <a (click)="deleteSubject(i)">
@@ -60,7 +60,7 @@
             </div>
           </div>
 
-          <div formArrayName="decision" style="overflow: scroll">
+          <div formArrayName="decision" style="overflow: scroll;margin-top: 0!important;">
             <div *ngFor="let decision of getDecisions(i).controls; let j = index" [formGroupName]="j">
 
               <a (click)="deleteDecision(i,j)" style="margin-left: 0">
@@ -80,18 +80,24 @@
                 </svg>
               </a>
 
-              <div class="subjects input-container" style="display:inline-flex;width: 100% ">
-
-                <div class="input-data">
-                  <input type="text" required name="summary" formControlName="summary">
+              <div class="subjects input-container" style="display:inline-flex;width:100%;margin-top:0!important;margin-left: 10px">
+                <div class="input-data" style="margin-top: 0!important;margin-right:10px ">
+                  <input type="text" required name="qarar" formControlName="qarar" id="qarar">
                   <div class="underLine"></div>
-                  <label for="summary"> موضوع القرار </label>
+                  <label for="qarar">القرار </label>
                 </div>
-                <div class="input-data" style="margin-left: 20px">
+
+                <div class="input-data" style="margin-top: 0!important;">
                   <input type="number" required name="num" formControlName="num">
                   <div class="underLine"></div>
                   <label for="num"> رقم القرار </label>
                 </div>
+
+              </div>
+              <div class="input-data"style="margin-top: 10px!important;margin-bottom: 40px;width: 98%;margin-left:12px">
+                <input type="text" required name="summary" formControlName="summary">
+                <div class="underLine"></div>
+                <label for="summary"> موضوع  </label>
               </div>
 
             </div>

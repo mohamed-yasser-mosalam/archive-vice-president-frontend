@@ -19,7 +19,7 @@ export class WelcomeComponent implements OnInit {
   NumberOfImportantLetter: any;
   NumberOfAllExports: any;
   NumberOfAllImports: any;
-  numberOfAllFiles:any
+  numberOfAllSpecial:any;
   showAllTodayExports: ShowTodayExports[] = []
   showAllTodayImports: ShowTodayImports[] = []
   showLetterHasGone:ShowAllImportantFile[]=[]
@@ -39,6 +39,7 @@ export class WelcomeComponent implements OnInit {
     this.getAllTodayExports();
     this.getAllTodayImports();
     this.getLetterHasGone();
+    this.getNumberOfAllSpecials()
    }
 
   getNumberOfFileHadGone() {
@@ -69,6 +70,12 @@ export class WelcomeComponent implements OnInit {
   private getNumberOfAllExports() {
     this.http.get('http://localhost:1200/export/count').subscribe((numberOfAllExports) => {
       this.NumberOfAllExports = numberOfAllExports;
+    })
+  }
+
+  private getNumberOfAllSpecials() {
+    this.http.get('http://localhost:1200/special/count').subscribe((numberOfAllSpecial) => {
+      this.numberOfAllSpecial = numberOfAllSpecial;
     })
   }
 

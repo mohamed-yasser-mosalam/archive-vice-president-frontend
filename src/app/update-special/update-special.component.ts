@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {SpecialService} from "../Services/SpecialService/special.service";
-import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-update-special',
@@ -14,6 +13,9 @@ export class UpdateSpecialComponent implements OnInit {
   page = this.routes.snapshot.params['id'];
   showSpecials: any;
   subject: any;
+  updateSubject:any
+  updateDecision:any
+
   decision: any[];
 
 
@@ -75,7 +77,10 @@ export class UpdateSpecialComponent implements OnInit {
   showSpecialFile() {
     this.specialService.getSpecialFileById(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
-      this.subject=this.showSpecials.subject
+      this.updateSubject=this.showSpecials.subjects
+      this.updateDecision=this.showSpecials.subjects.decision
+
+      console.log(this.showSpecials.subjects.decisions)
     })
   }
 
@@ -89,10 +94,7 @@ export class UpdateSpecialComponent implements OnInit {
         head:new FormControl(result['head']),
         });
     })
-    console.log(this.subject)
-   }
-
-
+    }
 
 }
 

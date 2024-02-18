@@ -73,6 +73,6 @@ export class UpdateImportComponent implements OnInit{
     this.serviceImport.getImportById(this.routes.snapshot.params['id']).subscribe((getImport: any) => {
       this.showImports = getImport;
       this.paths = this.showImports.paths
-    })
+     })
   }
 }

@@ -20,7 +20,7 @@ form{
   height: 30px;
   width: 100%;
   position: relative;
-  margin: 30px 0;
+  margin: 15px 0;
 }
 .wrapper .input-data input{
   height: 100%;
@@ -118,4 +118,7 @@ form{
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #333333;
+}
+.subjects{
+  margin: 0!important;
 }

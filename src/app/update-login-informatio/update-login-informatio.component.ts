@@ -37,7 +37,8 @@ export class UpdateLoginInformatioComponent  implements OnInit{
 
   updateUserInformation() {
     this.updateUserInformationService.update(this.id, this.editUserName.value).subscribe((result) => {
-      this.router.navigateByUrl('/login')
+      this.router.navigateByUrl('/login');
+      this.auth.clearToken()
     })
   }
 

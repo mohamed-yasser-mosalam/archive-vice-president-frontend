@@ -115,4 +115,8 @@ export class ImportPaginationComponent implements OnInit{
 
   }
 
+  deleteImage(index: number): void {
+    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
+    this.paths.splice(index, 1);
+  }
 }

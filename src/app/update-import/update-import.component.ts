@@ -10,10 +10,10 @@ import {HttpClient} from "@angular/common/http";
   templateUrl: './update-import.component.html',
   styleUrls: ['./update-import.component.css']
 })
-export class UpdateImportComponent implements OnInit{
+export class UpdateImportComponent implements OnInit {
   showImports: any;
-  paths:string;
-  x=this.routes.snapshot.params['id']
+  paths: any[]
+  x = this.routes.snapshot.params['id']
   editImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
     sender: new FormControl(''),
@@ -26,16 +26,15 @@ export class UpdateImportComponent implements OnInit{
     recipientDate: new FormControl(''),
     responseDate: new FormControl(''),
     responseSide: new FormControl(''),
-    responseNumber: new FormControl('' ),
+    responseNumber: new FormControl(''),
     recipientName: new FormControl(''),
     typeNumber: new FormControl(''),
     num: new FormControl(''),
-    expectResponseDate:new FormControl('')
+    expectResponseDate: new FormControl('')
   })
 
   ngOnInit(): void {
-     this.serviceImport.getImportById(this.routes.snapshot.params['id']).
-     subscribe((result) => {
+    this.serviceImport.getImportById(this.routes.snapshot.params['id']).subscribe((result) => {
       this.editImport = new FormGroup({
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
         sender: new FormControl(result['sender']),
@@ -52,7 +51,7 @@ export class UpdateImportComponent implements OnInit{
         recipientName: new FormControl(result['recipientName']),
         typeNumber: new FormControl(result['typeNumber']),
         num: new FormControl(result['num']),
-        expectResponseDate:new FormControl(result['expectResponseDate']),
+        expectResponseDate: new FormControl(result['expectResponseDate']),
       })
     })
     this.showImportFile()
@@ -60,19 +59,26 @@ export class UpdateImportComponent implements OnInit{
   }
 
   constructor(private serviceImport: ImportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http:HttpClient) {
+              private http: HttpClient) {
   }
 
   update() {
-     this.serviceImport.updateImport(this.routes.snapshot.params['id'], this.editImport.value).subscribe((result) => {
-           this.router.navigate([`/import-pagination?id/`,this.routes.snapshot.params['id']])
+    this.serviceImport.updateImport(this.routes.snapshot.params['id'], this.editImport.value).subscribe((result) => {
+      this.router.navigate([`/import-pagination?id/`, this.routes.snapshot.params['id']])
 
     })
   }
+
   showImportFile() {
     this.serviceImport.getImportById(this.routes.snapshot.params['id']).subscribe((getImport: any) => {
       this.showImports = getImport;
       this.paths = this.showImports.paths
-     })
+    })
+  }
+
+  deleteImage(index: number): void {
+    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
+    this.paths.splice(index, 1);
+
   }
 }

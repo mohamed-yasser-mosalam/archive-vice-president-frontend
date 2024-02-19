@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {SpecialService} from "../Services/SpecialService/special.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-update-special',
@@ -13,14 +14,14 @@ export class UpdateSpecialComponent implements OnInit {
   page = this.routes.snapshot.params['id'];
   showSpecials: any;
   subject: any;
-  updateSubject:any
-  updateDecision:any
-
+  updateSubject: any
+  updateDecision: any
+  paths: []
   decision: any[];
 
 
   constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router,
-              private routes: ActivatedRoute) {
+              private routes: ActivatedRoute,private http:HttpClient) {
     this.form = this.fb.group({
       sender: [''],
       num: [null],
@@ -77,8 +78,9 @@ export class UpdateSpecialComponent implements OnInit {
   showSpecialFile() {
     this.specialService.getSpecialFileById(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
-      this.updateSubject=this.showSpecials.subjects
-      this.updateDecision=this.showSpecials.subjects.decision
+      this.updateSubject = this.showSpecials.subjects
+      this.updateDecision = this.showSpecials.subjects.decision;
+      this.paths = this.showSpecials.paths;
 
       console.log(this.showSpecials.subjects.decisions)
     })
@@ -91,10 +93,15 @@ export class UpdateSpecialComponent implements OnInit {
         summary: new FormControl(result['summary']),
         sender: new FormControl(result['sender']),
         num: new FormControl(result['num']),
-        head:new FormControl(result['head']),
-        });
+        head: new FormControl(result['head']),
+      });
     })
-    }
+  }
+
+  deleteImage(index: number): void {
+    this.paths.splice(index, 1);
+    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
+  }
 
 }
 

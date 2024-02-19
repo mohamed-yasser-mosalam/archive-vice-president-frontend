@@ -13,7 +13,7 @@ import {NgConfirmService} from "ng-confirm-box";
 })
 export class UpdateExportComponent implements OnInit {
   showExports: any;
-  paths:any
+  paths:any[]
   x = this.routes.snapshot.params['id']
   editExport = new FormGroup({
     date: new FormControl(''),
@@ -51,6 +51,7 @@ export class UpdateExportComponent implements OnInit {
   }
 
   constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
+              private http:HttpClient
    ) {
   }
 
@@ -68,5 +69,9 @@ export class UpdateExportComponent implements OnInit {
       this.showExports = getExport;
       this.paths = this.showExports.paths;
     })
+  }
+  deleteImage(index: number): void {
+    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
+    this.paths.splice(index, 1);
   }
 }

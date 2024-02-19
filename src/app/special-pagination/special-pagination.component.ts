@@ -15,7 +15,7 @@ export class SpecialPaginationComponent implements OnInit {
   y: any
   id: string;
   summary: string;
-  idOfUser=this.auth.getUserRoles()
+  idOfUser = this.auth.getUserRoles()
   page = this.routes.snapshot.params['id'];
   pageLength: any;
   showSpecials: any;
@@ -56,7 +56,7 @@ export class SpecialPaginationComponent implements OnInit {
   }
 
   constructor(private specialService: SpecialService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient,private auth:AuthenticationServiceService
+              private http: HttpClient, private auth: AuthenticationServiceService
   ) {
   }
 
@@ -67,7 +67,7 @@ export class SpecialPaginationComponent implements OnInit {
       this.paths = this.showSpecials.paths;
       this.summary = this.showSpecials.summary;
       this.subjects = this.showSpecials.subjects;
-      this.decisions=this.showSpecials.subjects.decisions;
+      this.decisions = this.showSpecials.subjects.decisions;
      })
   }
 
@@ -80,8 +80,7 @@ export class SpecialPaginationComponent implements OnInit {
   change() {
     this.page;
     this.showSpecialFile();
-    this.specialService.getSpecialFileById(this.page).
-    subscribe((result) => {
+    this.specialService.getSpecialFileById(this.page).subscribe((result) => {
       this.showSpecial = new FormGroup({
         id: new FormControl(result['id']),
         name: new FormControl(result['name']),
@@ -107,5 +106,9 @@ export class SpecialPaginationComponent implements OnInit {
   }
 
 
+  deleteImage(index: number): void {
+    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
+    this.paths.splice(index, 1);
+   }
 }
 

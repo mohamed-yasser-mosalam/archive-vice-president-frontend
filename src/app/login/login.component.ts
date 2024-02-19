@@ -38,9 +38,8 @@ export class LoginComponent implements OnInit{
         this.router.navigateByUrl("/home")
       },
       error:err => {
-        alert(this.loginParentGroup.controls['user'].value.password)
-        alert(this.loginParentGroup.controls['user'].value.username)
-      }
+        alert('خطأ في تسجيل الدخول')
+       }
     })
 
   }

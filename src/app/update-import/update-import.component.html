@@ -1,9 +1,9 @@
 <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
 <div class="row">
   <ngb-carousel class="col-4">
-    <ng-template ngbSlide *ngFor="let item of paths">
+    <ng-template ngbSlide *ngFor="let item of paths;let i=index">
       <div class="carousel-wrapper" style="margin-top: 20px;margin-left: 20px">
-        <img src="{{item}}" style="height:87vh">
+        <img src="{{item}}" style="height:80vh">
       </div>
     </ng-template>
   </ngb-carousel>
@@ -66,11 +66,11 @@
             <label for="expectResponseDate">التاريخ المتوقع للرد</label>
           </div>
 
-            <div class="input-data" style="bottom:0px; ">
-              <button type="submit" class="btn  "
-                      style="width:150px; padding:5px;color: white;background: #333333;font-size:25px;margin-left:96%"
-              > حفظ
-              </button>
+          <div class="input-data" style="bottom:0px; ">
+            <button type="submit" class="btn  "
+                    style="width:150px; padding:5px;color: white;background: #333333;font-size:25px;margin-left:96%"
+            > حفظ
+            </button>
           </div>
 
         </div>

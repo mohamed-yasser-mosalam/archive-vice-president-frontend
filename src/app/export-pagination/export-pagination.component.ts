@@ -16,7 +16,7 @@ export class ExportPaginationComponent implements OnInit {
   x: any;
   y: any
   id: string;
-  idOfUser=this.auth.getuserId()
+  roleOfUser=this.auth.getUserRoles()
   page = this.routes.snapshot.params['id'];
   pageLength: any;
   showExports: any;

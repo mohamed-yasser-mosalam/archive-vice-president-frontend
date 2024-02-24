@@ -55,6 +55,7 @@ import { ArchiveSpecialComponent } from './archive-special/archive-special.compo
 import {NgConfirmModule, NgConfirmService} from "ng-confirm-box";
 import { UserActivityComponent } from './user-activity/user-activity.component';
 import { ChangePasswordByAdminComponent } from './change-password-by-admin/change-password-by-admin.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
  @NgModule({
   declarations: [
     AppComponent,
@@ -99,24 +100,25 @@ import { ChangePasswordByAdminComponent } from './change-password-by-admin/chang
     UserActivityComponent,
     ChangePasswordByAdminComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatSlideToggleModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    NgbPaginationModule,
-    NgxPaginationModule,
-    NgbCarouselModule,
-    NgConfirmModule
-  ],
+     imports: [
+         BrowserModule,
+         AppRoutingModule,
+         HttpClientModule,
+         FormsModule,
+         ReactiveFormsModule,
+         BrowserAnimationsModule,
+         MatSlideToggleModule,
+         MatToolbarModule,
+         MatButtonModule,
+         MatSidenavModule,
+         MatIconModule,
+         MatListModule,
+         NgbPaginationModule,
+         NgxPaginationModule,
+         NgbCarouselModule,
+         NgConfirmModule,
+         MatPaginatorModule
+     ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:HttpInterceterBaseAuthService,multi:true}
   ],

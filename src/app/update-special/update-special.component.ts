@@ -10,6 +10,7 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./update-special.component.css']
 })
 export class UpdateSpecialComponent implements OnInit {
+  x:any
   form: FormGroup;
   page = this.routes.snapshot.params['id'];
   showSpecials: any;
@@ -19,12 +20,11 @@ export class UpdateSpecialComponent implements OnInit {
   paths: []
   decision: any[];
 
-
   constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router,
-              private routes: ActivatedRoute,private http:HttpClient) {
+              private routes: ActivatedRoute, private http: HttpClient) {
     this.form = this.fb.group({
       sender: [''],
-      num: [null],
+      num: [''],
       summary: [''],
       subjects: this.fb.array([this.createSubject()])
     });
@@ -32,15 +32,15 @@ export class UpdateSpecialComponent implements OnInit {
 
   createSubject() {
     return this.fb.group({
-      num: [null],
+      num: [''],
       head: [''],
       decision: this.fb.array([this.createDecision()])
     });
   }
 
   createDecision() {
-    return this.fb.group({
-      num: [null],
+    return this.x= this.fb.group({
+      num: [''],
       summary: ['']
     });
   }
@@ -81,8 +81,7 @@ export class UpdateSpecialComponent implements OnInit {
       this.updateSubject = this.showSpecials.subjects
       this.updateDecision = this.showSpecials.subjects.decision;
       this.paths = this.showSpecials.paths;
-
-      console.log(this.showSpecials.subjects.decisions)
+      console.log(this.showSpecials.subjects)
     })
   }
 
@@ -93,85 +92,23 @@ export class UpdateSpecialComponent implements OnInit {
         summary: new FormControl(result['summary']),
         sender: new FormControl(result['sender']),
         num: new FormControl(result['num']),
-        head: new FormControl(result['head']),
+        subjects: new FormArray([
+           this.fb.group({
+            num: new FormControl(result['subjects'][1]['num']),
+            head: new FormControl(result['subjects'][1]['head']),
+            decision: this.fb.array([
+              this.fb.group({
+                num: new FormControl(result ),
+                summary: new FormControl(result['summary'])
+              })
+            ])
+          })
+        ])
       });
+
+      console.log(result);
     })
   }
 
-  deleteImage(index: number): void {
-    this.paths.splice(index, 1);
-    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
-  }
 
 }
-
-//   x: any;
-//   y: any
-//   id: string;
-//   page = this.routes.snapshot.params['id'];
-//   showSpecials: any;
-//   editSpecial = new FormGroup({
-//     id: new FormControl(''),
-//     name: new FormControl(''),
-//     summary: new FormControl(''),
-//     numberOfAttachments: new FormControl(''),
-//     incomeDate: new FormControl(''),
-//     sender: new FormControl(''),
-//     archiveId: new FormControl(''),
-//     typeNumber: new FormControl(''),
-//     num: new FormControl(''),
-//   })
-//
-//   ngOnInit(): void {
-//     this.showSpecialFile();
-//     this.specialService.getSpecialFileById(this.routes.snapshot.params['id']).subscribe((result) => {
-//       this.editSpecial = new FormGroup({
-//         id: new FormControl(result['id']),
-//         name: new FormControl(result['name']),
-//         summary: new FormControl(result['summary']),
-//         numberOfAttachments: new FormControl(result['numberOfAttachments']),
-//         incomeDate: new FormControl(result['incomeDate']),
-//         sender: new FormControl(result['sender']),
-//         archiveId: new FormControl(result['archiveId']),
-//         typeNumber: new FormControl(result['typeNumber']),
-//         num: new FormControl(result['num']),
-//       })
-//     })
-//
-//   }
-//
-//   constructor(private specialService: SpecialService, private routes: ActivatedRoute, private router: Router,
-//               private http: HttpClient
-//   ) {
-//   }
-//
-//
-//   showSpecialFile() {
-//     this.specialService.getSpecialFileById(this.page).subscribe((getSpecial: any) => {
-//       this.showSpecials = getSpecial;
-//     })
-//   }
-//
-//   update() {
-//     this.specialService.updateSpecial(this.routes.snapshot.params['id'], this.editSpecial.value).subscribe((result) => {
-//       this.router.navigate([`/special-pagination?id/`, this.x]);
-//     })
-//
-//   }
-//
-//   onImageSelected(event) {
-//     const file = event.target.files[0]
-//     const formDate: FormData = new FormData()
-//     this.x = formDate.append("files", file)
-//     this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.routes.snapshot.params['id']}&pathType=imports`, formDate).subscribe(
-//       (result) => {
-//       })
-//
-//   }
-//
-// }
-
-
-
-
-

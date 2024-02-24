@@ -19,7 +19,7 @@ export class ImportPaginationComponent implements OnInit{
   size: number = 1;
   paths: string[];
   urls = new Array<string>();
-  idOfUser=this.auth.getuserId()
+  roleOfUser=this.auth.getUserRoles()
   showImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
     sender: new FormControl(''),

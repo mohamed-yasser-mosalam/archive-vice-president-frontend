@@ -15,7 +15,7 @@ export class SpecialPaginationComponent implements OnInit {
   y: any
   id: string;
   summary: string;
-  idOfUser = this.auth.getUserRoles()
+  roleOfUser = this.auth.getUserRoles()
   page = this.routes.snapshot.params['id'];
   pageLength: any;
   showSpecials: any;

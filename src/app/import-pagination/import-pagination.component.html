@@ -4,7 +4,10 @@
     <ng-template ngbSlide *ngFor="let item of paths;let i=index">
       <div class="carousel-wrapper" style="margin-top: 20px;margin-left: 20px">
         <img src="{{item}}" style="height:83vh">
-<!--        <button (click)="deleteImage(i)" style="width:50px; padding:0px;margin: 8px;color: white;background: #333333">حذف</button>-->
+        <button type="submit" (click)="deleteImage(i)" style="width:100px;margin:5px;color: white;background: #333333;bottom: 0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16" style="margin-right: 3px">
+            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+          </svg>حذف المرفق</button>
       </div>
     </ng-template>
   </ngb-carousel>
@@ -91,7 +94,8 @@
             <label for="num">رقم الملف</label>
           </div>
           <div class="input-data" style="bottom: 55px;">
-            <input id="AddingAttachment" type="file" multiple name="img" accept="image/*" (change)="onImageSelected($event)"
+            <input id="AddingAttachment" type="file" multiple name="img" accept="image/*"
+                   (change)="onImageSelected($event)"
                    style="margin-top: 20px;margin-bottom:40px;font-size:30px">
             <label for="AddingAttachment" style="font-size: 25px;margin-top: 10px">اضافة مرفق</label>
           </div>
@@ -100,7 +104,7 @@
       <div class="input-data" style="bottom:150px;margin-left: 32% ">
 
         <button *ngIf="idOfUser=='1'||idOfUser=='2'"
-          type="submit" class="btn "
+                type="submit" class="btn "
                 style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
                 routerLink="/updateimport/{{page}}">
           تعديل
@@ -109,6 +113,11 @@
                 style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
                 routerLink="/addimportfile">
           اضافة
+        </button>
+        <button type="submit" class="btn  "
+                style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
+        >
+          حذف المرفق
         </button>
         <button type="submit" class="btn  "
                 style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"

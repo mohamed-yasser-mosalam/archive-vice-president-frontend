@@ -14,7 +14,7 @@
         <div class="input-container">
 
           <div class="input-data">
-            <input type="text" required id="sender" name="sender" formControlName="sender">
+            <input type="text" required id="sender" name="sender" ngModel>
             <div class="underLine"></div>
             <label for="sender">الجهة الوارد منها الخطاب</label>
           </div>
@@ -23,14 +23,14 @@
         <div class="input-container">
 
           <div class="input-data">
-            <input type="number" required id="num" name="num" formControlName="num">
+            <input type="number" required id="num" name="num" ngModel>
             <div class="underLine"></div>
             <label for="num">رقم الملف</label>
           </div>
         </div>
       </div>
       <div class="input-data"  >
-        <input type="text" required id="summary" name="summary" formControlName="summary">
+        <input type="text" required id="summary" name="summary" ngModel>
         <div class="underLine"></div>
         <label for="summary" style="margin-right: 0!important;">ملخص الخطاب</label>
       </div>
@@ -103,6 +103,7 @@
           </div>
         </div>
 
+        {{form|json}}
       </div>
 
     </div>

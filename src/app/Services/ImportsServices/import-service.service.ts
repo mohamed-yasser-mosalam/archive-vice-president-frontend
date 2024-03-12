@@ -10,6 +10,9 @@ export class ImportServiceService {
   getAllImports(){
     return this.http.get('http://localhost:1200/import/imports')
   }
+  getAllLastImports(){
+    return this.http.get('http://localhost:1200/import/all-imports')
+  }
   getImportsById(id:number){
     return this.http.get(`http://localhost:1200/import/import-archive?id=${id}`)
   }

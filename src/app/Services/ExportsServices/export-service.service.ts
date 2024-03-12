@@ -10,6 +10,9 @@ export class ExportServiceService {
     getAllExports(){
       return this.http.get( 'http://localhost:1200/export/exports' )
     }
+  getAllLastExports(){
+    return this.http.get( 'http://localhost:1200/export/all-exports' )
+  }
    getExportsById(id:number){
     return this.http.get( `http://localhost:1200/export/export-archive?id=${id}` )
   }

@@ -1,10 +1,20 @@
 <app-navbar></app-navbar>
 <div class="row" >
 
-  <div class="col-10 position-relative" style=" zoom: 75%; background-color: #fff; text-align: center; overflow: auto; height:785px; border-radius: 8px;">
+  <div class="col-10 position-relative"
+       style=" zoom: 71%; background-color: #fff; text-align: center; overflow: auto; height:830px; border-radius: 8px;margin-right: 0">
+
     <div class="row">
 
-      <h2 style="font-size: 20px; padding: 10px 0; background-color: #fff; color: black; position: sticky; top: 0; width: 90%;font-weight: bold;margin-left: 140px">الخطابات التي ذهب موعدها</h2>
+
+      <div class="d-flex"
+           style="font-size: 20px; padding: 10px 0;margin-left: 40%; background-color: #fff; color: #333333; position: sticky; top: 0; width: 50%;font-weight: bold">
+        <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
+        <div class="input-data ">
+          <h2 style="font-weight: bold;margin-left: 30px"> جميع الخطابات الواردة من مكتب العميد</h2>
+        </div>
+      </div>
+
       <table class="table" style="direction: rtl">
         <thead style=" position: sticky; top: 40px; background-color: #fff;">
         <tr>
@@ -25,8 +35,8 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of showAllFileHadGone">
-          <td>{{item.no}}</td>
+        <tr *ngFor="let item of showAllImport | search:searchText">
+          <td>{{item.id}}</td>
           <td>{{item.incomeDate}}</td>
           <td>{{item.numberOfAttachments}}</td>
           <td>{{item.sender}}</td>
@@ -56,5 +66,4 @@
   <div class="col-2 position-relative">
     <app-sidebar></app-sidebar>
   </div>
-
 </div>

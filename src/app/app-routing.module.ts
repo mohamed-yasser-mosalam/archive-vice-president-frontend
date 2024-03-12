@@ -35,6 +35,9 @@ import {AddSpecialComponent} from "./add-special/add-special.component";
 import {ArchiveSpecialComponent} from "./archive-special/archive-special.component";
 import {UserActivityComponent} from "./user-activity/user-activity.component";
 import {ChangePasswordByAdminComponent} from "./change-password-by-admin/change-password-by-admin.component";
+import {LastExportComponent} from "./last-export/last-export.component";
+import {LastImportComponent} from "./last-import/last-import.component";
+import {LastSpecialComponent} from "./last-special/last-special.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent,canActivate:[CanActivate]},
@@ -74,6 +77,10 @@ const routes: Routes = [
   {path:'useractivity',component:UserActivityComponent,canActivate:[CanActivate]},
   {path:'changepasswordbyadmin/:id',component:ChangePasswordByAdminComponent,canActivate:[CanActivate]},
   {path:'updatespecial/:id',component:UpdateSpecialComponent,canActivate:[CanActivate]},
+  {path:'lastexports',component:LastExportComponent,canActivate:[CanActivate]},
+  {path:'lastimports',component:LastImportComponent,canActivate:[CanActivate]},
+  {path:'lastspecials',component:LastSpecialComponent,canActivate:[CanActivate]},
+
 ];
 
 @NgModule({

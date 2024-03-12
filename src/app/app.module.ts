@@ -56,6 +56,9 @@ import {NgConfirmModule, NgConfirmService} from "ng-confirm-box";
 import { UserActivityComponent } from './user-activity/user-activity.component';
 import { ChangePasswordByAdminComponent } from './change-password-by-admin/change-password-by-admin.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { LastExportComponent } from './last-export/last-export.component';
+import { LastImportComponent } from './last-import/last-import.component';
+import { LastSpecialComponent } from './last-special/last-special.component';
  @NgModule({
   declarations: [
     AppComponent,
@@ -99,6 +102,9 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     ArchiveSpecialComponent,
     UserActivityComponent,
     ChangePasswordByAdminComponent,
+    LastExportComponent,
+    LastImportComponent,
+    LastSpecialComponent,
   ],
      imports: [
          BrowserModule,

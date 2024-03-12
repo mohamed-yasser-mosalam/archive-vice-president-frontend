@@ -1,4 +1,5 @@
 export class Showallexport {
+  no:number;
   id: number;
   date: Date;
   numberOfAttachments: number;
@@ -26,7 +27,8 @@ export class Showallexport {
               responseDate: Date,
               archiveId: number,
               typeNumber: number,
-              num: number) {
+              num: number,
+              no:number) {
     this.id = id;
     this.date = date;
     this.numberOfAttachments = numberOfAttachments;
@@ -40,6 +42,8 @@ export class Showallexport {
     this.responseDate = responseDate;
     this.archiveId = archiveId;
     this.typeNumber = typeNumber;
-    this.num = num
+    this.num = num;
+    this.no=no
+
   }
 }

@@ -19,6 +19,7 @@ export class UpdateSpecialComponent implements OnInit {
   updateDecision: any
   paths: []
   decision: any[];
+  specialFile:any
 
   constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router,
               private routes: ActivatedRoute, private http: HttpClient) {
@@ -113,6 +114,10 @@ export class UpdateSpecialComponent implements OnInit {
 
       console.log(result);
     });
+   this.getUser()
   }
-
+  getUser(): void {
+    this.specialService.getSpecialsById(this.page)
+      .subscribe(user => this.specialFile = user);
+  }
 }

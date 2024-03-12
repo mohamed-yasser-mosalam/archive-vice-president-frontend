@@ -1,4 +1,5 @@
 export class Showallimport {
+  no:number
   id: number;
   incomeDate: Date;
   numberOfAttachments: number;
@@ -35,7 +36,8 @@ export class Showallimport {
               typeNumber: number,
               num: number,
               expectResponseDate: Date,
-              receiver: string
+              receiver: string,
+              no:number
   ) {
     this.id = id;
     this.incomeDate = incomeDate;
@@ -54,6 +56,8 @@ export class Showallimport {
     this.typeNumber = typeNumber;
     this.num = num;
     this.expectResponseDate = expectResponseDate;
-    this.receiver = receiver
+    this.receiver = receiver;
+    this.no=no
+
   }
 }

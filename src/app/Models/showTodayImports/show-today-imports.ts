@@ -16,8 +16,9 @@ export class ShowTodayImports {
   num: number;
   expectResponseDate:Date;
   receiver:string
-
+  no:number;
   constructor( id: number,
+               no:number,
                incomeDate:Date,
                numberOfAttachments: number,
                sender: string,
@@ -51,6 +52,7 @@ export class ShowTodayImports {
     this.typeNumber = typeNumber;
     this.num = num;
     this.expectResponseDate =expectResponseDate;
-    this.receiver=receiver
+    this.receiver=receiver;
+    this.no=no;
   }
 }

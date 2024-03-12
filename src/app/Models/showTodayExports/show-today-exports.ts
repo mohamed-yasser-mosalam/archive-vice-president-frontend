@@ -1,4 +1,5 @@
 export class ShowTodayExports {
+  no:number
   id:number;
   date:Date;
   numberOfAttachments: number;
@@ -13,7 +14,8 @@ export class ShowTodayExports {
   typeNumber: number;
   num:number
 
-  constructor(id:number,date:Date,
+  constructor(id:number,
+              no:number,date:Date,
               numberOfAttachments: number,
               receiver: string,
               summary:string,
@@ -39,5 +41,6 @@ export class ShowTodayExports {
     this.archiveId=archiveId;
     this.typeNumber=typeNumber;
     this.num=num
+    this.no=no;
   }
 }

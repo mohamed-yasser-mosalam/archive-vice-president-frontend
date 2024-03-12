@@ -84,7 +84,6 @@ export class UpdateSpecialComponent implements OnInit {
       console.log(this.showSpecials.subjects)
     })
   }
-
   ngOnInit(): void {
     this.showSpecialFile();
     this.specialService.getSpecialFileById(this.routes.snapshot.params['id']).subscribe((result) => {
@@ -100,16 +99,13 @@ export class UpdateSpecialComponent implements OnInit {
 
       for (let i = 0; i < subjects.length; i++) {
         const subject = subjects[i];
+        const decisionArray = this.fb.array([]);
+
 
         const subjectGroup = this.fb.group({
           num: new FormControl(subject['num']),
           head: new FormControl(subject['head']),
-          decision: this.fb.array([
-            this.fb.group({
-              num: new FormControl('num'),
-              summary: new FormControl(result['summary'])
-            })
-          ])
+          decision: decisionArray // Assign decisionArray to the 'decision' form control
         });
 
         subjectsArray.push(subjectGroup);
@@ -118,105 +114,5 @@ export class UpdateSpecialComponent implements OnInit {
       console.log(result);
     });
   }
+
 }
-
-  // ngOnInit(): void {
-  //   this.showSpecialFile();
-  //   this.specialService.getSpecialFileById(this.routes.snapshot.params['id']).subscribe((result) => {
-  //     this.form = new FormGroup({
-  //       summary: new FormControl(result['summary']),
-  //       sender: new FormControl(result['sender']),
-  //       num: new FormControl(result['num']),
-  //       subjects: new FormArray([])
-  //     });
-  //
-  //     const subjectsArray = this.form.get('subjects') as FormArray;
-  //     const subjects = result['subjects'];
-  //
-  //     for (let i = 0; i < subjects.length; i++) {
-  //       const subject = subjects[i];
-  //
-  //       const subjectGroup = this.fb.group({
-  //         num: new FormControl(subject['num']),
-  //         head: new FormControl(subject['head']),
-  //         decision: this.fb.array([
-  //           this.fb.group({
-  //             num: new FormControl(result),
-  //             summary: new FormControl(result['summary'])
-  //           })
-  //         ])
-  //       });
-  //
-  //       subjectsArray.push(subjectGroup);
-  //     }
-  //
-  //     console.log(result);
-  //   });
-  // }
-
-//   ngOnInit(): void {
-//     this.showSpecialFile();
-//     this.specialService.getSpecialFileById(this.routes.snapshot.params['id']).subscribe((result) => {
-//       this.form = new FormGroup({
-//         summary: new FormControl(result['summary']),
-//         sender: new FormControl(result['sender']),
-//         num: new FormControl(result['num']),
-//         subjects: new FormArray([
-//           this.fb.group({
-//             num: new FormControl(result['subjects'][1]['num']),
-//             head: new FormControl(result['subjects'][1]['head']),
-//             decision: this.fb.array([
-//               this.fb.group({
-//                 num: new FormControl(result),
-//                 summary: new FormControl(result['summary'])
-//               })
-//             ])
-//           })
-//         ])
-//       });
-//
-//       console.log(result);
-//     })
-//   }
-// }
-//   ngOnInit(): void {
-//     this.showSpecialFile();
-//     this.specialService.getSpecialFileById(this.routes.snapshot.params['id']).subscribe((result) => {
-//       this.form = new FormGroup({
-//         summary: new FormControl(result['summary']),
-//         sender: new FormControl(result['sender']),
-//         num: new FormControl(result['num']),
-//         subjects: new FormArray([])
-//       });
-//
-//       const subjectsArray = this.form.get('subjects') as FormArray;
-//       const subjects = result['subjects'];
-//
-//       for (let i = 0; i < subjects.length; i++) {
-//         const subject = subjects[i];
-//         const decisionArray = this.fb.array([]);
-//
-//         for (let j = 0; j < subject['decision'].length; j++) {
-//           const decision = subject['decision'][j];
-//            const decisionGroup = this.fb.group({
-//             num: new FormControl(decision['num']),
-//             summary: new FormControl(decision['summary'])
-//           });
-//
-//           decisionArray.push(decisionGroup);
-//         }
-//
-//         const subjectGroup = this.fb.group({
-//           num: new FormControl(subject['num']),
-//           head: new FormControl(subject['head']),
-//           decision: FormArray
-//         });
-//
-//         subjectsArray.push(subjectGroup);
-//       }
-//
-//       console.log(result);
-//     });
-//   }
-//
-// }

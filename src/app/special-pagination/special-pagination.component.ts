@@ -110,5 +110,10 @@ export class SpecialPaginationComponent implements OnInit {
     this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
     this.paths.splice(index, 1);
    }
+
+  getSpecialById(archiveId: any) {
+    this.specialService.getSpecialFileById(this.page).subscribe((result)=>{
+     })
+  }
 }
 

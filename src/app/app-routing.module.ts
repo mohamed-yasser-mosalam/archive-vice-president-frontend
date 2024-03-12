@@ -38,6 +38,7 @@ import {ChangePasswordByAdminComponent} from "./change-password-by-admin/change-
 import {LastExportComponent} from "./last-export/last-export.component";
 import {LastImportComponent} from "./last-import/last-import.component";
 import {LastSpecialComponent} from "./last-special/last-special.component";
+import {AuthenticationServiceService} from "./Services/Security/authentication-service.service";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent,canActivate:[CanActivate]},
@@ -56,14 +57,14 @@ const routes: Routes = [
   {path: 'updateimport/:id', component: UpdateImportComponent,canActivate:[CanActivate]},
   {path: 'updateexport/:id', component: UpdateExportComponent,canActivate:[CanActivate]},
   {path: 'allfiles', component: AllFilesComponent,canActivate:[CanActivate]},
-  {path: 'register', component: RegisterComponent,canActivate:[CanActivate]},
+  {path: 'register', component: RegisterComponent,canActivate:[AuthenticationServiceService,CanActivate]},
   {path: 'export-pagination?id/:id', component: ExportPaginationComponent,canActivate:[CanActivate]},
   {path: 'import-pagination?id/:id', component: ImportPaginationComponent,canActivate:[CanActivate]},
   {path: 'add-urgent/:id', component: UrgentExportComponent,canActivate:[CanActivate]},
   {path: 'add-export-response/:id', component: ResponsExportComponent,canActivate:[CanActivate]},
   {path: 'add-import-response/:id', component: ResponsImportComponent,canActivate:[CanActivate]},
   {path: 'update-login-information', component: UpdateLoginInformatioComponent,canActivate:[CanActivate]},
-  {path: 'users', component: UsersComponent,canActivate:[CanActivate]},
+  {path: 'users', component: UsersComponent,canActivate:[AuthenticationServiceService,CanActivate]},
   {path:'changepassword/:username',component:ChangePasswordComponent,canActivate:[CanActivate]},
   {path:'any',component:AnyThingComponent,canActivate:[CanActivate]},
   {path:'exportfile/:summary',component:ExportFilesComponent,canActivate:[CanActivate]},
@@ -74,8 +75,8 @@ const routes: Routes = [
   {path:'special-pagination?id/:id',component:SpecialPaginationComponent,canActivate:[CanActivate]},
   {path:'update-special/:id',component:UpdateSpecialComponent,canActivate:[CanActivate]},
   {path:'addspecialfile',component:AddSpecialComponent,canActivate:[CanActivate]},
-  {path:'useractivity',component:UserActivityComponent,canActivate:[CanActivate]},
-  {path:'changepasswordbyadmin/:id',component:ChangePasswordByAdminComponent,canActivate:[CanActivate]},
+  {path:'useractivity',component:UserActivityComponent,canActivate:[AuthenticationServiceService,CanActivate]},
+  {path:'changepasswordbyadmin/:id',component:ChangePasswordByAdminComponent,canActivate:[AuthenticationServiceService,CanActivate]},
   {path:'updatespecial/:id',component:UpdateSpecialComponent,canActivate:[CanActivate]},
   {path:'lastexports',component:LastExportComponent,canActivate:[CanActivate]},
   {path:'lastimports',component:LastImportComponent,canActivate:[CanActivate]},

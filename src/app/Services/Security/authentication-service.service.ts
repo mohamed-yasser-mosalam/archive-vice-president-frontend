@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
+import {CanActivate} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationServiceService {
+export class AuthenticationServiceService implements CanActivate {
 
   constructor(private http:HttpClient) { }
 
@@ -46,4 +47,7 @@ export class AuthenticationServiceService {
     sessionStorage.clear()
   }
 
-}
+  canActivate( ):any{
+    if(sessionStorage.getItem('roles')!='admin')
+     return false;
+  }}

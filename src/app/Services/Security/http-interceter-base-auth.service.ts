@@ -18,16 +18,5 @@ export class HttpInterceterBaseAuthService implements HttpInterceptor {
     });
     return next.handle(authReq);
 
-
-
-    //
-    // if (this.auth.getToken()){
-    //   req=req.clone({
-    //     setHeaders: {
-    //       Authorization:this.auth.getToken()
-    //      }
-    //   })
-    // }
-    // return next.handle(req);
   }
 }

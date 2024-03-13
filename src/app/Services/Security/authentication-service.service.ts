@@ -15,8 +15,7 @@ export class AuthenticationServiceService implements OnInit {
 
   ngOnInit(): void {
     this.canActivate();
-    this.updateAuth();
-   }
+    }
 
   executeAuthentication(username, password): Observable<any> {
     return this.http.post<any>('http://localhost:1200/login', {username, password})
@@ -64,8 +63,5 @@ export class AuthenticationServiceService implements OnInit {
     if (sessionStorage.getItem('roles') != 'admin')
       return false;
   }
-  updateAuth():any{
-    if (sessionStorage.getItem('roles') == 'user')
-      return false;
-  }
+
 }

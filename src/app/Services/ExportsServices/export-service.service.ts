@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {AuthenticationServiceService} from "../Security/authentication-service.service";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExportServiceService {
-   constructor(private http:HttpClient) {}
+   constructor(private http:HttpClient,private auth:AuthenticationServiceService) {}
     getAllExports(){
       return this.http.get( 'http://localhost:1200/export/exports' )
     }

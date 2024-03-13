@@ -2,14 +2,14 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
-import {CanActivate} from "@angular/router";
+import {CanActivate, Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationServiceService implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private  router:Router) {
 
   }
 
@@ -61,7 +61,7 @@ export class AuthenticationServiceService implements OnInit {
 
   canActivate(): any {
     if (sessionStorage.getItem('roles') != 'admin')
-      return false;
+      return this.router.navigateByUrl('/home');
   }
 
 }

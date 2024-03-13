@@ -25,7 +25,7 @@ export class SpecialPaginationComponent implements OnInit {
   subjects: any[];
   decisions: any[];
   showSpecial = new FormGroup({
-    id: new FormControl(''),
+    no: new FormControl(''),
     name: new FormControl(''),
     summary: new FormControl(''),
     numberOfAttachments: new FormControl(''),
@@ -41,7 +41,7 @@ export class SpecialPaginationComponent implements OnInit {
     this.showSpecialFile();
     this.specialService.getSpecialFileById(this.routes.snapshot.params['id']).subscribe((result) => {
       this.showSpecial = new FormGroup({
-        id: new FormControl(result['id']),
+        no: new FormControl(result['no']),
         name: new FormControl(result['name']),
         summary: new FormControl(result['summary']),
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
@@ -82,7 +82,7 @@ export class SpecialPaginationComponent implements OnInit {
     this.showSpecialFile();
     this.specialService.getSpecialFileById(this.page).subscribe((result) => {
       this.showSpecial = new FormGroup({
-        id: new FormControl(result['id']),
+        no: new FormControl(result['no']),
         name: new FormControl(result['name']),
         summary: new FormControl(result['summary']),
         numberOfAttachments: new FormControl(result['numberOfAttachments']),

@@ -19,13 +19,19 @@ export class WelcomeComponent implements OnInit {
   NumberOfImportantLetter: any;
   NumberOfAllExports: any;
   NumberOfAllImports: any;
-  numberOfAllSpecial:any;
+  numberOfAllSpecial: any;
+  years: any;
+  selectedYear = new Date().getFullYear();
+  numberOfLetterForYears: any
+  numberOfExportLetterForSpecificYear:any;
+  numberOfImportLetterForSpecificYear:any;
   showAllTodayExports: ShowTodayExports[] = []
   showAllTodayImports: ShowTodayImports[] = []
-  showLetterHasGone:ShowAllImportantFile[]=[]
+  showLetterHasGone: ShowAllImportantFile[] = []
+
   constructor(private http: HttpClient, private service: TodayServiceService,
               private LetterHasGoneService: LetterHasGoneService,
-              private auth:AuthenticationServiceService,
+              private auth: AuthenticationServiceService,
   ) {
   }
 
@@ -39,8 +45,10 @@ export class WelcomeComponent implements OnInit {
     this.getAllTodayExports();
     this.getAllTodayImports();
     this.getLetterHasGone();
-    this.getNumberOfAllSpecials()
-   }
+    this.getNumberOfAllSpecials();
+    this.getYears();
+    this.getNumberOfLetterForYears();
+  }
 
   getNumberOfFileHadGone() {
     this.http.get('http://localhost:1200/import/count-response-date-passed').subscribe((numberOfFileHadGone) => {
@@ -102,4 +110,30 @@ export class WelcomeComponent implements OnInit {
       this.showLetterHasGone = letterHasGone;
     })
   }
+
+  getYears() {
+    this.http.get<number[]>('http://localhost:1200/general/years').subscribe((years: number[]) => {
+      const currentYear = new Date().getFullYear();
+      this.years = years.filter(year => year !== currentYear);
+    });
+  }
+
+  getNumberOfLetterForYears() {
+    if (this.selectedYear) {
+      this.http.get(`http://localhost:1200/export/count-export-by-year?year=${this.selectedYear}`).subscribe((numberOfLetterForYear) => {
+        this.numberOfLetterForYears = numberOfLetterForYear;
+      });
+    }
+    if (this.selectedYear) {
+      this.http.get(`http://localhost:1200/export/count-export-by-year?year=${this.selectedYear}`).subscribe((numberOfExportLetterForSpecificYears) => {
+        this.numberOfExportLetterForSpecificYear = numberOfExportLetterForSpecificYears;
+      });
+    }
+    if (this.selectedYear) {
+      this.http.get(`http://localhost:1200/import/count-import-by-year?year=${this.selectedYear}`).subscribe((numberOfImportLetterForSpecificYears) => {
+        this.numberOfImportLetterForSpecificYear = numberOfImportLetterForSpecificYears;
+      });
+    }
+  }
+
 }

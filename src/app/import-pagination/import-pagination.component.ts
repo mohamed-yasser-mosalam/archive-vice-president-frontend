@@ -82,7 +82,7 @@ export class ImportPaginationComponent implements OnInit{
   change() {
     this.page;
     this.showImportFile();
-    this.importService.getImportById(this.page).
+    this.importService.getImportPagination(this.page).
     subscribe((result) => {
       this.showImport = new FormGroup({
         numberOfAttachments: new FormControl(result['numberOfAttachments']),

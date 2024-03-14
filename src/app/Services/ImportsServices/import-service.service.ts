@@ -16,6 +16,9 @@ export class ImportServiceService {
   getImportsById(id:number){
     return this.http.get(`http://localhost:1200/import/import-archive?id=${id}`)
   }
+  getImportPagination(page:number){
+    return this.http.get(`http://localhost:1200/import/imports-pagination?page=${page}`)
+  }
   addImportFile( Data:any){
     return this.http.post('http://localhost:1200/import/import',Data)
   }

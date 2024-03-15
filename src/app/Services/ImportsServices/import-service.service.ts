@@ -33,5 +33,10 @@ export class ImportServiceService {
   addImportResponse(id:number,data:any){
     return this.http.put(`http://localhost:1200/import/import-add-response?id=${id}`,data)
   }
+  uploadImage(page:number,file: File) {
+    const formData: FormData = new FormData();
+    formData.append('image', file, file.name);
+    return this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${page}&pathType=imports`, formData);
+  }
 
 }

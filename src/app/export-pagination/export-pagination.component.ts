@@ -4,8 +4,6 @@ import {ExportServiceService} from "../Services/ExportsServices/export-service.s
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
-import {Showallexport} from "../Models/showAllExports/showallexport";
-import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-export-pagination',
@@ -14,10 +12,9 @@ import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
 })
 export class ExportPaginationComponent implements OnInit {
   x: any;
-  y: any
   id: string;
-  roleOfUser=this.auth.getUserRoles()
-  page = this.routes.snapshot.params['id'];
+  roleOfUser = this.auth.getUserRoles();
+  page: any =1
   pageLength: any;
   showExports: any;
   size: number = 1;
@@ -35,12 +32,12 @@ export class ExportPaginationComponent implements OnInit {
     urgentNum: new FormControl(''),
     responseDate: new FormControl(''),
     responseNumber: new FormControl(''),
-  })
+  });
 
   ngOnInit(): void {
     this.getExportCount();
     this.showExportFile();
-    this.serviceExport.getExportById(this.routes.snapshot.params['id']).subscribe((result) => {
+    this.serviceExport.getExportByPagination(this.page).subscribe((result) => {
       this.showExport = new FormGroup({
         date: new FormControl(result['date']),
         receiver: new FormControl(result['receiver']),
@@ -53,36 +50,36 @@ export class ExportPaginationComponent implements OnInit {
         urgentNum: new FormControl(result['urgentNum']),
         responseDate: new FormControl(result['responseDate']),
         responseNumber: new FormControl(result['responseNumber'])
-      })
-    })
-
+      });
+    });
   }
 
-  constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient,private auth:AuthenticationServiceService
-
+  constructor(
+    private serviceExport: ExportServiceService,
+    private routes: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient,
+    private auth: AuthenticationServiceService
   ) {
   }
 
-  showExportFile() {
-    this.serviceExport.getExportById(this.page).subscribe((getExport: any) => {
+  showExportFile(): void {
+    this.serviceExport.getExportByPagination(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
       this.paths = this.showExports.paths;
-      this.x=this.showExports.no
-      console.log(this.x)
-     })
+      });
   }
 
-  getExportCount() {
+  getExportCount(): void {
     this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
       this.pageLength = numberOfExportFiles;
-    })
+    });
   }
 
-  change() {
-    this.page;
+  change(event): void {
+    this.page = event;
     this.showExportFile();
-    this.serviceExport.getExportById(this.page).subscribe((result) => {
+    this.serviceExport.getExportByPagination(event).subscribe((result) => {
       this.showExport = new FormGroup({
         date: new FormControl(result['date']),
         receiver: new FormControl(result['receiver']),
@@ -95,24 +92,42 @@ export class ExportPaginationComponent implements OnInit {
         urgentNum: new FormControl(result['urgentNum']),
         responseDate: new FormControl(result['responseDate']),
         responseNumber: new FormControl(result['responseNumber'])
-      })
-    })
+      });
+    });
+   }
 
-  }
-
-  onImageSelected(event) {
-    const file = event.target.files[0]
-    const formDate: FormData = new FormData()
-    this.x = formDate.append("files", file)
-    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=exports`, formDate).subscribe(
-      (result) => {
-      })
-  }
   deleteImage(index: number): void {
-    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
+    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe();
     this.paths.splice(index, 1);
-    console.log(this.paths[0])
   }
 
+  selectedFiles: File[] = [];
 
+  onFileSelected(event: any): void {
+    const files: FileList = event.target.files;
+    if (files) {
+      for (let i = 0; i < files.length; i++) {
+        const file: File | null = files.item(i);
+        if (file) {
+          this.selectedFiles.push(file);
+        }
+      }
+    }
+  }
+
+  onSubmit(): void {
+    const formData: FormData = new FormData();
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      formData.append('files', this.selectedFiles[i]);
+    }
+
+    this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=exports`, formData).subscribe(
+      response => {
+        console.log('Upload successful:', response);
+      },
+      error => {
+        console.error('Upload failed:', error);
+      }
+    );
+  }
 }

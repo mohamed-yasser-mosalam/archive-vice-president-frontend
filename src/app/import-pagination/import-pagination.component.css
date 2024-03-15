@@ -3,12 +3,12 @@
   padding: 0;
 }
 
-form {
-  align-items: center;
-  justify-content: center;
-  margin-left:0px;
-  height: 500px;
- }
+/*form {*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  margin-left:0px;*/
+/*  height: 500px;*/
+/* }*/
 
 .wrapper {
   position: relative;

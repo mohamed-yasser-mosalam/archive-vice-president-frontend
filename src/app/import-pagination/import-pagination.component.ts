@@ -11,20 +11,20 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   templateUrl: './import-pagination.component.html',
   styleUrls: ['./import-pagination.component.css']
 })
-export class ImportPaginationComponent implements OnInit{
-  x:any
+export class ImportPaginationComponent implements OnInit {
+  x: any
   page = this.routes.snapshot.params['id'];
   pageLength: any;
   showImports: any;
   size: number = 1;
   paths: string[];
   urls = new Array<string>();
-  roleOfUser=this.auth.getUserRoles()
+  roleOfUser = this.auth.getUserRoles()
   showImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
     sender: new FormControl(''),
     incomeDate: new FormControl(''),
-    no: new FormControl(''),
+    id: new FormControl(''),
     incomingLetterDate: new FormControl(''),
     incomingLetterNumber: new FormControl(''),
     summary: new FormControl(' '),
@@ -33,8 +33,8 @@ export class ImportPaginationComponent implements OnInit{
     responseSide: new FormControl(''),
     responseNumber: new FormControl(''),
     recipientName: new FormControl(''),
-     num: new FormControl(''),
-    expectResponseDate:new FormControl('')
+    num: new FormControl(''),
+    expectResponseDate: new FormControl('')
 
   })
 
@@ -46,7 +46,7 @@ export class ImportPaginationComponent implements OnInit{
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
         sender: new FormControl(result['sender']),
         incomeDate: new FormControl(result['incomeDate']),
-        no: new FormControl(result['no']),
+        id: new FormControl(result['id']),
         incomingLetterDate: new FormControl(result['incomingLetterDate']),
         incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
         summary: new FormControl(result['summary']),
@@ -55,14 +55,14 @@ export class ImportPaginationComponent implements OnInit{
         responseSide: new FormControl(result['responseSide']),
         responseNumber: new FormControl(result['responseNumber']),
         recipientName: new FormControl(result['recipientName']),
-         num: new FormControl(result['num']),
-        expectResponseDate:new FormControl(result['expectResponseDate'])
+        num: new FormControl(result['num']),
+        expectResponseDate: new FormControl(result['expectResponseDate'])
       })
     })
-   }
+  }
 
   constructor(private importService: ImportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient,private auth:AuthenticationServiceService) {
+              private http: HttpClient, private auth: AuthenticationServiceService) {
   }
 
   showImportFile() {
@@ -82,13 +82,12 @@ export class ImportPaginationComponent implements OnInit{
   change() {
     this.page;
     this.showImportFile();
-    this.importService.getImportPagination(this.page).
-    subscribe((result) => {
+    this.importService.getImportById(this.page).subscribe((result) => {
       this.showImport = new FormGroup({
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
         sender: new FormControl(result['sender']),
         incomeDate: new FormControl(result['incomeDate']),
-        no: new FormControl(result['no']),
+        id: new FormControl(result['id']),
         incomingLetterDate: new FormControl(result['incomingLetterDate']),
         incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
         summary: new FormControl(result['summary']),
@@ -104,21 +103,62 @@ export class ImportPaginationComponent implements OnInit{
       })
     })
   }
-  onImageSelected(event) {
-    this.urls = [];
-    const files = event.target.files[0]
-    const formDate: FormData = new FormData()
-    this.x = formDate.append("files", files)
-    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=imports`, formDate).subscribe(
-      (result) => {
-      })
-
-  }
 
   deleteImage(index: number): void {
     this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
     this.paths.splice(index, 1);
-    console.log(this.paths[index])
+   }
+
+  onImageSelected(event) {
+    const files: FileList = event.target.files;
+    const formData: FormData = new FormData();
+
+    if (files) {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        formData.append('files', file);
+      }
+    }
+
+    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=imports`, formData).subscribe(
+      (result) => {
+        // Handle success response
+        console.log('Upload successful:', result);
+         this.showImportFile();
+      },
+      (error) => {
+         console.error('Upload failed:', error);
+      }
+    );
   }
 
+  selectedFiles: File[] = [];
+
+  onFileSelected(event: any): void {
+    const files: FileList = event.target.files;
+    if (files) {
+      for (let i = 0; i < files.length; i++) {
+        const file: File | null = files.item(i);
+        if (file) {
+          this.selectedFiles.push(file);
+        }
+      }
+    }
+  }
+
+  onSubmit(): void {
+    const formData: FormData = new FormData();
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      formData.append('files', this.selectedFiles[i]);
+    }
+
+    this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=imports`, formData).subscribe(
+      response => {
+        console.log('Upload successful:', response);
+      },
+      error => {
+        console.error('Upload failed:', error);
+      }
+    );
+  }
 }

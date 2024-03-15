@@ -41,8 +41,8 @@
               <label for="numberOfAttachments">عدد المرفقات</label>
             </div>
             <div class="input-data " style="width:30%; margin-left:auto;">
-              <input type="number" required readonly id="no" formControlName="no">
-              <label for="no">رقم الخطاب</label>
+              <input type="number" required readonly id="id" formControlName="id">
+              <label for="id">رقم الخطاب</label>
             </div>
           </div>
           <div class="d-flex">
@@ -86,18 +86,14 @@
           </div>
         </div>
       </div>
-      <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" style="margin-bottom: 0; display: flex;">
-        <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
-        <button type="submit">Upload</button>
-      </form>
-      <div class="mt-1" style="display: flex; justify-content: space-between;">
 
+      <div class="input-data" style="bottom: 0px; ">
+        <input id="AddingAttachment" type="file" multiple name="img" accept="image/*"
+               style="margin-top: 20px;margin-bottom:40px;font-size:30px">
+        <label for="AddingAttachment" style="font-size: 25px;margin-top: 10px">اضافة مرفق</label>
 
-
-      <div class="input-data" >
-
-        <div class="input-data" style="margin-left: 25%">
-          <button
+        <div  style="margin-left: 25%">
+          <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"
                   type="submit" class="btn "
                   style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
                   routerLink="/updateexport/{{page}}">
@@ -128,14 +124,12 @@
                           [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
                           routerLink="/exports-pagination?id/{{page}}">
           </ngb-pagination>
-        </div>
 
+        </div>
       </div>
-    </div>
     </div>
   </form>
   <div class="col-2 position-relative">
     <app-sidebar></app-sidebar>
   </div>
 </div>
-

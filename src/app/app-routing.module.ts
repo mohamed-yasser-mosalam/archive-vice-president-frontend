@@ -59,7 +59,7 @@ const routes: Routes = [
   {path: 'updateexport/:id', component: UpdateExportComponent, canActivate: [AuthGuardService, CanActivate]},
   {path: 'allfiles', component: AllFilesComponent, canActivate: [CanActivate]},
   {path: 'register', component: RegisterComponent, canActivate: [AuthenticationServiceService, CanActivate]},
-  {path: 'export-pagination?id/:id', component: ExportPaginationComponent, canActivate: [CanActivate]},
+  {path: 'export-pagination?page/:page', component: ExportPaginationComponent, canActivate: [CanActivate]},
   {path: 'import-pagination?id/:id', component: ImportPaginationComponent, canActivate: [CanActivate]},
   {path: 'add-urgent/:id', component: UrgentExportComponent, canActivate: [CanActivate]},
   {path: 'add-export-response/:id', component: ResponsExportComponent, canActivate: [CanActivate]},

@@ -51,13 +51,11 @@ export class ExportPaginationComponent implements OnInit {
         responseDate: new FormControl(result['responseDate']),
         responseNumber: new FormControl(result['responseNumber'])
       });
+      console.log(result)
     });
-  }
-
+}
   constructor(
     private serviceExport: ExportServiceService,
-    private routes: ActivatedRoute,
-    private router: Router,
     private http: HttpClient,
     private auth: AuthenticationServiceService
   ) {
@@ -67,7 +65,9 @@ export class ExportPaginationComponent implements OnInit {
     this.serviceExport.getExportByPagination(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
       this.paths = this.showExports.paths;
-      });
+      console.log(this.showExports)
+
+    });
   }
 
   getExportCount(): void {

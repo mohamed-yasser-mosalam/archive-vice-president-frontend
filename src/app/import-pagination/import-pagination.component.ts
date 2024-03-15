@@ -59,7 +59,7 @@ export class ImportPaginationComponent implements OnInit {
         expectResponseDate: new FormControl(result['expectResponseDate'])
       })
     })
-  }
+   }
 
   constructor(private importService: ImportServiceService, private routes: ActivatedRoute, private router: Router,
               private http: HttpClient, private auth: AuthenticationServiceService) {

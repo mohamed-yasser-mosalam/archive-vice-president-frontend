@@ -24,7 +24,7 @@ export class ExportServiceService {
   getExportById(id: number){
      return this.http.get(`http://localhost:1200/export/export-id?id=${id}`)
     }
-  getExportByPagination(page: number){
+  getExportByPagination(page: string){
     return this.http.get(`http://localhost:1200/export/exports-pagination?page=${page}`)
   }
 

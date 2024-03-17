@@ -21,7 +21,7 @@ export class WelcomeComponent implements OnInit {
   NumberOfAllImports: any;
   numberOfAllSpecial: any;
   years: any;
-  selectedYear = new Date().getFullYear();
+  selectedYear: number = new Date().getFullYear();
   numberOfLetterForYears: any
   numberOfExportLetterForSpecificYear:any;
   numberOfImportLetterForSpecificYear:any;
@@ -136,4 +136,5 @@ export class WelcomeComponent implements OnInit {
     }
   }
 
+  protected readonly Date = Date;
 }

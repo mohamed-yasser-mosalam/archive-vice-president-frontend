@@ -38,22 +38,23 @@ export class ExportPaginationComponent implements OnInit {
     this.getExportCount();
     this.showExportFile();
     this.serviceExport.getExportByPagination(this.page).subscribe((result) => {
-      this.showExport = new FormGroup({
-        date: new FormControl(result['date']),
-        receiver: new FormControl(result['receiver']),
-        numberOfAttachments: new FormControl(result['numberOfAttachments']),
-        no: new FormControl(result['no']),
-        num: new FormControl(result['num']),
-        recipientName: new FormControl(result['recipientName']),
-        summary: new FormControl(result['summary']),
-        urgentDate: new FormControl(result['urgentDate']),
-        urgentNum: new FormControl(result['urgentNum']),
-        responseDate: new FormControl(result['responseDate']),
-        responseNumber: new FormControl(result['responseNumber'])
+       this.showExport.patchValue({
+        date: result['date'],
+        receiver: result['receiver'],
+        numberOfAttachments: result['numberOfAttachments'],
+        no: result['no'],
+        num: result['num'],
+        recipientName: result['recipientName'],
+        summary: result['summary'],
+        urgentDate: result['urgentDate'],
+        urgentNum: result['urgentNum'],
+        responseDate: result['responseDate'],
+        responseNumber: result['responseNumber']
       });
-      console.log(result)
+      console.log(result['no']);
     });
-}
+  }
+
   constructor(
     private serviceExport: ExportServiceService,
     private http: HttpClient,

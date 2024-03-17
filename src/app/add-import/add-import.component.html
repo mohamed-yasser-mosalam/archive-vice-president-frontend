@@ -24,9 +24,9 @@
 
 
           <div class="input-data">
-            <input type="date" required id="incomingLetterDate" name="incomingLetterDate" ngModel>
+            <input type="date" required id="incomeDate" name="incomeDate" ngModel>
             <div class="underLine"></div>
-            <label for="incomingLetterDate">تاريخ الخطاب الوارد</label>
+            <label for="incomeDate">تاريخ الخطاب الوارد</label>
           </div>
 
           <div class="input-data">
@@ -34,7 +34,9 @@
             <div class="underLine"></div>
             <label for="expectResponseDate">تاريخ المتوقع للرد </label>
           </div>
-
+          <button type="submit" class="btn  "
+                  style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%"> حفظ
+          </button>
         </div>
 
         <div class="input-container">
@@ -67,11 +69,15 @@
           </div>
 
 
+          <div class="input-data">
+            <input type="number" required id="numberOfAttachments" name="numberOfAttachments" ngModel>
+            <div class="underLine"></div>
+            <label for="numberOfAttachments">عدد المرفقات</label>
+          </div>
+
         </div>
       </div>
-      <button type="submit" class="btn  "
-              style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%"> حفظ
-      </button>
+
     </div>
   </form>
   <div class="col-2 position-relative">

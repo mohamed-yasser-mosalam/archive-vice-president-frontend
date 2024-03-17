@@ -9,11 +9,10 @@ import {FormArray, FormBuilder} from "@angular/forms";
   templateUrl: './add-export.component.html',
   styleUrls: ['./add-export.component.css']
 })
-export class AddExportComponent implements OnInit{
+export class AddExportComponent  {
 
-  constructor(private serviceExport: ExportServiceService,private router:Router,
-              private formbuilder:FormBuilder
-              ) {
+  constructor(private serviceExport: ExportServiceService, private router: Router,
+   ) {
 
   }
 
@@ -21,27 +20,5 @@ export class AddExportComponent implements OnInit{
     this.serviceExport.addExportFile(data).subscribe(
       response => this.router.navigateByUrl('/getallexports')
     )
-   }
-  form=this.formbuilder.group({
-    items:this.formbuilder.array([]),
-  })
-  get items( ){
-    return this.form.get("items") as FormArray
   }
-
-  deleteItems(index:number){
-    this.items.removeAt(index)
-  }
-
-  addItem(){
-    this.items.push( this.formbuilder.group({
-      name:['']
-    }))
-  }
-
-  ngOnInit(): void {
-    this.addItem()
-  }
-
-
 }

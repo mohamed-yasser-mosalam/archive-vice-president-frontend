@@ -3,15 +3,21 @@ export class AddExport {
   summary:string;
   recipientName:string;
   num:string;
+  date:Date;
+  numberOfAttachments:number;
    constructor(
                 receiver:string,
                 summary:string,
                 recipientName:string,
-                num:string,)
+                num:string,
+                date:Date,
+                numberOfAttachments:number)
    {
                 this.receiver=receiver;
                 this.summary=summary;
                 this.recipientName=recipientName;
                 this.num=num;
+                this.date=date;
+                this.numberOfAttachments=numberOfAttachments
    }
 }

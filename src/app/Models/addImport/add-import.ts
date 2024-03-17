@@ -9,6 +9,7 @@ export class AddImport {
   typeNumber: number;
   num: number;
   expectResponseDate:Date;
+  numberOfAttachments:number;
 
   constructor(
                incomeDate:string,
@@ -20,6 +21,7 @@ export class AddImport {
                recipientName: string,
                num: number,
                expectResponseDate:Date,
+               numberOfAttachments:number
   ) {
     this.incomeDate=incomeDate;
     this.sender = sender;
@@ -30,5 +32,6 @@ export class AddImport {
     this.recipientDate = recipientDate;
     this.num = num;
     this.expectResponseDate = expectResponseDate;
+    this.numberOfAttachments=numberOfAttachments
   }
 }

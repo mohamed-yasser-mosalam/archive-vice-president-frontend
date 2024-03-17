@@ -17,6 +17,7 @@ export class AddSpecialComponent {
       sender: [''],
       num: [null],
       summary: [''],
+      numberOfAttachments:[''],
       subjects: this.fb.array([this.createSubject()])
     });
   }

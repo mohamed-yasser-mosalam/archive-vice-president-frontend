@@ -37,8 +37,12 @@ export class ExportPaginationComponent implements OnInit {
   ngOnInit(): void {
     this.getExportCount();
     this.showExportFile();
+    this.form()
+  }
+
+  form(){
     this.serviceExport.getExportByPagination(this.page).subscribe((result) => {
-       this.showExport.patchValue({
+      this.showExport.patchValue({
         date: result['date'],
         receiver: result['receiver'],
         numberOfAttachments: result['numberOfAttachments'],
@@ -54,7 +58,6 @@ export class ExportPaginationComponent implements OnInit {
       console.log(result['no']);
     });
   }
-
   constructor(
     private serviceExport: ExportServiceService,
     private http: HttpClient,

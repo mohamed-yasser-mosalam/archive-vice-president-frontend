@@ -13,7 +13,7 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
 })
 export class ImportPaginationComponent implements OnInit {
   x: any
-  page = this.routes.snapshot.params['id'];
+  page =1
   pageLength: any;
   showImports: any;
   size: number = 1;
@@ -41,24 +41,28 @@ export class ImportPaginationComponent implements OnInit {
   ngOnInit(): void {
     this.getImportCount();
     this.showImportFile();
-    this.importService.getImportById(this.routes.snapshot.params['id']).subscribe((result) => {
-      this.showImport = new FormGroup({
-        numberOfAttachments: new FormControl(result['numberOfAttachments']),
-        sender: new FormControl(result['sender']),
-        incomeDate: new FormControl(result['incomeDate']),
-        id: new FormControl(result['id']),
-        incomingLetterDate: new FormControl(result['incomingLetterDate']),
-        incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
-        summary: new FormControl(result['summary']),
-        recipientDate: new FormControl(result['recipientDate']),
-        responseDate: new FormControl(result['responseDate']),
-        responseSide: new FormControl(result['responseSide']),
-        responseNumber: new FormControl(result['responseNumber']),
-        recipientName: new FormControl(result['recipientName']),
-        num: new FormControl(result['num']),
-        expectResponseDate: new FormControl(result['expectResponseDate'])
-      })
-    })
+    this.form()
+   }
+   form(){
+     this.importService.getImportPagination(this.page).subscribe((result) => {
+       this.showImport = new FormGroup({
+         numberOfAttachments: new FormControl(result['numberOfAttachments']),
+         sender: new FormControl(result['sender']),
+         incomeDate: new FormControl(result['incomeDate']),
+         id: new FormControl(result['id']),
+         incomingLetterDate: new FormControl(result['incomingLetterDate']),
+         incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
+         summary: new FormControl(result['summary']),
+         recipientDate: new FormControl(result['recipientDate']),
+         responseDate: new FormControl(result['responseDate']),
+         responseSide: new FormControl(result['responseSide']),
+         responseNumber: new FormControl(result['responseNumber']),
+         recipientName: new FormControl(result['recipientName']),
+         num: new FormControl(result['num']),
+         expectResponseDate: new FormControl(result['expectResponseDate'])
+       })
+       console.log(result );
+     })
    }
 
   constructor(private importService: ImportServiceService, private routes: ActivatedRoute, private router: Router,
@@ -66,7 +70,7 @@ export class ImportPaginationComponent implements OnInit {
   }
 
   showImportFile() {
-    this.importService.getImportById(this.page).subscribe((getImport: any) => {
+    this.importService.getImportPagination(this.page).subscribe((getImport: any) => {
       this.showImports = getImport;
       this.paths = this.showImports.paths
 
@@ -79,10 +83,10 @@ export class ImportPaginationComponent implements OnInit {
     })
   }
 
-  change() {
-    this.page;
+  change(event) {
+    this.page=event;
     this.showImportFile();
-    this.importService.getImportById(this.page).subscribe((result) => {
+    this.importService.getImportPagination(this.page).subscribe((result) => {
       this.showImport = new FormGroup({
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
         sender: new FormControl(result['sender']),

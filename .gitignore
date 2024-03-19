@@ -41,4 +41,9 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/src/assets
+/src/assets/specials
+/src/assets/exports
+/src/assets/imports
+/src/assets/users
+
+

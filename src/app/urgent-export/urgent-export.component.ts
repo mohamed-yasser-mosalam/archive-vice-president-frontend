@@ -10,7 +10,7 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./urgent-export.component.css']
 })
 export class UrgentExportComponent  implements OnInit{
-  numberOfExportFile:any
+  numberOfExportFile
   x=this.routes.snapshot.params['id']
   addUrgent = new FormGroup({
     receiver: new FormControl(''),

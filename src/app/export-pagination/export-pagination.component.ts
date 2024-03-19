@@ -55,7 +55,7 @@ export class ExportPaginationComponent implements OnInit {
         responseDate: new FormControl(result[0]['responseDate']),
         responseNumber: new FormControl(result[0]['responseNumber'])
       });
-      console.log(result['no']);
+      this.x=result['no'];
     });
   }
   constructor(

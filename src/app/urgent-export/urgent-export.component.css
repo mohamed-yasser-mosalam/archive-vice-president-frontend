@@ -1,12 +1,13 @@
 * {
   margin: 0;
   padding: 0;
+
 }
 form{
   position: relative;
+  margin-top: 8%;
   align-items: center;
   justify-content: center;
-  margin-top: 8%;
 }
 .wrapper{
   width: 75%;
@@ -39,14 +40,14 @@ form{
   outline: none;
   border: none;
 }
-.input-data input:focus ~ label,
-.input-data input:valid ~ label,
-.input-data textarea:focus ~ label,
-.input-data textarea:valid ~ label{
-  transform: translateY(-35px);
-  font-size: 15px;
-  color: #333333;
-}
+/*.input-data input:focus ~ label,*/
+/*.input-data input:valid ~ label,*/
+/*.input-data textarea:focus ~ label,*/
+/*.input-data textarea:valid ~ label{*/
+/*  transform: translateY(-35px);*/
+/*  font-size: 15px;*/
+/*  color: #333333;*/
+/*}*/
 .wrapper .input-data label{
   position: absolute;
   bottom: 10px;
@@ -55,6 +56,8 @@ form{
   pointer-events: none;
   transition: .3s ease;
   text-align: center;
+  direction: rtl;
+  margin-bottom: 20px;
 }
 .wrapper .input-data .underLine{
   position: absolute;
@@ -68,7 +71,7 @@ form{
   content:"";
   height: 2px;
   width: 100%;
-  background-color: #333333;
+  background: #333333;
   transform: scaleX(0);
   transition: all .3s ease-in-out;
 }
@@ -84,4 +87,3 @@ form{
 .input-container{
   width: 45%;
 }
-

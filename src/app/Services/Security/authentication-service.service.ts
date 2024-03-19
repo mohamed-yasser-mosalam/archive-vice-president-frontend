@@ -1,8 +1,8 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
-import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
-import {CanActivate, Router} from "@angular/router";
+import {Router} from "@angular/router";
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +15,13 @@ export class AuthenticationServiceService implements OnInit {
 
   ngOnInit(): void {
     this.canActivate();
-    }
 
+  }
   executeAuthentication(username, password): Observable<any> {
     return this.http.post<any>('http://localhost:1200/login', {username, password})
       .pipe(map(
         response => {
-          sessionStorage.setItem('roles', response.roles)
+          sessionStorage.setItem('roles', response.roles,)
           sessionStorage.setItem('id', response.id)
           sessionStorage.setItem("imagePath", response.imagePath)
           sessionStorage.setItem("username", response.username)

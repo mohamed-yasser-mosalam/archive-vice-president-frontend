@@ -10,7 +10,7 @@ form{
 .wrapper{
   width: 75%;
   padding:40px;
-  margin:40px;
+  margin:20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
@@ -39,15 +39,15 @@ form{
   outline: none;
   border: none;
 }
-.input-data input:focus ~ label,
-.input-data input:valid ~ label,
-.input-data textarea:focus ~ label,
-.input-data textarea:valid ~ label{
-  transform: translateY(-35px);
-  font-size: 15px;
-  color: #333333;
+/*.input-data input:focus ~ label,*/
+/*.input-data input:valid ~ label,*/
+/*.input-data textarea:focus ~ label,*/
+/*.input-data textarea:valid ~ label{*/
+/*  transform: translateY(-35px);*/
+/*  font-size: 15px;*/
+/*  color: #333333;*/
 
-}
+/*}*/
 .wrapper .input-data label{
   position: absolute;
   bottom: 10px;
@@ -57,6 +57,7 @@ form{
   transition: .3s ease;
   text-align: center;
   font-size:15px;
+  margin-bottom: 20px;
 }
 .wrapper .input-data .underLine{
   position: absolute;

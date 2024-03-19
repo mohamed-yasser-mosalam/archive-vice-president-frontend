@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
 import { Router} from "@angular/router";
 import {FormArray, FormBuilder} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
 
 
 @Component({
@@ -9,9 +10,11 @@ import {FormArray, FormBuilder} from "@angular/forms";
   templateUrl: './add-export.component.html',
   styleUrls: ['./add-export.component.css']
 })
-export class AddExportComponent  {
-
+export class AddExportComponent  implements OnInit{
+  numberOfExportFile:any
   constructor(private serviceExport: ExportServiceService, private router: Router,
+              private http:HttpClient
+
    ) {
 
   }
@@ -20,5 +23,14 @@ export class AddExportComponent  {
     this.serviceExport.addExportFile(data).subscribe(
       response => this.router.navigateByUrl('/getallexports')
     )
+  }
+  getExportCount(): void {
+    this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
+      this.numberOfExportFile = numberOfExportFiles+1;
+    });
+  }
+
+  ngOnInit(): void {
+    this.getExportCount();
   }
 }

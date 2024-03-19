@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit{
   ) {
   }
   ngOnInit(): void {
-    this.myFormLogin()
+    this.myFormLogin();
+
   }
   myFormLogin(){
     this.loginParentGroup = this.formChildGroup.group({
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit{
       })
     })
   }
+
   login() {
     this.auth.executeAuthentication(
       this.loginParentGroup.controls['user'].value.username,

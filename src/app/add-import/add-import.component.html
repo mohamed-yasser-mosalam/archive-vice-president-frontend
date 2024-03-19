@@ -34,6 +34,12 @@
             <div class="underLine"></div>
             <label for="expectResponseDate">تاريخ المتوقع للرد </label>
           </div>
+
+          <div class="input-data">
+            <input type="number" required id="numberOfAttachments" name="numberOfAttachments" ngModel>
+            <div class="underLine"></div>
+            <label for="numberOfAttachments">عدد المرفقات</label>
+          </div>
           <button type="submit" class="btn  "
                   style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%"> حفظ
           </button>
@@ -41,6 +47,14 @@
 
         <div class="input-container">
 
+          <div class="input-data" readonly  >
+            <input type="number" readonly required  id="no" name="no" >
+            <label for="no" style="margin-right: 85%;color: black;margin-bottom:-5px" readonly>{{numberOfImportFile}}</label>
+
+            <div class="underLine"></div>
+            <label for="no" style="color: black">رقم القيد
+            </label>
+          </div>
 
           <div class="input-data">
             <input type="text" required id="summary" name="summary" ngModel>
@@ -69,11 +83,6 @@
           </div>
 
 
-          <div class="input-data">
-            <input type="number" required id="numberOfAttachments" name="numberOfAttachments" ngModel>
-            <div class="underLine"></div>
-            <label for="numberOfAttachments">عدد المرفقات</label>
-          </div>
 
         </div>
       </div>

@@ -46,20 +46,20 @@ export class ImportPaginationComponent implements OnInit {
    form(){
      this.importService.getImportPagination(this.page).subscribe((result) => {
        this.showImport = new FormGroup({
-         numberOfAttachments: new FormControl(result['numberOfAttachments']),
-         sender: new FormControl(result['sender']),
-         incomeDate: new FormControl(result['incomeDate']),
-         id: new FormControl(result['id']),
-         incomingLetterDate: new FormControl(result['incomingLetterDate']),
-         incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
-         summary: new FormControl(result['summary']),
-         recipientDate: new FormControl(result['recipientDate']),
-         responseDate: new FormControl(result['responseDate']),
-         responseSide: new FormControl(result['responseSide']),
-         responseNumber: new FormControl(result['responseNumber']),
-         recipientName: new FormControl(result['recipientName']),
-         num: new FormControl(result['num']),
-         expectResponseDate: new FormControl(result['expectResponseDate'])
+         numberOfAttachments: new FormControl(result[0]['numberOfAttachments']),
+         sender: new FormControl(result[0]['sender']),
+         incomeDate: new FormControl(result[0]['incomeDate']),
+         id: new FormControl(result[0]['id']),
+         incomingLetterDate: new FormControl(result[0]['incomingLetterDate']),
+         incomingLetterNumber: new FormControl(result[0]['incomingLetterNumber']),
+         summary: new FormControl(result[0]['summary']),
+         recipientDate: new FormControl(result[0]['recipientDate']),
+         responseDate: new FormControl(result[0]['responseDate']),
+         responseSide: new FormControl(result[0]['responseSide']),
+         responseNumber: new FormControl(result[0]['responseNumber']),
+         recipientName: new FormControl(result[0]['recipientName']),
+         num: new FormControl(result[0]['num']),
+         expectResponseDate: new FormControl(result[0]['expectResponseDate'])
        })
        console.log(result );
      })
@@ -88,20 +88,20 @@ export class ImportPaginationComponent implements OnInit {
     this.showImportFile();
     this.importService.getImportPagination(this.page).subscribe((result) => {
       this.showImport = new FormGroup({
-        numberOfAttachments: new FormControl(result['numberOfAttachments']),
-        sender: new FormControl(result['sender']),
-        incomeDate: new FormControl(result['incomeDate']),
-        id: new FormControl(result['id']),
-        incomingLetterDate: new FormControl(result['incomingLetterDate']),
-        incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
-        summary: new FormControl(result['summary']),
-        responseSide: new FormControl(result['responseSide']),
-        recipientDate: new FormControl(result['recipientDate']),
-        responseDate: new FormControl(result['responseDate']),
-        responseNumber: new FormControl(result['responseNumber']),
-        recipientName: new FormControl(result['recipientName']),
-        num: new FormControl(result['num']),
-        expectResponseDate: new FormControl(result['expectResponseDate']),
+        numberOfAttachments: new FormControl(result[0]['numberOfAttachments']),
+        sender: new FormControl(result[0]['sender']),
+        incomeDate: new FormControl(result[0]['incomeDate']),
+        id: new FormControl(result[0]['id']),
+        incomingLetterDate: new FormControl(result[0]['incomingLetterDate']),
+        incomingLetterNumber: new FormControl(result[0]['incomingLetterNumber']),
+        summary: new FormControl(result[0]['summary']),
+        responseSide: new FormControl(result[0]['responseSide']),
+        recipientDate: new FormControl(result[0]['recipientDate']),
+        responseDate: new FormControl(result[0]['responseDate']),
+        responseNumber: new FormControl(result[0]['responseNumber']),
+        recipientName: new FormControl(result[0]['recipientName']),
+        num: new FormControl(result[0]['num']),
+        expectResponseDate: new FormControl(result[0]['expectResponseDate']),
 
 
       })

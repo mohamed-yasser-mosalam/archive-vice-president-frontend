@@ -55,7 +55,6 @@ export class ExportPaginationComponent implements OnInit {
         responseDate: result['responseDate'],
         responseNumber: result['responseNumber']
       });
-      this.x=result['no']
     });
   }
   constructor(

@@ -42,20 +42,20 @@ export class ExportPaginationComponent implements OnInit {
 
   form(){
     this.serviceExport.getExportByPagination(this.page).subscribe((result) => {
-      this.showExport= new FormGroup({
-        date: new FormControl(result[0]['date']),
-        receiver: new FormControl(result[0]['receiver']),
-        numberOfAttachments: new FormControl(result[0]['numberOfAttachments']),
-        no: new FormControl(result[0]['no']),
-        num: new FormControl(result[0]['num']),
-        recipientName: new FormControl(result[0]['recipientName']),
-        summary: new FormControl(result[0]['summary']),
-        urgentDate: new FormControl(result[0]['urgentDate']),
-        urgentNum: new FormControl(result[0]['urgentNum']),
-        responseDate: new FormControl(result[0]['responseDate']),
-        responseNumber: new FormControl(result[0]['responseNumber'])
+      this.showExport.patchValue({
+        date: result['date'],
+        receiver: result['receiver'],
+        numberOfAttachments: result['numberOfAttachments'],
+        no: result['no'],
+        num: result['num'],
+        recipientName: result['recipientName'],
+        summary: result['summary'],
+        urgentDate: result['urgentDate'],
+        urgentNum: result['urgentNum'],
+        responseDate: result['responseDate'],
+        responseNumber: result['responseNumber']
       });
-      this.x=result['no'];
+      this.x=result['no']
     });
   }
   constructor(
@@ -84,17 +84,17 @@ export class ExportPaginationComponent implements OnInit {
     this.showExportFile();
     this.serviceExport.getExportByPagination(event).subscribe((result) => {
       this.showExport = new FormGroup({
-        date: new FormControl(result[0]['date']),
-        receiver: new FormControl(result[0]['receiver']),
-        numberOfAttachments: new FormControl(result[0]['numberOfAttachments']),
-        no: new FormControl(result[0]['no']),
-        num: new FormControl(result[0]['num']),
-        recipientName: new FormControl(result[0]['recipientName']),
-        summary: new FormControl(result[0]['summary']),
-        urgentDate: new FormControl(result[0]['urgentDate']),
-        urgentNum: new FormControl(result[0]['urgentNum']),
-        responseDate: new FormControl(result[0]['responseDate']),
-        responseNumber: new FormControl(result[0]['responseNumber'])
+        date: new FormControl(result['date']),
+        receiver: new FormControl(result['receiver']),
+        numberOfAttachments: new FormControl(result['numberOfAttachments']),
+        no: new FormControl(result['no']),
+        num: new FormControl(result['num']),
+        recipientName: new FormControl(result['recipientName']),
+        summary: new FormControl(result['summary']),
+        urgentDate: new FormControl(result['urgentDate']),
+        urgentNum: new FormControl(result['urgentNum']),
+        responseDate: new FormControl(result['responseDate']),
+        responseNumber: new FormControl(result['responseNumber'])
       });
     });
    }

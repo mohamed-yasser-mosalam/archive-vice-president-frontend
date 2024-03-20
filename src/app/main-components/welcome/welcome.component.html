@@ -155,11 +155,52 @@
       </div>
 
     </div>
+
+
+
+
     <div class="row mx-3">
+      <div class="col-1">
+        <div class=" m-3   position-relative"
+
+             style="background-color: #fff; height: 300px;  border-radius: 8px; zoom:95%;width:600px ">
+          <div
+            style="background-color: #fff;   height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+            <h2
+              style="font-size: 22px;  background-color: #fff; color: #3333338f; position: sticky;padding-top:50px;  width: 100%;">
+              <select class="px-2 m-2" [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()">
+                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+              </select>
 
 
+              <a style=" text-decoration:none;color: black;font-weight: bold;margin-top: 30px"> عدد الخطابات لعام
+              </a></h2>
+            <span style="margin-bottom:20px!important; width:100px; margin-right: 15px; font-weight: bold; font-size: 22px;">{{numberOfImportLetterForSpecificYear+numberOfExportLetterForSpecificYear}}</span>
+
+            <hr>
+            <div class="input-container" style="margin-top: 50px">
+              <div class="input-data"
+                   style="font-size: 22px;  background-color: #fff; color: #3333338f;  top:10px;  ">
+                <a style=" text-decoration:none;color: black;font-weight: bold">
+                  <label type="number"
+                         style="margin-top:10px; margin-right: 15px">{{numberOfExportLetterForSpecificYear}} </label>عدد
+                  الخطابات الصادرة</a>
+              </div>
+            </div>
+            <div class="input-container">
+              <div class="input-data"
+                   style="font-size: 22px;   background-color: #fff; color: #3333338f;  margin-top:30px;  ">
+                <a style=" text-decoration:none;color: black;font-weight: bold">
+                  <label type="number"
+                         style="margin-top:10px;margin-right: 15px">{{ numberOfImportLetterForSpecificYear }}</label>عدد
+                  الخطابات الواردة </a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
       <div class="col-6 mt-3 me-1  position-relative"
-           style="background-color: #fff; height: 300px; overflow: auto; border-radius: 8px; zoom:95%;width:828px">
+           style="background-color: #fff; height: 300px; overflow: auto; border-radius: 8px; zoom:95%;width:828px;margin-left:510px">
         <div
           style="background-color: #fff; overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
           <h2
@@ -203,45 +244,7 @@
         </div>
 
       </div>
-      <div class="col-1">
-        <div class=" m-3   position-relative"
 
-             style="background-color: #fff; height: 300px;  border-radius: 8px; zoom:95%;width:610px ">
-          <div
-            style="background-color: #fff;   height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
-            <h2
-              style="font-size: 22px;  background-color: #fff; color: #3333338f; position: sticky;padding-top:50px;  width: 100%;">
-              <select class="px-2 m-2" [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()">
-                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-              </select>
-
-
-              <a style=" text-decoration:none;color: black;font-weight: bold;margin-top: 30px"> عدد الخطابات لعام
-              </a></h2>
-            <span style="margin-bottom:20px!important; width:100px; margin-right: 15px; font-weight: bold; font-size: 22px;">{{numberOfImportLetterForSpecificYear+numberOfExportLetterForSpecificYear}}</span>
-
-            <hr>
-            <div class="input-container" style="margin-top: 50px">
-              <div class="input-data"
-                   style="font-size: 22px;  background-color: #fff; color: #3333338f;  top:10px;  ">
-                <a style=" text-decoration:none;color: black;font-weight: bold">
-                  <label type="number"
-                         style="margin-top:10px; margin-right: 15px">{{numberOfExportLetterForSpecificYear}} </label>عدد
-                  الخطابات الصادرة</a>
-              </div>
-            </div>
-            <div class="input-container">
-              <div class="input-data"
-                   style="font-size: 22px;   background-color: #fff; color: #3333338f;  margin-top:30px;  ">
-                <a style=" text-decoration:none;color: black;font-weight: bold">
-                  <label type="number"
-                         style="margin-top:10px;margin-right: 15px">{{ numberOfImportLetterForSpecificYear }}</label>عدد
-                  الخطابات الواردة </a></div>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </div>
   </div>
   <div class="col-2 position-relative">

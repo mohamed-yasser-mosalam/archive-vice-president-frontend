@@ -66,9 +66,9 @@ export class AddSpecialComponent implements OnInit{
   }
 
   AddSpecialFile(data) {
-    this.specialService.addSpecialFile(data).subscribe(
-      response => this.router.navigateByUrl('/addspecialfile')
-    )
+    this.specialService.addSpecialFile(data).subscribe(() => {
+      window.location.reload();
+    });
   }
   getSpecailCount(): void {
     this.http.get('http://localhost:1200/special/count').subscribe((numberOfSpecialFiles: any) => {

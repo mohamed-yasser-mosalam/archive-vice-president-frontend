@@ -31,6 +31,7 @@ export class UrgentExportComponent  implements OnInit{
         num: new FormControl(result['num']),
         no: new FormControl(result['no'])
       })
+
     })
   }
   constructor(private serviceExport: ExportServiceService,private routes: ActivatedRoute, private router: Router,private http:HttpClient) {

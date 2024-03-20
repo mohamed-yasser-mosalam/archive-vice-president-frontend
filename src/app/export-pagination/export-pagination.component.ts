@@ -14,7 +14,7 @@ export class ExportPaginationComponent implements OnInit {
   x: any;
   id: string;
   roleOfUser = this.auth.getUserRoles();
-  page: any =1
+  page=this.routes.snapshot.params['page']
   pageLength: any;
   showExports: any;
   size: number = 1;
@@ -37,7 +37,7 @@ export class ExportPaginationComponent implements OnInit {
   ngOnInit(): void {
     this.getExportCount();
     this.showExportFile();
-    this.form()
+    this.form();
   }
 
   form(){
@@ -60,7 +60,8 @@ export class ExportPaginationComponent implements OnInit {
   constructor(
     private serviceExport: ExportServiceService,
     private http: HttpClient,
-    private auth: AuthenticationServiceService
+    private auth: AuthenticationServiceService,
+    private routes: ActivatedRoute,
   ) {
   }
 

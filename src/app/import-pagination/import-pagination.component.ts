@@ -13,7 +13,7 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
 })
 export class ImportPaginationComponent implements OnInit {
   x: any
-  page =1
+  page=this.routes.snapshot.params['id']
   pageLength: any;
   showImports: any;
   size: number = 1;

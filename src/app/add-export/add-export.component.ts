@@ -21,8 +21,8 @@ export class AddExportComponent  implements OnInit{
 
   AddExportFile(data: any) {
     this.serviceExport.addExportFile(data).subscribe(
-      response => this.router.navigateByUrl('/getallexports')
-    )
+     )
+
   }
   getExportCount(): void {
     this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {

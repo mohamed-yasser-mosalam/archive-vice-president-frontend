@@ -21,7 +21,7 @@ export class AddImportComponent implements OnInit{
   addImportFile(data: any) {
 
     this.serviceImport.addImportFile(data).subscribe(
-      response => this.router.navigateByUrl('/home')
+      response => this.router.navigateByUrl('/addimportfile')
     )
   }
   getImportCount(): void {

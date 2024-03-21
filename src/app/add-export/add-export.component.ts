@@ -20,6 +20,7 @@ export class AddExportComponent implements OnInit {
   ngOnInit(): void {
     this.getExportCount();
     this.exportForm = this.fb.group({
+
       receiver: [''],
       summary: [''],
       date: [''],
@@ -33,6 +34,7 @@ export class AddExportComponent implements OnInit {
   AddExportFile(data: any) {
     this.serviceExport.addExportFile(data).subscribe(() => {
       window.location.reload();
+      console.log(data)
     });
   }
 

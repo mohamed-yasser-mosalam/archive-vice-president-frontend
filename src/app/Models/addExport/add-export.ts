@@ -5,7 +5,8 @@ export class AddExport {
   num: string;
   date: Date;
   numberOfAttachments: number;
-  no: number
+  no: number;
+
 
   constructor(
     receiver: string,

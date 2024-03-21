@@ -18,14 +18,14 @@
         <div class="input-container ">
 
           <div class="input-data">
-            <input type="text" required id="receiver" ngModel>
+            <input type="text" required id="receiver" name="receiver" ngModel>
             <label for="receiver">الجهة الصادر اليها الخطاب</label>
           </div>
         </div>
         <div class="input-container">
           <div class="d-flex">
             <div class="input-data" style="margin-right: 20px">
-              <input type="text" required id="numberOfAttachments" ngModel>
+              <input type="text" required id="numberOfAttachments" name="numberOfAttachments" ngModel>
               <label for="numberOfAttachments">عدد المرفقات</label>
             </div>
             <div class="input-data">
@@ -37,17 +37,17 @@
         </div>
       </div>
       <div class="input-data">
-        <input cols="40" rows="1" style="height:60px" required id="summary" ngModel>
+        <input cols="40" rows="1" style="height:60px" required id="summary" name="summary" ngModel>
         <label for="summary">ملخص الخطاب</label>
       </div>
       <div class="d-flex">
 
         <div class="input-data" style="width: 35%;margin-left: 30px">
-          <input type="text" required id="recipientName" ngModel>
+          <input type="text" required id="recipientName" name="recipientName" ngModel>
           <label for="recipientName">المستلم</label>
         </div>
         <div class="input-data" style="width: 35%;margin-left: 30% ">
-          <input type="num" required id="num" name="num" ngModel>
+          <input type="number" required id="num" name="num" ngModel>
           <div class="underLine"></div>
           <label for="num">رقم الملف </label>
         </div>

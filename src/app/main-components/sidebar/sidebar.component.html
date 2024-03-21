@@ -120,7 +120,7 @@
             </ul>
           </div>
 
-          <div class="dropdown" *ngIf="idOfUser=='admin'" style="margin-top: 20px">
+          <div class="dropdown" style="margin-top: 20px">
             <button class="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false"
                     style="color:#333333;font-weight: bold">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-browser-safari" viewBox="0 0 16 16" style="margin-left: 10px">
@@ -129,7 +129,7 @@
                 السنوات السابقة
             </button>
             <ul class="dropdown-menu">
-              <li class="nav-item dropdown-item"  *ngIf="idOfUser=='admin'">
+              <li class="nav-item dropdown-item"   >
                 <a routerLink="/lastexports">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                        class="bi bi-box-arrow-up" viewBox="0 0 16 16" style="color: #333333">
@@ -141,7 +141,7 @@
                   <p>الصادر</p>
                 </a>
               </li>
-              <li class="nav-item dropdown-item"  *ngIf="idOfUser=='admin'">
+              <li class="nav-item dropdown-item"   >
                 <a routerLink="/lastimports">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                        class="bi bi-box-arrow-in-down" viewBox="0 0 16 16" style="color: #333333">
@@ -159,7 +159,7 @@
 
 
 
-              <li class="nav-item dropdown-item" *ngIf="idOfUser=='admin'">
+              <li class="nav-item dropdown-item"  >
                 <a class="dropdown-item" routerLink="/lastspecials">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bookmark"
                        viewBox="0 0 16 16" style="color: #333333">

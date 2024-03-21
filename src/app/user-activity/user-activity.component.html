@@ -31,7 +31,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let item of showUserActivity | search:searchText">
-          <td>{{ item.id }}</td>
+          <td>{{ item.no }}</td>
           <td>{{item.summary}}</td>
           <td>{{item.createdBy}}</td>
           <td>{{item.lastModifiedBy}}</td>

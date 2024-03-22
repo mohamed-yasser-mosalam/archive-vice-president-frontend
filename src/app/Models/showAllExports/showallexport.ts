@@ -15,7 +15,8 @@ export class Showallexport {
   typeNumber: number;
   num: number;
   hasResponse:boolean;
-  hasUrgent:boolean
+  hasUrgent:boolean;
+  createdBy:string
   constructor(id: number, date: Date,
               numberOfAttachments: number,
               paths: string [],
@@ -31,7 +32,8 @@ export class Showallexport {
               num: number,
               no:number,
               hasResponse:boolean,
-              hasUrgent:boolean) {
+              hasUrgent:boolean,
+              createdBy:string) {
     this.id = id;
     this.date = date;
     this.numberOfAttachments = numberOfAttachments;
@@ -48,7 +50,8 @@ export class Showallexport {
     this.num = num;
     this.no=no;
     this.hasResponse=hasResponse;
-    this.hasUrgent=hasUrgent
+    this.hasUrgent=hasUrgent;
+    this.createdBy=createdBy
 
   }
 }

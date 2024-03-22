@@ -11,8 +11,7 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./export-pagination.component.css']
 })
 export class ExportPaginationComponent implements OnInit {
-  x: any;
-  id: string;
+  id: number;
   roleOfUser = this.auth.getUserRoles();
   page=this.routes.snapshot.params['page']
   pageLength: any;
@@ -69,6 +68,7 @@ export class ExportPaginationComponent implements OnInit {
     this.serviceExport.getExportByPagination(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
       this.paths = this.showExports.paths;
+      this.id=this.showExports.id
      });
   }
 
@@ -102,7 +102,6 @@ export class ExportPaginationComponent implements OnInit {
     this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe();
     this.paths.splice(index, 1);
   }
-
   selectedFiles: File[] = [];
 
   onFileSelected(event: any): void {
@@ -123,13 +122,9 @@ export class ExportPaginationComponent implements OnInit {
       formData.append('files', this.selectedFiles[i]);
     }
 
-    this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=exports`, formData).subscribe(
-      response => {
-        console.log('Upload successful:', response);
-      },
-      error => {
-        console.error('Upload failed:', error);
-      }
-    );
+    this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=exports`, formData).subscribe(() => {
+      window.location.reload();
+    });
   }
 }
+

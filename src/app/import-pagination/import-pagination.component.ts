@@ -12,7 +12,7 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./import-pagination.component.css']
 })
 export class ImportPaginationComponent implements OnInit {
-  x: any
+  id: any
   page = this.routes.snapshot.params['page']
   pageLength: any;
   showImports: any;
@@ -72,7 +72,8 @@ export class ImportPaginationComponent implements OnInit {
   showImportFile() {
     this.importService.getImportPagination(this.page).subscribe((getImport: any) => {
       this.showImports = getImport;
-      this.paths = this.showImports.paths
+      this.paths = this.showImports.paths;
+      this.id=this.showImports.id
     })
   }
 
@@ -112,29 +113,6 @@ export class ImportPaginationComponent implements OnInit {
     this.paths.splice(index, 1);
   }
 
-  onImageSelected(event) {
-    const files: FileList = event.target.files;
-    const formData: FormData = new FormData();
-
-    if (files) {
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        formData.append('files', file);
-      }
-    }
-
-    this.http.post(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=imports`, formData).subscribe(
-      (result) => {
-        // Handle success response
-        console.log('Upload successful:', result);
-        this.showImportFile();
-      },
-      (error) => {
-        console.error('Upload failed:', error);
-      }
-    );
-  }
-
   selectedFiles: File[] = [];
 
   onFileSelected(event: any): void {
@@ -155,13 +133,8 @@ export class ImportPaginationComponent implements OnInit {
       formData.append('files', this.selectedFiles[i]);
     }
 
-    this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.page}&pathType=imports`, formData).subscribe(
-      response => {
-        console.log('Upload successful:', response);
-      },
-      error => {
-        console.error('Upload failed:', error);
-      }
-    );
+    this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=imports`, formData).subscribe(() => {
+      window.location.reload();
+    });
   }
 }

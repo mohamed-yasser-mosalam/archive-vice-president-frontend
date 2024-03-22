@@ -60,7 +60,7 @@ const routes: Routes = [
   {path: 'allfiles', component: AllFilesComponent, canActivate: [CanActivate]},
   {path: 'register', component: RegisterComponent, canActivate: [AuthenticationServiceService, CanActivate]},
   {path: 'export-pagination?page/:page', component: ExportPaginationComponent, canActivate: [CanActivate]},
-  {path: 'import-pagination?id/:id', component: ImportPaginationComponent, canActivate: [CanActivate]},
+  {path: 'import-pagination?page/:page', component: ImportPaginationComponent, canActivate: [CanActivate]},
   {path: 'add-urgent/:id', component: UrgentExportComponent, canActivate: [CanActivate]},
   {path: 'add-export-response/:id', component: ResponsExportComponent, canActivate: [CanActivate]},
   {path: 'add-import-response/:id', component: ResponsImportComponent, canActivate: [CanActivate]},

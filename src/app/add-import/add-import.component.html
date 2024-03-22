@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="row">
   <div class="col-2"></div>
-  <form class="col-8" style="zoom: 80%" #addImportForm="ngForm" (ngSubmit)="addImportFile(addImportForm.value)">
+  <form class="col-8" style="zoom: 76%" #addImportForm="ngForm" (ngSubmit)="addImportFile(addImportForm.value)">
     <div class="wrapper">
       <legend class="text-center">ادخال الوارد</legend>
       <div style="display: flex;  justify-content: space-between;">
@@ -24,9 +24,9 @@
 
 
           <div class="input-data">
-            <input type="date" required id="incomeDate" name="incomeDate" ngModel>
+            <input type="date" required id="incomingLetterDate" name="incomingLetterDate" ngModel>
             <div class="underLine"></div>
-            <label for="incomeDate">تاريخ الخطاب الوارد</label>
+            <label for="incomingLetterDate">تاريخ الخطاب الوارد</label>
           </div>
 
           <div class="input-data">
@@ -40,6 +40,8 @@
             <div class="underLine"></div>
             <label for="numberOfAttachments">عدد المرفقات</label>
           </div>
+
+
           <button type="submit" class="btn  "
                   style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%"> حفظ
           </button>
@@ -82,7 +84,11 @@
             <label for="num">رقم الملف</label>
           </div>
 
-
+          <div class="input-data">
+            <input type="date" required id="incomingDate" name="incomingDate" ngModel>
+            <div class="underLine"></div>
+            <label for="incomingDate">تاريخ الورود</label>
+          </div>
 
         </div>
       </div>

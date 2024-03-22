@@ -13,12 +13,11 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
 })
 export class ImportPaginationComponent implements OnInit {
   x: any
-  page=this.routes.snapshot.params['id']
+  page = this.routes.snapshot.params['page']
   pageLength: any;
   showImports: any;
   size: number = 1;
   paths: string[];
-  urls = new Array<string>();
   roleOfUser = this.auth.getUserRoles()
   showImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
@@ -42,28 +41,29 @@ export class ImportPaginationComponent implements OnInit {
     this.getImportCount();
     this.showImportFile();
     this.form()
-   }
-   form(){
-     this.importService.getImportPagination(this.page).subscribe((result) => {
-       this.showImport = new FormGroup({
-         numberOfAttachments: new FormControl(result['numberOfAttachments']),
-         sender: new FormControl(result['sender']),
-         incomeDate: new FormControl(result['incomeDate']),
-         no: new FormControl(result['no']),
-         incomingLetterDate: new FormControl(result['incomingLetterDate']),
-         incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
-         summary: new FormControl(result['summary']),
-         recipientDate: new FormControl(result['recipientDate']),
-         responseDate: new FormControl(result['responseDate']),
-         responseSide: new FormControl(result['responseSide']),
-         responseNumber: new FormControl(result['responseNumber']),
-         recipientName: new FormControl(result['recipientName']),
-         num: new FormControl(result['num']),
-         expectResponseDate: new FormControl(result['expectResponseDate'])
-       })
-       console.log(result );
-     })
-   }
+  }
+
+  form() {
+    this.importService.getImportPagination(this.page).subscribe((result) => {
+      this.showImport.patchValue({
+        numberOfAttachments :result['numberOfAttachments'],
+        sender:result['sender'],
+        incomeDate: result['incomeDate'],
+        no: result['no'],
+        incomingLetterDate: result['incomingLetterDate'],
+        incomingLetterNumber:  result['incomingLetterNumber'],
+        summary:  result['summary'],
+        recipientDate: result['recipientDate'],
+        responseDate: result['responseDate'],
+        responseSide:  result['responseSide'],
+        responseNumber: result['responseNumber'],
+        recipientName:  result['recipientName'],
+        num:  result['num'],
+        expectResponseDate:  result['expectResponseDate']
+      })
+      console.log(result);
+    })
+  }
 
   constructor(private importService: ImportServiceService, private routes: ActivatedRoute, private router: Router,
               private http: HttpClient, private auth: AuthenticationServiceService) {
@@ -84,9 +84,9 @@ export class ImportPaginationComponent implements OnInit {
   }
 
   change(event) {
-    this.page=event;
+    this.page = event;
     this.showImportFile();
-    this.importService.getImportPagination(this.page).subscribe((result) => {
+    this.importService.getImportPagination(event).subscribe((result) => {
       this.showImport = new FormGroup({
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
         sender: new FormControl(result['sender']),
@@ -111,7 +111,7 @@ export class ImportPaginationComponent implements OnInit {
   deleteImage(index: number): void {
     this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
     this.paths.splice(index, 1);
-   }
+  }
 
   onImageSelected(event) {
     const files: FileList = event.target.files;
@@ -128,10 +128,10 @@ export class ImportPaginationComponent implements OnInit {
       (result) => {
         // Handle success response
         console.log('Upload successful:', result);
-         this.showImportFile();
+        this.showImportFile();
       },
       (error) => {
-         console.error('Upload failed:', error);
+        console.error('Upload failed:', error);
       }
     );
   }

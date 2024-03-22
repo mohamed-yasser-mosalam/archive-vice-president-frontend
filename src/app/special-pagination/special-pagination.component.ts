@@ -115,5 +115,30 @@ export class SpecialPaginationComponent implements OnInit {
     this.specialService.getSpecialFileById(this.page).subscribe((result)=>{
      })
   }
+  selectedFiles: File[] = [];
+
+  onFileSelected(event: any): void {
+    const files: FileList = event.target.files;
+    if (files) {
+      for (let i = 0; i < files.length; i++) {
+        const file: File | null = files.item(i);
+        if (file) {
+          this.selectedFiles.push(file);
+        }
+      }
+    }
+  }
+
+  onSubmit(): void {
+    const formData: FormData = new FormData();
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      formData.append('files', this.selectedFiles[i]);
+    }
+
+    this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=specials`, formData).subscribe(() => {
+      window.location.reload();
+    });
+  }
+
 }
 

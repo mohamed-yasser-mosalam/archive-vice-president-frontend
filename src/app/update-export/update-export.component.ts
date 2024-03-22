@@ -56,11 +56,9 @@ export class UpdateExportComponent implements OnInit {
   }
 
   update() {
-    if (confirm('هل بالتأكيد تريد التعديل'))
     this.serviceExport.updateExport(this.routes.snapshot.params['id'], this.editExport.value)
       .subscribe((result) => {
-       this.router.navigate([`/export-pagination?id/`, this.routes.snapshot.params['id']]),
-        alert("تم التعديل بنجاح")
+       this.router.navigate([`/export-pagination?page/`, this.routes.snapshot.params['id']])
     })
   }
 

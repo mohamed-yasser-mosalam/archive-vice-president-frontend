@@ -17,6 +17,9 @@ export class SpecialService {
   getSpecialsById(id:number){
     return this.http.get(`http://localhost:1200/special/special-archive?id=${id}`)
   }
+  getSpecialsByPagination(id:number){
+    return this.http.get(`http://localhost:1200/special/specials-pagination?page=${id}`)
+  }
   getSpecialFileById(id:number){
     return this.http.get(`http://localhost:1200/special/special?id=${id}`)
   }

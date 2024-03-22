@@ -74,7 +74,9 @@ export class ImportPaginationComponent implements OnInit {
       this.showImports = getImport;
       this.paths = this.showImports.paths;
       this.id=this.showImports.id
-    })
+    });
+    alert(this.page)
+
   }
 
   getImportCount() {

@@ -73,7 +73,7 @@ const routes: Routes = [
   {path: 'archiveimport/:id', component: ArchiveImportComponent, canActivate: [CanActivate]},
   {path: 'archivespecial/:id', component: ArchiveSpecialComponent, canActivate: [CanActivate]},
   {path: 'specialfile', component: SpecialfileComponent, canActivate: [CanActivate]},
-  {path: 'special-pagination?id/:id', component: SpecialPaginationComponent, canActivate: [CanActivate]},
+  {path: 'special-pagination?page/:page', component: SpecialPaginationComponent, canActivate: [CanActivate]},
   {path: 'addspecialfile', component: AddSpecialComponent, canActivate: [CanActivate]},
   {path: 'useractivity', component: UserActivityComponent, canActivate: [AuthenticationServiceService, CanActivate]},
   {

@@ -13,10 +13,10 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
 export class SpecialPaginationComponent implements OnInit {
   x: any;
   y: any
-  id: string;
+  id: number;
   summary: string;
   roleOfUser = this.auth.getUserRoles()
-  page = this.routes.snapshot.params['id'];
+  page = this.routes.snapshot.params['page'];
   pageLength: any;
   showSpecials: any;
   size: number = 1;
@@ -39,7 +39,7 @@ export class SpecialPaginationComponent implements OnInit {
   ngOnInit(): void {
     this.getSpecialCount();
     this.showSpecialFile();
-    this.specialService.getSpecialFileById(this.routes.snapshot.params['id']).subscribe((result) => {
+    this.specialService.getSpecialsByPagination(this.page).subscribe((result) => {
       this.showSpecial = new FormGroup({
         no: new FormControl(result['no']),
         name: new FormControl(result['name']),
@@ -62,13 +62,14 @@ export class SpecialPaginationComponent implements OnInit {
 
 
   showSpecialFile() {
-    this.specialService.getSpecialFileById(this.page).subscribe((getSpecial: any) => {
+    this.specialService.getSpecialsByPagination(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
       this.paths = this.showSpecials.paths;
       this.summary = this.showSpecials.summary;
       this.subjects = this.showSpecials.subjects;
       this.decisions = this.showSpecials.subjects.decisions;
-     })
+      this.id = this.showSpecials.id
+    })
   }
 
   getSpecialCount() {
@@ -77,10 +78,10 @@ export class SpecialPaginationComponent implements OnInit {
     })
   }
 
-  change() {
-    this.page;
+  change(event) {
+    this.page = event;
     this.showSpecialFile();
-    this.specialService.getSpecialFileById(this.page).subscribe((result) => {
+    this.specialService.getSpecialsByPagination(event).subscribe((result) => {
       this.showSpecial = new FormGroup({
         no: new FormControl(result['no']),
         name: new FormControl(result['name']),
@@ -109,12 +110,13 @@ export class SpecialPaginationComponent implements OnInit {
   deleteImage(index: number): void {
     this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
     this.paths.splice(index, 1);
-   }
+  }
 
   getSpecialById(archiveId: any) {
-    this.specialService.getSpecialFileById(this.page).subscribe((result)=>{
-     })
+    this.specialService.getSpecialFileById(this.page).subscribe((result) => {
+    })
   }
+
   selectedFiles: File[] = [];
 
   onFileSelected(event: any): void {

@@ -100,19 +100,16 @@
             <input type="text" required readonly id="num" formControlName="num">
             <label for="num">رقم الملف</label>
           </div>
-<!--          <div class="input-data" style="bottom: 55px;">-->
-<!--            <input id="AddingAttachment" type="file" multiple name="img" accept="image/*" (change)="onImageSelected($event)" style="margin-top: 20px;margin-bottom:40px;font-size:30px">-->
-<!--            <label for="AddingAttachment" style="font-size: 25px;margin-top: 10px">اضافة مرفق</label>-->
-<!--          </div>-->
-          <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px" >
-            <button type="submit" style="width:450px; padding:1px; margin-right:50px;color: white;background: #333333;font-size:25px"
-            >حفظ المرفقات</button>
-            <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
-          </form>
+
+
         </div>
       </div>
-      <div class="input-data" style="bottom:150px;margin-left: 32% ">
-
+      <div class="input-data" style="bottom:150px;margin-left: 20% ">
+        <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px" >
+          <button type="submit" style="width:450px; padding:1px; margin-right:50px;color: white;background: #333333;font-size:25px"
+          >حفظ المرفقات</button>
+          <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
+        </form>
         <button  *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"
                  type="submit" class="btn "
                  style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"

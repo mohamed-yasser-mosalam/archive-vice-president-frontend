@@ -15,7 +15,8 @@ export class UpdateExportComponent implements OnInit {
   showExports: any;
   paths:any[]
   x = this.routes.snapshot.params['id']
-  no:number
+  no:number;
+  roleOfUser = this.auth.getUserRoles()
   editExport = new FormGroup({
     date: new FormControl(''),
     receiver: new FormControl(''),
@@ -52,7 +53,7 @@ export class UpdateExportComponent implements OnInit {
   }
 
   constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http:HttpClient
+              private http:HttpClient,private auth:AuthenticationServiceService
    ) {
   }
 

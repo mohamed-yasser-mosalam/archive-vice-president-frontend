@@ -4,6 +4,7 @@ import {ExportServiceService} from "../Services/ExportsServices/export-service.s
 import {ActivatedRoute, Router} from "@angular/router";
 import {ImportServiceService} from "../Services/ImportsServices/import-service.service";
 import {HttpClient} from "@angular/common/http";
+import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 
 @Component({
   selector: 'app-update-import',
@@ -15,6 +16,7 @@ export class UpdateImportComponent implements OnInit {
   paths: any[];
   no:any
   x = this.routes.snapshot.params['id']
+  roleOfUser = this.auth.getUserRoles()
   editImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
     sender: new FormControl(''),
@@ -60,7 +62,7 @@ export class UpdateImportComponent implements OnInit {
   }
 
   constructor(private serviceImport: ImportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient) {
+              private http: HttpClient,private auth:AuthenticationServiceService) {
   }
 
   update() {

@@ -1,63 +1,66 @@
 <app-navbar></app-navbar>
 <div class="row" >
  <div class="col-2"></div>
-  <form class="col-8" style="zoom: 80%" #UrgentForm="ngForm" (ngSubmit)="addUrgentFile(UrgentForm.value)" >
+  <form class="col-8" style="zoom: 70%" #UrgentForm="ngForm" (ngSubmit)="addUrgentFile(UrgentForm.value)" >
 
     <div class="wrapper">
       <legend class="text-center"> {{x}} ادخال استعجال لملف رقم </legend>
 
+      <div class="input-data" readonly style="width: 20%;margin-left: 80%">
+        <input type="number" required id="no" name="no">
+        <label for="no" style="margin-right: 85%;color: black;margin-bottom:-5px"
+               readonly>{{numberOfExportFile}}</label>
+        <div class="underLine"></div>
+        <label for="no" style="color: black">رقم القيد
+        </label>
+      </div>
       <div style="display: flex;  justify-content: space-between;">
-        <div class="input-container">
+
+        <div class="input-container ">
 
           <div class="input-data">
-            <input type="date" required  id="date" name="date" ngModel>
-            <div class="underLine"></div>
-            <label for="date">تاريخ الخطاب الصادر</label>
-          </div>
-
-          <div class="input-data">
-            <input type="text" required  id="receiver" name="receiver" ngModel>
-            <div class="underLine"></div>
+            <input type="text" required id="receiver" name="receiver" ngModel>
             <label for="receiver">الجهة الصادر اليها الخطاب</label>
           </div>
-
-          <div class="input-data">
-            <input  cols="40" rows="1" required id="summary" name="summary" ngModel>
-            <div class="underLine"></div>
-            <label for="summary">ملخص الخطاب</label>
-          </div>
-
         </div>
-
-
         <div class="input-container">
-          <div class="input-data" readonly  >
-            <input type="number" readonly required  id="no" name="no" >
-            <label for="no" style="margin-right: 85%;color: black;margin-bottom:-5px" readonly>{{numberOfExportFile}}</label>
-
-            <div class="underLine"></div>
-            <label for="no" style="color: black">رقم القيد
-            </label>
+          <div class="d-flex">
+            <div class="input-data" style="margin-right: 20px">
+              <input type="text" required id="numberOfAttachments" name="numberOfAttachments" ngModel>
+              <label for="numberOfAttachments">عدد المرفقات</label>
+            </div>
+            <div class="input-data">
+              <input type="date" required id="date" name="date" ngModel>
+              <div class="underLine"></div>
+              <label for="date">تاريخ الخطاب الصادر</label>
+            </div>
           </div>
-
-          <div class="input-data">
-            <input type="number" required id="num" name="num"ngModel>
-            <div class="underLine"></div>
-            <label for="num">رقم الملف</label>
-          </div>
-
-          <div class="input-data">
-            <input type="text" required  id="recipientName"name="recipientName" ngModel>
-            <div class="underLine"></div>
-            <label for="recipientName">المستلم</label>
-          </div>
-
         </div>
+      </div>
+      <div class="input-data">
+        <input cols="40" rows="1" style="height:60px" required id="summary" name="summary" ngModel>
+        <label for="summary">ملخص الخطاب</label>
+      </div>
+      <div class="d-flex">
 
-      </div>  <button type="submit"  class="btn  "
-                      style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%">    حفظ
-    </button>
+        <div class="input-data" style="width: 35%;margin-left: 30px">
+          <input type="text" required id="recipientName" name="recipientName" ngModel>
+          <label for="recipientName">المستلم</label>
+        </div>
+        <div class="input-data" style="width: 35%;margin-left: 30% ">
+          <input type="number" required id="num" name="num" ngModel>
+          <div class="underLine"></div>
+          <label for="num">رقم الملف </label>
+        </div>
+      </div>
+
+
+      <button type="submit" class="btn "
+              style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%"> حفظ
+      </button>
+
     </div>
+
   </form>
   <div class="col-2 position-relative">
     <app-sidebar></app-sidebar>

@@ -34,8 +34,7 @@ export class AddExportComponent implements OnInit {
   AddExportFile(data: any) {
     this.serviceExport.addExportFile(data).subscribe(() => {
       window.location.reload();
-      console.log(data)
-    });
+     });
   }
 
   getExportCount(): void {

@@ -10,7 +10,7 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./urgent-export.component.css']
 })
 export class UrgentExportComponent  implements OnInit{
-  numberOfExportFile
+  numberOfExportFile:any
   x=this.routes.snapshot.params['id']
   addUrgent = new FormGroup({
     receiver: new FormControl(''),
@@ -40,7 +40,9 @@ export class UrgentExportComponent  implements OnInit{
 
   addUrgentFile(data:any) {
     this.serviceExport.addUrgentFile(this.routes.snapshot.params['id'],data).subscribe(
-      response => this.router.navigate([`/export-pagination?id/`,this.x])
+      // response => this.router.navigate([`/export-pagination?id/`,this.x])
+      response => this.router.navigateByUrl('/home')
+
     )
   }
   getExportCount(): void {

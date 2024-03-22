@@ -15,6 +15,7 @@ export class SpecialPaginationComponent implements OnInit {
   y: any
   id: number;
   summary: string;
+  createdBy:string;
   roleOfUser = this.auth.getUserRoles()
   page = this.routes.snapshot.params['page'];
   pageLength: any;
@@ -68,7 +69,8 @@ export class SpecialPaginationComponent implements OnInit {
       this.summary = this.showSpecials.summary;
       this.subjects = this.showSpecials.subjects;
       this.decisions = this.showSpecials.subjects.decisions;
-      this.id = this.showSpecials.id
+      this.id = this.showSpecials.id;
+      this.createdBy=this.showSpecials.createdBy
     })
   }
 

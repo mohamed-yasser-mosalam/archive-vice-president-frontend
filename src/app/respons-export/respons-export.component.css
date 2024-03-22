@@ -6,12 +6,11 @@ form{
   position: relative;
   align-items: center;
   justify-content: center;
-
 }
 .wrapper{
   width: 75%;
   padding:40px;
-  margin:40px;
+  margin:10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
@@ -40,14 +39,15 @@ form{
   outline: none;
   border: none;
 }
-.input-data input:focus ~ label,
-.input-data input:valid ~ label,
-.input-data textarea:focus ~ label,
-.input-data textarea:valid ~ label{
-  transform: translateY(-35px);
-  font-size: 15px;
-  color: #333333;
-}
+/*.input-data input:focus ~ label,*/
+/*.input-data input:valid ~ label,*/
+/*.input-data textarea:focus ~ label,*/
+/*.input-data textarea:valid ~ label{*/
+/*  transform: translateY(-35px);*/
+/*  font-size: 15px;*/
+/*  color: #333333;*/
+
+/*}*/
 .wrapper .input-data label{
   position: absolute;
   bottom: 10px;
@@ -56,6 +56,8 @@ form{
   pointer-events: none;
   transition: .3s ease;
   text-align: center;
+  font-size:15px;
+  margin-bottom: 20px;
 }
 .wrapper .input-data .underLine{
   position: absolute;
@@ -64,12 +66,13 @@ form{
   width: 100%;
 }
 .wrapper .input-data .underLine::before,
-.wrapper .input-data .underLine-text::before{
+.wrapper .input-data .underLine-text::before
+{
   position: absolute;
   content:"";
   height: 2px;
   width: 100%;
-  background-color: #333333;
+  background: #333333;
   transform: scaleX(0);
   transition: all .3s ease-in-out;
 }
@@ -81,6 +84,8 @@ form{
 .input-data textarea:focus ~ .underLine-text::before,
 .input-data textarea:valid ~ .underLine-text::before{
   transform: scaleX(1);
+  background: #333333;
+
 }
 .input-container{
   width: 45%;

@@ -73,7 +73,6 @@ export class ImportPaginationComponent implements OnInit {
     this.importService.getImportPagination(this.page).subscribe((getImport: any) => {
       this.showImports = getImport;
       this.paths = this.showImports.paths
-
     })
   }
 

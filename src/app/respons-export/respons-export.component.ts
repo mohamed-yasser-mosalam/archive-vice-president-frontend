@@ -3,6 +3,7 @@ import {ImportServiceService} from "../Services/ImportsServices/import-service.s
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-respons-export',
@@ -11,6 +12,7 @@ import {ExportServiceService} from "../Services/ExportsServices/export-service.s
 })
 export class ResponsExportComponent {
   x=this.routes.snapshot.params['id']
+  numberOfImportFile:any
 
   addExportResponse = new FormGroup({
     incomeDate: new FormControl(''),
@@ -25,7 +27,8 @@ export class ResponsExportComponent {
   })
 
   ngOnInit(): void {
-     this.serviceExport.getExportById(this.routes.snapshot.params['id']).
+    this.getImportCount()
+    this.serviceExport.getExportById(this.routes.snapshot.params['id']).
     subscribe((result) => {
       this.addExportResponse = new FormGroup({
         incomeDate: new FormControl(result['incomeDate']),
@@ -41,7 +44,9 @@ export class ResponsExportComponent {
     })
   }
 
-  constructor(private serviceExport: ExportServiceService,private routes: ActivatedRoute, private router: Router) {
+  constructor(private serviceExport: ExportServiceService,private routes: ActivatedRoute, private router: Router,
+              private http:HttpClient
+              ) {
 
   }
 
@@ -50,5 +55,11 @@ export class ResponsExportComponent {
       response => this.router.navigateByUrl('/getallImports')
     )
   }
+  getImportCount(): void {
+    this.http.get('http://localhost:1200/import/count').subscribe((numberOfImportFiles: any) => {
+      this.numberOfImportFile = numberOfImportFiles+1;
+    });
+  }
+
 
 }

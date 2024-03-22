@@ -69,8 +69,7 @@ export class ExportPaginationComponent implements OnInit {
     this.serviceExport.getExportByPagination(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
       this.paths = this.showExports.paths;
-      console.log(this.showExports)
-    });
+     });
   }
 
   getExportCount(): void {

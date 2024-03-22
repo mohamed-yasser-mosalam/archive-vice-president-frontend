@@ -18,6 +18,7 @@ export class ImportPaginationComponent implements OnInit {
   showImports: any;
   size: number = 1;
   paths: string[];
+  isHasResponse:boolean
   roleOfUser = this.auth.getUserRoles()
   showImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
@@ -61,8 +62,7 @@ export class ImportPaginationComponent implements OnInit {
         num:  result['num'],
         expectResponseDate:  result['expectResponseDate']
       })
-      console.log(result);
-    })
+     })
   }
 
   constructor(private importService: ImportServiceService, private routes: ActivatedRoute, private router: Router,
@@ -74,8 +74,9 @@ export class ImportPaginationComponent implements OnInit {
       this.showImports = getImport;
       this.paths = this.showImports.paths;
       this.id=this.showImports.id
+      this.isHasResponse=this.showImports.hasResponse;
     });
-   }
+    }
 
   getImportCount() {
     this.http.get('http://localhost:1200/import/count').subscribe((numberOfImportFiles: any) => {

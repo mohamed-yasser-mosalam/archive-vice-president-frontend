@@ -13,8 +13,9 @@ export class Showallexport {
   responseDate: Date;
   archiveId: number;
   typeNumber: number;
-  num: number
-
+  num: number;
+  hasResponse:boolean;
+  hasUrgent:boolean
   constructor(id: number, date: Date,
               numberOfAttachments: number,
               paths: string [],
@@ -28,7 +29,9 @@ export class Showallexport {
               archiveId: number,
               typeNumber: number,
               num: number,
-              no:number) {
+              no:number,
+              hasResponse:boolean,
+              hasUrgent:boolean) {
     this.id = id;
     this.date = date;
     this.numberOfAttachments = numberOfAttachments;
@@ -43,7 +46,9 @@ export class Showallexport {
     this.archiveId = archiveId;
     this.typeNumber = typeNumber;
     this.num = num;
-    this.no=no
+    this.no=no;
+    this.hasResponse=hasResponse;
+    this.hasUrgent=hasUrgent
 
   }
 }

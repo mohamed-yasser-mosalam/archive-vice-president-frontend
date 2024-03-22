@@ -1,5 +1,5 @@
 export class Showallimport {
-  no:number
+  no: number
   id: number;
   incomeDate: Date;
   numberOfAttachments: number;
@@ -17,7 +17,9 @@ export class Showallimport {
   typeNumber: number;
   num: number;
   expectResponseDate: Date;
-  receiver: string
+  receiver: string;
+  createdBy: string;
+  hasResponse: boolean
 
   constructor(id: number,
               incomeDate: Date,
@@ -37,12 +39,14 @@ export class Showallimport {
               num: number,
               expectResponseDate: Date,
               receiver: string,
-              no:number
+              no: number,
+              createdBy: string,
+              hasResponse: boolean
   ) {
     this.id = id;
     this.incomeDate = incomeDate;
     this.numberOfAttachments = numberOfAttachments;
-    this.paths=paths;
+    this.paths = paths;
     this.sender = sender;
     this.incomingLetterNumber = incomingLetterNumber;
     this.incomingLetterDate = incomingLetterDate
@@ -57,7 +61,9 @@ export class Showallimport {
     this.num = num;
     this.expectResponseDate = expectResponseDate;
     this.receiver = receiver;
-    this.no=no
+    this.no = no;
+    this.createdBy = createdBy;
+    this.hasResponse=hasResponse
 
   }
 }

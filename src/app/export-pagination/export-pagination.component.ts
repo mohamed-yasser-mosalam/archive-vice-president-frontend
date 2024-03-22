@@ -19,6 +19,8 @@ export class ExportPaginationComponent implements OnInit {
   size: number = 1;
   paths: string[];
   numbers: any = [];
+  hasResponse:boolean;
+  hasUrgent:boolean
   showExport = new FormGroup({
     date: new FormControl(''),
     receiver: new FormControl(''),
@@ -68,7 +70,9 @@ export class ExportPaginationComponent implements OnInit {
     this.serviceExport.getExportByPagination(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
       this.paths = this.showExports.paths;
-      this.id=this.showExports.id
+      this.id=this.showExports.id;
+      this.hasUrgent=this.showExports.hasUrgent;
+      this.hasResponse=this.showExports.hasResponse
      });
   }
 

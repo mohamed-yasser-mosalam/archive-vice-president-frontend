@@ -108,12 +108,12 @@
             اضافه
           </button>
 
-          <button type="submit" class="btn "
+          <button type="submit" class="btn " *ngIf="hasUrgent"
                   style="width:200px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
                   routerLink="/add-urgent/{{page}}">
             اضافه الاستعجال
           </button>
-          <button type="submit" class="btn"
+          <button type="submit" class="btn" *ngIf="hasResponse"
                   style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
                   routerLink="/add-export-response/{{page}}">
             اضافه رد

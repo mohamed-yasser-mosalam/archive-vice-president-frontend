@@ -15,12 +15,13 @@ export class UpdateExportComponent implements OnInit {
   showExports: any;
   paths:any[]
   x = this.routes.snapshot.params['id']
+  no:number
   editExport = new FormGroup({
     date: new FormControl(''),
     receiver: new FormControl(''),
     numberOfAttachments: new FormControl(''),
     typeNumber: new FormControl(''),
-    id: new FormControl(''),
+    no: new FormControl(''),
     num: new FormControl(''),
     recipientName: new FormControl(''),
     summary: new FormControl(''),
@@ -31,13 +32,13 @@ export class UpdateExportComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.serviceExport.getExportById(this.routes.snapshot.params['id']).subscribe((result) => {
+    this.serviceExport.getExportByPagination(this.routes.snapshot.params['id']).subscribe((result) => {
       this.editExport = new FormGroup({
         date: new FormControl(result['date']),
         receiver: new FormControl(result['receiver']),
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
         typeNumber: new FormControl(result['typeNumber']),
-        id: new FormControl(result['id']),
+        no: new FormControl(result['no']),
         num: new FormControl(result['num']),
         recipientName: new FormControl(result['recipientName']),
         summary: new FormControl(result['summary']),
@@ -58,7 +59,7 @@ export class UpdateExportComponent implements OnInit {
   update() {
     this.serviceExport.updateExport(this.routes.snapshot.params['id'], this.editExport.value)
       .subscribe((result) => {
-       this.router.navigate([`/export-pagination?page/`, this.routes.snapshot.params['id']])
+       this.router.navigate([`/export-pagination?page/`, this.no])
     })
   }
 
@@ -66,6 +67,7 @@ export class UpdateExportComponent implements OnInit {
     this.serviceExport.getExportById(this.routes.snapshot.params['id']).subscribe((getExport: any) => {
       this.showExports = getExport;
       this.paths = this.showExports.paths;
+      this.no=this.showExports.no
     })
   }
   deleteImage(index: number): void {

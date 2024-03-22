@@ -12,13 +12,14 @@ import {HttpClient} from "@angular/common/http";
 })
 export class UpdateImportComponent implements OnInit {
   showImports: any;
-  paths: any[]
+  paths: any[];
+  no:any
   x = this.routes.snapshot.params['id']
   editImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
     sender: new FormControl(''),
     incomeDate: new FormControl(''),
-    id: new FormControl(''),
+    no: new FormControl(''),
     incomingLetterDate: new FormControl(''),
     incomingLetterNumber: new FormControl(''),
     summary: new FormControl(' '),
@@ -39,7 +40,7 @@ export class UpdateImportComponent implements OnInit {
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
         sender: new FormControl(result['sender']),
         incomeDate: new FormControl(result['incomeDate']),
-        id: new FormControl(result['id']),
+        no: new FormControl(result['no']),
         incomingLetterDate: new FormControl(result['incomingLetterDate']),
         incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
         summary: new FormControl(result['summary']),
@@ -64,7 +65,7 @@ export class UpdateImportComponent implements OnInit {
 
   update() {
     this.serviceImport.updateImport(this.routes.snapshot.params['id'], this.editImport.value).subscribe((result) => {
-      this.router.navigate([`/import-pagination?page/`, this.routes.snapshot.params['id']])
+      this.router.navigate([`/import-pagination?page/`, this.no])
 
     })
   }
@@ -72,7 +73,8 @@ export class UpdateImportComponent implements OnInit {
   showImportFile() {
     this.serviceImport.getImportById(this.routes.snapshot.params['id']).subscribe((getImport: any) => {
       this.showImports = getImport;
-      this.paths = this.showImports.paths
+      this.paths = this.showImports.paths;
+      this.no=this.showImports.no
     })
   }
 

@@ -75,7 +75,7 @@ export class ImportPaginationComponent implements OnInit {
       this.paths = this.showImports.paths;
       this.id=this.showImports.id
     });
-  }
+   }
 
   getImportCount() {
     this.http.get('http://localhost:1200/import/count').subscribe((numberOfImportFiles: any) => {

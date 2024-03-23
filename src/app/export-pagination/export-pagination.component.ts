@@ -123,7 +123,6 @@ export class ExportPaginationComponent implements OnInit {
       }
     }
   }
-
   onSubmit(): void {
     const formData: FormData = new FormData();
     for (let i = 0; i < this.selectedFiles.length; i++) {
@@ -132,7 +131,9 @@ export class ExportPaginationComponent implements OnInit {
 
     this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=exports`, formData).subscribe(() => {
     });
-   window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   }
 
 

@@ -12,6 +12,7 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
 })
 export class ExportPaginationComponent implements OnInit {
   id: number;
+  no:number
   roleOfUser = this.auth.getUserRoles();
   page=this.routes.snapshot.params['page']
   pageLength: any;
@@ -75,9 +76,10 @@ export class ExportPaginationComponent implements OnInit {
       this.paths = this.showExports.paths;
       this.id=this.showExports.id;
       this.hasUrgent=this.showExports.hasUrgent;
-      this.hasResponse=this.showExports.hasResponse
+      this.hasResponse=this.showExports.hasResponse;
+      this.no=this.showExports.no
      });
-  }
+   }
 
   getExportCount(): void {
     this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
@@ -133,7 +135,7 @@ export class ExportPaginationComponent implements OnInit {
     });
     setTimeout(() => {
       window.location.reload();
-    }, 10);
+    }, 50);
   }
 
 

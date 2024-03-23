@@ -16,6 +16,7 @@ export class SpecialPaginationComponent implements OnInit {
   id: number;
   summary: string;
   createdBy:string;
+  no:any;
   roleOfUser = this.auth.getUserRoles()
   page = this.routes.snapshot.params['page'];
   pageLength: any;
@@ -72,7 +73,8 @@ export class SpecialPaginationComponent implements OnInit {
       this.subjects = this.showSpecials.subjects;
       this.decisions = this.showSpecials.subjects.decisions;
       this.id = this.showSpecials.id;
-      this.createdBy=this.showSpecials.createdBy
+      this.createdBy=this.showSpecials.createdBy;
+      this.no=this.showSpecials.no
     })
   }
 
@@ -142,10 +144,11 @@ export class SpecialPaginationComponent implements OnInit {
     for (let i = 0; i < this.selectedFiles.length; i++) {
       formData.append('files', this.selectedFiles[i]);
     }
-    this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=specials`, formData).subscribe( );
+    this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=specials`, formData).subscribe((result) => {
+     });
     setTimeout(() => {
       window.location.reload();
-    }, 10);
+    }, 50);
   }
 
 

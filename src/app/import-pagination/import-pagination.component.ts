@@ -12,7 +12,8 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./import-pagination.component.css']
 })
 export class ImportPaginationComponent implements OnInit {
-  id: any
+  id: any;
+  no:number
   page = this.routes.snapshot.params['page']
   pageLength: any;
   showImports: any;
@@ -77,6 +78,7 @@ export class ImportPaginationComponent implements OnInit {
       this.paths = this.showImports.paths;
       this.id=this.showImports.id
       this.isHasResponse=this.showImports.hasResponse;
+      this.no=this.showImports.no
     });
     }
 
@@ -141,6 +143,6 @@ export class ImportPaginationComponent implements OnInit {
      });
     setTimeout(() => {
       window.location.reload();
-    }, 10);
+    }, 50);
   }
 }

@@ -65,7 +65,6 @@ export class ExportPaginationComponent implements OnInit {
     private http: HttpClient,
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
-    private router: Router
 
   ) {
   }
@@ -132,8 +131,8 @@ export class ExportPaginationComponent implements OnInit {
     }
 
     this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=exports`, formData).subscribe(() => {
-      window.location.reload();
     });
+   window.location.reload();
   }
 
 

@@ -98,6 +98,8 @@
           >حفظ المرفقات</button>
           <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
         </form>
+
+
         <div  style="margin-left: 25%">
           <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"
                   type="submit" class="btn "

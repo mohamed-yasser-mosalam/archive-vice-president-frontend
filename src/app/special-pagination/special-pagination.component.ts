@@ -136,6 +136,7 @@ export class SpecialPaginationComponent implements OnInit {
     }
   }
 
+
   onSubmit(): void {
     const formData: FormData = new FormData();
     for (let i = 0; i < this.selectedFiles.length; i++) {
@@ -143,9 +144,10 @@ export class SpecialPaginationComponent implements OnInit {
     }
 
     this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=specials`, formData).subscribe(() => {
-      window.location.reload();
     });
+    window.location.reload();
   }
+
 
 }
 

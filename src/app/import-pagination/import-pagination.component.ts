@@ -138,7 +138,7 @@ export class ImportPaginationComponent implements OnInit {
     }
 
     this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=imports`, formData).subscribe(() => {
-      window.location.reload();
-    });
+     });
+    window.location.reload();
   }
 }

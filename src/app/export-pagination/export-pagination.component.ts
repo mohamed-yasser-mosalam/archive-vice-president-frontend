@@ -133,7 +133,7 @@ export class ExportPaginationComponent implements OnInit {
     });
     setTimeout(() => {
       window.location.reload();
-    }, 50);
+    }, 10);
   }
 
 

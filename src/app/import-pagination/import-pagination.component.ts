@@ -141,6 +141,6 @@ export class ImportPaginationComponent implements OnInit {
      });
     setTimeout(() => {
       window.location.reload();
-    }, 50);
+    }, 10);
   }
 }

@@ -145,7 +145,7 @@ export class SpecialPaginationComponent implements OnInit {
     this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=specials`, formData).subscribe( );
     setTimeout(() => {
       window.location.reload();
-    }, 50);
+    }, 10);
   }
 
 

@@ -65,6 +65,8 @@ export class ExportPaginationComponent implements OnInit {
     private http: HttpClient,
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
+    private router: Router
+
   ) {
   }
 
@@ -133,5 +135,7 @@ export class ExportPaginationComponent implements OnInit {
       window.location.reload();
     });
   }
+
+
 }
 

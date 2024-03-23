@@ -21,6 +21,7 @@ export class ImportPaginationComponent implements OnInit {
   isHasResponse:boolean
   roleOfUser = this.auth.getUserRoles()
   showImport = new FormGroup({
+    createdBy:new FormControl(''),
     numberOfAttachments: new FormControl(''),
     sender: new FormControl(''),
     incomeDate: new FormControl(''),
@@ -47,6 +48,7 @@ export class ImportPaginationComponent implements OnInit {
   form() {
     this.importService.getImportPagination(this.page).subscribe((result) => {
       this.showImport.patchValue({
+        createdBy :result['createdBy'],
         numberOfAttachments :result['numberOfAttachments'],
         sender:result['sender'],
         incomeDate: result['incomeDate'],
@@ -89,6 +91,7 @@ export class ImportPaginationComponent implements OnInit {
     this.showImportFile();
     this.importService.getImportPagination(event).subscribe((result) => {
       this.showImport = new FormGroup({
+        createdBy: new FormControl(result['createdBy']),
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
         sender: new FormControl(result['sender']),
         incomeDate: new FormControl(result['incomeDate']),

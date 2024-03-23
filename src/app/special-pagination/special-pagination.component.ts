@@ -26,6 +26,7 @@ export class SpecialPaginationComponent implements OnInit {
   subjects: any[];
   decisions: any[];
   showSpecial = new FormGroup({
+    createdBy:new FormControl(''),
     no: new FormControl(''),
     name: new FormControl(''),
     summary: new FormControl(''),
@@ -42,6 +43,7 @@ export class SpecialPaginationComponent implements OnInit {
     this.showSpecialFile();
     this.specialService.getSpecialsByPagination(this.page).subscribe((result) => {
       this.showSpecial = new FormGroup({
+        createdBy: new FormControl(result['createdBy']),
         no: new FormControl(result['no']),
         name: new FormControl(result['name']),
         summary: new FormControl(result['summary']),
@@ -86,6 +88,7 @@ export class SpecialPaginationComponent implements OnInit {
     this.specialService.getSpecialsByPagination(event).subscribe((result) => {
       this.showSpecial = new FormGroup({
         no: new FormControl(result['no']),
+        createdBy: new FormControl(result['createdBy']),
         name: new FormControl(result['name']),
         summary: new FormControl(result['summary']),
         numberOfAttachments: new FormControl(result['numberOfAttachments']),

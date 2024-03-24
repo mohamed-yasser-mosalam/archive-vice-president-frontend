@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExportServiceService } from "../Services/ExportsServices/export-service.service";
 import { Router } from "@angular/router";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -11,35 +11,39 @@ import { HttpClient } from "@angular/common/http";
 })
 export class AddExportComponent implements OnInit {
   numberOfExportFile: any;
+  exportForm: FormGroup;
+
 
   constructor(private serviceExport: ExportServiceService, private router: Router,
               private fb: FormBuilder, private http: HttpClient) {}
-
-  exportForm: FormGroup;
-
   ngOnInit(): void {
     this.getExportCount();
     this.exportForm = this.fb.group({
-
-      receiver: [''],
-      summary: [''],
-      date: [''],
+      receiver: ['', [Validators.required, Validators.minLength(4)]],
+      summary: ['', [Validators.required, Validators.minLength(4)]],
+      date: ['', [Validators.required, Validators.minLength(4)]],
       no: [''],
       recipientName: [''],
-      num: [''],
-      numberOfAttachments: ['']
+      num: ['', [Validators.required, Validators.minLength(1)]],
+      numberOfAttachments: ['', [Validators.required, Validators.minLength(1)]]
     });
   }
 
-  AddExportFile(data: any) {
+  addExportFile(data: any) {
     this.serviceExport.addExportFile(data).subscribe(() => {
       window.location.reload();
-     });
+    });
   }
 
   getExportCount(): void {
     this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
       this.numberOfExportFile = numberOfExportFiles + 1;
     });
+  }
+
+  onSubmit(): void {
+    if (this.exportForm.valid) {
+      this.addExportFile(this.exportForm.value);
+    }
   }
 }

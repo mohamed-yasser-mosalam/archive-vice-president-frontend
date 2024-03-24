@@ -125,3 +125,7 @@ form{
 .subjects{
   margin: 0!important;
 }
+small{
+  color: red;
+  font-size: large;
+}

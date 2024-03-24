@@ -1,142 +1,64 @@
 <app-navbar></app-navbar>
 <div class="row">
-  <div class="col-2"></div>
-  <form class="col-8" style="zoom: 70%" #exportForm="ngForm" (ngSubmit)="AddExportFile(exportForm.value)">
-    <div class="wrapper">
-      <legend class="text-center">ادخال الصادر</legend>
+  <div class="col-2" style="background-color: var(--bg_main);"></div>
+  <div class="col-8" style="background-color:var(--bg_main)">
+      <form class="col-8" style="zoom: 70%" [formGroup]="exportForm" (ngSubmit)="onSubmit()">
 
-      <div class="input-data" readonly style="width: 20%;margin-left: 80%">
-        <input type="number" required id="no" name="no">
-        <label for="no" style="margin-right: 85%;color: black;margin-bottom:-5px"
-               readonly>{{numberOfExportFile}}</label>
-        <div class="underLine"></div>
-        <label for="no" style="color: black">رقم القيد
-        </label>
-      </div>
-      <div style="display: flex;  justify-content: space-between;">
+      <div class="wrapper " style="direction: ltr;">
+        <legend class="text-center">ادخال الصادر</legend>
 
-        <div class="input-container ">
-
-          <div class="input-data">
-            <input type="text" required id="receiver" name="receiver" ngModel>
+        <div class="input-data" style="width:20%; margin-left:auto;">
+          <input type="number" required id="no" name="no">
+          <label for="no" style="margin-right: 85%;color: black;margin-bottom:-5px"
+                 readonly>{{ numberOfExportFile }}</label>
+           <label for="no" style="color: black">رقم القيد</label>
+        </div>
+        <div class="d-flex">
+          <div class="input-data" style="width:30%; margin-left:auto;">
+            <input type="text" required id="receiver" name="receiver" formControlName="receiver">
             <label for="receiver">الجهة الصادر اليها الخطاب</label>
+            <small *ngIf="exportForm.get('receiver')?.invalid">* مطلوب</small>
+          </div>
+
+          <div class="input-data" style="width:30%; margin-left:auto;">
+            <input type="text"   id="numberOfAttachments" name="numberOfAttachments"
+                   formControlName="numberOfAttachments">
+            <label for="numberOfAttachments">عدد المرفقات</label>
+          </div>
+          <div class="input-data" style="width:30%; margin-left:auto;">
+            <input type="date" required id="date" name="date" formControlName="date">
+             <label for="date">تاريخ الصادر</label>
+            <small *ngIf="exportForm.get('date')?.invalid">* مطلوب</small>
           </div>
         </div>
-        <div class="input-container">
-          <div class="d-flex">
-            <div class="input-data" style="margin-right: 20px">
-              <input type="text" required id="numberOfAttachments" name="numberOfAttachments" ngModel>
-              <label for="numberOfAttachments">عدد المرفقات</label>
-            </div>
-            <div class="input-data">
-              <input type="date" required id="date" name="date" ngModel>
-              <div class="underLine"></div>
-              <label for="date">تاريخ الخطاب الصادر</label>
-            </div>
+        <div class="input-data" style="width:96%; margin-left: auto;">
+          <input cols="40" rows="1"  required id="summary" name="summary" formControlName="summary">
+           <label for="summary">ملخص الخطاب</label>
+          <small *ngIf="exportForm.get('summary')?.invalid">* مطلوب</small>
+
+        </div>
+        <div class="d-flex">
+          <div class="input-data" style="width:40%; margin:auto;">
+          <input type="text" required id="num" name="num"  formControlName="num">
+           <label for="num">ملف الحفظ</label>
+          <small *ngIf="exportForm.get('num')?.invalid">* مطلوب</small>
+
+        </div>
+          <div class="input-data" style="width:45%; margin-left:auto;">
+            <input type="text" id="recipientName" name="recipientName" formControlName="recipientName">
+            <label for="recipientName">المستلم</label>
           </div>
         </div>
+
+        <button type="submit" class="btn  " [disabled]="!exportForm.valid"
+                style="width:100px; padding:1px;color: var(--color);background: var(--bg_hover);font-size:22px;margin-right:10%">
+          حفظ
+        </button>
       </div>
-      <div class="input-data">
-        <input cols="40" rows="1" style="height:60px" required id="summary" name="summary" ngModel>
-        <label for="summary">ملخص الخطاب</label>
-      </div>
-      <div class="d-flex">
-
-        <div class="input-data" style="width: 35%;margin-left: 30px">
-          <input type="text" required id="recipientName" name="recipientName" ngModel>
-          <label for="recipientName">المستلم</label>
-        </div>
-        <div class="input-data" style="width: 35%;margin-left: 30% ">
-          <input type="number" required id="num" name="num" ngModel>
-          <div class="underLine"></div>
-          <label for="num">رقم الملف </label>
-        </div>
-      </div>
-
-
-      <button type="submit" class="btn "
-              style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%"> حفظ
-      </button>
-
-    </div>
-
-  </form>
+    </form>
+  </div>
   <div class="col-2 position-relative">
     <app-sidebar></app-sidebar>
   </div>
 </div>
-
-
-<!--<app-navbar></app-navbar>-->
-<!--<div class="row" >-->
-<!--  <div class="col-2"></div>-->
-<!--  <form class="col-8" style="zoom: 80%" #exportForm="ngForm" (ngSubmit)="AddExportFile(exportForm.value)">-->
-
-<!--    <div class="wrapper">-->
-<!--      <legend class="text-center">ادخال الصادر</legend>-->
-
-<!--      <div style="display: flex;  justify-content: space-between;">-->
-<!--        <div class="input-container">-->
-<!--          <div class="input-data">-->
-<!--            <input type="date" required  id="date" name="date" ngModel>-->
-<!--            <div class="underLine"></div>-->
-<!--            <label for="date">تاريخ الخطاب الصادر</label>-->
-<!--          </div>-->
-<!--          <div class="input-data">-->
-<!--            <input type="text" required  id="receiver" name="receiver" ngModel>-->
-<!--            <div class="underLine"></div>-->
-<!--            <label for="receiver">الجهة الصادر اليها الخطاب</label>-->
-<!--          </div>-->
-
-<!--          <div class="input-data">-->
-<!--            <input  cols="40" rows="1" required id="summary" name="summary" ngModel  style="height:60px">-->
-<!--            <div class="underLine"></div>-->
-<!--            <label for="summary">ملخص الخطاب</label>-->
-<!--          </div>-->
-<!--          -->
-
-<!--          <button type="submit"  class="btn "-->
-<!--                  style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%">    حفظ-->
-<!--          </button>-->
-<!--        </div>-->
-
-
-<!--        <div class="input-container">-->
-
-<!--          <div class="input-data" readonly  >-->
-<!--            <input type="number" readonly required  id="no" name="no" >-->
-<!--            <label for="no" style="margin-right: 85%;color: black;margin-bottom:-5px" readonly>{{numberOfExportFile}}</label>-->
-
-<!--            <div class="underLine"></div>-->
-<!--            <label for="no" style="color: black">رقم القيد-->
-<!--               </label>-->
-<!--          </div>-->
-<!--          <div class="input-data">-->
-<!--            <input type="number" required  id="numberOfAttachments" name="numberOfAttachments" ngModel>-->
-<!--            <div class="underLine"></div>-->
-<!--            <label for="numberOfAttachments">عدد المرفقات</label>-->
-<!--          </div>-->
-
-<!--          <div class="input-data">-->
-<!--            <input type="text" required  id="recipientName"name="recipientName" ngModel>-->
-<!--            <div class="underLine"></div>-->
-<!--            <label for="recipientName">المستلم</label>-->
-<!--          </div>-->
-
-<!--          <div class="input-data">-->
-<!--            <input type="date" required id="num" name="num"ngModel>-->
-<!--            <div class="underLine"></div>-->
-<!--            <label for="num">تاريخ الاستلام  </label>-->
-<!--          </div>-->
-
-
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      </div>-->
-<!--  </form>-->
-<!--  <div class="col-2 position-relative">-->
-<!--    <app-sidebar></app-sidebar>-->
-<!--  </div>-->
-<!--</div>-->
 

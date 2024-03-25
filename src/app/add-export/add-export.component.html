@@ -21,9 +21,11 @@
           </div>
 
           <div class="input-data" style="width:30%; margin-left:auto;">
-            <input type="text"   id="numberOfAttachments" name="numberOfAttachments"
+            <input type="text"  id="numberOfAttachments" name="numberOfAttachments"
                    formControlName="numberOfAttachments">
             <label for="numberOfAttachments">عدد المرفقات</label>
+            <small *ngIf="exportForm.get('numberOfAttachments')?.invalid">* مطلوب</small>
+
           </div>
           <div class="input-data" style="width:30%; margin-left:auto;">
             <input type="date" required id="date" name="date" formControlName="date">
@@ -51,9 +53,8 @@
         </div>
 
         <button type="submit" class="btn  " [disabled]="!exportForm.valid"
-                style="width:100px; padding:1px;color: var(--color);background: var(--bg_hover);font-size:22px;margin-right:10%">
-          حفظ
-        </button>
+                style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%"> حفظ
+         </button>
       </div>
     </form>
   </div>

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ImportServiceService} from "../Services/ImportsServices/import-service.service";
@@ -12,6 +12,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ResponsImportComponent implements OnInit{
   numberOfExportFile: any;
+  importResponse: FormGroup;
   x=this.routes.snapshot.params['id']
   addResponse = new FormGroup({
     receiver: new FormControl(''),
@@ -21,19 +22,20 @@ export class ResponsImportComponent implements OnInit{
   })
 
   ngOnInit(): void {
-    this.getExportCount()
-    this.serviceImport.getImportById(this.routes.snapshot.params['id']).
-    subscribe((result) => {
-      this.addResponse = new FormGroup({
-        receiver: new FormControl(result['receiver']),
-        summary: new FormControl(result['summary']),
-        recipientName: new FormControl(result['recipientName']),
-        num: new FormControl(result['num'])
-      })
-    })
-  }
-  constructor(private serviceImport: ImportServiceService,private routes: ActivatedRoute, private router: Router,
-  private http: HttpClient) {
+    this.getExportCount();
+       this.importResponse =   this.fb.group({
+        receiver: ['', [Validators.required, Validators.minLength(4)]],
+        summary: ['', [Validators.required, Validators.minLength(4)]],
+        date: ['', [Validators.required, Validators.minLength(4)]],
+        no: [''],
+        recipientName: [''],
+        num: ['', [Validators.required, Validators.minLength(1)]],
+        numberOfAttachments: ['', [Validators.required, Validators.minLength(1)]]
+      });
+    }
+
+    constructor(private serviceImport: ImportServiceService,private routes: ActivatedRoute, private router: Router,
+  private http: HttpClient,private fb: FormBuilder,) {
 
   }
 
@@ -47,6 +49,11 @@ export class ResponsImportComponent implements OnInit{
     this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
       this.numberOfExportFile = numberOfExportFiles + 1;
     });
+  }
+  onSubmit(): void {
+    if (this.importResponse.valid) {
+      this.addImportResponse(this.importResponse.value);
+    }
   }
 
 }

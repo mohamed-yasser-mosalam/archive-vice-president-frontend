@@ -27,6 +27,8 @@
                    formControlName="numberOfAttachments">
             <div class="underLine"></div>
             <label for="numberOfAttachments">عدد المرفقات</label>
+            <small *ngIf="importForm.get('numberOfAttachments')?.invalid">* مطلوب</small>
+
           </div>
           <div class="input-data" style="width:30%; margin-left:auto;">
             <input type="date" required id="incomeDate" name="incomeDate" formControlName="incomeDate">
@@ -38,13 +40,13 @@
         </div>
         <div class="d-flex">
           <div class="input-data" style="width:45%; margin-left:auto;">
-            <input type="date" required id="incomingLetterDate" name="incomingLetterDate"
+            <input type="date"   id="incomingLetterDate" name="incomingLetterDate"
                    formControlName="incomingLetterDate">
             <div class="underLine"></div>
             <label for="incomingLetterDate">تاريخ الخطاب الوارد</label>
           </div>
           <div class="input-data" style="width:45%; margin-left:auto;">
-            <input type="number" required id="incomingLetterNumber" name="incomingLetterNumber"
+            <input type="number"   id="incomingLetterNumber" name="incomingLetterNumber"
                    formControlName="incomingLetterNumber">
             <div class="underLine"></div>
             <label for="incomingLetterNumber">رقم الخطاب الوارد</label>
@@ -59,12 +61,12 @@
         </div>
         <div class="d-flex">
           <div class="input-data" style="width:45%; margin-left:auto;">
-            <input type="date" required id="recipientDate" name="recipientDate" formControlName="recipientDate">
+            <input type="date"   id="recipientDate" name="recipientDate" formControlName="recipientDate">
             <div class="underLine"></div>
             <label for="recipientDate">تاريخ الاستلام</label>
           </div>
           <div class="input-data" style="width:45%; margin-left:auto;">
-            <input type="text" required id="recipientName" name="recipientName" formControlName="recipientName">
+            <input type="text"   id="recipientName" name="recipientName" formControlName="recipientName">
             <div class="underLine"></div>
             <label for="recipientName">المستلم</label>
           </div>
@@ -78,7 +80,7 @@
 
           </div>
           <div class="input-data" style="width:45%; margin-left:auto;">
-            <input type="date" required id="expectResponseDate" name="expectResponseDate"
+            <input type="date"   id="expectResponseDate" name="expectResponseDate"
                    formControlName="expectResponseDate">
             <div class="underLine"></div>
             <label for="expectResponseDate">التاريخ المتوقع للرد</label>

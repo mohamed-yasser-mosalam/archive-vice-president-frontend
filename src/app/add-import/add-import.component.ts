@@ -23,7 +23,7 @@ export class AddImportComponent implements OnInit {
     this.importForm = this.fb.group({
       no: [''],
       sender: ['', [Validators.required, Validators.minLength(4)]],
-      numberOfAttachments: [''],
+      numberOfAttachments: ['',[Validators.required,]],
       incomeDate: ['', [Validators.required]],
       incomingLetterDate: ['', [Validators.required, Validators.minLength(4)]],
       incomingLetterNumber: ['', [Validators.required, Validators.minLength(1)]],

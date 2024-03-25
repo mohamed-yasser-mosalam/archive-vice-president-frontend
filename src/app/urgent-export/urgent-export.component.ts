@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 
 @Component({
@@ -12,29 +12,23 @@ import {HttpClient} from "@angular/common/http";
 export class UrgentExportComponent  implements OnInit{
   numberOfExportFile:any
   x=this.routes.snapshot.params['id']
-  addUrgent = new FormGroup({
-    receiver: new FormControl(''),
-    summary: new FormControl(''),
-    recipientName: new FormControl(''),
-    num: new FormControl(),
-    no: new FormControl()
-  })
+  urgentForm = this.fb.group({
+    receiver: ['', [Validators.required, Validators.minLength(4)]],
+    summary: ['', [Validators.required, Validators.minLength(4)]],
+    date: ['', [Validators.required, Validators.minLength(4)]],
+    no: [''],
+    recipientName: [''],
+    num: ['', [Validators.required, Validators.minLength(1)]],
+    numberOfAttachments: ['', [Validators.required, Validators.minLength(1)]]
+  });
 
   ngOnInit(): void {
     this.getExportCount()
-    this.serviceExport.getExportById(this.routes.snapshot.params['id']).
-    subscribe((result) => {
-      this.addUrgent = new FormGroup({
-        receiver: new FormControl(result['receiver']),
-        summary: new FormControl(result['summary']),
-        recipientName: new FormControl(result['recipientName']),
-        num: new FormControl(result['num']),
-        no: new FormControl(result['no'])
-      })
-
-    })
+      this.urgentForm
   }
-  constructor(private serviceExport: ExportServiceService,private routes: ActivatedRoute, private router: Router,private http:HttpClient) {
+  constructor(private serviceExport: ExportServiceService,private routes: ActivatedRoute,
+              private router: Router,private http:HttpClient,
+              private fb: FormBuilder) {
 
   }
 
@@ -50,5 +44,9 @@ export class UrgentExportComponent  implements OnInit{
       this.numberOfExportFile = numberOfExportFiles+1;
     });
   }
-
+  onSubmit(): void {
+    if (this.urgentForm.valid) {
+      this.addUrgentFile(this.urgentForm.value);
+    }
+  }
 }

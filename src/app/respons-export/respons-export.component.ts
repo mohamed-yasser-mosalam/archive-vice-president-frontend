@@ -28,7 +28,7 @@ export class ResponsExportComponent implements OnInit {
     this.addExportResponse = this.fb.group({
       no: [''],
       sender: ['', [Validators.required, Validators.minLength(4)]],
-      numberOfAttachments: [''],
+      numberOfAttachments: ['',[Validators.required,]],
       incomeDate: ['', [Validators.required]],
       incomingLetterDate: ['', [Validators.required, Validators.minLength(4)]],
       incomingLetterNumber: ['', [Validators.required, Validators.minLength(1)]],

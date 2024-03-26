@@ -23,8 +23,8 @@ export class WelcomeComponent implements OnInit {
   years: any;
   selectedYear: number = new Date().getFullYear();
   numberOfLetterForYears: any
-  numberOfExportLetterForSpecificYear:any;
-  numberOfImportLetterForSpecificYear:any;
+  numberOfExportLetterForSpecificYear:any=0;
+  numberOfImportLetterForSpecificYear:any=0;
   showAllTodayExports: ShowTodayExports[] = []
   showAllTodayImports: ShowTodayImports[] = []
   showLetterHasGone: ShowAllImportantFile[] = []
@@ -47,7 +47,7 @@ export class WelcomeComponent implements OnInit {
     this.getLetterHasGone();
     this.getNumberOfAllSpecials();
     this.getYears();
-    this.getNumberOfLetterForYears();
+    // this.getNumberOfLetterForYears();
   }
 
   getNumberOfFileHadGone() {
@@ -136,5 +136,4 @@ export class WelcomeComponent implements OnInit {
     }
   }
 
-  protected readonly Date = Date;
-}
+ }

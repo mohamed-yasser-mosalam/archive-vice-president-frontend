@@ -164,9 +164,9 @@
             <h2
               style="font-size: 22px;  background-color: #fff; color: #3333338f; position: sticky;padding-top:50px;  width: 100%;">
               <select class="px-2 m-2" [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()">
-                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+                <option  selected="selected">أختار السنة</option>
+                <option *ngFor="let year of years" >{{ year }}</option>
               </select>
-
 
               <a style=" text-decoration:none;color: black;font-weight: bold;margin-top: 30px"> عدد الخطابات لعام
               </a></h2>

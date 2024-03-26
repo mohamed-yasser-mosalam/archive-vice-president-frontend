@@ -1,63 +1,40 @@
-import {Component, numberAttribute} from '@angular/core';
+import {Component, numberAttribute, OnInit} from '@angular/core';
 import {RegisterService} from "../Services/Register/register.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
-  id: number
-  x: any;
+export class RegisterComponent implements OnInit{
+  registerForm: FormGroup;
 
+  constructor(
+    private formBuilder: FormBuilder,
+    private registerService: RegisterService,
+    private router: Router
+  ) { }
 
-  constructor(private registerService: RegisterService,
-              private route: Router,
-              private http: HttpClient,
-              private serviceExport: ExportServiceService, private router: Router,) {
+  ngOnInit(): void {
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
+  onSubmit(): void {
+    if (this.registerForm.invalid) {
+      return;
+    }
 
-  createUser(data: any) {
-    this.serviceExport.createUser(data).subscribe(
-      response => this.route.navigateByUrl('/home')
-    )
-    console.log(this.x)
+    this.registerService.createUser(this.registerForm.value).subscribe(
+      response => this.router.navigateByUrl('/home'),
+     );
   }
-
-  onImageSelected(event) {
-    const file = event.target.files[0]
-    const formDate: FormData = new FormData()
-    this.x = formDate.append("file", file)
-    formDate.append('dto', this.x)
-    // this.x=formDate.get("file")
-    console.log(this.x)
-  }
-
-
-  // OnImageSelected(event){
-  //   var file=event.target.files[0]
-  //   const formDate:FormData=new FormData()
-  //   formDate.append("file",file.name)
-  //   this.http.post('http://localhost:1200/image/upload?id=5&pathType=users',formDate.get(file)).subscribe(
-  //     response=>{
-  //       console.log("successfully")
-  //     }
-  //   )
-  //    console.log(formDate.get(file))
-  // }
-  //
-
-
-  AddExportFile(data: any) {
-    this.serviceExport.addExportFile(data).subscribe(
-      response => this.router.navigateByUrl('/getallexports')
-    )
-  }
-
-
 }

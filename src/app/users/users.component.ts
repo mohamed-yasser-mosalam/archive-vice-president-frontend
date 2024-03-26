@@ -34,9 +34,16 @@ export class UsersComponent implements OnInit{
   }
   activatedUser(username:string){
      this.activateUserService.activateUser(username)
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
+
    }
    unActivateUser(username:string){
     this.activateUserService.unActivateUser(username)
+     setTimeout(() => {
+       window.location.reload();
+     }, 50);
    }
 
 

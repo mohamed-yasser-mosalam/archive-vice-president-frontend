@@ -1,5 +1,4 @@
 <img src="assets\logo\Zagazig university.logo.png" style="height:60px;width: 60px ;margin-top: 10px;margin-left: 10px">
-
 <img src="assets\logo\fci.zu.jpeg" style="height:60px;width: 60px;margin-left:90%;margin-top: 10px">
 
 <div class="container ">
@@ -8,7 +7,7 @@
       <div class="card-header">
         <legend class="text-center" style=" font-weight: bold">
           برنامج الارشيف الألكتروني
-           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="currentColor" class="bi bi-archive"
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="currentColor" class="bi bi-archive"
                viewBox="0 0 16 16">
             <path
               d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
@@ -25,19 +24,17 @@
           <div formGroupName="user">
             <div class="input-group form-group">
               <input formControlName="username" type="text" class="form-control" placeholder="username">
+              <small *ngIf="loginParentGroup.get('username')?.invalid">* مطلوب</small>
             </div>
             <div class="input-group form-group mt-3">
               <input formControlName="password" type="password" class="form-control" placeholder="password">
+              <small *ngIf="loginParentGroup.get('password')?.invalid">* مطلوب</small>
             </div>
             <div class="form-group my-3 ml-2">
-              <button type="submit" class="btn float-right login_btn  "
-                      style="color: white;background: #333333;height:35px;margin-left:30%;margin-top: 30px;width:160px">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                     class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                        d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z"/>
-                  <path fill-rule="evenodd"
-                        d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+              <button type="submit" class="btn float-right login_btn" style="color: white;background: #333333;height:35px;margin-left:30%;margin-top: 30px;width:160px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z"/>
+                  <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
                 </svg>
                 تسجيل الدخول
               </button>
@@ -48,66 +45,3 @@
     </div>
   </div>
 </div>
-
-
-<!--<form (ngSubmit)="login()" [formGroup]="loginParentGroup">-->
-
-<!--  <div class="wrapper">-->
-<!--    <legend class="text-center" style="margin-bottom: 10%;font-weight: bold">-->
-<!--      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">-->
-<!--        <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>-->
-<!--      </svg>-->
-<!--      أرشيف  </legend>-->
-
-<!--       <div class="input-container" formGroupName="user">-->
-<!--         <div class="input-group form-group">-->
-<!--           <label style="margin-right: 10px">Username</label>-->
-<!--           <input formControlName="username" type="text" class="form-control"/>-->
-<!--          </div>-->
-
-<!--          <div class="input-group form-group mt-3">-->
-<!--            <label style="margin-right: 10px">Password </label>-->
-<!--            <input formControlName="password" type="password" class="form-control"/>-->
-<!--          </div>-->
-<!--          <div class="form-group my-5 ml-5" style="margin-left:35%;margin-bottom: 10%">-->
-<!--            <button type="submit" class="btn float-right login_btn w-50 "-->
-<!--            style="color: white;background: #333333;height:35px">-->
-<!--              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">-->
-<!--                <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z"/>-->
-<!--                <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>-->
-<!--              </svg>-->
-<!--              تسجيل الدخول</button>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-
-<!-- </form>-->
-
-
-<!--&lt;!&ndash;<div class="container ">&ndash;&gt;-->
-
-<!--&lt;!&ndash;        <h3 style="margin:20px;font-weight: bold;margin-left: 20%">تسجيل الدخول لبرنامج الأرشيف الالكتروني</h3>&ndash;&gt;-->
-
-<!--&lt;!&ndash;         <form (ngSubmit)="login()" [formGroup]="loginParentGroup"  >&ndash;&gt;-->
-<!--&lt;!&ndash;          <div formGroupName="user">&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="input-group form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;              <input formControlName="username" type="text" class="form-control" placeholder="username"/>&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="invalid-feedback">&ndash;&gt;-->
-<!--&lt;!&ndash;                اسم المستخدم مطلوب&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <div class="input-group form-group mt-3">&ndash;&gt;-->
-<!--&lt;!&ndash;              <input formControlName="password" type="password" class="form-control" placeholder="password"/>&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="invalid-feedback">&ndash;&gt;-->
-<!--&lt;!&ndash;                الرقم السري مطلوب&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="form-group my-5 ml-5" style="margin-left:35%;margin-bottom: 10%">&ndash;&gt;-->
-<!--&lt;!&ndash;              <button type="submit" class="btn float-right login_btn">تسجيل الدخول</button>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        </form>&ndash;&gt;-->
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
-

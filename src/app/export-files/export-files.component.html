@@ -33,7 +33,6 @@
           <th></th>
         </tr>
         </thead>
-        <tbody>
         <tr *ngFor="let item of showAllExport | search:searchText">
           <td>{{ item.no }}</td>
           <td>{{ item.date }}</td>
@@ -58,7 +57,7 @@
             </a></td>
 
         </tr>
-        </tbody>
+
       </table>
 
     </div>

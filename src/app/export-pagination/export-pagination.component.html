@@ -1,8 +1,8 @@
 <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
-<div class="row">
+<div class="row" style="background-color: var(--bg);">
   <ngb-carousel class="col-4">
     <ng-template ngbSlide *ngFor="let item of paths;let i=index">
-      <div class="carousel-wrapper" style="margin-top: 20px;margin-left: 0px">
+      <div class="carousel-wrapper" style="margin-top: 20px; ">
         <img src="{{item}}" style="height:83vh">
         <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"
                 type="submit" (click)="deleteImage(i)" class="btn"
@@ -18,106 +18,114 @@
       </div>
     </ng-template>
   </ngb-carousel>
+
   <form class="col-6" style="zoom:55%;direction: ltr" [formGroup]="showExport">
 
     <div class="wrapper">
-      <legend class="text-center" style="font-weight: bold;font-size: 30px"> الخطابات الصادرة (0/2)</legend>
+      <legend class="text-center" style="font-weight: bold;font-size: 30px; color: var(--color);"> الخطابات الصادرة
+        (0/2)</legend>
 
-      <div style="display: flex;  justify-content: space-between;">
-        <div class="input-container ">
-
-          <div class="input-data">
-            <input type="Date" required readonly id="date" formControlName="date">
-            <label for="date">تاريخ الصادر</label>
-          </div>
-          <div class="input-data" style="top:32px">
-            <input type="text" required readonly id="receiver" formControlName="receiver">
-            <label for="receiver">الجهة الصادر اليها الخطاب</label>
-          </div>
+      <div class="d-flex">
+        <div class="input-data" style="width:45%; margin-left:auto;">
+          <input type="number" readonly id="num" name="num" formControlName="num">
+          <div class="underLine"></div>
+          <label for="num">ملف الحفظ</label>
         </div>
-        <div class="input-container">
-          <div class="d-flex">
-            <div class="input-data" style="width: 65%">
-              <input type="text" required readonly id="numberOfAttachments" formControlName="numberOfAttachments">
-              <label for="numberOfAttachments">عدد المرفقات</label>
-            </div>
-            <div class="input-data " style="width:30%; margin-left:auto;">
-              <input type="number" required readonly id="no" formControlName="no">
-              <label for="no">رقم الخطاب</label>
-            </div>
-          </div>
-          <div class="d-flex">
-            <div class="input-data" style="width: 65%">
-              <input type="text" required readonly id="recipientName" formControlName="recipientName">
-              <label for="recipientName">المستلم</label>
-            </div>
-            <div class="input-data " style="width:30%; margin-left:auto;">
-              <input type="text" required readonly id="num" formControlName="num">
-              <label for="num">رقم الملف</label>
-            </div>
-          </div>
-
-
+        <div class="input-data" style="width:45%; margin-left:auto;">
+          <input type="number"   readonly id="no" formControlName="no">
+          <div class="underLine"></div>
+          <label for="no">رقم القيد</label>
         </div>
       </div>
-      <div class="input-data">
-        <input cols="40" rows="1" style="height:60px" readonly required id="summary" formControlName="summary">
+      <div class="d-flex">
+        <div class="input-data" style="width:30%; margin-left:auto;">
+          <input type="text" readonly id="receiver" formControlName="receiver">
+          <div class="underLine"></div>
+          <label for="receiver">الحهه الصادر لها الخطاب</label>
+        </div>
+
+        <div class="input-data" style="width:30%; margin-left:auto;">
+          <input type="number"  readonly id="numberOfAttachments" formControlName="numberOfAttachments">
+          <div class="underLine"></div>
+          <label for="numberOfAttachments">عدد المرفقات</label>
+        </div>
+        <div class="input-data" style="width:30%; margin-left:auto;">
+          <input type="Date"   readonly id="date" formControlName="date">
+          <div class="underLine"></div>
+          <label for="date">تاريخ الصادر</label>
+        </div>
+      </div>
+      <div class="input-data" style="width:96%; margin-left: auto;">
+        <input cols="40" rows="1"   readonly   id="summary" formControlName="summary">
+        <div class="underLine"></div>
         <label for="summary">ملخص الخطاب</label>
       </div>
-
-      <div class="mt-5" style="display: flex;  justify-content: space-between;">
-        <div style="display: flex;">
-          <div class="input-data" style="width:65%">
-            <input type="Date" required readonly id="urgentDate" formControlName="urgentDate">
-            <label for="urgentDate">تاريخ الاستعجال</label>
-          </div>
-          <div class="input-data" style="width:30%; margin-left:10px;">
-            <input type="number" required readonly id="urgentNum" formControlName="urgentNum">
-            <label for="urgentNum">رقم الاستعجال</label>
-          </div>
+      <div class="d-flex">
+        <div class="input-data" style="width:45%; margin-left:auto;">
+          <input type="date" readonly id="recipientDate" name="recipientDate" formControlName="recipientDate">
+          <div class="underLine"></div>
+          <label for="recipientDate">تاريح الاستلام</label>
         </div>
-        <div style="display: flex;">
-          <div class="input-data w-50">
-            <input type="Date" required readonly id="responseDate" formControlName="responseDate">
-            <label for="responseDate">تاريخ الرد</label>
-          </div>
-          <div class="input-data" style="width:35%; margin-left:auto;">
-            <input type="text" required readonly id="responseNumber" formControlName="responseNumber">
-            <label for="responseNumber">الرد</label>
-          </div>
+        <div class="input-data" style="width:45%; margin-left:auto;">
+          <input type="text"   readonly id="recipientName" formControlName="recipientName">
+          <div class="underLine"></div>
+          <label for="recipientName">المستلم</label>
         </div>
       </div>
-      <div class="input-data" style="width:35%; margin-left:auto;">
-        <input type="text" required readonly id="createdBy" formControlName="createdBy">
-        <label for="createdBy">أنشأ بواسطة</label>
+      <div class="d-flex">
+        <div class="input-data" style="width:45%; margin-left:auto;">
+          <input type="date"   readonly id="urgentDate" formControlName="urgentDate">
+          <div class="underLine"></div>
+          <label for="urgentDate">تاربخ الاستعجال</label>
+        </div>
+        <div class="input-data" style="width:45%; margin-left:auto;">
+          <input type="number"   readonly id="urgentNum" formControlName="urgentNum">
+          <div class="underLine"></div>
+          <label for="urgentNum">رقم الاستعجال</label>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div class="input-data" style="width:45%; margin-left:auto;">
+          <input type="date"   readonly id="responseDate" formControlName="responseDate">
+          <div class="underLine"></div>
+          <label for="responseDate">تاريخ الرد</label>
+        </div>
+        <div class="input-data" style="width:45%; margin-left:auto;">
+          <input type="number" readonly id="responseNumber" name="responseNumber" formControlName="responseNumber">
+          <div class="underLine"></div>
+          <label for="responseNumber">رقم الرد الوارد</label>
+        </div>
       </div>
 
-      <div class="input-data" style="bottom: 0px;margin-left: 10%">
+            <div class="input-data" style="width:35%; margin-left:auto;">
+              <input type="text" required readonly id="createdBy" formControlName="createdBy">
+              <label for="createdBy">أنشأ بواسطة</label>
+            </div>
+
+
+      <div class="input-data" style="bottom: 0px;margin-left:5%">
         <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px" >
-          <button type="submit" style="width:450px; padding:1px; margin-right:50px;color: white;background: #333333;font-size:25px" routerLink="/export-pagination?page/{{no}}"
+          <button type="submit" style="width:450px; padding:1px; margin-right:50px;color: white;background: #333333;font-size:25px" routerLink="/import-pagination?page/{{no}}"
           >حفظ المرفقات</button>
           <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
         </form>
-
-
-        <div  style="margin-left: 25%">
+        <div style="margin-left: 25%">
+          <button
+            type="submit" class="btn  "
+            style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
+            routerLink="/addexportfile">
+            اضافه تسجيل
+          </button>
           <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"
                   type="submit" class="btn "
                   style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
                   routerLink="/updateexport/{{page}}">
             تعديل
           </button>
-          <button
-            type="submit" class="btn  "
-            style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
-            routerLink="/addexportfile">
-            اضافه
-          </button>
-
           <button type="submit" class="btn " *ngIf="hasUrgent"
                   style="width:200px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
                   routerLink="/add-urgent/{{page}}">
-            اضافه الاستعجال
+            اضافه استعجال
           </button>
           <button type="submit" class="btn" *ngIf="hasResponse"
                   style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
@@ -142,3 +150,151 @@
     <app-sidebar></app-sidebar>
   </div>
 </div>
+
+
+
+
+<!--<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>-->
+<!--<div class="row">-->
+<!--  <ngb-carousel class="col-4">-->
+<!--    <ng-template ngbSlide *ngFor="let item of paths;let i=index">-->
+<!--      <div class="carousel-wrapper" style="margin-top: 20px;margin-left: 0px">-->
+<!--        <img src="{{item}}" style="height:83vh">-->
+<!--        <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"-->
+<!--                type="submit" (click)="deleteImage(i)" class="btn"-->
+<!--                style="width:150px; padding:1px;margin-left:10%;margin-top:10px;color: white;background: #333333;font-size:15px"-->
+<!--        >-->
+<!--          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"-->
+<!--               viewBox="0 0 16 16" >-->
+<!--            <path-->
+<!--              d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>-->
+<!--          </svg>-->
+<!--          حذف المرفق-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </ng-template>-->
+<!--  </ngb-carousel>-->
+<!--  <form class="col-6" style="zoom:55%;direction: ltr" [formGroup]="showExport">-->
+
+<!--    <div class="wrapper">-->
+<!--      <legend class="text-center" style="font-weight: bold;font-size: 30px"> الخطابات الصادرة (0/2)</legend>-->
+
+<!--      <div style="display: flex;  justify-content: space-between;">-->
+<!--        <div class="input-container ">-->
+
+<!--          <div class="input-data">-->
+<!--            <input type="Date" required readonly id="date" formControlName="date">-->
+<!--            <label for="date">تاريخ الصادر</label>-->
+<!--          </div>-->
+<!--          <div class="input-data" style="top:32px">-->
+<!--            <input type="text" required readonly id="receiver" formControlName="receiver">-->
+<!--            <label for="receiver">الجهة الصادر اليها الخطاب</label>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="input-container">-->
+<!--          <div class="d-flex">-->
+<!--            <div class="input-data" style="width: 65%">-->
+<!--              <input type="text" required readonly id="numberOfAttachments" formControlName="numberOfAttachments">-->
+<!--              <label for="numberOfAttachments">عدد المرفقات</label>-->
+<!--            </div>-->
+<!--            <div class="input-data " style="width:30%; margin-left:auto;">-->
+<!--              <input type="number" required readonly id="no" formControlName="no">-->
+<!--              <label for="no">رقم الخطاب</label>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="d-flex">-->
+<!--            <div class="input-data" style="width: 65%">-->
+<!--              <input type="text" required readonly id="recipientName" formControlName="recipientName">-->
+<!--              <label for="recipientName">المستلم</label>-->
+<!--            </div>-->
+<!--            <div class="input-data " style="width:30%; margin-left:auto;">-->
+<!--              <input type="text" required readonly id="num" formControlName="num">-->
+<!--              <label for="num">رقم الملف</label>-->
+<!--            </div>-->
+<!--          </div>-->
+
+
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="input-data">-->
+<!--        <input cols="40" rows="1" style="height:60px" readonly required id="summary" formControlName="summary">-->
+<!--        <label for="summary">ملخص الخطاب</label>-->
+<!--      </div>-->
+
+<!--      <div class="mt-5" style="display: flex;  justify-content: space-between;">-->
+<!--        <div style="display: flex;">-->
+<!--          <div class="input-data" style="width:65%">-->
+<!--            <input type="Date" required readonly id="urgentDate" formControlName="urgentDate">-->
+<!--            <label for="urgentDate">تاريخ الاستعجال</label>-->
+<!--          </div>-->
+<!--          <div class="input-data" style="width:30%; margin-left:10px;">-->
+<!--            <input type="number" required readonly id="urgentNum" formControlName="urgentNum">-->
+<!--            <label for="urgentNum">رقم الاستعجال</label>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div style="display: flex;">-->
+<!--          <div class="input-data w-50">-->
+<!--            <input type="Date" required readonly id="responseDate" formControlName="responseDate">-->
+<!--            <label for="responseDate">تاريخ الرد</label>-->
+<!--          </div>-->
+<!--          <div class="input-data" style="width:35%; margin-left:auto;">-->
+<!--            <input type="text" required readonly id="responseNumber" formControlName="responseNumber">-->
+<!--            <label for="responseNumber">الرد</label>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="input-data" style="width:35%; margin-left:auto;">-->
+<!--        <input type="text" required readonly id="createdBy" formControlName="createdBy">-->
+<!--        <label for="createdBy">أنشأ بواسطة</label>-->
+<!--      </div>-->
+
+<!--      <div class="input-data" style="bottom: 0px;margin-left: 10%">-->
+<!--        <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px" >-->
+<!--          <button type="submit" style="width:450px; padding:1px; margin-right:50px;color: white;background: #333333;font-size:25px" routerLink="/export-pagination?page/{{no}}"-->
+<!--          >حفظ المرفقات</button>-->
+<!--          <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />-->
+<!--        </form>-->
+
+
+<!--        <div  style="margin-left: 25%">-->
+<!--          <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"-->
+<!--                  type="submit" class="btn "-->
+<!--                  style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"-->
+<!--                  routerLink="/updateexport/{{page}}">-->
+<!--            تعديل-->
+<!--          </button>-->
+<!--          <button-->
+<!--            type="submit" class="btn  "-->
+<!--            style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"-->
+<!--            routerLink="/addexportfile">-->
+<!--            اضافه-->
+<!--          </button>-->
+
+<!--          <button type="submit" class="btn " *ngIf="hasUrgent"-->
+<!--                  style="width:200px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"-->
+<!--                  routerLink="/add-urgent/{{page}}">-->
+<!--            اضافه الاستعجال-->
+<!--          </button>-->
+<!--          <button type="submit" class="btn" *ngIf="hasResponse"-->
+<!--                  style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"-->
+<!--                  routerLink="/add-export-response/{{id}}">-->
+<!--            اضافه رد-->
+<!--          </button>-->
+
+<!--        </div>-->
+
+<!--        <div class="col-md-9 pag" style="margin-top:50px;bottom:0px;margin-left:45%">-->
+<!--          <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change($event)"-->
+<!--                          [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"-->
+<!--                          routerLink="/exports-pagination?id/{{page}}">-->
+<!--          </ngb-pagination>-->
+
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </form>-->
+<!--  <div class="col-2 position-relative">-->
+<!--    <app-sidebar></app-sidebar>-->
+<!--  </div>-->
+<!--</div>-->

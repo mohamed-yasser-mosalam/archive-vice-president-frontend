@@ -25,7 +25,8 @@ export class AddExportComponent implements OnInit {
       no: [''],
       recipientName: [''],
       num: ['', [Validators.required, Validators.minLength(1)]],
-      numberOfAttachments: ['', [Validators.required, Validators.minLength(1)]]
+      numberOfAttachments: ['', [Validators.required, Validators.minLength(1)]],
+      recipientDate: [''],
     });
   }
 

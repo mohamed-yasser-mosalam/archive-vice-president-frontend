@@ -22,3 +22,9 @@
 ::-webkit-scrollbar-thumb:hover{
   background-color: #33333332;
 }
+tr:nth-child(odd) {
+  background-color: #D6EEEE;
+}
+tr:nth-child(even) {
+  background-color: #fff!important;
+}

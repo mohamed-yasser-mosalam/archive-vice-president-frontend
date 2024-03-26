@@ -24,6 +24,7 @@ export class ExportPaginationComponent implements OnInit {
   hasUrgent:boolean
   showExport = new FormGroup({
     createdBy:new FormControl(''),
+    recipientDate:new FormControl(''),
     date: new FormControl(''),
     receiver: new FormControl(''),
     numberOfAttachments: new FormControl(''),
@@ -47,6 +48,7 @@ export class ExportPaginationComponent implements OnInit {
     this.serviceExport.getExportByPagination(this.page).subscribe((result) => {
       this.showExport.patchValue({
         date: result['date'],
+        recipientDate:result['recipientDate'],
         createdBy: result['createdBy'],
         receiver: result['receiver'],
         numberOfAttachments: result['numberOfAttachments'],
@@ -103,7 +105,9 @@ export class ExportPaginationComponent implements OnInit {
         urgentDate: new FormControl(result['urgentDate']),
         urgentNum: new FormControl(result['urgentNum']),
         responseDate: new FormControl(result['responseDate']),
-        responseNumber: new FormControl(result['responseNumber'])
+        responseNumber: new FormControl(result['responseNumber']),
+        recipientDate: new FormControl(result['recipientDate'])
+
       });
     });
    }

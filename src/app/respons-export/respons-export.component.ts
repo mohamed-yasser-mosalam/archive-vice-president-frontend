@@ -30,13 +30,13 @@ export class ResponsExportComponent implements OnInit {
       sender: ['', [Validators.required, Validators.minLength(4)]],
       numberOfAttachments: ['',[Validators.required,]],
       incomeDate: ['', [Validators.required]],
-      incomingLetterDate: ['', [Validators.required, Validators.minLength(4)]],
-      incomingLetterNumber: ['', [Validators.required, Validators.minLength(1)]],
+      incomingLetterDate: ['',  ],
+      incomingLetterNumber: ['' ],
       summary: ['', [Validators.required, Validators.minLength(4)]],
-      recipientDate: ['', [Validators.required]],
+      recipientDate: [''],
       recipientName: [''],
       num: ['', [Validators.required, Validators.minLength(1)]],
-      expectResponseDate: ['', [Validators.required]],
+      expectResponseDate: [''],
     });
   }
 

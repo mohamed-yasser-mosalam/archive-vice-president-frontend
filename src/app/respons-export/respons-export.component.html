@@ -27,6 +27,8 @@
                    formControlName="numberOfAttachments">
             <div class="underLine"></div>
             <label for="numberOfAttachments">عدد المرفقات</label>
+            <small *ngIf="addExportResponse.get('numberOfAttachments')?.invalid">* مطلوب</small>
+
           </div>
           <div class="input-data" style="width:30%; margin-left:auto;">
             <input type="date" required id="incomeDate" name="incomeDate" formControlName="incomeDate">

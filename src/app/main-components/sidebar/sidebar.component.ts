@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationServiceService} from "../../Services/Security/authentication-service.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-sidebar',
@@ -8,14 +9,20 @@ import {AuthenticationServiceService} from "../../Services/Security/authenticati
 })
 export class SidebarComponent  implements OnInit{
   idOfUser:string
-  constructor(private aut:AuthenticationServiceService,private auth:AuthenticationServiceService) {
+  pageLength:number
+  constructor(private aut:AuthenticationServiceService,private auth:AuthenticationServiceService,
+              private http: HttpClient,
+  ) {
   }
-   clearToken(){
-    this.aut.clearToken()
-   }
+  getExportCount(): void {
+    this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
+      this.pageLength = numberOfExportFiles;
+    });
+  }
 
   ngOnInit(): void {
     this.idOfUser=this.auth.getUserRoles()
+    this.getExportCount()
   }
 
 }

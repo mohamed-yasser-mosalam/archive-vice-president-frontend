@@ -105,7 +105,7 @@
 
       <div class="input-data" style="bottom: 0px;margin-left:5%">
         <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px" >
-          <button type="submit" style="width:450px; padding:1px; margin-right:50px;color: white;background: #333333;font-size:25px" routerLink="/import-pagination?page/{{no}}"
+          <button type="submit" style="width:450px; padding:1px; margin-right:50px;color: white;background: #333333;font-size:25px" routerLink="/export-pagination?page/{{no}}"
           >حفظ المرفقات</button>
           <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
         </form>

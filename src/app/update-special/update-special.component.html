@@ -1,14 +1,12 @@
 <app-navbar></app-navbar>
-<div class="row">
-  <ngb-carousel class="col-3">
-    <ng-template ngbSlide *ngFor="let item of paths;let i=index">
-      <div class="carousel-wrapper" style="margin-top: 20px;margin-left: 20px">
-        <img src="{{item}}" style="height:87vh">
-      </div>
-    </ng-template>
-  </ngb-carousel>  <form class="col-7" style="zoom: 80%" [formGroup]="form">
+<div class="row" style="background-color: var(--bg);">
+  <div class="d-flex justify-content-between">
+    
+  <div class="d-flex w-100">
+  <div style="width: 20%;"></div>
+  <form style="width:71%;zoom: 80%" [formGroup]="form">
   <div class="wrapper">
-    <legend class="text-center">تعديل ملف خاص</legend>
+    <legend class="text-center" style="color: var(--color);">تعديل ملف خاص</legend>
     <div style="display: flex;  justify-content: space-between;">
 
       <div class="input-container">
@@ -34,7 +32,7 @@
       <div class="underLine"></div>
       <label for="summary" style="margin-right: 0!important;">ملخص الخطاب</label>
     </div>
-    <div formArrayName="subjects" style="overflow: scroll">
+    <div formArrayName="subjects" style="overflow: auto; background-color: var(--bg);">
       <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i">
         <div class="subjects  input-container" style="display:inline-flex;width: 100% ">
 
@@ -65,7 +63,7 @@
           <hr>
         </div>
 
-        <div formArrayName="decision" style="overflow: scroll">
+        <div formArrayName="decision" style="overflow: auto">
           <div *ngFor="let decision of getDecisions(i).controls; let j = index" [formGroupName]="j">
 
             <a (click)="deleteDecision(i,j)" style="margin-left: 0">
@@ -106,12 +104,15 @@
       {{form|json}}
     </div>
 
+    <button type="submit" class="btn m-5" style="color: var(--color);background-color: var(--bg_hover);width:150px;height:30px;"  >تأكيد الحفظ
+    </button>
+  </div>
+</form>
+</div>
+
+  <div>
+    <app-sidebar></app-sidebar>
   </div>
 
-  <button type="submit" class="btn" style="color: white;background-color: #333333;width:150px;height:30px;"  >تأكيد الحفظ
-  </button>
-</form>
-  <div class="col-2 position-relative">
-    <app-sidebar></app-sidebar>
   </div>
 </div>

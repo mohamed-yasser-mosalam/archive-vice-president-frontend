@@ -31,7 +31,9 @@ form {
   border: none;
   font-size: 23px;
   border-bottom: 2px solid silver;
-  direction: rtl
+  direction: rtl;
+  background-color: var(--bg);
+  color: var(--color);
 }
 
 .wrapper .input-data textarea {
@@ -50,7 +52,7 @@ form {
   position: absolute;
   bottom: 1px;
   right: 7px;
-  color: #333333;
+  color: var(--color);
   pointer-events: none;
   transition: .3s ease;
   text-align: center;
@@ -71,7 +73,7 @@ form {
   content: "";
   height: 2px;
   width: 100%;
-  background-color: #333333;
+  background-color: var(--bg);
   transform: scaleX(0);
   transition: all .3s ease-in-out;
   margin-top: 20px;

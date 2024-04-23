@@ -1,66 +1,79 @@
 * {
   margin: 0;
   padding: 0;
-
-  /* border: 1px solid #333; */
 }
 
 .box {
   margin: 10px;
-  background-color: #fff;
-  height: 83px;
-  border-radius: 8px;
-  display:flex;
+  background-color: var(--bg);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
   transition: 0.5s;
- }
+}
 
-.box .data p
- {
-  text-decoration: none;
-  padding-top:5px;
+.box .data p {
+  width: 100%;
+  padding-top: 5px;
   padding-left: 100px;
-  margin-left: 45px;
   font-size: 20px;
-  background-color: #fff;
-  color: black;
+  background-color: var(--bg);
+  color: var(--color);
+  position: sticky;
+  top: 0;
+}
+
+a {
+  text-decoration: none;
+  padding: 5px 2px;
+  font-size: 16px;
+  color: var(--color);
+  font-weight: bold
+}
+
+.box .data span {
+  font-size: 18px;
+  padding: 5% 0;
+  margin-left: 50%;
+  color: var(--color);
+}
+
+h2 {
+  font-size: 22px;
+  padding: 10px 0;
+  background-color: var(--bg);
+  color: var(--color);
   position: sticky;
   top: 0;
   width: 100%;
- }
-
-.box .data p a
-{
-  text-decoration: none;
-  color: black;
-  padding: 5px 2px;
-  font-size: 16px;
 }
 
-
-.box .data span {
-
-  font-size: 18px;
-  padding: 50px;
-  margin-left: 50px;
-  color: #333;
-  margin-bottom: 20px;
-  height: 100px;
-
+table {
+  width: 100%;
+  direction: rtl;
 }
 
-.title-book {
-  font-size: 20px;
-  color: #333333cf;
-  margin: 10px 20px 5px;
+thead {
+  position: sticky;
+  top: 44px;
+  background-color: var(--bg_hover);
+  color: var(--color);
+  margin: 10%;
 }
 
-.name-book {
-  margin-left: 120px;
-  color: black;
-  font-size: 20px;
-  margin-bottom: 30px;
+tbody {
+  background-color: var(--bg);
+  color: var(--color);
 }
 
+button {
+  padding: 5px;
+  margin-right: 650px;
+  margin-top: 10px;
+  color: var(--color);
+  background: var(--btn_bg);
+  width: 100px
+}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -73,7 +86,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #ffffff;
+  background-color: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -83,10 +96,4 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #333333;
-}
-tr:nth-child(odd) {
-  background-color: #D6EEEE;
-}
-tr:nth-child(even) {
-  background-color: #fff!important;
 }

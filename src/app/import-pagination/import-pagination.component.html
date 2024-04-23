@@ -1,26 +1,27 @@
 <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
-<div class="row">
-  <ngb-carousel class="col-4">
+<div class="row" style="background-color: var(--bg);">
+  <div class="d-flex justify-content-between">
+  <div class="d-flex w-100">
+  <ngb-carousel style="width: 40%;">
     <ng-template ngbSlide *ngFor="let item of paths;let i=index">
       <div class="carousel-wrapper" style="margin-top: 20px; ">
         <img src="{{item}}" style="height:83vh">
-        <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"
-                type="submit" (click)="deleteImage(i)" class="btn"
-                style="width:150px; padding:1px;margin-left:10%;margin-top:10px;color: white;background: #333333;font-size:15px"
-        >
+        <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'" type="submit" (click)="deleteImage(i)" class="btn"
+          style="width:150px; padding:1px;margin-left:10%;margin-top:10px;color: var(--color);background: var(--bg);font-size:15px">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
-               viewBox="0 0 16 16" >
+            viewBox="0 0 16 16">
             <path
-              d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+              d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
           </svg>
-حذف المرفق
+          حذف المرفق
         </button>
       </div>
     </ng-template>
   </ngb-carousel>
-  <form class="col-6" style="zoom:55%;" [formGroup]="showImport">
+  <form style="zoom:55%;width:51%" [formGroup]="showImport">
     <div class="wrapper">
-      <legend class="text-center" style="font-weight: bolder;font-size: 30px"> الخطابات الواردة (0/1)</legend>
+      <legend class="text-center" style="font-weight: bolder;font-size: 30px;color:var(--color);"> الخطابات الواردة
+        (0/1)</legend>
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container ">
@@ -58,8 +59,7 @@
         </div>
       </div>
       <div class="input-data" style="bottom:20px">
-        <input style="height:60px;" readonly required id="summary"
-               formControlName="summary">
+        <input style="height:60px;" readonly required id="summary" formControlName="summary">
         <label for="summary" style="margin-bottom: 20px">ملخص الخطاب</label>
       </div>
 
@@ -75,15 +75,15 @@
           </div>
 
           <div class="d-flex" style="margin-top:0px;bottom: 55px;">
-          <div class="input-data" style="width:35%; margin-left:auto;bottom: 55px;">
-            <input type="date" required readonly id="expectResponseDate" formControlName="expectResponseDate">
-            <label for="expectResponseDate">التاريخ المتوقع للرد</label>
-          </div>
+            <div class="input-data" style="width:35%; margin-left:auto;bottom: 55px;">
+              <input type="date" required readonly id="expectResponseDate" formControlName="expectResponseDate">
+              <label for="expectResponseDate">التاريخ المتوقع للرد</label>
+            </div>
 
-          <div class="input-data" style="width:35%; margin-left:auto;bottom: 55px;">
-            <input type="text" required readonly id="createdBy" formControlName="createdBy">
-            <label for="createdBy">انشأ بواسطة </label>
-          </div>
+            <div class="input-data" style="width:35%; margin-left:auto;bottom: 55px;">
+              <input type="text" required readonly id="createdBy" formControlName="createdBy">
+              <label for="createdBy">انشأ بواسطة </label>
+            </div>
           </div>
         </div>
         <div class="input-container position-relative" style="bottom:60px">
@@ -110,41 +110,44 @@
         </div>
       </div>
       <div class="input-data" style="bottom:150px;margin-left: 20% ">
-        <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px" >
-          <button type="submit" style="width:450px; padding:1px; margin-right:50px;color: white;background: #333333;font-size:25px" routerLink="/import-pagination?page/{{no}}"
-          >حفظ المرفقات</button>
+        <form (ngSubmit)="onSubmit()" enctype="multipart/form-data"
+          style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px">
+          <button type="submit"
+            style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--bg_hover);font-size:25px"
+            routerLink="/import-pagination?page/{{no}}">حفظ المرفقات</button>
           <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
         </form>
-        <button  *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"
-                 type="submit" class="btn "
-                 style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
-                 routerLink="/updateimport/{{id}}">
+        <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'" type="submit" class="btn "
+          style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover);font-size:25px"
+          routerLink="/updateimport/{{id}}">
           تعديل
         </button>
         <button type="submit" class="btn  "
-                style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
-                routerLink="/addimportfile">
+          style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover);font-size:25px"
+          routerLink="/addimportfile">
           اضافة
         </button>
 
         <button type="submit" class="btn " *ngIf="isHasResponse"
-                style="width:150px; padding:10px;margin: 8px;color: white;background: #333333;font-size:25px"
-                routerLink="/add-import-response/{{id}}">
+          style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover);font-size:25px"
+          routerLink="/add-import-response/{{id}}">
           اضافه رد
         </button>
 
         <div class="col-md-9 pag" style="margin-top:50px;bottom:0px;margin-left: 12%">
           <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change($event)"
-                          [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
-                          routerLink="/imports-pagination?id/{{page}}">
+            [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
+            routerLink="/imports-pagination?id/{{page}}">
           </ngb-pagination>
         </div>
 
       </div>
     </div>
   </form>
+</div>
 
-  <div class="col-2 position-relative">
+  <div>
     <app-sidebar></app-sidebar>
+  </div>
   </div>
 </div>

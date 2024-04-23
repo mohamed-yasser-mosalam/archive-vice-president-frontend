@@ -1,141 +1,133 @@
 <app-navbar></app-navbar>
-<div class="row">
-  <div class="col-2"></div>
-  <form class="col-8" style="zoom: 80%" [formGroup]="form" (ngSubmit)="AddSpecialFile(form.value)">
+<div class="row" style="background-color: var(--bg_main);">
+  <div class="d-flex justify-content-between">
+  <div class="col-2" ></div>
+  <div class="col-6" >
+    <form [formGroup]="form" (ngSubmit)="AddSpecialFile(form.value)">
 
-    <div class="wrapper">
-      <legend class="text-center">ادخال ملف خاص</legend>
-      <div style="display: flex;  justify-content: space-between;">
+      <div class="wrapper">
+        <legend class="text-center">ادخال ملف خاص</legend>
+        <div style="display: flex;  justify-content: space-between;">
 
-        <div class="input-container">
-
-          <div class="input-data">
-            <input type="text" required id="sender" name="sender" formControlName="sender">
-            <div class="underLine"></div>
-            <label for="sender">الجهة الوارد منها الخطاب</label>
-          </div>
-          <div class="input-data">
-            <input type="number" required id="numberOfAttachments" name="numberOfAttachments" formControlName="numberOfAttachments">
-            <div class="underLine"></div>
-            <label for="numberOfAttachments">عدد المرفقات</label>
-          </div>
-
-        </div>
-
-        <div class="input-container">
-
-          <div class="input-data" readonly  >
-            <input type="number" readonly required  id="no" name="no" >
-            <label for="no" style="margin-right: 85%;color: black;margin-bottom:-5px" readonly>{{numberOfSpecialFile}}</label>
-            <div class="underLine"></div>
-            <label for="no" style="color: black">رقم القيد
-            </label>
-          </div>
-          <div class="input-data">
-            <input type="number" required id="num" name="num" formControlName="num">
-            <div class="underLine"></div>
-            <label for="num">رقم الملف</label>
-          </div>
-          <div class="input-data">
-            <input type="Date" required id="incomeDate" name="incomeDate" formControlName="incomeDate">
-            <div class="underLine"></div>
-            <label for="incomeDate">تاريخ الخطاب</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="input-data"  >
-        <input type="text" required id="summary" name="summary" formControlName="summary">
-        <div class="underLine"></div>
-        <label for="summary" style="margin-right: 0!important;">ملخص الخطاب</label>
-      </div>
-      <div formArrayName="subjects" style="overflow: scroll">
-        <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i"  class="border" style="margin-top:40px">
-          <div class="subjects  input-container" style="display:inline-flex;width: 100% ">
-
-            <a (click)="deleteSubject(i)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16" style="color: red;margin-right: 10px">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
-              </svg>
-            </a>
-
-            <a (click)="addSubject()">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" style="color: green">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-              </svg>
-            </a>
+          <div class="input-container">
 
             <div class="input-data">
-              <input type="text" required id="head" name="head" formControlName="head">
+              <input type="text" required id="sender" name="sender" formControlName="sender">
               <div class="underLine"></div>
-              <label for="head"> اضافة موضوع </label>
-            </div>
-            <div class="input-data" style="margin-left: 20px">
-              <input type="number" required name="num" formControlName="num">
-              <div class="underLine"></div>
-              <label for="num"> رقم موضوع </label>
+              <label for="sender">الجهة الوارد منها الخطاب</label>
             </div>
           </div>
 
-          <div formArrayName="decision" style="overflow: scroll;margin-top: 0!important;">
-            <div *ngFor="let decision of getDecisions(i).controls; let j = index" [formGroupName]="j">
+          <div class="input-container">
 
-              <a (click)="deleteDecision(i,j)" style="margin-left: 0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                     class="bi bi-dash-circle" viewBox="0 0 16 16" style="color: red;margin-right: 10px">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                  <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
-                </svg>
-              </a>
-
-              <a (click)="addDecision(i)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                     class="bi bi-plus-circle" viewBox="0 0 16 16" style="color: blue">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                  <path
-                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                </svg>
-              </a>
-
-              <div class="subjects input-container" style="display:inline-flex;width:100%;margin-top:0!important;margin-left: 10px">
-                <div class="input-data" style="margin-top: 0!important;margin-right:10px ">
-                  <input type="text" required name="qarar" formControlName="qarar" id="qarar">
-                  <div class="underLine"></div>
-                  <label for="qarar">القرار </label>
-                </div>
-
-                <div class="input-data" style="margin-top: 0!important;">
-                  <input type="number" required name="num" formControlName="num">
-                  <div class="underLine"></div>
-                  <label for="num"> رقم القرار </label>
-                </div>
-
-              </div>
-              <div class="input-data"style="margin-top: 10px!important;margin-bottom: 40px;width: 98%;margin-left:12px">
-                <input type="text" required name="summary" formControlName="summary">
-                <div class="underLine"></div>
-                <label for="summary"> موضوع  </label>
-              </div>
-
+            <div class="input-data">
+              <input type="number" required id="num" name="num" formControlName="num">
+              <div class="underLine"></div>
+              <label for="num">رقم الملف</label>
             </div>
           </div>
         </div>
+        <div class="input-data">
+          <input type="text" required id="summary" name="summary" formControlName="summary">
+          <div class="underLine"></div>
+          <label for="summary" style="margin-right: 0!important;">ملخص الخطاب</label>
+        </div>
+        <div formArrayName="subjects" style="overflow:auto;background-color: var(--bg);">
+          <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i" class="border"
+            style="margin-top:40px">
+            <div class="subjects  input-container" style="display:inline-flex;width: 100% ">
 
+              <a (click)="deleteSubject(i)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-dash-circle" viewBox="0 0 16 16" style="color: red;margin-right: 10px">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                  <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
+                </svg>
+              </a>
+
+              <a (click)="addSubject()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-plus-circle" viewBox="0 0 16 16" style="color: green">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                  <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                </svg>
+              </a>
+
+              <div class="input-data">
+                <input type="text" required id="head" name="head" formControlName="head">
+                <div class="underLine"></div>
+                <label for="head"> اضافة موضوع </label>
+              </div>
+              <div class="input-data" style="margin-left: 20px">
+                <input type="number" required name="num" formControlName="num">
+                <div class="underLine"></div>
+                <label for="num"> رقم موضوع </label>
+              </div>
+            </div>
+
+            <div formArrayName="decision" style="overflow:auto;background-color: var(--bg);;margin-top: 0!important;">
+              <div *ngFor="let decision of getDecisions(i).controls; let j = index" [formGroupName]="j">
+
+                <a (click)="deleteDecision(i,j)" style="margin-left: 0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-dash-circle" viewBox="0 0 16 16" style="color: red;margin-right: 10px">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
+                  </svg>
+                </a>
+
+                <a (click)="addDecision(i)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-plus-circle" viewBox="0 0 16 16" style="color: blue">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                    <path
+                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                  </svg>
+                </a>
+
+                <div class="subjects input-container"
+                  style="display:inline-flex;width:100%;margin-top:0!important;margin-left: 10px">
+                  <div class="input-data" style="margin-top: 0!important;margin-right:10px ">
+                    <input type="text" required name="qarar" formControlName="qarar" id="qarar">
+                    <div class="underLine"></div>
+                    <label for="qarar">القرار </label>
+                  </div>
+
+                  <div class="input-data" style="margin-top: 0!important;">
+                    <input type="number" required name="num" formControlName="num">
+                    <div class="underLine"></div>
+                    <label for="num"> رقم القرار </label>
+                  </div>
+
+                </div>
+                <div class="input-data"
+                  style="margin-top: 10px!important;margin-bottom: 40px;width: 98%;margin-left:12px">
+                  <input type="text" required name="summary" formControlName="summary">
+                  <div class="underLine"></div>
+                  <label for="summary"> موضوع </label>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!--      {{ form.value|json }}-->
+        <button type="submit" class="btn m-auto"
+          style="color: var(--color);background-color: var(--bg_hover);width:150px;height:30px;">تأكيد الحفظ
+        </button>
       </div>
 
 
-<!--      {{ form.value|json }}-->
+    </form>
+  </div>
+  <div class="col-2" ></div>
 
-    </div>
-
-    <button type="submit" class="btn" style="color: white;background-color: #333333;width:150px;height:30px;"  >تأكيد الحفظ
-    </button>
-  </form>
-  <div class="col-2 position-relative">
+  <div>
     <app-sidebar></app-sidebar>
   </div>
+  </div>
 </div>
-
-

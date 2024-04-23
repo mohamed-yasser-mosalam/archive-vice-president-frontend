@@ -1,22 +1,45 @@
-
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
   direction: rtl;
-   /* border: 1px solid #333; */
+}
+
+.menu-icon{
+width: 30px;
+height: 21px;
+cursor: pointer;
+position: relative;
+}
+.menu-icon span{
+  background-color: var(--color);
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  transition: all .5s ease;
+}
+.menu-icon span:first-child{
+  top: 0;
+}
+.menu-icon span:nth-child(2){
+  top: 8px;
+}
+.menu-icon span:last-child{
+  top: 16px;
 }
 
 .menu {
-  height: 117%;
+  width: 100%;
+  height: 116vh;
   padding: 30px;
-  background:white;
- }
+  background-color: var(--bg);
+}
 
 
 .menu ul li p,
 .dropdown-toggle {
-  color: rgba(1, 1, 1, 1);
+  color: var(--color);
   font-weight: bold;
 }
 
@@ -37,19 +60,21 @@ ul li a,
   gap: 20px;
 }
 
-.dropdown-toggle:hover
-/*ul li a:hover,*/
-/*.active-menu,*/
-/*ul li a:hover p {*/
-{
+.dropdown-toggle:hover {
   text-decoration: none;
-  background-color: #333333;
-  color: #ffffff;
+  background-color: var(--bg);
+  color: var(--color);
 }
-.btn:hover{
-  text-decoration: none;
-  background-color: white;
 
+/* .btn:hover {
+  text-decoration: none;
+  background-color: var(--bg_hover);
+
+} */
+
+.dropdown-item {
+  background-color: var(--bg);
+  color: var(--color);
 }
 
 .log-out {

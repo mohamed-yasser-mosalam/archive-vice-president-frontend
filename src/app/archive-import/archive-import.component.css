@@ -4,6 +4,24 @@
 
 }
 
+table {
+  width: 100%;
+  direction: rtl;
+}
+
+thead {
+  position: sticky;
+  top: 44px;
+  background-color: var(--bg_hover);
+  color: var(--color);
+  margin: 10%;
+}
+
+tbody {
+  background-color: var(--bg);
+  color: var(--color);
+}
+
 ::-webkit-scrollbar{
   width:10px;
   height: 2px;

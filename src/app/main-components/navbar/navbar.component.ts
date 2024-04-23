@@ -17,11 +17,17 @@ export class NavbarComponent implements OnInit {
   y:any
   id:string;
   userName:string;
+  switchTheme = new FormControl(false)
+  @HostBinding('class') className=""
+  darkClass="dark"
+  lightClass="light" 
+
 
   constructor(private route: Router,
               private auth: AuthenticationServiceService,
               private http: HttpClient,
-    ) {
+              private overlay: OverlayContainer
+              ) {
   }
 
   ngOnInit(): void {
@@ -29,6 +35,15 @@ export class NavbarComponent implements OnInit {
     this.img = this.auth.getUserImage()
     this.id=this.auth.getuserId()
     this.userName=this.auth.getUserName()
+    this.switchTheme.valueChanges.subscribe((currentTheme) => {
+      this.className = currentTheme ? this.darkClass : this.lightClass
+      if(currentTheme){
+        this.overlay.getContainerElement().classList.add(this.darkClass)
+      }else{
+        this.overlay.getContainerElement().classList.remove(this.darkClass)
+
+      }
+    })
   }
 
   onImageSelected(event) {

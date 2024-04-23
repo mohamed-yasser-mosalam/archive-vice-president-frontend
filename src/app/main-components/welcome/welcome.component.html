@@ -1,16 +1,18 @@
 <app-navbar></app-navbar>
-<div class="row">
-
-  <div class="dashboard col-10" style="background-color: #f9f9f9; zoom: 80%">
+<div class="row" style="background-color: var(--bg_main);">
+  <div class="d-flex justify-content-between">
+  <div class="dashboard" style="width:100%; height: 116vh; zoom: 80%">
     <div class="row">
 
       <div class="col-md-2">
         <div class="box">
           <div class="data">
             <p
-              style="font-size: 25px; padding: 5px 0; background-color: #fff; color: black; position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/filenotcome"> خطابات لم يأت
-                موعدها </a></p>
+              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
+              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/filenotcome"> خطابات
+                لم يأت
+                موعدها </a>
+            </p>
             <span>{{ NumberOfFileNotCome }}</span>
           </div>
         </div>
@@ -19,9 +21,11 @@
         <div class="box">
           <div class="data">
             <p
-              style="font-size: 25px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/filehadgone"> خطابات ذهب
-                موعدها </a></p>
+              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
+              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/filehadgone"> خطابات
+                ذهب
+                موعدها </a>
+            </p>
             <span> {{ NumberOfFileHadGone }}</span>
           </div>
         </div>
@@ -30,9 +34,11 @@
         <div class="box">
           <div class="data">
             <p
-              style="font-size: 25px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/importantletter">عدد الخطابات
-                الهامة</a></p>
+              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
+              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/importantletter">عدد
+                الخطابات
+                الهامة</a>
+            </p>
             <span> {{ NumberOfImportantLetter }}</span>
           </div>
         </div>
@@ -41,9 +47,10 @@
         <div class="box">
           <div class="data">
             <p
-              style="font-size: 25px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/specialfile">
-                المكاتبات المحفوظة</a></p>
+              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
+              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/specialfile">
+                المكاتبات المحفوظة</a>
+            </p>
             <span> {{ numberOfAllSpecial }}</span>
           </div>
         </div>
@@ -52,9 +59,11 @@
         <div class="box">
           <div class="data">
             <p
-              style="font-size: 25px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/getallImports">عدد الخطابات
-                الواردة</a></p>
+              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
+              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/getallImports">عدد
+                الخطابات
+                الواردة</a>
+            </p>
             <span> {{ NumberOfAllImports }}</span>
           </div>
         </div>
@@ -64,81 +73,81 @@
         <div class="box">
           <div class="data">
             <p
-              style="font-size: 25px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/getallexports">عدد الخطابات
-                الصادرة</a></p>
+              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
+              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/getallexports">عدد
+                الخطابات
+                الصادرة</a>
+            </p>
             <span> {{ NumberOfAllExports }}</span>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="row mx-3 ">
-      <div class="col-5 m-1  m-3 position-relative"
-
-           style="background-color: #fff; height: 300px; overflow: auto; border-radius: 8px; zoom:95%;width:600px ">
+    <div class="row">
+      <div class="col-5 mt-3 mx-3 "
+        style="background-color: var(--bg); height: 340px; overflow: auto; border-radius: 8px; zoom:95%;width:39%">
         <div
-          style="background-color: #fff; overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+          style="background-color: var(--bg); overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
           <h2
-            style="font-size: 22px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-            <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/filehasgone"> <label
-              style="font-size: 20px;font-weight: lighter"> ({{ NumberOfFileHasGone }})</label> خطابات حان موعدها </a>
+            style="font-size: 22px; padding: 10px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
+            <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/filehasgone"> <label
+                style="font-size: 20px;font-weight: lighter"> ({{ NumberOfFileHasGone }})</label> خطابات حان موعدها </a>
           </h2>
 
-          <table class="table" style="direction: rtl">
-            <thead style=" position: sticky; top: 44px; background-color: #fff;">
-            <tr>
-              <th scope="col">رقم الخطاب</th>
-              <th scope="col">ملخص الخطاب</th>
-              <th scope="col">التاريخ المتوقع للرد</th>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">رقم الخطاب</th>
+                <th scope="col">ملخص الخطاب</th>
+                <th scope="col">التاريخ المتوقع للرد</th>
 
-            </tr>
+              </tr>
             </thead>
-             <tr *ngFor="let item of showLetterHasGone">
+            <tr *ngFor="let item of showLetterHasGone">
               <td>{{ item.no }}</td>
               <td>{{ item.summary }}</td>
               <td>{{ item.expectResponseDate }}</td>
             </tr>
-           </table>
+          </table>
         </div>
 
       </div>
-
-      <div class="col-6 mt-3 me-1  position-relative"
-           style="background-color: #fff; height: 300px; overflow: auto; border-radius: 8px; zoom:95%;width:828px">
+      <div class="col-7 mt-3"
+        style="background-color: var(--bg); height: 340px; overflow: auto; border-radius: 8px; zoom:95%;">
         <div
-          style="background-color: #fff; overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+          style="background-color: var(--bg); overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
           <h2
-            style="font-size: 22px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
+            style="font-size: 22px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
 
             <a>
               <button type="button" class="btn btn w-10"
-                      style="padding:5px;margin-right:650px;margin-top:10px;color:white;background: #333333;width:100px"
-                      routerLink="/addimportfile">
+                style="padding:5px;margin-right:650px;margin-top:10px;color:var(--colot);background: var(--bg_hover);width:100px"
+                routerLink="/addimportfile">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg"
-                     viewBox="0 0 16 16">
+                  viewBox="0 0 16 16">
                   <path fill-rule="evenodd"
-                        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                 </svg>
                 اضافة
               </button>
             </a>
 
-            <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/todayimports">وارد اليوم</a>
+            <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/todayimports">وارد
+              اليوم</a>
           </h2>
 
-          <table class="table" style="direction: rtl">
-            <thead style=" position: sticky; top: 44px; background-color: #fff;">
-            <tr>
-              <th scope="col">رقم الخطاب</th>
-              <th scope="col">الجهة الوارد منها الخطاب</th>
-              <th scope="col">ملخص الخطاب</th>
-              <th scope="col">المستلم</th>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">رقم الخطاب</th>
+                <th scope="col">الجهة الوارد منها الخطاب</th>
+                <th scope="col">ملخص الخطاب</th>
+                <th scope="col">المستلم</th>
 
 
-            </tr>
+              </tr>
             </thead>
-             <tr *ngFor="let item of showAllTodayImports">
+            <tr *ngFor="let item of showAllTodayImports">
               <td>{{ item.no }}</td>
               <td>{{ item.sender }}</td>
               <td>{{ item.summary }}</td>
@@ -150,82 +159,80 @@
       </div>
 
     </div>
-
-
-
-
-    <div class="row mx-3">
-      <div class="col-1">
-        <div class=" m-3   position-relative"
-
-             style="background-color: #fff; height: 300px;  border-radius: 8px; zoom:95%;width:600px ">
-          <div
-            style="background-color: #fff;   height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+    <div class="row">
+      <div class="col-5 mt-3">
+        <div
+          style="background-color: var(--bg); height: 340px; overflow: auto; border-radius: 8px; zoom:95%;margin-left: 1rem;margin-right: 2rem;">
+          <div style="background-color: var(--bg);   height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
             <h2
-              style="font-size: 22px;  background-color: #fff; color: #3333338f; position: sticky;padding-top:50px;  width: 100%;">
-              <select class="px-2 m-2" [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()">
-                <option  selected="selected">أختار السنة</option>
-                <option *ngFor="let year of years" >{{ year }}</option>
+              style="font-size: 22px;  background-color: var(--bg); color: var(--color); position: sticky;padding-top:50px;  width: 100%;">
+              <select class="px-2 m-2" style="background-color: var(--bg); color: var(--color);"
+                [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()">
+                <option selected="selected">أختار السنة</option>
+                <option *ngFor="let year of years">{{ year }}</option>
               </select>
 
-              <a style=" text-decoration:none;color: black;font-weight: bold;margin-top: 30px"> عدد الخطابات لعام
-              </a></h2>
-            <span style="margin-bottom:20px!important; width:100px; margin-right: 15px; font-weight: bold; font-size: 22px;">{{numberOfImportLetterForSpecificYear+numberOfExportLetterForSpecificYear}}</span>
+              <a style=" text-decoration:none;color: var(--color);font-weight: bold;margin-top: 30px"> عدد الخطابات لعام
+              </a>
+            </h2>
+            <span
+              style="margin-bottom:20px!important; width:100px; margin-right: 15px; font-weight: bold;color:var(--color); font-size: 22px;">{{numberOfImportLetterForSpecificYear+numberOfExportLetterForSpecificYear}}</span>
 
             <hr>
             <div class="input-container" style="margin-top: 50px">
               <div class="input-data"
-                   style="font-size: 22px;  background-color: #fff; color: #3333338f;  top:10px;  ">
-                <a style=" text-decoration:none;color: black;font-weight: bold">
+                style="font-size: 22px;  background-color: var(--bg); color: var(--color);  top:10px;  ">
+                <a style=" text-decoration:none;color: var(--color);font-weight: bold">
                   <label type="number"
-                         style="margin-top:10px; margin-right: 15px">{{numberOfExportLetterForSpecificYear}} </label>عدد
+                    style="margin-top:10px; margin-right: 15px">{{numberOfExportLetterForSpecificYear}} </label>عدد
                   الخطابات الصادرة</a>
               </div>
             </div>
             <div class="input-container">
               <div class="input-data"
-                   style="font-size: 22px;   background-color: #fff; color: #3333338f;  margin-top:30px;  ">
-                <a style=" text-decoration:none;color: black;font-weight: bold">
-                  <label type="number"
-                         style="margin-top:10px;margin-right: 15px">{{ numberOfImportLetterForSpecificYear }}</label>عدد
-                  الخطابات الواردة </a></div>
+                style="font-size: 22px;   background-color: var(--bg); color: var(--color);  margin-top:30px;  ">
+                <a style=" text-decoration:none;color: var(--color);font-weight: bold">
+                  <label type="number" style="margin-top:10px;margin-right: 15px">{{ numberOfImportLetterForSpecificYear
+                    }}</label>عدد
+                  الخطابات الواردة </a>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
-      <div class="col-6 mt-3 me-1  position-relative"
-           style="background-color: #fff; height: 300px; overflow: auto; border-radius: 8px; zoom:95%;width:828px;margin-left:510px">
-        <div
-          style="background-color: #fff; overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+
+      <div class="col-7 mt-3"
+        style="background-color: var(--bg); height: 340px; overflow: auto; border-radius: 8px; zoom:95%;width:57%">
+        <div style="background-color: var(--bg); overflow: auto; text-align:center;  border-radius: 8px; zoom:95%">
           <h2
-            style="font-size: 22px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
+            style="font-size: 22px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
 
             <a>
               <button type="button" class="btn btn w-10"
-                      style="padding:5px;margin-right:650px;margin-top:10px;color:white;background: #333333;width:100px"
-                      routerLink="/addexportfile">
+                style="padding:5px;margin-right:650px;margin-top:10px;color:var(--color);background: var(--bg_hover);width:100px"
+                routerLink="/addexportfile">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg"
-                     viewBox="0 0 16 16">
+                  viewBox="0 0 16 16">
                   <path fill-rule="evenodd"
-                        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                 </svg>
                 اضافة
               </button>
             </a>
 
-            <a style=" text-decoration:none;color: black;font-weight: bold" routerLink="/todeyexports">صادر اليوم</a>
+            <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/todeyexports">صادر
+              اليوم</a>
           </h2>
 
-          <table class="table" style="direction: rtl">
-            <thead style=" position: sticky; top: 44px; background-color: #fff;">
-            <tr>
-              <th scope="col">رقم الخطاب</th>
-              <th scope="col">الجهة الصادر منها الخطاب</th>
-              <th scope="col">ملخص الخطاب</th>
-              <th scope="col">المستلم</th>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">رقم الخطاب</th>
+                <th scope="col">الجهة الصادر منها الخطاب</th>
+                <th scope="col">ملخص الخطاب</th>
+                <th scope="col">المستلم</th>
 
-            </tr>
+              </tr>
             </thead>
             <tr *ngFor="let item of showAllTodayExports">
               <td>{{ item.no }}</td>
@@ -240,7 +247,8 @@
 
     </div>
   </div>
-  <div class="col-2 position-relative">
+  <div>
     <app-sidebar></app-sidebar>
   </div>
+</div>
 </div>

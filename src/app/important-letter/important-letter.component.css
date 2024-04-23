@@ -4,27 +4,49 @@
   /* border: 1px solid #333; */
 }
 
-::-webkit-scrollbar{
-  width:15px;
+table {
+  width: 100%;
+  direction: rtl;
+}
+
+thead {
+  position: sticky;
+  top: 44px;
+  background-color: var(--bg_hover);
+  color: var(--color);
+}
+
+tbody {
+  background-color: var(--bg);
+  color: var(--color);
+}
+
+tr:nth-child(odd) {
+  background-color: var(--color1);
+}
+
+tr:nth-child(even) {
+  background-color: var(--color2);
+}
+::-webkit-scrollbar {
+  width: 15px;
   height: 5px;
 }
-::-webkit-scrollbar:hover{
-  width:20px;
+
+::-webkit-scrollbar:hover {
+  width: 20px;
   height: 10px;
 }
-::-webkit-scrollbar-track{
+
+::-webkit-scrollbar-track {
   background-color: #33333332;
 }
-::-webkit-scrollbar-thumb{
+
+::-webkit-scrollbar-thumb {
   background-color: #333333;
   border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:hover{
+
+::-webkit-scrollbar-thumb:hover {
   background-color: #33333332;
-}
-tr:nth-child(odd) {
-  background-color: #D6EEEE;
-}
-tr:nth-child(even) {
-  background-color: #fff!important;
 }

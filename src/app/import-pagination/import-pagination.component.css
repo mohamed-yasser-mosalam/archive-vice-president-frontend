@@ -3,13 +3,6 @@
   padding: 0;
 }
 
-/*form {*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  margin-left:0px;*/
-/*  height: 500px;*/
-/* }*/
-
 .wrapper {
   position: relative;
   width: 100%;
@@ -33,7 +26,9 @@
   border: none;
   font-size: 23px;
   border-bottom: 2px solid silver;
-  direction: rtl
+  direction: rtl;
+  background-color: var(--bg);
+  color: var(--color);
 }
 
 .wrapper .input-data textarea {
@@ -52,7 +47,7 @@
   position: absolute;
   bottom: 1px;
   right: 7px;
-  color: #333333;
+  color: var(--color);
   pointer-events: none;
   transition: .3s ease;
   text-align: center;
@@ -73,7 +68,7 @@
   content: "";
   height: 2px;
   width: 100%;
-  background-color: #333333;
+  background-color: var(--bg);
   transform: scaleX(0);
   transition: all .3s ease-in-out;
   margin-top: 20px;
@@ -109,21 +104,22 @@ ul li a,
 
 
 
-ngb-pagination ::ng-deep ul > li.active > a {
-  background-color: #333333 !important;
-  color: white!important;
+ngb-pagination ::ng-deep ul>li.active>a {
+  background-color: var(--color) !important;
+  color: var(--bg) !important;
 }
 
 ngb-pagination ::ng-deep a {
-  color: black !important;
+  color: var(--color) !important;
 }
 
 ngb-pagination ::ng-deep .page-item.active .page-link {
   border-color: black;
-  background-color: lightgrey;
+  background-color: var(--bg);
 }
 
-ngb-pagination ::ng-deep .page-item.active .page-link:focus, .page-link:not(:disabled):not(.disabled):active:focus {
+ngb-pagination ::ng-deep .page-item.active .page-link:focus,
+.page-link:not(:disabled):not(.disabled):active:focus {
   box-shadow: 0 0 0 0.1rem dimgrey;
 }
 
@@ -135,14 +131,14 @@ ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
 input[type=file]::file-selector-button {
   margin-right: 20px;
   border: none;
-  background: #333333;
+  background: var(--bg);
   padding: 10px 20px;
   border-radius: 10px;
-  color: #fff;
+  color: var(--color);
   cursor: pointer;
   transition: background .2s ease-in-out;
 }
 
 input[type=file]::file-selector-button:hover {
-  background: #333333;
+  background: var(--color);
 }

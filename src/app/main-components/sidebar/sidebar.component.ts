@@ -10,6 +10,7 @@ import {HttpClient} from "@angular/common/http";
 export class SidebarComponent  implements OnInit{
   idOfUser:string
   pageLength:number
+  show:boolean = true 
   constructor(private aut:AuthenticationServiceService,private auth:AuthenticationServiceService,
               private http: HttpClient,
   ) {
@@ -18,6 +19,9 @@ export class SidebarComponent  implements OnInit{
     this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
       this.pageLength = numberOfExportFiles;
     });
+  }
+  hideMenu(): void {
+    this.show =!this.show
   }
 
   ngOnInit(): void {

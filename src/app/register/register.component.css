@@ -29,6 +29,8 @@ form{
   border: none;
   font-size: 18px;
   border-bottom: 2px solid silver;
+  color: var(--color);
+  background-color: var(--bg);
 }
 .wrapper .input-data textarea{
   border: none;
@@ -46,13 +48,13 @@ form{
 .input-data textarea:valid ~ label{
   transform: translateY(-35px);
   font-size: 15px;
-  color: #333333;
+  color: var(--color);
 }
 .wrapper .input-data label{
   position: absolute;
   bottom: 10px;
   right: 7%;
-  color: gray;
+  color: var(--color);
   pointer-events: none;
   transition: .3s ease;
   text-align: center;
@@ -69,7 +71,7 @@ form{
   content:"";
   height: 2px;
   width: 100%;
-  background-color: #333333;
+  background-color: var(--bg);
   transform: scaleX(0);
   transition: all .3s ease-in-out;
 }

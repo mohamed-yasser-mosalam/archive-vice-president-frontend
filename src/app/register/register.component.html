@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
-<div class="row">
+<div class="row" style="background-color: var(--bg);">
   <div class="col-2"></div>
   <form class="col-8" style="zoom: 80%" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
     <div class="wrapper">
-      <legend class="text-center">تسجيل مستخدم جديد</legend>
+      <legend class="text-center" style="color:var(--color)">تسجيل مستخدم جديد</legend>
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container">
@@ -43,7 +43,7 @@
           </div>
         </div>
       </div>
-      <button type="submit" class="btn" style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%"> حفظ
+      <button type="submit" class="btn" style="width:100px; padding:1px;color: var(--color);background: var(--bg_hover);font-size:22px;margin-right:10%"> حفظ
       </button>
     </div>
   </form>

@@ -76,11 +76,7 @@ const routes: Routes = [
   {path: 'special-pagination?page/:page', component: SpecialPaginationComponent, canActivate: [CanActivate]},
   {path: 'addspecialfile', component: AddSpecialComponent, canActivate: [CanActivate]},
   {path: 'useractivity', component: UserActivityComponent, canActivate: [AuthenticationServiceService, CanActivate]},
-  {
-    path: 'changepasswordbyadmin/:id',
-    component: ChangePasswordByAdminComponent,
-    canActivate: [AuthenticationServiceService, CanActivate]
-  },
+  {path: 'changepasswordbyadmin/:id', component: ChangePasswordByAdminComponent, canActivate: [AuthenticationServiceService, CanActivate]},
   {path: 'updatespecial/:id', component: UpdateSpecialComponent, canActivate: [CanActivate]},
   {path: 'lastexports', component: LastExportComponent, canActivate: [CanActivate]},
   {path: 'lastimports', component: LastImportComponent, canActivate: [CanActivate]},

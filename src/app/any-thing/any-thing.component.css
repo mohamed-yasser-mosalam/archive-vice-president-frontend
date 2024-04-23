@@ -8,30 +8,6 @@
   /* Add any other styling as needed */
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-  overflow-y: scroll;
-}
-
-::-webkit-scrollbar:hover {
-  width: 10px;
-  height: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #ffffff;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #333333;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #333333;
-}
-
 form{
   position: relative;
   margin-top: 8%;
@@ -53,6 +29,8 @@ form{
   position: relative;
   margin-top: 45px;
   margin-left: 30px;
+  background-color: var(--bg);
+  color: var(--color);
 }
 .wrapper .input-data input{
   height: 100%;
@@ -80,14 +58,14 @@ form{
 .input-data textarea:valid ~ label{
   transform: translateY(-35px);
   font-size: 15px;
-  color: #333333;
+  color: var(--color);
 
 }
 .wrapper .input-data label{
   position: absolute;
   bottom: 10px;
   right: 9%;
-  color: gray;
+  color: var(--color);
   pointer-events: none;
   transition: .3s ease;
   text-align: center;
@@ -105,7 +83,7 @@ form{
   content:"";
   height: 2px;
   width:400px;
-  background: #333333;
+  background: var(--bg);
   transform: scaleX(0);
   transition: all .3s ease-in-out;
  }
@@ -119,4 +97,26 @@ form{
   transform: scaleX(1);
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  overflow-y: scroll;
+}
 
+::-webkit-scrollbar:hover {
+  width: 10px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #333333;
+}

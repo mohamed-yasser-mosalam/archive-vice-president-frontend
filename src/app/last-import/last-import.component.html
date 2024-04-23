@@ -1,43 +1,46 @@
 <app-navbar></app-navbar>
-<div class="row" >
-
-  <div class="col-10 position-relative"
-       style=" zoom: 71%; background-color: #fff; text-align: center; overflow: auto; height:830px; border-radius: 8px;margin-right: 0">
+<div class="row">
+  <div class="d-flex justify-content-between">
+  <div class="w-100"
+    style=" zoom: 71%; background-color: var(--bg); text-align: center; overflow: auto; height:900px; border-radius: 8px;margin-right: 0">
 
     <div class="row">
 
 
-      <div class="d-flex"
-           style="font-size: 20px; padding: 10px 0;margin-left: 40%; background-color: #fff; color: #333333; position: sticky; top: 0; width: 50%;font-weight: bold">
+      <div class="d-flex text-center"
+        style="font-size: 20px; padding: 10px 35%; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;font-weight: bold">
         <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
         <div class="input-data ">
           <h2 style="font-weight: bold;margin-left: 30px"> جميع الخطابات الواردة من مكتب العميد</h2>
         </div>
       </div>
 
-      <table class="table" style="direction: rtl">
-        <thead style=" position: sticky; top: 40px; background-color: #fff;">
-        <tr>
-          <th scope="col">رقم القيد</th>
-          <th scope="col">رقم الخطاب</th>
-          <th scope="col">تاريخ الورود</th>
-          <th scope="col">عدد المرفقات</th>
-          <th scope="col">الجهةالوارد منها</th>
-          <th scope="col">رقم الخطاب الوارد</th>
-          <th scope="col">تاريخ الخطاب الوارد</th>
-          <th scope="col">ملخص الخطاب</th>
-          <th scope="col">المستلم</th>
-          <th scope="col">تاريخ الاستلام</th>
-          <th scope="col">رقم الرد</th>
-          <th scope="col">تاريخ الرد</th>
-          <th scope="col">الجهة الصادر اليها</th>
-          <th scope="col">رقم الملف</th>
-          <th scope="col">التاريخ المتوقع للرد</th>
-        </tr>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">رقم القيد</th>
+            <th scope="col">رقم الخطاب</th>
+            <th scope="col">تاريخ الورود</th>
+            <th scope="col">عدد المرفقات</th>
+            <th scope="col">الجهةالوارد منها</th>
+            <th scope="col">رقم الخطاب الوارد</th>
+            <th scope="col">تاريخ الخطاب الوارد</th>
+            <th scope="col">ملخص الخطاب</th>
+            <th scope="col">المستلم</th>
+            <th scope="col">تاريخ الاستلام</th>
+            <th scope="col">رقم الرد</th>
+            <th scope="col">تاريخ الرد</th>
+            <th scope="col">الجهة الصادر اليها</th>
+            <th scope="col">رقم الملف</th>
+            <th scope="col">التاريخ المتوقع للرد</th>
+            <th scope="col"></th>
+          </tr>
         </thead>
+        <tbody>
         <tr *ngFor="let item of showAllImport | search:searchText">
           <td>{{ item.no }}</td>
-          <td>{{ item.id }}</td>          <td>{{item.incomeDate}}</td>
+          <td>{{ item.id }}</td>
+          <td>{{item.incomeDate}}</td>
           <td>{{item.numberOfAttachments}}</td>
           <td>{{item.sender}}</td>
           <td>{{item.incomingLetterNumber}}</td>
@@ -52,17 +55,22 @@
           <td>{{item.expectResponseDate}}</td>
           <td>
             <a routerLink="/import-pagination?page/{{item.no}}">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color: #333333">
-                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
-                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color: var(--color)">
+                <path fill-rule="evenodd"
+                  d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
+                <path fill-rule="evenodd"
+                  d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
               </svg>
             </a>
           </td>
         </tr>
+      </tbody>
       </table>
     </div>
   </div>
-  <div class="col-2 position-relative">
+  <div>
     <app-sidebar></app-sidebar>
+  </div>
   </div>
 </div>

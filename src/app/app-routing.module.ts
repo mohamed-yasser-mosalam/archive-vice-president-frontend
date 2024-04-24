@@ -43,6 +43,7 @@ import {AuthGuardService} from "./Services/guard/auth-guard.service";
 import {DeandecisionComponent} from "./deandecision/deandecision.component";
 import {SavefileimportComponent} from "./savefileimport/savefileimport.component";
 import {SavefileexportComponent} from "./savefileexport/savefileexport.component";
+import { SignsComponent } from './signs/signs.component';
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -86,7 +87,8 @@ const routes: Routes = [
   {path: 'lastspecials', component: LastSpecialComponent, canActivate: [CanActivate]},
   {path:'savefileexport/:id',component:SavefileexportComponent,canActivate:[CanActivate]},
   {path:'savefileimport/:id',component:SavefileimportComponent,canActivate:[CanActivate]},
-  {path:'deandecision',component:DeandecisionComponent,canActivate:[CanActivate]}
+  {path:'deandecision',component:DeandecisionComponent,canActivate:[CanActivate]},
+  {path:'signs',component:SignsComponent,canActivate:[CanActivate]}
 
 
 ];

@@ -62,6 +62,7 @@ import { LastSpecialComponent } from './last-special/last-special.component';
 import { DeandecisionComponent } from './deandecision/deandecision.component';
 import { SavefileexportComponent } from './savefileexport/savefileexport.component';
 import { SavefileimportComponent } from './savefileimport/savefileimport.component';
+import { SignsComponent } from './signs/signs.component';
  @NgModule({
   declarations: [
     AppComponent,
@@ -111,6 +112,7 @@ import { SavefileimportComponent } from './savefileimport/savefileimport.compone
     DeandecisionComponent,
     SavefileexportComponent,
     SavefileimportComponent,
+    SignsComponent,
   ],
      imports: [
          BrowserModule,

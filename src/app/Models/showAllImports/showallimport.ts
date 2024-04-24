@@ -19,7 +19,8 @@ export class Showallimport {
   expectResponseDate: Date;
   receiver: string;
   createdBy: string;
-  hasResponse: boolean
+  hasResponse: boolean;
+  hasSpecial: boolean;
 
   constructor(id: number,
               incomeDate: Date,
@@ -41,7 +42,8 @@ export class Showallimport {
               receiver: string,
               no: number,
               createdBy: string,
-              hasResponse: boolean
+              hasResponse: boolean,
+              hasSpecial: boolean,
   ) {
     this.id = id;
     this.incomeDate = incomeDate;
@@ -63,7 +65,7 @@ export class Showallimport {
     this.receiver = receiver;
     this.no = no;
     this.createdBy = createdBy;
-    this.hasResponse=hasResponse
-
+    this.hasResponse = hasResponse
+    this.hasSpecial = hasSpecial
   }
 }

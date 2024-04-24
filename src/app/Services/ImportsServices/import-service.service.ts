@@ -23,6 +23,9 @@ export class ImportServiceService {
   addImportFile( Data:any){
     return this.http.post('http://localhost:1200/import/import',Data)
   }
+  addSaveFile(id:number,num:number){
+    return  this.http.put(`http://localhost:1200/import/convert-to-special?id=${id}`,num)
+  }
   getImportById(id:number){
     return this.http.get(`http://localhost:1200/import/import-id?id=${id}`)
   }

@@ -111,7 +111,7 @@
             routerLink="/export-pagination?page/{{no}}">حفظ المرفقات</button>
           <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
         </form>
-        <div style="margin-left: 25%">
+        <div style="margin-left: 10%">
           <button type="submit" class="btn  "
             style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover);font-size:25px"
             routerLink="/addexportfile">
@@ -122,17 +122,21 @@
             routerLink="/updateexport/{{page}}">
             تعديل
           </button>
-          <button type="submit" class="btn " *ngIf="hasUrgent"
+          <button type="submit" class="btn " *ngIf="isHasUrgent"
             style="width:200px; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover);font-size:25px"
             routerLink="/add-urgent/{{page}}">
             اضافه استعجال
           </button>
-          <button type="submit" class="btn" *ngIf="hasResponse"
+          <button type="submit" class="btn" *ngIf="isHasResponse"
             style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover);font-size:25px"
             routerLink="/add-export-response/{{id}}">
             اضافه رد
           </button>
-
+          <button type="submit" class="btn " *ngIf="isHasSpecial"
+                  style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover);font-size:25px"
+                  routerLink="/savefileexport/{{id}}">
+            ملف حفظ
+          </button>
         </div>
 
         <div class="col-md-9 pag" style="margin-top:50px;bottom:0px;margin-left:45%">

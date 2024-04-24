@@ -7,7 +7,6 @@
       <table>
         <thead>
           <tr>
-            <th>رقم القيد</th>
             <th> الاسم</th>
             <th>رقم الملف</th>
             <th></th>
@@ -15,8 +14,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of AllFiles" class="p-4">
-            <td>{{ item.id }}</td>
-            <td>{{ item.name }}</td>
+             <td>{{ item.name }}</td>
             <td>{{ item.typeNumber }}/{{ item.num }}</td>
             <td *ngIf="item.id<=21;else first">
               <a routerLink="/archiveimport/{{item.id}}">

@@ -19,7 +19,8 @@ export class ImportPaginationComponent implements OnInit {
   showImports: any;
   size: number = 1;
   paths: string[];
-  isHasResponse:boolean
+  isHasResponse:boolean;
+  isHasSpecial:boolean;
   roleOfUser = this.auth.getUserRoles()
   showImport = new FormGroup({
     createdBy:new FormControl(''),
@@ -78,6 +79,7 @@ export class ImportPaginationComponent implements OnInit {
       this.paths = this.showImports.paths;
       this.id=this.showImports.id
       this.isHasResponse=this.showImports.hasResponse;
+      this.isHasSpecial=this.showImports.hasSpecial
       this.no=this.showImports.no
     });
     }

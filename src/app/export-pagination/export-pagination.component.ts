@@ -20,8 +20,9 @@ export class ExportPaginationComponent implements OnInit {
   size: number = 1;
   paths: string[];
   numbers: any = [];
-  hasResponse:boolean;
-  hasUrgent:boolean
+  isHasResponse:boolean;
+  isHasUrgent:boolean;
+  isHasSpecial:boolean;
   showExport = new FormGroup({
     createdBy:new FormControl(''),
     recipientDate:new FormControl(''),
@@ -77,8 +78,9 @@ export class ExportPaginationComponent implements OnInit {
       this.showExports = getExport;
       this.paths = this.showExports.paths;
       this.id=this.showExports.id;
-      this.hasUrgent=this.showExports.hasUrgent;
-      this.hasResponse=this.showExports.hasResponse;
+      this.isHasUrgent=this.showExports.hasUrgent;
+      this.isHasResponse=this.showExports.hasResponse;
+      this.isHasSpecial=this.showExports.hasSpecial
       this.no=this.showExports.no
      });
    }

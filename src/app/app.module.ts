@@ -59,6 +59,9 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import { LastExportComponent } from './last-export/last-export.component';
 import { LastImportComponent } from './last-import/last-import.component';
 import { LastSpecialComponent } from './last-special/last-special.component';
+import { DeandecisionComponent } from './deandecision/deandecision.component';
+import { SavefileexportComponent } from './savefileexport/savefileexport.component';
+import { SavefileimportComponent } from './savefileimport/savefileimport.component';
  @NgModule({
   declarations: [
     AppComponent,
@@ -105,6 +108,9 @@ import { LastSpecialComponent } from './last-special/last-special.component';
     LastExportComponent,
     LastImportComponent,
     LastSpecialComponent,
+    DeandecisionComponent,
+    SavefileexportComponent,
+    SavefileimportComponent,
   ],
      imports: [
          BrowserModule,

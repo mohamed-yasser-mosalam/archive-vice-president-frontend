@@ -18,7 +18,11 @@ export class ExportServiceService {
     return this.http.get( `http://localhost:1200/export/export-archive?id=${id}` )
   }
     addExportFile(data:any){
-    return this.http.post('http://localhost:1200/export/export',data)
+     return  this.http.post('http://localhost:1200/export/export',data)
+   }
+
+   addSaveFile(id:number,num:number){
+    return  this.http.put(`http://localhost:1200/export/convert-to-special?id=${id}`,num)
    }
 
   getExportById(id: number){

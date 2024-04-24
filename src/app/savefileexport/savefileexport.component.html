@@ -5,12 +5,20 @@
     <form class="col-8" style="zoom: 70%" [formGroup]="saveFileForm" (ngSubmit)="onSubmit()">
       <div class="wrapper " style="direction: ltr;">
         <legend class="text-center">ادخال ملف حفظ</legend>
+        <div class="d-flex">
 
-        <div class="input-data" style="width:20%; margin-left:40%;margin-top: 10%">
-          <input type="number" id="num" name="num" formControlName="num">
-          <label for="num" style="margin-right: 85%;color: var(--color);margin-bottom:-5px"></label>
-          <label for="num" style="color: var(--color)">رقم الملف</label>
+          <div class="input-data" style="width:20%; margin-left:10%;margin-top: 10%">
+            <input type="number" id="num" name="num" formControlName="num">
+            <label for="num" style="margin-right: 85%;color: var(--color);margin-bottom:-5px"></label>
+            <label for="num" style="color: var(--color)">رقم الملف</label>
+          </div>
+          <div class="input-data" style="width:20%; margin-left:40%;margin-top: 10%">
+            <input type="text" id="fileType" name="fileType" formControlName="fileType">
+            <label for="fileType" style="margin-right: 85%;color: var(--color);margin-bottom:-5px"></label>
+            <label for="fileType" style="color: var(--color)">نوع الملف</label>
+          </div>
         </div>
+
         <button type="submit" class="btn  "
                 style="width:100px; padding:1px;color: var(--color);background: var(--bg_hover);font-size:22px;margin-right:10%">
           حفظ

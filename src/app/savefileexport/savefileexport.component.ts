@@ -17,8 +17,6 @@ export class SavefileexportComponent implements OnInit{
   ngOnInit(): void {
     this.saveFileForm = this.fb.group({
       num: ['', [Validators.required, Validators.minLength(1)]],
-      fileType: ['', [Validators.required, Validators.minLength(1)]],
-
     });
   }
   addSaveFile(data: any) {

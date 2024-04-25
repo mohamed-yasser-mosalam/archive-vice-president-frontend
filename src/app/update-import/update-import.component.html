@@ -1,120 +1,119 @@
-<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
+
 <div class="row" style="background-color: var(--bg);">
   <div class="d-flex justify-content-between">
-  <div class="d-flex w-100">
-  <ngb-carousel style="width: 40%;">
-    <ng-template ngbSlide *ngFor="let item of paths;let i=index">
-      <div class="carousel-wrapper" style="margin-top: 20px; ">
-        <img src="{{item}}" style="height:83vh">
-        <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"
-                type="submit" (click)="deleteImage(i)" class="btn"
-                style="width:150px; padding:1px;margin-left:10%;margin-top:10px;color: var(--color);background: var(--bg_hover);font-size:15px"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
-               viewBox="0 0 16 16" >
-            <path
-              d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-          </svg>
-          حذف المرفق
-        </button>
-      </div>
-    </ng-template>
-  </ngb-carousel>
-  <form style="margin-top:5%;width:51%;zoom: 60% " [formGroup]="editImport" (ngSubmit)="update()">
-
-    <div class="wrapper">
-      <legend class="text-center" style="font-weight: bold;font-size:25px;color:var(--color)">{{ x }} تعديل ملف وارد رقم</legend>
-      <div style="display: flex;  justify-content: space-between;">
-        <div class="input-container ">
-
-          <div class="input-data">
-            <input type="text"  id="numberOfAttachments" formControlName="numberOfAttachments">
-            <label for="numberOfAttachments">عدد المرفقات</label>
-          </div>
-          <div class="input-data" style="top:50px">
-            <input type="text" id="sender" formControlName="sender">
-            <label for="sender">الجهة الوارد منها الخطاب</label>
-          </div>
-        </div>
-        <div class="input-container">
-          <div class="d-flex">
-            <div class="input-data" style="width: 65%">
-              <input type="Date" id="incomeDate" formControlName="incomeDate">
-              <label for="incomeDate">تاريخ الورود</label>
-            </div>
-            <div class="input-data " style="width:30%; margin-left:auto;">
-              <input type="number" readonly id="no" formControlName="no">
-              <label for="no">رقم القيد</label>
-            </div>
-          </div>
-          <div class="d-flex">
-            <div class="input-data" style="width: 55%">
-              <input type="text" id="incomingLetterDate" formControlName="incomingLetterDate">
-              <label for="incomingLetterDate">تاريخه</label>
-            </div>
-            <div class="input-data " style="width:40%; margin-left:auto;">
-              <input type="number" id="incomingLetterNumber" formControlName="incomingLetterNumber">
-              <label for="incomingLetterNumber">رقم الخطاب الوارد</label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="input-data" style="bottom:20px">
-        <input type="text" style="height: 50px;" id="summary" formControlName="summary">
-        <label for="summary">ملخص الخطاب</label>
-      </div>
-
-      <div style="display: flex;  justify-content: space-between;">
-        <div class="input-container position-relative" style="bottom:60px">
-          <div class="input-data">
-            <input type="text" readonly id="responseSide" formControlName="responseSide">
-            <label for="responseSide">الجهة الصادر اليها </label>
-          </div>
-          <div class="input-data">
-            <input type="Date" id="recipientDate" formControlName="recipientDate">
-            <label for="recipientDate">تاريخ الاستلام</label>
-          </div>
-          <div class="input-data">
-            <input type="Date" required id="expectResponseDate" formControlName="expectResponseDate">
-            <label for="expectResponseDate">التاريخ المتوقع للرد</label>
-          </div>
-
-          <div class="input-data" style="bottom:0px; ">
-            <button type="submit" class="btn  "
-                    style="width:150px; padding:5px;color: var(--color);background: var(--bg_hover);font-size:25px;margin-left:96%"
-            > حفظ
+    <div class="d-flex w-100">
+      <ngb-carousel style="width: 40%;">
+        <ng-template ngbSlide *ngFor="let item of paths;let i=index">
+          <div class="carousel-wrapper" style="margin-top: 20px; ">
+            <img src="{{item}}" style="height:83vh">
+            <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"
+                    type="submit" (click)="deleteImage(i)" class="btn"
+                    style="width:150px; padding:1px;margin-left:10%;margin-top:10px;color: var(--color);background: var(--bg_hover);font-size:15px"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
+                   viewBox="0 0 16 16" >
+                <path
+                  d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+              </svg>
+              حذف المرفق
             </button>
           </div>
+        </ng-template>
+      </ngb-carousel>
+      <form style="margin-top:5%;width:51%;zoom: 60% " [formGroup]="editImport" (ngSubmit)="update()">
 
-        </div>
-        <div class="input-container position-relative" style="bottom:60px">
-          <div style="display: flex;">
-            <div class="input-data w-50">
-              <input type="Date" readonly id="responseDate" formControlName="responseDate">
-              <label for="responseDate">تاريخ الرد</label>
+        <div class="wrapper">
+          <legend class="text-center" style="font-weight: bold;font-size:25px;color:var(--color)">{{ x }} تعديل ملف وارد رقم</legend>
+          <div style="display: flex;  justify-content: space-between;">
+            <div class="input-container ">
+
+              <div class="input-data">
+                <input type="text"  id="numberOfAttachments" formControlName="numberOfAttachments">
+                <label for="numberOfAttachments">عدد المرفقات</label>
+              </div>
+              <div class="input-data" style="top:50px">
+                <input type="text" id="sender" formControlName="sender">
+                <label for="sender">الجهة الوارد منها الخطاب</label>
+              </div>
             </div>
-            <div class="input-data" style="width:35%; margin-left:auto;">
-              <input type="text" readonly id="responseNumber" formControlName="responseNumber">
-              <label for="responseNumber">الرد</label>
+            <div class="input-container">
+              <div class="d-flex">
+                <div class="input-data" style="width: 65%">
+                  <input type="Date" id="incomeDate" formControlName="incomeDate">
+                  <label for="incomeDate">تاريخ الورود</label>
+                </div>
+                <div class="input-data " style="width:30%; margin-left:auto;">
+                  <input type="number" readonly id="no" formControlName="no">
+                  <label for="no">رقم القيد</label>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="input-data" style="width: 55%">
+                  <input type="text" id="incomingLetterDate" formControlName="incomingLetterDate">
+                  <label for="incomingLetterDate">تاريخه</label>
+                </div>
+                <div class="input-data " style="width:40%; margin-left:auto;">
+                  <input type="number" id="incomingLetterNumber" formControlName="incomingLetterNumber">
+                  <label for="incomingLetterNumber">رقم الخطاب الوارد</label>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="input-data" style="bottom: 50px;">
-            <input type="text" id="recipientName" formControlName="recipientName">
-            <label for="recipientName" style="margin-top: 40px;">المستلم</label>
-          </div>
-          <div class="input-data" style="bottom: 55px;">
-            <input type="text" id="num" formControlName="num">
-            <label for="num">رقم الملف</label>
+          <div class="input-data" style="bottom:20px">
+            <input type="text" style="height: 50px;" id="summary" formControlName="summary">
+            <label for="summary">ملخص الخطاب</label>
           </div>
 
+          <div style="display: flex;  justify-content: space-between;">
+            <div class="input-container position-relative" style="bottom:60px">
+              <div class="input-data">
+                <input type="text" readonly id="responseSide" formControlName="responseSide">
+                <label for="responseSide">الجهة الصادر اليها </label>
+              </div>
+              <div class="input-data">
+                <input type="Date" id="recipientDate" formControlName="recipientDate">
+                <label for="recipientDate">تاريخ الاستلام</label>
+              </div>
+              <div class="input-data">
+                <input type="Date" required id="expectResponseDate" formControlName="expectResponseDate">
+                <label for="expectResponseDate">التاريخ المتوقع للرد</label>
+              </div>
+
+              <div class="input-data" style="bottom:0px; ">
+                <button type="submit" class="btn  "
+                        style="width:150px; padding:5px;color: var(--color);background: var(--bg_hover);font-size:25px;margin-left:96%"
+                > حفظ
+                </button>
+              </div>
+
+            </div>
+            <div class="input-container position-relative" style="bottom:60px">
+              <div style="display: flex;">
+                <div class="input-data w-50">
+                  <input type="Date" readonly id="responseDate" formControlName="responseDate">
+                  <label for="responseDate">تاريخ الرد</label>
+                </div>
+                <div class="input-data" style="width:35%; margin-left:auto;">
+                  <input type="text" readonly id="responseNumber" formControlName="responseNumber">
+                  <label for="responseNumber">الرد</label>
+                </div>
+              </div>
+              <div class="input-data" style="bottom: 50px;">
+                <input type="text" id="recipientName" formControlName="recipientName">
+                <label for="recipientName" style="margin-top: 40px;">المستلم</label>
+              </div>
+              <div class="input-data" style="bottom: 55px;">
+                <input type="text" id="num" formControlName="num">
+                <label for="num">رقم الملف</label>
+              </div>
+
+            </div>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
-  </form>
-</div>
-  <div>
-    <app-sidebar></app-sidebar>
-  </div>
+    <div>
+      <app-sidebar></app-sidebar>
+    </div>
   </div>
 </div>
-

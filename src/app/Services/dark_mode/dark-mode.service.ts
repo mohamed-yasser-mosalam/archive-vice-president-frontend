@@ -9,11 +9,11 @@ export class DarkModeService {
   switchTheme = new FormControl(false)
   @HostBinding('class') className=""
   darkClass="dark"
-  lightClass="light" 
+  lightClass="light"
   overlay: any;
 
   constructor() { overlay: OverlayContainer}
-  
+
  DarkMode(){
   this.switchTheme.valueChanges.subscribe((currentTheme) => {
     this.className = currentTheme ? this.darkClass : this.lightClass

@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   switchTheme = new FormControl(false)
   @HostBinding('class') className=""
   darkClass="dark"
-  lightClass="light" 
+  lightClass="light"
 
 
   constructor(private route: Router,

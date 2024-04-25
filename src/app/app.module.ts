@@ -63,7 +63,11 @@ import { DeandecisionComponent } from './deandecision/deandecision.component';
 import { SavefileexportComponent } from './savefileexport/savefileexport.component';
 import { SavefileimportComponent } from './savefileimport/savefileimport.component';
 import { SignsComponent } from './signs/signs.component';
- @NgModule({
+ import { AdddeandecisionComponent } from './adddeandecision/adddeandecision.component';
+import { UpdatedeandecisionComponent } from './updatedeandecision/updatedeandecision.component';
+import { DeanDecisionPaginationComponent } from './dean-decision-pagination/dean-decision-pagination.component';
+import { LastDeanDecisionComponent } from './last-dean-decision/last-dean-decision.component';
+   @NgModule({
   declarations: [
     AppComponent,
     MainComponentsComponent,
@@ -113,7 +117,12 @@ import { SignsComponent } from './signs/signs.component';
     SavefileexportComponent,
     SavefileimportComponent,
     SignsComponent,
-  ],
+    AdddeandecisionComponent,
+    UpdatedeandecisionComponent,
+    DeanDecisionPaginationComponent,
+    LastDeanDecisionComponent,
+
+   ],
      imports: [
          BrowserModule,
          AppRoutingModule,

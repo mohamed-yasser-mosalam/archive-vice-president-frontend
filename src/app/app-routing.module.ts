@@ -44,6 +44,10 @@ import {DeandecisionComponent} from "./deandecision/deandecision.component";
 import {SavefileimportComponent} from "./savefileimport/savefileimport.component";
 import {SavefileexportComponent} from "./savefileexport/savefileexport.component";
 import { SignsComponent } from './signs/signs.component';
+import {UpdatedeandecisionComponent} from "./updatedeandecision/updatedeandecision.component";
+import {AdddeandecisionComponent} from "./adddeandecision/adddeandecision.component";
+import {DeanDecisionPaginationComponent} from "./dean-decision-pagination/dean-decision-pagination.component";
+import {LastDeanDecisionComponent} from "./last-dean-decision/last-dean-decision.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -88,7 +92,11 @@ const routes: Routes = [
   {path:'savefileexport/:id',component:SavefileexportComponent,canActivate:[CanActivate]},
   {path:'savefileimport/:id',component:SavefileimportComponent,canActivate:[CanActivate]},
   {path:'deandecision',component:DeandecisionComponent,canActivate:[CanActivate]},
-  {path:'signs',component:SignsComponent,canActivate:[CanActivate]}
+  {path:'signs',component:SignsComponent,canActivate:[CanActivate]},
+  {path:'deandecisionpagination?page/:page',component:DeanDecisionPaginationComponent,canActivate:[CanActivate]},
+  {path:'updatedeandecision/:page',component:UpdatedeandecisionComponent,canActivate:[CanActivate]},
+  {path:'adddeandecision',component:AdddeandecisionComponent,canActivate:[CanActivate]},
+  {path:'lastdeandecision',component:LastDeanDecisionComponent,canActivate:[CanActivate]},
 
 
 ];

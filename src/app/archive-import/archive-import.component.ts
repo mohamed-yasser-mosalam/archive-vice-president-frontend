@@ -19,7 +19,7 @@ export class ArchiveImportComponent implements OnInit{
 
   }
   getAllImports() {
-    return this.importservice.getImportsById(this.routes.snapshot.params['id']).subscribe((getAllImport:any)=>{
+    return this.importservice.getImportArchiveFile(this.routes.snapshot.params['id']).subscribe((getAllImport:any)=>{
       this.showAllImport=getAllImport;
     })
   }

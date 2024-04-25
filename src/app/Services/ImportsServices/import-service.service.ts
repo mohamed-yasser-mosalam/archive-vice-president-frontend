@@ -13,9 +13,14 @@ export class ImportServiceService {
   getAllLastImports(){
     return this.http.get('http://localhost:1200/import/all-imports')
   }
-  getImportsById(id:number){
+  getImportArchiveFile(id:number){
     return this.http.get(`http://localhost:1200/import/import-archive?id=${id}`)
   }
+  getImportsById(id:number){
+    return this.http.get( `http://localhost:1200/import/import-id?id=${id}` )
+  }
+
+
   getImportPagination(page:number){
     return this.http.get(`http://localhost:1200/import/imports-pagination?page=${page}`)
   }
@@ -37,10 +42,11 @@ export class ImportServiceService {
   addImportResponse(id:number,data:any){
     return this.http.put(`http://localhost:1200/import/import-add-response?id=${id}`,data)
   }
-  uploadImage(page:number,file: File) {
-    const formData: FormData = new FormData();
-    formData.append('image', file, file.name);
-    return this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${page}&pathType=imports`, formData);
+  getImportNumber(){
+    return this.http.get(`http://localhost:1200/import/count-current`)
+  }
+  getLastImportNumber(){
+    return this.http.get(`http://localhost:1200/import/count`)
   }
 
 }

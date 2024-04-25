@@ -1,1 +1,123 @@
-<p>last-import-pagination works!</p>
+<app-navbar></app-navbar>
+
+<div class="row" style="background-color: var(--bg);">
+  <div class="d-flex justify-content-between">
+    <div class="d-flex w-100">
+      <ngb-carousel style="width: 40%;">
+        <ng-template ngbSlide *ngFor="let item of paths;let i=index">
+          <div class="carousel-wrapper" style="margin-top: 20px; ">
+            <img src="{{item}}" style="height:83vh">
+           </div>
+        </ng-template>
+      </ngb-carousel>
+      <form style="zoom:55%;width:51%" [formGroup]="showImport">
+        <div class="wrapper">
+          <legend class="text-center" style="font-weight: bolder;font-size: 30px;color:var(--color);"> الخطابات الواردة
+            (0/1)</legend>
+
+          <div style="display: flex;  justify-content: space-between;">
+            <div class="input-container ">
+
+              <div class="input-data">
+                <input type="text" required readonly id="numberOfAttachments" formControlName="numberOfAttachments">
+                <label for="numberOfAttachments">عدد المرفقات</label>
+              </div>
+              <div class="input-data" style="top:55px">
+                <input type="text" required readonly id="sender" formControlName="sender">
+                <label for="sender">الجهة الوارد منها الخطاب</label>
+              </div>
+            </div>
+            <div class="input-container">
+              <div class="d-flex">
+                <div class="input-data" style="width: 65%">
+                  <input type="text" required readonly id="incomeDate" formControlName="incomeDate">
+                  <label for="incomeDate">تاريخ الورود</label>
+                </div>
+                <div class="input-data " style="width:30%; margin-left:auto;">
+                  <input type="number" required readonly id="no" formControlName="no">
+                  <label for="no">رقم القيد</label>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="input-data" style="width: 55%">
+                  <input type="Date" required readonly id="incomingLetterDate" formControlName="incomingLetterDate">
+                  <label for="incomingLetterDate">تاريخه</label>
+                </div>
+                <div class="input-data " style="width:40%; margin-left:auto;">
+                  <input type="number" required readonly id="incomingLetterNumber" formControlName="incomingLetterNumber">
+                  <label for="incomingLetterNumber">رقم الخطاب الوارد</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-data" style="bottom:20px">
+            <input style="height:60px;" readonly required id="summary" formControlName="summary">
+            <label for="summary" style="margin-bottom: 20px">ملخص الخطاب</label>
+          </div>
+
+          <div style="display: flex;  justify-content: space-between;">
+            <div class="input-container position-relative" style="bottom:60px">
+              <div class="input-data">
+                <input type="text" required readonly id="responseSide" formControlName="responseSide">
+                <label for="responseSide" style="margin-bottom: 30px">الجهة الصادر اليها </label>
+              </div>
+              <div class="input-data">
+                <input type="Date" required readonly id="recipientDate" formControlName="recipientDate">
+                <label for="recipientDate">تاريخ الاستلام</label>
+              </div>
+
+              <div class="d-flex" style="margin-top:0px;bottom: 55px;">
+                <div class="input-data" style="width:35%; margin-left:auto;bottom: 55px;">
+                  <input type="date" required readonly id="expectResponseDate" formControlName="expectResponseDate">
+                  <label for="expectResponseDate">التاريخ المتوقع للرد</label>
+                </div>
+
+                <div class="input-data" style="width:35%; margin-left:auto;bottom: 55px;">
+                  <input type="text" required readonly id="createdBy" formControlName="createdBy">
+                  <label for="createdBy">انشأ بواسطة </label>
+                </div>
+              </div>
+            </div>
+            <div class="input-container position-relative" style="bottom:60px">
+              <div style="display: flex;">
+                <div class="input-data w-50">
+                  <input type="Date" required readonly id="responseDate" formControlName="responseDate">
+                  <label for="responseDate">تاريخ الرد</label>
+                </div>
+                <div class="input-data" style="width:35%; margin-left:auto;">
+                  <input type="text" required readonly id="responseNumber" formControlName="responseNumber">
+                  <label for="responseNumber">الرد</label>
+                </div>
+              </div>
+              <div class="input-data" style="bottom: 55px;">
+                <input type="text" required readonly id="recipientName" formControlName="recipientName">
+                <label for="recipientName">المستلم</label>
+              </div>
+              <div class="input-data" style="bottom: 55px;">
+                <input type="text" required readonly id="num" formControlName="num">
+                <label for="num">رقم الملف</label>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="input-data" style="bottom:150px;margin-left: 20% ">
+
+
+            <div class="col-md-9 pag" style="margin-top:50px;bottom:0px;margin-left: 12%">
+              <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change($event)"
+                              [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
+                              routerLink="/imports-pagination?id/{{page}}">
+              </ngb-pagination>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div>
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>

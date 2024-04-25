@@ -1,76 +1,95 @@
+
+<app-navbar></app-navbar>
 <div class="row">
   <div class="col-2" style="background-color: var(--bg_main);"></div>
   <div class="col-8" style="background-color: var(--bg_main);">
-    <form #addImportForm="ngForm" (ngSubmit)="onSubmit()">
+    <form class="col-8" style="zoom: 76%" [formGroup]="importForm" (ngSubmit)="onSubmit()">
       <div class="wrapper">
         <legend class="text-center">ادخال الوارد</legend>
         <div class="input-data" style="width:20%; margin-left:auto;">
-          <input type="number" required id="receiver" name="receiver" ngModel>
+          <input type="number" readonly id="no" name="no" >
+          <label for="no" style="margin-right: 85%;color: black;margin-bottom:-5px"
+                 readonly>{{ numberOfImportFile }}</label>
           <div class="underLine"></div>
-          <label for="receiver">رقم القيد</label>
+          <label for="no">رقم القيد</label>
         </div>
+
         <div class="d-flex">
           <div class="input-data" style="width:30%; margin-left:auto;">
-            <input type="text" required id="receiver" name="receiver" ngModel>
+            <input type="text" required id="sender" name="sender" formControlName="sender">
             <div class="underLine"></div>
-            <label for="receiver">الحهه الوارد منها الخطاب</label>
+            <label for="sender">الجهه الوارد منها الخطاب</label>
+            <small *ngIf="importForm.get('sender')?.invalid">* مطلوب</small>
+
           </div>
 
           <div class="input-data" style="width:30%; margin-left:auto;">
-            <input type="number" required id="receiver" name="receiver" ngModel>
+            <input type="number" required id="numberOfAttachments" name="numberOfAttachments"
+                   formControlName="numberOfAttachments">
             <div class="underLine"></div>
-            <label for="receiver">عدد المرفقات</label>
+            <label for="numberOfAttachments">عدد المرفقات</label>
+            <small *ngIf="importForm.get('numberOfAttachments')?.invalid">* مطلوب</small>
+
           </div>
           <div class="input-data" style="width:30%; margin-left:auto;">
-            <input type="number" required id="receiver" name="receiver" ngModel>
+            <input type="date" required id="incomeDate" name="incomeDate" formControlName="incomeDate">
             <div class="underLine"></div>
-            <label for="receiver">تاريخ الورود</label>
+            <label for="incomeDate">تاريخ الورود</label>
+            <small *ngIf="importForm.get('incomeDate')?.invalid">* مطلوب</small>
+
           </div>
         </div>
         <div class="d-flex">
           <div class="input-data" style="width:45%; margin-left:auto;">
-            <input type="number" required id="receiver" name="receiver" ngModel>
+            <input type="date"   id="incomingLetterDate" name="incomingLetterDate"
+                   formControlName="incomingLetterDate">
             <div class="underLine"></div>
-            <label for="receiver">تاريخ الخطاب الوارد</label>
+            <label for="incomingLetterDate">تاريخ الخطاب الوارد</label>
           </div>
           <div class="input-data" style="width:45%; margin-left:auto;">
-            <input type="number" required id="receiver" name="receiver" ngModel>
+            <input type="number"   id="incomingLetterNumber" name="incomingLetterNumber"
+                   formControlName="incomingLetterNumber">
             <div class="underLine"></div>
-            <label for="receiver">رقم الخطاب الوارد</label>
+            <label for="incomingLetterNumber">رقم الخطاب الوارد</label>
           </div>
         </div>
         <div class="input-data" style="width:96%; margin-left: auto;">
-          <input cols="40" rows="1" required id="summary" name="summary" ngModel>
+          <input cols="40" rows="1" required id="summary" name="summary" formControlName="summary">
           <div class="underLine"></div>
           <label for="summary">ملخص الخطاب</label>
+          <small *ngIf="importForm.get('summary')?.invalid">* مطلوب</small>
+
         </div>
         <div class="d-flex">
           <div class="input-data" style="width:45%; margin-left:auto;">
-            <input type="number" required id="receiver" name="receiver" ngModel>
+            <input type="date"   id="recipientDate" name="recipientDate" formControlName="recipientDate">
             <div class="underLine"></div>
-            <label for="receiver">تاريخ  الاستلام</label>
+            <label for="recipientDate">تاريخ الاستلام</label>
           </div>
           <div class="input-data" style="width:45%; margin-left:auto;">
-            <input type="text" required id="receiver" name="receiver" ngModel>
+            <input type="text"   id="recipientName" name="recipientName" formControlName="recipientName">
             <div class="underLine"></div>
-            <label for="receiver">المستلم</label>
+            <label for="recipientName">المستلم</label>
           </div>
         </div>
         <div class="d-flex">
           <div class="input-data" style="width:45%; margin-left:auto;">
-            <input type="number" required id="receiver" name="receiver" ngModel>
+            <input type="number" required id="num" name="num" formControlName="num">
             <div class="underLine"></div>
-            <label for="receiver">ملف الحفظ</label>
+            <label for="num">ملف الحفظ</label>
+            <small *ngIf="importForm.get('num')?.invalid">* مطلوب</small>
+
           </div>
           <div class="input-data" style="width:45%; margin-left:auto;">
-            <input type="number" required id="receiver" name="receiver" ngModel>
+            <input type="date"   id="expectResponseDate" name="expectResponseDate"
+                   formControlName="expectResponseDate">
             <div class="underLine"></div>
-            <label for="receiver">التاريخ المتوقع للرد</label>
+            <label for="expectResponseDate">التاريخ المتوقع للرد</label>
           </div>
         </div>
-        <button type="submit" class="btn  "
-                style="width:100px; padding:1px;color: var(--color);background: var(--bg_hover);font-size:22px;margin-right:10%">
-          حفظ
+
+        <button type="submit" class="btn " [disabled]="!importForm.valid"
+                style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%"> حفظ
         </button>
       </div>
     </form>

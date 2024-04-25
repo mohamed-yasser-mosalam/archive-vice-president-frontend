@@ -31,7 +31,7 @@ export class ArchiveExportComponent implements OnInit{
   }
 
   getAllExports() {
-    return this.service.getExportsById( this.routes.snapshot.params['id']).subscribe((getAllExport: any) => {
+    return this.service.getExportArchiveFile( this.routes.snapshot.params['id']).subscribe((getAllExport: any) => {
       this.showAllExport = getAllExport;
     })
   }

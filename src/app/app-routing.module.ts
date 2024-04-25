@@ -48,6 +48,12 @@ import {UpdatedeandecisionComponent} from "./updatedeandecision/updatedeandecisi
 import {AdddeandecisionComponent} from "./adddeandecision/adddeandecision.component";
 import {DeanDecisionPaginationComponent} from "./dean-decision-pagination/dean-decision-pagination.component";
 import {LastDeanDecisionComponent} from "./last-dean-decision/last-dean-decision.component";
+import {LastExportPaginationComponent} from "./last-export-pagination/last-export-pagination.component";
+import {LastSpecialPaginationComponent} from "./last-special-pagination/last-special-pagination.component";
+import {
+  LastDeanDecisionPaginationComponent
+} from "./last-dean-decision-pagination/last-dean-decision-pagination.component";
+import {LastImportPaginationComponent} from "./last-import-pagination/last-import-pagination.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -97,7 +103,10 @@ const routes: Routes = [
   {path:'updatedeandecision/:page',component:UpdatedeandecisionComponent,canActivate:[CanActivate]},
   {path:'adddeandecision',component:AdddeandecisionComponent,canActivate:[CanActivate]},
   {path:'lastdeandecision',component:LastDeanDecisionComponent,canActivate:[CanActivate]},
-
+  {path:'lastexportpagination?page/:page',component:LastExportPaginationComponent,canActivate:[CanActivate]},
+  {path:'lastimportpagination?page/:page',component:LastImportPaginationComponent,canActivate:[CanActivate]},
+  {path:'lastspecialpagination?page/:page',component:LastSpecialPaginationComponent,canActivate:[CanActivate]},
+  {path:'lastdeandecisionpagination?page/:page',component:LastDeanDecisionPaginationComponent,canActivate:[CanActivate]},
 
 ];
 

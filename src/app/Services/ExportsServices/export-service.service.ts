@@ -15,6 +15,9 @@ export class ExportServiceService {
     return this.http.get( 'http://localhost:1200/export/all-exports' )
   }
    getExportsById(id:number){
+    return this.http.get( `http://localhost:1200/export/export-id?id=${id}` )
+  }
+  getExportArchiveFile(id:number){
     return this.http.get( `http://localhost:1200/export/export-archive?id=${id}` )
   }
     addExportFile(data:any){
@@ -36,7 +39,15 @@ export class ExportServiceService {
     return this.http.put(`http://localhost:1200/export/export-id?id=${id}`,data)
   }
 
-
+  getExportNumber(){
+     return this.http.get(`http://localhost:1200/export/count-current`)
+  }
+  getLastExportNumber(){
+    return this.http.get(`http://localhost:1200/export/count`)
+  }
+  addImages(id:number,formData:any) {
+    return  this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${id}&pathType=exports`, formData)
+  }
   addUrgentFile(id:number,data:any){
     return this.http.put(`http://localhost:1200/export/export-add-urgent?id=${id}`,data)
   }

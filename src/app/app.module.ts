@@ -67,6 +67,10 @@ import { SignsComponent } from './signs/signs.component';
 import { UpdatedeandecisionComponent } from './updatedeandecision/updatedeandecision.component';
 import { DeanDecisionPaginationComponent } from './dean-decision-pagination/dean-decision-pagination.component';
 import { LastDeanDecisionComponent } from './last-dean-decision/last-dean-decision.component';
+import { LastExportPaginationComponent } from './last-export-pagination/last-export-pagination.component';
+import { LastImportPaginationComponent } from './last-import-pagination/last-import-pagination.component';
+import { LastSpecialPaginationComponent } from './last-special-pagination/last-special-pagination.component';
+import { LastDeanDecisionPaginationComponent } from './last-dean-decision-pagination/last-dean-decision-pagination.component';
    @NgModule({
   declarations: [
     AppComponent,
@@ -121,6 +125,10 @@ import { LastDeanDecisionComponent } from './last-dean-decision/last-dean-decisi
     UpdatedeandecisionComponent,
     DeanDecisionPaginationComponent,
     LastDeanDecisionComponent,
+    LastExportPaginationComponent,
+    LastImportPaginationComponent,
+    LastSpecialPaginationComponent,
+    LastDeanDecisionPaginationComponent,
 
    ],
      imports: [

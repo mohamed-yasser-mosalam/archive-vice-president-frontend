@@ -26,5 +26,5 @@ export class DeandecisionService {
    this.http.delete(`http://localhost:1200/image/image?imagePath=${paths[index]}`);
  }
  getNumberOfDeanDecision(){
-    return this.http.get(``)
+    return this.http.get(`http://localhost:1200/dean-decisions/count`)
 }}

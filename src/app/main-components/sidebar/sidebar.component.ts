@@ -11,6 +11,7 @@ export class SidebarComponent  implements OnInit{
   idOfUser:string
   pageLength:number
   show:boolean = true 
+  unShow:boolean = false 
   constructor(private aut:AuthenticationServiceService,private auth:AuthenticationServiceService,
               private http: HttpClient,
   ) {
@@ -22,6 +23,7 @@ export class SidebarComponent  implements OnInit{
   }
   hideMenu(): void {
     this.show =!this.show
+    this.unShow =!this.unShow
   }
 
   ngOnInit(): void {

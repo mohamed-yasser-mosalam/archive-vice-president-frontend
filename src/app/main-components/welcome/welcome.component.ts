@@ -6,6 +6,9 @@ import {ShowTodayImports} from "../../Models/showTodayImports/show-today-imports
 import {ShowAllImportantFile} from "../../Models/showAllImportantFile/show-all-important-file";
 import {LetterHasGoneService} from "../../Services/LetterHasGone/letter-has-gone.service";
 import {AuthenticationServiceService} from "../../Services/Security/authentication-service.service";
+import {ExportServiceService} from "../../Services/ExportsServices/export-service.service";
+import {ImportServiceService} from "../../Services/ImportsServices/import-service.service";
+import {SpecialService} from "../../Services/SpecialService/special.service";
 
 @Component({
   selector: 'app-welcome',
@@ -32,6 +35,9 @@ export class WelcomeComponent implements OnInit {
   constructor(private http: HttpClient, private service: TodayServiceService,
               private LetterHasGoneService: LetterHasGoneService,
               private auth: AuthenticationServiceService,
+              private exportService:ExportServiceService,
+              private importService:ImportServiceService,
+              private specialService:SpecialService
   ) {
   }
 
@@ -76,19 +82,19 @@ export class WelcomeComponent implements OnInit {
   }
 
   private getNumberOfAllExports() {
-    this.http.get('http://localhost:1200/export/count').subscribe((numberOfAllExports) => {
+    this.exportService.getExportNumber().subscribe((numberOfAllExports) => {
       this.NumberOfAllExports = numberOfAllExports;
     })
   }
 
   private getNumberOfAllSpecials() {
-    this.http.get('http://localhost:1200/special/count').subscribe((numberOfAllSpecial) => {
+    this.specialService.getSpecialNumber().subscribe((numberOfAllSpecial) => {
       this.numberOfAllSpecial = numberOfAllSpecial;
     })
   }
 
   private getNumberOfAllImports() {
-    this.http.get('http://localhost:1200/import/count').subscribe((numberOfAllImports) => {
+    this.importService.getImportNumber().subscribe((numberOfAllImports) => {
       this.NumberOfAllImports = numberOfAllImports;
     })
   }

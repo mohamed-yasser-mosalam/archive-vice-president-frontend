@@ -120,7 +120,7 @@ export class SpecialPaginationComponent implements OnInit {
   }
 
   getSpecialById(archiveId: any) {
-    this.specialService.getSpecialFileById(this.page).subscribe((result) => {
+    this.specialService.getSpecialsById(this.page).subscribe((result) => {
     })
   }
 

@@ -21,7 +21,7 @@ export class ArchiveSpecialComponent implements OnInit{
   }
 
   getAllSpecials() {
-    return this.specialService.getSpecialsById(this.routes.snapshot.params['id']).subscribe((getAllSpecial: any) => {
+    return this.specialService.getSpecialArchiveFile(this.routes.snapshot.params['id']).subscribe((getAllSpecial: any) => {
       this.specialFile = getAllSpecial;
     })
   }

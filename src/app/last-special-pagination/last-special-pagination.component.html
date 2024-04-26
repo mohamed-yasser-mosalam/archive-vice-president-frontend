@@ -1,1 +1,112 @@
-<p>last-special-pagination works!</p>
+<app-navbar></app-navbar>
+
+<div class="row" style="background-color: var(--bg);">
+  <div class="d-flex justify-content-between">
+    <div class="d-flex w-100">
+      <ngb-carousel style="width: 40%;">
+        <ng-template ngbSlide *ngFor="let item of paths;let i=index">
+          <div class="carousel-wrapper" style="margin-top: 20px;margin-left: 20px">
+            <img src="{{item}}" style="height:83vh">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+      <form style="width:51%;zoom: 70%;direction: ltr" [formGroup]="showSpecial">
+        <legend class="text-center" style="font-weight: bold;margin-top: 30px;margin-left:90px;color: var(--color);"> الملفات الخاصة (0/3)
+        </legend>
+
+        <div class="wrapper">
+
+          <div style="display: flex;  justify-content: space-between;">
+            <div class="input-container ">
+              <div class="input-data">
+                <input type="number" required readonly id="archiveId" formControlName="archiveId">
+                <label for="archiveId">رقم الخطاب</label>
+              </div>
+              <div class="input-data" style="top:32px">
+                <input type="text" required readonly id="sender" formControlName="sender">
+                <label for="sender">الجهة الوارد منها اليها الخطاب</label>
+              </div>
+            </div>
+            <div class="input-container">
+              <div class="d-flex">
+                <div class="input-data" style="width: 65%">
+                  <input type="text" required readonly id="numberOfAttachments" formControlName="numberOfAttachments">
+                  <label for="numberOfAttachments">عدد المرفقات</label>
+                </div>
+                <div class="input-data " style="width:30%; margin-left:auto;">
+                  <input type="number" required readonly id="no" formControlName="no">
+                  <label for="no">رقم القيد</label>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="input-data" style="width: 65%">
+                  <input type="text" required readonly id="incomeDate" formControlName="incomeDate">
+                  <label for="incomeDate">تاريخ الورود</label>
+                </div>
+                <div class="input-data " style="width:30%; margin-left:auto;">
+                  <input type="text" required readonly id="num" formControlName="num">
+                  <label for="num">رقم الملف</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex" >
+            <div class="input-data"style="margin-left: 10px">
+              <input type="text" readonly required id="createdBy" formControlName="createdBy">
+              <label for="createdBy">أنشأ بواسطة </label>
+            </div>
+
+            <div class="input-data"style="margin-left: 10px">
+              <input type="text" readonly required id="summary" formControlName="summary">
+              <label for="summary">ملخص الخطاب</label>
+            </div>
+          </div>
+
+          <div class="col-8 position-relative"
+
+               style="background-color: var(--bg); height: 250px; overflow: auto; border-radius: 8px;
+              zoom:95%;width:1000px ;margin-top: 20px ">
+            <div
+              style="background-color: var(--bg); overflow: auto; height: 200px; text-align:right;  border-radius: 8px;">
+              <table class="table  table-bordered   " style="direction: rtl;background-color:var(--bg)">
+                <thead style=" position: sticky; top: 44px; background-color: var(--bg);">
+                <tr>
+                </tr>
+                <tbody *ngFor="let item of subjects">
+                <td style="font-weight: bolder;font-size:25px;margin-right:100%;margin-top: 10px">({{ item.num }}
+                  /0) {{ item.head }}
+                </td>
+                <tr *ngFor="let i of item.decisions">
+                  <td style="font-size: 20px"> ({{ i.num }}/{{ item.num }}) {{ i.summary }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;القرار&nbsp;&nbsp;({{ i.qarar }}
+                    )
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <div class="input-data" style=" margin-left: 100px ">
+
+
+
+
+            <div class="  pag" style="margin-top: 10px;margin-left: 29%">
+              <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change($event)"
+                              [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
+                              routerLink="/exports-pagination?id/{{page}}">
+              </ngb-pagination>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div>
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>
+

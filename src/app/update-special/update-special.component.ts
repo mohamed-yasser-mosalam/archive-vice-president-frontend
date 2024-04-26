@@ -77,7 +77,7 @@ export class UpdateSpecialComponent implements OnInit {
   }
 
   showSpecialFile() {
-    this.specialService.getSpecialFileById(this.page).subscribe((getSpecial: any) => {
+    this.specialService.getSpecialsById(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
       this.updateSubject = this.showSpecials.subjects
       this.updateDecision = this.showSpecials.subjects.decision;
@@ -87,7 +87,7 @@ export class UpdateSpecialComponent implements OnInit {
   }
   ngOnInit(): void {
     this.showSpecialFile();
-    this.specialService.getSpecialFileById(this.routes.snapshot.params['id']).subscribe((result) => {
+    this.specialService.getSpecialsById(this.routes.snapshot.params['id']).subscribe((result) => {
       this.form = new FormGroup({
         summary: new FormControl(result['summary']),
         sender: new FormControl(result['sender']),

@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+/*form {*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  margin-left:0px;*/
+/*  height: 300px;*/
+
+/*}*/
+
+.wrapper {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.wrapper .input-data {
+  height: 40px;
+  width: 100%;
+  position: relative;
+  margin: 30px 0;
+  margin-top: 20px;
+
+}
+
+.wrapper .input-data input {
+  height: 60%;
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  border-bottom: 2px solid silver;
+  direction: rtl;
+  background-color: var(--bg);
+  color: var(--color);
+}
+
+.wrapper .input-data textarea {
+  border: none;
+  font-size: 18px;
+  border-bottom: 2px solid silver;
+}
+
+.input-data input:focus,
+.input-data textarea:focus {
+  outline: none;
+  border: none;
+}
+
+.wrapper .input-data label {
+  position: absolute;
+  bottom: 40px;
+  right: 7px;
+  color: var(--color);
+  pointer-events: none;
+  transition: .3s ease;
+  text-align: center;
+}
+
+.wrapper .input-data .underLine {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+}
+
+.wrapper .input-data .underLine::before,
+.wrapper .input-data .underLine-text::before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #333333;
+  transform: scaleX(0);
+  transition: all .3s ease-in-out;
+}
+
+.wrapper .input-data .underLine-text::before {
+  bottom: -123px;
+}
+
+.input-data input:focus~.underLine::before,
+.input-data input:valid~.underLine::before,
+.input-data textarea:focus~.underLine-text::before,
+.input-data textarea:valid~.underLine-text::before {
+  transform: scaleX(1);
+}
+
+.input-container {
+  width: 45%;
+}
+
+
+
+
+ngb-pagination ::ng-deep ul>li.active>a {
+  background-color: #333333 !important;
+  color: white !important;
+}
+
+ngb-pagination ::ng-deep a {
+  color: black !important;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link {
+  border-color: black;
+  background-color: lightgrey;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link:focus,
+.page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+::-webkit-scrollbar:hover {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #333333;
+}
+
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #333333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #333333;
+}

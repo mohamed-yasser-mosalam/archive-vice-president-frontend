@@ -14,20 +14,29 @@ export class SpecialService {
   getAllLastSpecials(){
     return this.http.get( 'http://localhost:1200/special/all-specials')
   }
-  getSpecialsById(id:number){
+
+  getSpecialArchiveFile(id:number){
     return this.http.get(`http://localhost:1200/special/special-archive?id=${id}`)
+  }
+  getSpecialsById(id:number){
+    return this.http.get( `http://localhost:1200/special/special-id?id=${id}` )
+  }
+
+  getSpecialNumber(){
+    return this.http.get(`http://localhost:1200/Special/count-current`)
+  }
+  getLastSpecialNumber(){
+    return this.http.get(`http://localhost:1200/Special/count`)
   }
   getSpecialsByPagination(id:number){
     return this.http.get(`http://localhost:1200/special/specials-pagination?page=${id}`)
   }
-  getSpecialFileById(id:number){
-    return this.http.get(`http://localhost:1200/special/special?id=${id}`)
-  }
+
   updateSpecial(id:number,data:any){
     return this.http.put(`http://localhost:1200/special/special`,data)
   }
   addSpecialFile(data:any){
-    return  this.http.post(`http://localhost:1200/special/special`,data)
+    return  this.http.post(`http://localhost:1200/special/specials`,data)
   }
 
 }

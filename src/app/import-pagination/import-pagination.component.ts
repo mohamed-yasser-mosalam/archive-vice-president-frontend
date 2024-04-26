@@ -85,7 +85,7 @@ export class ImportPaginationComponent implements OnInit {
     }
 
   getImportCount() {
-    this.http.get('http://localhost:1200/import/count').subscribe((numberOfImportFiles: any) => {
+    this.importService.getImportNumber().subscribe((numberOfImportFiles: any) => {
       this.pageLength = numberOfImportFiles;
     })
   }

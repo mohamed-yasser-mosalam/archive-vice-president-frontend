@@ -86,7 +86,7 @@ export class ExportPaginationComponent implements OnInit {
    }
 
   getExportCount(): void {
-    this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
+    this.serviceExport.getExportNumber().subscribe((numberOfExportFiles: any) => {
       this.pageLength = numberOfExportFiles;
     });
   }

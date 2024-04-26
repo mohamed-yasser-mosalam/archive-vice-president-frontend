@@ -9,6 +9,8 @@ import {AllFilesService} from "../Services/AllFile/all-files.service";
 })
 export class AllFilesComponent  implements OnInit{
   AllFiles:AllFiles[]=[]
+  searchText:string
+
   constructor(private AllFilesService:AllFilesService) {
   }
   getAllFiles(){
@@ -19,6 +21,9 @@ export class AllFilesComponent  implements OnInit{
 
   ngOnInit(): void {
     this.getAllFiles()
+  }
+  onsearchTextEntered(searchValue){
+    this.searchText=searchValue
   }
 }
 

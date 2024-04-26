@@ -3,7 +3,14 @@
   <div class="d-flex justify-content-between">
   <div class="w-100" style=" zoom: 75%; background-color: var(--bg);position: sticky; text-align: center; overflow: scroll; height:853px; ">
     <div class="row">
-      <h2>ملفات الارشيف </h2>
+      <div class="d-flex"
+           style="font-size: 20px; padding: 10px 0;margin-left: 50%; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 50%;font-weight: bold">
+        <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
+        <div class="input-data ">
+          <h2 style="margin-left: 20px">ملفات الارشيف </h2>
+        </div>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -12,8 +19,7 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let item of AllFiles" class="p-4">
+           <tr *ngFor="let item of AllFiles | search:searchText" class="p-4 ">
              <td>{{ item.name }}</td>
             <td>{{ item.typeNumber }}/{{ item.num }}</td>
             <td *ngIf="item.id<=21;else first">
@@ -51,8 +57,7 @@
             </ng-template>
 
           </tr>
-        </tbody>
-      </table>
+       </table>
     </div>
   </div>
   <div>

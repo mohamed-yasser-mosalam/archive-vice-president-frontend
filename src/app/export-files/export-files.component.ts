@@ -20,7 +20,6 @@ export class ExportFilesComponent implements OnInit{
   }
   ngOnInit(): void {
     this.getAllExports()
-
     }
 
   getAllExports() {

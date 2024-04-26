@@ -35,7 +35,7 @@
           <th scope="col">التاريخ المتوقع للرد</th>
         </tr>
         </thead>
-        <tr *ngFor="let item of showAllImport">
+        <tr *ngFor="let item of showAllImport | search:searchText">
           <td>{{item.no}}</td>
           <td>{{item.incomeDate}}</td>
           <td>{{item.numberOfAttachments}}</td>

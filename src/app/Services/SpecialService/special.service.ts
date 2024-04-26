@@ -23,7 +23,7 @@ export class SpecialService {
   }
 
   getSpecialNumber(){
-    return this.http.get(`http://localhost:1200/Special/count-current`)
+    return this.http.get(`http://localhost:1200/special/count-current`)
   }
   getLastSpecialNumber(){
     return this.http.get(`http://localhost:1200/Special/count`)

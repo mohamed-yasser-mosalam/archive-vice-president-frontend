@@ -22,23 +22,24 @@ export class SignPaginationComponent implements OnInit {
   paths: string[];
   numbers: any = [];
  signForm = new FormGroup({
-    id:new FormControl(''),
-    date: new FormControl(''),
-    sender:new FormControl(''),
-    via: new FormControl(''),
-    signInformer: new FormControl(''),
-    signInformerSelf: new FormControl(''),
-    signInformerPhone: new FormControl(''),
-    summary: new FormControl(''),
-    signSignature: new FormControl(''),
-    signSelf: new FormControl(''),
-    signRecipientName: new FormControl(''),
-    signRecipientSelf: new FormControl(''),
-    signRecipientDate: new FormControl(''),
-    signExcutedName: new FormControl(''),
-    signExcutedSelf: new FormControl(''),
-    signExecutionDate: new FormControl(''),
-    depend: new FormControl(''),
+   id:new FormControl(''),
+   universityYear:new FormControl(''),
+   date: new FormControl(''),
+   sender:new FormControl(''),
+   via: new FormControl(''),
+   signInformer: new FormControl(''),
+   signInformerSelf: new FormControl(''),
+   signInformerPhone: new FormControl(''),
+   summary: new FormControl(''),
+   signSignature: new FormControl(''),
+   signSelf: new FormControl(''),
+   signRecipientName: new FormControl(''),
+   signRecipientSelf: new FormControl(''),
+   signRecipientDate: new FormControl(''),
+   signExcutedName: new FormControl(''),
+   signExcutedSelf: new FormControl(''),
+   signExecutionDate: new FormControl(''),
+   depend: new FormControl(''),
   });
 
   ngOnInit(): void {
@@ -51,6 +52,7 @@ export class SignPaginationComponent implements OnInit {
     this.signService.getSignsByPage(this.page).subscribe((result) => {
       this.signForm.patchValue({
         id:result['id'],
+        universityYear:result['universityYear'],
         date: result['date'],
         sender:result['sender'],
         via:result['via'],
@@ -72,7 +74,6 @@ export class SignPaginationComponent implements OnInit {
   }
   constructor(
     private signService: SignsService,
-    private http: HttpClient,
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
 
@@ -98,6 +99,7 @@ export class SignPaginationComponent implements OnInit {
     this.signService.getSignsByPage(event).subscribe((result) => {
       this.signForm = new FormGroup({
         id: new FormControl(result['id']),
+        universityYear: new FormControl(result['universityYear']),
         date: new FormControl( result['date']),
         sender: new FormControl( result['sender']),
         via: new FormControl( result['via']),

@@ -7,10 +7,17 @@
         <legend class="text-center" style="font-weight: bolder;font-size: 25px;color:var(--color);">رقم الأشارة
           {{ id }}
         </legend>
-        <div style="margin:20px auto;font-size:20px">
-          <span style="color: var(--color);">للعام الجامعي : 2023م\2024م</span>&nbsp;&nbsp;&nbsp;&nbsp;
-          <span style="color: var(--color);margin-right: 20px;">بتاريخ :
-                        12\3\2024م</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="d-flex" style="margin:20px auto;font-size:20px">
+
+          <div class="input-data" style="width:90%;margin-right: 50px">
+            <input type="text" readonly id="date" name="date" formControlName="date">
+            <label for="date">بتاريخ :  </label>
+          </div>
+          <div class="input-data"  style="width:900px;margin-left: 50px">
+            <input type="text" readonly id="universityYear" name="universityYear" formControlName="universityYear">
+            <label for="universityYear">للعام الجامعي :</label>
+          </div>
+
         </div>
         <div class="input-container ">
           <div class="input-data">

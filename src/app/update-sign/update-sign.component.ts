@@ -22,6 +22,7 @@ export class UpdateSignComponent implements OnInit {
   numbers: any = [];
   editSignForm = new FormGroup({
     id:new FormControl(''),
+    universityYear:new FormControl(''),
     date: new FormControl(''),
     sender:new FormControl(''),
     via: new FormControl(''),
@@ -51,6 +52,7 @@ export class UpdateSignComponent implements OnInit {
       this.editSignForm.patchValue({
         id:result['id'],
         date: result['date'],
+        universityYear: result['universityYear'],
         sender:result['sender'],
         via:result['via'],
         signInformer:result['signInformer'],

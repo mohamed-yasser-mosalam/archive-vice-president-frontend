@@ -18,6 +18,7 @@ export class AddSignComponent implements OnInit {
   numberOfSign:number
   signForm = new FormGroup({
     id: new FormControl(''),
+    universityYear:new FormControl(''),
     date: new FormControl(''),
     sender: new FormControl(''),
     via: new FormControl(''),

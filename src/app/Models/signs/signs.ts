@@ -1,24 +1,37 @@
 export class Signs {
-  id:number;
-  date:Date;
-  sender:string;
-  via:string;
-  signInformer:string;
-  signInformerSelf:string;
-  signInformerPhone:string;
-  summary:string;
-  signSignature:string;
-  signSelf:string;
-  signRecipientName:string;
-  signRecipientSelf:string;
-  signRecipientDate:Date;
-  signExcutedName:string;
-  signExcutedSelf:string;
-  SignExecutionDate:Date;
-  depend:string;
+  id: number;
+  date: string;
+  universityYear: string;
+  sender: string;
+  via: string;
+  signInformer: string;
+  signInformerSelf: string;
+  signInformerPhone: string;
+  summary: string;
+  signSignature: string;
+  signSelf: string;
+  signRecipientName: string;
+  signRecipientSelf: string;
+  signRecipientDate: Date;
+  signExcutedName: string;
+  signExcutedSelf: string;
+  SignExecutionDate: Date;
+  depend: string;
 
-
-  constructor(id: number, date: Date, sender: string, via: string, signInformer: string, signInformerSelf: string, signInformerPhone: string, summary: string, signSignature: string, signSelf: string, signRecipientName: string, signRecipientSelf: string, signRecipientDate: Date, signExcutedName: string, signExcutedSelf: string, SignExecutionDate: Date, depend: string) {
+  constructor(id: number,
+              date: string,
+              sender: string,
+              via: string,
+              signInformer: string,
+              signInformerSelf: string,
+              signInformerPhone: string,
+              summary: string,
+              signSignature: string,
+              signSelf: string,
+              signRecipientName: string, signRecipientSelf: string, signRecipientDate: Date, signExcutedName: string,
+              signExcutedSelf: string, SignExecutionDate: Date, depend: string,
+              universityYear: string
+  ) {
     this.id = id;
     this.date = date;
     this.sender = sender;
@@ -36,5 +49,7 @@ export class Signs {
     this.signExcutedSelf = signExcutedSelf;
     this.SignExecutionDate = SignExecutionDate;
     this.depend = depend;
+    this.universityYear = universityYear;
+
   }
 }

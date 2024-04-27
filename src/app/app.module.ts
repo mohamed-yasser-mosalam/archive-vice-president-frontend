@@ -62,8 +62,7 @@ import { LastSpecialComponent } from './last-special/last-special.component';
 import { DeandecisionComponent } from './deandecision/deandecision.component';
 import { SavefileexportComponent } from './savefileexport/savefileexport.component';
 import { SavefileimportComponent } from './savefileimport/savefileimport.component';
-import { SignsComponent } from './signs/signs.component';
- import { AdddeandecisionComponent } from './adddeandecision/adddeandecision.component';
+import { AdddeandecisionComponent } from './adddeandecision/adddeandecision.component';
 import { UpdatedeandecisionComponent } from './updatedeandecision/updatedeandecision.component';
 import { DeanDecisionPaginationComponent } from './dean-decision-pagination/dean-decision-pagination.component';
 import { LastDeanDecisionComponent } from './last-dean-decision/last-dean-decision.component';
@@ -71,6 +70,10 @@ import { LastExportPaginationComponent } from './last-export-pagination/last-exp
 import { LastImportPaginationComponent } from './last-import-pagination/last-import-pagination.component';
 import { LastSpecialPaginationComponent } from './last-special-pagination/last-special-pagination.component';
 import { LastDeanDecisionPaginationComponent } from './last-dean-decision-pagination/last-dean-decision-pagination.component';
+import { AddSignComponent } from './add-sign/add-sign.component';
+import { UpdateSignComponent } from './update-sign/update-sign.component';
+import { AllSignComponent } from './all-sign/all-sign.component';
+import { SignPaginationComponent } from './sign-pagination/sign-pagination.component';
    @NgModule({
   declarations: [
     AppComponent,
@@ -120,7 +123,6 @@ import { LastDeanDecisionPaginationComponent } from './last-dean-decision-pagina
     DeandecisionComponent,
     SavefileexportComponent,
     SavefileimportComponent,
-    SignsComponent,
     AdddeandecisionComponent,
     UpdatedeandecisionComponent,
     DeanDecisionPaginationComponent,
@@ -129,6 +131,10 @@ import { LastDeanDecisionPaginationComponent } from './last-dean-decision-pagina
     LastImportPaginationComponent,
     LastSpecialPaginationComponent,
     LastDeanDecisionPaginationComponent,
+    AddSignComponent,
+    UpdateSignComponent,
+    AllSignComponent,
+    SignPaginationComponent,
 
    ],
      imports: [

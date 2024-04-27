@@ -43,7 +43,6 @@ import {AuthGuardService} from "./Services/guard/auth-guard.service";
 import {DeandecisionComponent} from "./deandecision/deandecision.component";
 import {SavefileimportComponent} from "./savefileimport/savefileimport.component";
 import {SavefileexportComponent} from "./savefileexport/savefileexport.component";
-import { SignsComponent } from './signs/signs.component';
 import {UpdatedeandecisionComponent} from "./updatedeandecision/updatedeandecision.component";
 import {AdddeandecisionComponent} from "./adddeandecision/adddeandecision.component";
 import {DeanDecisionPaginationComponent} from "./dean-decision-pagination/dean-decision-pagination.component";
@@ -54,6 +53,10 @@ import {
   LastDeanDecisionPaginationComponent
 } from "./last-dean-decision-pagination/last-dean-decision-pagination.component";
 import {LastImportPaginationComponent} from "./last-import-pagination/last-import-pagination.component";
+import {AllSignComponent} from "./all-sign/all-sign.component";
+import {SignPaginationComponent} from "./sign-pagination/sign-pagination.component";
+import {AddSignComponent} from "./add-sign/add-sign.component";
+import {UpdateSignComponent} from "./update-sign/update-sign.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -98,7 +101,6 @@ const routes: Routes = [
   {path:'savefileexport/:id',component:SavefileexportComponent,canActivate:[CanActivate]},
   {path:'savefileimport/:id',component:SavefileimportComponent,canActivate:[CanActivate]},
   {path:'deandecision',component:DeandecisionComponent,canActivate:[CanActivate]},
-  {path:'signs',component:SignsComponent,canActivate:[CanActivate]},
   {path:'deandecisionpagination?page/:page',component:DeanDecisionPaginationComponent,canActivate:[CanActivate]},
   {path:'updatedeandecision/:page',component:UpdatedeandecisionComponent,canActivate:[CanActivate]},
   {path:'adddeandecision',component:AdddeandecisionComponent,canActivate:[CanActivate]},
@@ -107,6 +109,10 @@ const routes: Routes = [
   {path:'lastimportpagination?page/:page',component:LastImportPaginationComponent,canActivate:[CanActivate]},
   {path:'lastspecialpagination?page/:page',component:LastSpecialPaginationComponent,canActivate:[CanActivate]},
   {path:'lastdeandecisionpagination?page/:page',component:LastDeanDecisionPaginationComponent,canActivate:[CanActivate]},
+  {path:'allsigns',component:AllSignComponent,canActivate:[CanActivate]},
+  {path:'signpagination?page/:page',component:SignPaginationComponent,canActivate:[CanActivate]},
+  {path:'addsign',component:AddSignComponent,canActivate:[CanActivate]},
+  {path:'updatesign/:page',component:UpdateSignComponent,canActivate:[CanActivate]},
 
 ];
 

@@ -1,3 +1,4 @@
+
 form {
   background-color: var(--bg);
   color: var(--color);
@@ -5,6 +6,7 @@ form {
   margin: 0 auto;
   margin-top: 2%;
   zoom: 70%;
+
 }
 
 .wrapper {
@@ -45,24 +47,24 @@ form {
   border-bottom: 2px solid silver;
 }
 
-.input-data input:focus,
-.input-data textarea:focus {
-  outline: none;
-  border: none;
-}
+/*.input-data input:focus,*/
+/*.input-data textarea:focus {*/
+/*  outline:none ;*/
+/*  border: none;*/
+/*}*/
 
 .input-data input:focus~label,
 .input-data input:valid~label,
 .input-data textarea:focus~label,
 .input-data textarea:valid~label {
-  transform: translateY(-35px);
+  transform: translateY(-5px);
   font-size: 15px;
   color: var(--color);
 }
 
 .wrapper .input-data label {
   position: absolute;
-  bottom: 10px;
+  bottom:40px;
   right: 7%;
   color: var(--color);
   pointer-events: none;
@@ -98,4 +100,30 @@ form {
 .input-data textarea:focus~.underLine-text::before,
 .input-data textarea:valid~.underLine-text::before {
   transform: scaleX(1);
+}
+
+
+
+
+ngb-pagination ::ng-deep ul>li.active>a {
+  background-color: #333333 !important;
+  color: white !important;
+}
+
+ngb-pagination ::ng-deep a {
+  color: black !important;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link {
+  border-color: black;
+  background-color: lightgrey;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link:focus,
+.page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
 }

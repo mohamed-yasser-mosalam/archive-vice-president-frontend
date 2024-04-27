@@ -59,7 +59,7 @@ export class UpdateExportComponent implements OnInit {
 
   update() {
     this.serviceExport.updateExport(this.routes.snapshot.params['id'], this.editExport.value)
-      .subscribe((result) => {
+      .subscribe(( ) => {
        this.router.navigate([`/export-pagination?page/`, this.no])
     })
   }

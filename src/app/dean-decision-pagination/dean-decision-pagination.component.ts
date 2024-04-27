@@ -97,7 +97,7 @@ export class DeanDecisionPaginationComponent  implements OnInit {
 
   getNumberOfDeanDecision() {
    this.deanDecisionService.getNumberOfDeanDecision().subscribe((numberOfDeanDecision:any)=>{
-     this.pageLength=numberOfDeanDecision
+     this.pageLength=numberOfDeanDecision;
    })
   }
 

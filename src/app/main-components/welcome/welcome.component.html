@@ -2,15 +2,13 @@
 
 <div class="row" style="background-color: var(--bg_main);">
   <div class="d-flex justify-content-between">
-  <div class="dashboard" style="width:100%; height: 116vh; zoom: 80%">
+  <div class="dashboard" style="width:100%; height: 100vh; zoom: 80%">
     <div class="row">
-
       <div class="col-md-2">
         <div class="box">
           <div class="data">
-            <p
-              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/filenotcome"> خطابات
+            <p>
+              <a routerLink="/filenotcome"> خطابات
                 لم يأت
                 موعدها </a>
             </p>
@@ -21,9 +19,8 @@
       <div class="col-md-2">
         <div class="box">
           <div class="data">
-            <p
-              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/filehadgone"> خطابات
+            <p>
+              <a routerLink="/filehadgone"> خطابات
                 ذهب
                 موعدها </a>
             </p>
@@ -34,9 +31,8 @@
       <div class="col-md-2">
         <div class="box">
           <div class="data">
-            <p
-              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/importantletter">عدد
+            <p>
+              <a routerLink="/importantletter">عدد
                 الخطابات
                 الهامة</a>
             </p>
@@ -47,9 +43,8 @@
       <div class="col-md-2">
         <div class="box">
           <div class="data">
-            <p
-              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/specialfile">
+            <p>
+              <a routerLink="/specialfile">
                 المكاتبات المحفوظة</a>
             </p>
             <span> {{ numberOfAllSpecial }}</span>
@@ -59,9 +54,8 @@
       <div class="col-md-2">
         <div class="box">
           <div class="data">
-            <p
-              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/getallImports">عدد
+            <p>
+              <a routerLink="/getallImports">عدد
                 الخطابات
                 الواردة</a>
             </p>
@@ -73,9 +67,8 @@
 
         <div class="box">
           <div class="data">
-            <p
-              style="font-size: 25px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/getallexports">عدد
+            <p>
+              <a routerLink="/getallexports">عدد
                 الخطابات
                 الصادرة</a>
             </p>
@@ -91,7 +84,7 @@
           style="background-color: var(--bg); overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
           <h2
             style="font-size: 22px; padding: 10px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
-            <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/filehasgone"> <label
+            <a routerLink="/filehasgone"> <label
                 style="font-size: 20px;font-weight: lighter"> ({{ NumberOfFileHasGone }})</label> خطابات حان موعدها </a>
           </h2>
 
@@ -135,7 +128,7 @@
               </button>
             </a>
 
-            <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/todayimports">وارد
+            <a routerLink="/todayimports">وارد
               اليوم</a>
           </h2>
 
@@ -185,7 +178,7 @@
             <div class="input-container" style="margin-top: 50px">
               <div class="input-data"
                 style="font-size: 22px;  background-color: var(--bg); color: var(--color);  top:10px;  ">
-                <a style=" text-decoration:none;color: var(--color);font-weight: bold">
+                <a>
                   <label type="number"
                     style="margin-top:10px; margin-right: 15px">{{numberOfExportLetterForSpecificYear}} </label>عدد
                   الخطابات الصادرة</a>
@@ -194,7 +187,7 @@
             <div class="input-container">
               <div class="input-data"
                 style="font-size: 22px;   background-color: var(--bg); color: var(--color);  margin-top:30px;  ">
-                <a style=" text-decoration:none;color: var(--color);font-weight: bold">
+                <a>
                   <label type="number" style="margin-top:10px;margin-right: 15px">{{ numberOfImportLetterForSpecificYear
                     }}</label>عدد
                   الخطابات الواردة </a>
@@ -223,7 +216,7 @@
               </button>
             </a>
 
-            <a style=" text-decoration:none;color: var(--color);font-weight: bold" routerLink="/todeyexports">صادر
+            <a routerLink="/todeyexports">صادر
               اليوم</a>
           </h2>
 

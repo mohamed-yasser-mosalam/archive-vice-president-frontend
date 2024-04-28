@@ -38,6 +38,22 @@ a {
   color: var(--color);
 }
 
+.box .data p {
+  font-size: 25px;
+  padding: 5px 0;
+  background-color: var(--bg);
+  color: var(--color);
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color);
+  font-weight: bold
+}
+
 h2 {
   font-size: 22px;
   padding: 10px 0;

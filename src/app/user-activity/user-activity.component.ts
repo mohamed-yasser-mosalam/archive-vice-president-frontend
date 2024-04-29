@@ -30,8 +30,7 @@ export class UserActivityComponent implements OnInit{
     return this.userActivityService.getUserActivity().subscribe((getAllActivity:any)=>{
       this.showUserActivity=getAllActivity;
     })
-    console.log(this.showUserActivity)
-  }
+   }
 
 
 

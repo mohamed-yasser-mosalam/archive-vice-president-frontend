@@ -17,7 +17,6 @@ export class AddSignComponent implements OnInit {
   page = this.routes.snapshot.params['page']
   numberOfSign:number
   signForm = new FormGroup({
-    id: new FormControl(''),
     universityYear:new FormControl(''),
     date: new FormControl(''),
     sender: new FormControl(''),
@@ -68,6 +67,4 @@ export class AddSignComponent implements OnInit {
       this.addSign(this.signForm.value);
     }
   }
-
-
 }

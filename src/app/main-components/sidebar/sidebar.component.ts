@@ -11,7 +11,7 @@ export class SidebarComponent  implements OnInit{
   idOfUser:string
   pageLength:number
   show:boolean = true 
-  unShow:boolean = false 
+  unShow:boolean = !this.show
   constructor(private aut:AuthenticationServiceService,private auth:AuthenticationServiceService,
               private http: HttpClient,
   ) {

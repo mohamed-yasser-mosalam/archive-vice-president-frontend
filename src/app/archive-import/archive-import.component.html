@@ -1,15 +1,30 @@
 <app-navbar></app-navbar>
 
-<div class="row" >
-
-  <div class="col-10 position-relative"
-       style=" zoom: 71%; background-color: var(--bg); text-align: center; overflow: auto; height:785px; border-radius: 8px;margin-right: 0">
+<div class="row" style="background-color: var(--bg);">
+  <div class="d-flex justify-content-between">
+  <div
+       style="
+       zoom: 71%;
+       background-color: var(--bg);
+       text-align: center;
+       position: sticky;
+       overflow: auto;
+       height:870px;
+       border-radius: 8px;
+       width:100%">
 
     <div class="row">
 
 
       <div class="d-flex"
-           style="font-size: 20px; padding: 10px 0;margin-left: 50%; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 50%;font-weight: bold">
+           style="
+           font-size: 20px;
+        padding: 10px 35%;
+        background-color: var(--bg);
+        color: var(--color);
+        position: sticky;
+        top: 0;
+        font-weight: bold">
         <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
         <div class="input-data ">
           <h2 style="font-weight: bold;margin-left: 30px">الخطابات الواردة من مكتب العميد</h2>
@@ -35,6 +50,7 @@
           <th scope="col">التاريخ المتوقع للرد</th>
         </tr>
         </thead>
+        <tbody>
         <tr *ngFor="let item of showAllImport | search:searchText">
           <td>{{item.no}}</td>
           <td>{{item.incomeDate}}</td>
@@ -59,10 +75,12 @@
             </a>
           </td>
         </tr>
+      </tbody>
       </table>
     </div>
   </div>
-  <div class="col-2 position-relative">
+  <div >
     <app-sidebar></app-sidebar>
+  </div>
   </div>
 </div>

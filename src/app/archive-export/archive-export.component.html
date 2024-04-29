@@ -1,19 +1,27 @@
 <app-navbar></app-navbar>
-<div class="row">
+<div class="row" style="background-color: var(--bg);">
   <div class="d-flex justify-content-between">
   <div  style="
-    zoom: 71%;
-    background-color: var(--bg_main);
-     text-align: center;
-      overflow: auto;
-      height:985px;
-       border-radius: 8px;
-       width: 100%;">
+  zoom: 71%;
+  background-color: var(--bg);
+  text-align: center;
+  position: sticky;
+  overflow: auto;
+  height:870px;
+  border-radius: 8px;
+  width:100%">
 
     <div class="row">
 
       <div class="d-flex"
-        style="font-size: 20px; padding: 10px 0;margin-left: 50%; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 50%;font-weight: bold">
+        style="
+        font-size: 20px;
+        padding: 10px 35%;
+        background-color: var(--bg);
+        color: var(--color);
+        position: sticky;
+        top: 0;
+        font-weight: bold">
         <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
         <div class="input-data ">
           <h2 style="font-weight: bold;margin-left: 30px">الخطابات الصادرة من مكتب العميد</h2>
@@ -38,6 +46,7 @@
             <th scope="col">رقم الملف</th>
           </tr>
         </thead>
+        <tbody>
         <tr *ngFor="let item of showAllExport | search:searchText">
           <td>{{ item.no }}</td>
           <td>{{ item.date }}</td>
@@ -64,6 +73,7 @@
           </td>
 
         </tr>
+      </tbody>
       </table>
     </div>
   </div>

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DeandecisionService} from "../Services/DeanDecision/deandecision.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 import {HttpClient} from "@angular/common/http";
 import {FormControl, FormGroup} from "@angular/forms";
@@ -33,7 +33,8 @@ export class DeanDecisionPaginationComponent  implements OnInit {
   constructor(private deanDecisionService: DeandecisionService,
               private auth: AuthenticationServiceService,
               private routes: ActivatedRoute,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private router:Router) {
   }
 
   ngOnInit() {
@@ -114,5 +115,8 @@ export class DeanDecisionPaginationComponent  implements OnInit {
         typeNumber: new FormControl(result['typeNumber'])
       });
     });
+    const nextPageUrl = `/deandecision_pagination/${this.page}`;
+    this.router.navigate([nextPageUrl]);
+    this.form();
   }
 }

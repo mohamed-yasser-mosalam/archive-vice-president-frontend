@@ -74,6 +74,7 @@ import { AddSignComponent } from './add-sign/add-sign.component';
 import { UpdateSignComponent } from './update-sign/update-sign.component';
 import { AllSignComponent } from './all-sign/all-sign.component';
 import { SignPaginationComponent } from './sign-pagination/sign-pagination.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
    @NgModule({
   declarations: [
     AppComponent,
@@ -135,6 +136,7 @@ import { SignPaginationComponent } from './sign-pagination/sign-pagination.compo
     UpdateSignComponent,
     AllSignComponent,
     SignPaginationComponent,
+    ErrorPageComponent,
 
    ],
      imports: [

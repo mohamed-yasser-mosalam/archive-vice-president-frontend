@@ -57,6 +57,7 @@ import {AllSignComponent} from "./all-sign/all-sign.component";
 import {SignPaginationComponent} from "./sign-pagination/sign-pagination.component";
 import {AddSignComponent} from "./add-sign/add-sign.component";
 import {UpdateSignComponent} from "./update-sign/update-sign.component";
+import {ErrorPageComponent} from "./error-page/error-page.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -69,7 +70,7 @@ const routes: Routes = [
   {path: 'todeyexports', component: TodayExportsComponent, canActivate: [CanActivate]},
   {path: 'todayimports', component: TodayImportsComponent, canActivate: [CanActivate]},
   {path: 'login', component: LoginComponent},
-  {path: '', component: LoginComponent, canActivate: [CanActivate]},
+  {path: '', redirectTo:'/login',pathMatch:'full'},
   {path: 'addexportfile', component: AddExportComponent, canActivate: [CanActivate]},
   {path: 'addimportfile', component: AddImportComponent, canActivate: [CanActivate]},
   {path: 'updateimport/:id', component: UpdateImportComponent, canActivate: [AuthGuardService, CanActivate]},
@@ -113,6 +114,7 @@ const routes: Routes = [
   {path:'signpagination?page/:page',component:SignPaginationComponent,canActivate:[CanActivate]},
   {path:'addsign',component:AddSignComponent,canActivate:[CanActivate]},
   {path:'updatesign/:page',component:UpdateSignComponent,canActivate:[CanActivate]},
+  { path: "**",component:ErrorPageComponent},
 
 ];
 

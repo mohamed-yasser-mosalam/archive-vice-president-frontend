@@ -3,7 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-last-export-pagination',
@@ -66,7 +66,7 @@ export class LastExportPaginationComponent implements OnInit {
   }
   constructor(
     private serviceExport: ExportServiceService,
-    private http: HttpClient,
+    private router: Router,
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
 
@@ -112,6 +112,9 @@ export class LastExportPaginationComponent implements OnInit {
 
       });
     });
+    const nextPageUrl = `/lastexport_pagination/${this.page}`;
+    this.router.navigate([nextPageUrl]);
+    this.form();
   }
 
 

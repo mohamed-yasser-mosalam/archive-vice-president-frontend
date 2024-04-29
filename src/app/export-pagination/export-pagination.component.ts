@@ -69,7 +69,7 @@ export class ExportPaginationComponent implements OnInit {
     private http: HttpClient,
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
-
+    private router: Router
   ) {
   }
 
@@ -109,9 +109,11 @@ export class ExportPaginationComponent implements OnInit {
         responseDate: new FormControl(result['responseDate']),
         responseNumber: new FormControl(result['responseNumber']),
         recipientDate: new FormControl(result['recipientDate'])
-
       });
     });
+    const nextPageUrl = `/export_pagination/${this.page}`;
+    this.router.navigate([nextPageUrl]);
+    this.form();
    }
 
   deleteImage(index: number): void {

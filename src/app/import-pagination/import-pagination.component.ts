@@ -110,10 +110,11 @@ export class ImportPaginationComponent implements OnInit {
         recipientName: new FormControl(result['recipientName']),
         num: new FormControl(result['num']),
         expectResponseDate: new FormControl(result['expectResponseDate']),
-
-
       })
     })
+    const nextPageUrl = `/import_pagination/${this.page}`;
+    this.router.navigate([nextPageUrl]);
+    this.form();
   }
 
   deleteImage(index: number): void {

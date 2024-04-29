@@ -101,7 +101,8 @@ export class LastSpecialPaginationComponent implements OnInit {
         num: new FormControl(result['num']),
       })
     })
-
+    const nextPageUrl = `/lastspecial_pagination/${this.page}`;
+    this.router.navigate([nextPageUrl]);
   }
 
 

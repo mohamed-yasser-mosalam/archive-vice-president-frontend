@@ -82,7 +82,7 @@ export class UpdatedeandecisionComponent implements OnInit {
   update() {
     const formValues = this.deanDecisions.value;
     this.deanDecisionService.updateDeanDecision(this.page, formValues).subscribe((result) => {
-      this.router.navigate([`/deandecisionpagination?page/`, this.no]);
+      this.router.navigate([`/deandecision_pagination/`, this.no]);
     });
   }
 

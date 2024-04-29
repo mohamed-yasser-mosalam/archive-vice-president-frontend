@@ -102,7 +102,7 @@ const routes: Routes = [
   {path:'savefileexport/:id',component:SavefileexportComponent,canActivate:[CanActivate]},
   {path:'savefileimport/:id',component:SavefileimportComponent,canActivate:[CanActivate]},
   {path:'deandecision',component:DeandecisionComponent,canActivate:[CanActivate]},
-  {path:'deandecisionpagination/:page',component:DeanDecisionPaginationComponent,canActivate:[CanActivate]},
+  {path:'deandecision_pagination/:page',component:DeanDecisionPaginationComponent,canActivate:[CanActivate]},
   {path:'updatedeandecision/:page',component:UpdatedeandecisionComponent,canActivate:[CanActivate]},
   {path:'adddeandecision',component:AdddeandecisionComponent,canActivate:[CanActivate]},
   {path:'lastdeandecision',component:LastDeanDecisionComponent,canActivate:[CanActivate]},

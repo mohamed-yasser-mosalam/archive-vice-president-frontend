@@ -30,7 +30,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of showAllFileNotCome">
-            <td>{{item.id}}</td>
+            <td>{{item.no}}</td>
             <td>{{item.incomeDate}}</td>
             <td>{{item.numberOfAttachments}}</td>
             <td>{{item.sender}}</td>
@@ -46,7 +46,7 @@
             <td>{{item.expectResponseDate}}</td>
             <td>
 
-              <a routerLink="/import_pagination/{{item.id}}">
+              <a routerLink="/import_pagination/{{item.no}}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                   class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color: var(--color)">
                   <path fill-rule="evenodd"

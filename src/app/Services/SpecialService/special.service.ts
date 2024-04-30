@@ -36,7 +36,7 @@ export class SpecialService {
     return this.http.put(`http://localhost:1200/special/special`,data)
   }
   addSpecialFile(data:any){
-    return  this.http.post(`http://localhost:1200/special/specials`,data)
+    return  this.http.post(`http://localhost:1200/special/special`,data)
   }
 
 }

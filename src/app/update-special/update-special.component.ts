@@ -70,11 +70,7 @@ export class UpdateSpecialComponent implements OnInit {
     this.getDecisions(subjectIndex).removeAt(decisionIndex);
   }
 
-  AddSpecialFile(data) {
-    this.specialService.addSpecialFile(data).subscribe(
-      response => this.router.navigateByUrl('/specialfile')
-    )
-  }
+
 
   showSpecialFile() {
     this.specialService.getSpecialsById(this.page).subscribe((getSpecial: any) => {
@@ -106,7 +102,7 @@ export class UpdateSpecialComponent implements OnInit {
         const subjectGroup = this.fb.group({
           num: new FormControl(subject['num']),
           head: new FormControl(subject['head']),
-          decision: decisionArray // Assign decisionArray to the 'decision' form control
+          decision: decisionArray
         });
 
         subjectsArray.push(subjectGroup);

@@ -13,6 +13,7 @@ export class Special { id: number;
   createdBy:string;
   fileType:string
 
+
   constructor(id: number, importNum: number, summary: string, numberOfAttachments: number, paths: string[], incomeDate: Date, sender: string, subjects: Subjects[],
               typeNumber: number, num: number,no:number,createdBy:string,
               fileType:string) {

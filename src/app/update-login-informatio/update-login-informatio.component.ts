@@ -43,28 +43,13 @@ export class UpdateLoginInformatioComponent  implements OnInit{
   }
 
 
-  constructor(private registerService:RegisterService,
-              private route:Router,
-              private http:HttpClient,
-              private serviceExport: ExportServiceService,private router:Router,
+  constructor(private router:Router,
               private routes: ActivatedRoute,
               private  auth:AuthenticationServiceService,
               private updateUserInformationService:UpdateUserInformationService,
          ) {
   }
 
-
-  onImageSelected(event){
-    const file=event.target.files[0]
-    const formDate:FormData=new FormData()
-    this.x= formDate.append("file",file)
-    console.log(this.x)
-    this.http.post('http://localhost:1200/register/add-image?username=user&id=3&pathType=users',formDate).subscribe(
-      response=>{
-        console.log("successfully")
-      }
-    )
-  }
 }
 
 

@@ -11,9 +11,8 @@ import {ActivatedRoute} from "@angular/router";
 export class ArchiveExportComponent implements OnInit{
 
   showAllExport: Showallexport[]
-   x: any;
   searchText: string;
-  page = this.routes.snapshot.params['id'];
+  id = this.routes.snapshot.params['id'];
 
 
   onsearchTextEntered(searchValue) {
@@ -31,7 +30,7 @@ export class ArchiveExportComponent implements OnInit{
   }
 
   getAllExports() {
-    return this.service.getExportArchiveFile( this.routes.snapshot.params['id']).subscribe((getAllExport: any) => {
+    return this.service.getExportArchiveFile( this.id).subscribe((getAllExport: any) => {
       this.showAllExport = getAllExport;
     })
   }

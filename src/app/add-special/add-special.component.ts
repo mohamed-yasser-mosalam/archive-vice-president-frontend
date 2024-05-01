@@ -71,7 +71,7 @@ export class AddSpecialComponent implements OnInit{
     });
   }
   getSpecailCount(): void {
-    this.http.get('http://localhost:1200/special/count').subscribe((numberOfSpecialFiles: any) => {
+    this.specialService.getSpecialNumber().subscribe((numberOfSpecialFiles: any) => {
       this.numberOfSpecialFile = numberOfSpecialFiles+1;
      });
   }

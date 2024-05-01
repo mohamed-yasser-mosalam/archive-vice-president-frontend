@@ -31,7 +31,7 @@ export class DeandecisionService {
   return  this.http.post<any>(`${this.base}/image/multipleFiles?id=${id}&pathType=decisions`, formData)
  }
  deleteImage(paths:string[],index:number){
-   this.http.delete(`${this.base}/image/image?imagePath=${paths[index]}`);
+  return  this.http.delete(`${this.base}/image/image?imagePath=${paths[index]}`);
  }
  getNumberOfDeanDecision(){
     return this.http.get(`${this.base}/dean-decisions/count-current`)

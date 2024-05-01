@@ -26,21 +26,21 @@ export class UrgentExportComponent  implements OnInit{
     this.getExportCount()
       this.urgentForm
   }
-  constructor(private serviceExport: ExportServiceService,private routes: ActivatedRoute,
+  constructor(private exportService: ExportServiceService,private routes: ActivatedRoute,
               private router: Router,private http:HttpClient,
               private fb: FormBuilder) {
 
   }
 
   addUrgentFile(data:any) {
-    this.serviceExport.addUrgentFile(this.routes.snapshot.params['id'],data).subscribe(
+    this.exportService.addUrgentFile(this.routes.snapshot.params['id'],data).subscribe(
       // response => this.router.navigate([`/export-pagination?id/`,this.x])
       response => this.router.navigateByUrl('/home')
 
     )
   }
   getExportCount(): void {
-    this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
+    this.exportService.getExportNumber().subscribe((numberOfExportFiles: any) => {
       this.numberOfExportFile = numberOfExportFiles+1;
     });
   }

@@ -7,10 +7,9 @@
       <ngb-carousel style="width: 40%;">
         <ng-template ngbSlide *ngFor="let item of paths;let i=index">
           <div class="carousel-wrapper" style="margin-top: 20px; ">
-            <img src="{{item}}" style="height:83vh">
             <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'" type="submit" (click)="deleteImage(i)"
                     class="btn"
-                    style="width:150px;margin-top:10px;margin-left:15px;color: var(--color);background: var(--bg_hover);font-size:15px">
+                    style="width:150px;padding:1px;margin-top:10px;margin-left:30px;color: var(--color);background: var(--bg_hover);font-size:15px">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
                    viewBox="0 0 16 16">
                 <path
@@ -18,6 +17,7 @@
               </svg>
               حذف المرفق
             </button>
+            <img src="{{item}}" style="height:83vh">
           </div>
         </ng-template>
       </ngb-carousel>

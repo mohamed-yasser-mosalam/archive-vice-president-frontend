@@ -29,10 +29,9 @@ export class ChangePasswordByAdminComponent implements OnInit {
 
 
   changePassword(newPassword: any) {
-    this.http.put(`http://localhost:1200/user/changePassword-admin?id=${this.id}`,newPassword).subscribe()
+    this.updateUserInformationService.changePasswordByAdmin(this.id,newPassword).subscribe()
     this.router.navigateByUrl("/home")
-     console.log(newPassword)
-  }
+   }
 
 
 }

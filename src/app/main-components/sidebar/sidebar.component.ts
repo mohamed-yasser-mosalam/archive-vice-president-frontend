@@ -7,28 +7,22 @@ import {HttpClient} from "@angular/common/http";
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent  implements OnInit{
-  idOfUser:string
-  pageLength:number
-  show:boolean = true 
-  unShow:boolean = !this.show
-  constructor(private aut:AuthenticationServiceService,private auth:AuthenticationServiceService,
-              private http: HttpClient,
-  ) {
+export class SidebarComponent implements OnInit {
+  idOfUser: string
+  pageLength: number
+  show: boolean = true
+  unShow: boolean = !this.show
+
+  constructor( private auth: AuthenticationServiceService) {
   }
-  getExportCount(): void {
-    this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
-      this.pageLength = numberOfExportFiles;
-    });
-  }
+
   hideMenu(): void {
-    this.show =!this.show
-    this.unShow =!this.unShow
+    this.show = !this.show
+    this.unShow = !this.unShow
   }
 
   ngOnInit(): void {
-    this.idOfUser=this.auth.getUserRoles()
-    this.getExportCount()
+    this.idOfUser = this.auth.getUserRoles()
   }
 
 }

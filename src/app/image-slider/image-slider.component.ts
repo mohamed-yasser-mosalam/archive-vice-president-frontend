@@ -7,22 +7,6 @@ import {Showallexport} from "../Models/showAllExports/showallexport";
   templateUrl: './image-slider.component.html',
   styleUrls: ['./image-slider.component.css']
 })
-export class ImageSliderComponent implements OnInit{
-  showAttachments: Showallexport[]=[];
-  items:[number, number, number]=[1,2,3];
-   constructor(private exportService:ExportServiceService) {
-   }
-  ngOnInit(): void {
-     this.getAttachments();
-    }
-  getAttachments(){
-     this.exportService.getAllExports().subscribe((getAllAttachments:any)=>{
-       this.showAttachments=getAllAttachments;
-     })
+export class ImageSliderComponent {
   }
 
-
-
-
-
-}

@@ -118,7 +118,7 @@ export class ImportPaginationComponent implements OnInit {
   }
 
   deleteImage(index: number): void {
-    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
+    this.importService.deleteImage(this.paths,index).subscribe();
     this.paths.splice(index, 1);
   }
 
@@ -142,7 +142,7 @@ export class ImportPaginationComponent implements OnInit {
       formData.append('files', this.selectedFiles[i]);
     }
 
-    this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=imports`, formData).subscribe(() => {
+    this.importService.addImages(this.id, formData).subscribe(() => {
      });
     setTimeout(() => {
       window.location.reload();

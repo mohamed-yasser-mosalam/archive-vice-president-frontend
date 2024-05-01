@@ -37,7 +37,7 @@ export class UpdateImportComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.serviceImport.getImportById(this.routes.snapshot.params['id']).subscribe((result) => {
+    this.importService.getImportById(this.routes.snapshot.params['id']).subscribe((result) => {
       this.editImport = new FormGroup({
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
         sender: new FormControl(result['sender']),
@@ -61,19 +61,19 @@ export class UpdateImportComponent implements OnInit {
 
   }
 
-  constructor(private serviceImport: ImportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient,private auth:AuthenticationServiceService) {
+  constructor(private importService: ImportServiceService, private routes: ActivatedRoute, private router: Router,
+           private auth:AuthenticationServiceService) {
   }
 
   update() {
-    this.serviceImport.updateImport(this.routes.snapshot.params['id'], this.editImport.value).subscribe((result) => {
+    this.importService.updateImport(this.routes.snapshot.params['id'], this.editImport.value).subscribe((result) => {
       this.router.navigate([`/import_pagination/`, this.no])
 
     })
   }
 
   showImportFile() {
-    this.serviceImport.getImportById(this.routes.snapshot.params['id']).subscribe((getImport: any) => {
+    this.importService.getImportById(this.routes.snapshot.params['id']).subscribe((getImport: any) => {
       this.showImports = getImport;
       this.paths = this.showImports.paths;
       this.no=this.showImports.no
@@ -81,7 +81,7 @@ export class UpdateImportComponent implements OnInit {
   }
 
   deleteImage(index: number): void {
-    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
+    this.importService.deleteImage(this.paths,index).subscribe()
     this.paths.splice(index, 1);
 
   }

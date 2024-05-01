@@ -11,7 +11,7 @@ import {Special} from "../Models/Special/special";
 export class ArchiveSpecialComponent implements OnInit{
   specialFile: Special[] = []
   searchText: string
-
+  id=this.routes.snapshot.params['id']
   constructor(private specialService: SpecialService,private routes:ActivatedRoute) {
   }
 
@@ -21,7 +21,7 @@ export class ArchiveSpecialComponent implements OnInit{
   }
 
   getAllSpecials() {
-    return this.specialService.getSpecialArchiveFile(this.routes.snapshot.params['id']).subscribe((getAllSpecial: any) => {
+    return this.specialService.getSpecialArchiveFile(this.id).subscribe((getAllSpecial: any) => {
       this.specialFile = getAllSpecial;
     })
   }

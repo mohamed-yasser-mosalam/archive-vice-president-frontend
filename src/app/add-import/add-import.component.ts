@@ -13,7 +13,7 @@ export class AddImportComponent implements OnInit {
   importForm: FormGroup;
 
   constructor(
-    private serviceImport: ImportServiceService,
+    private importService: ImportServiceService,
     private fb: FormBuilder,
     private http: HttpClient
   ) {}
@@ -36,13 +36,13 @@ export class AddImportComponent implements OnInit {
   }
 
   addImportFile(data: any): void {
-    this.serviceImport.addImportFile(data).subscribe(() => {
+    this.importService.addImportFile(data).subscribe(() => {
       window.location.reload();
     })
   }
 
   getImportCount(): void {
-    this.http.get('http://localhost:1200/import/count').subscribe((numberOfImportFiles: any) => {
+    this.importService.getImportNumber().subscribe((numberOfImportFiles: any) => {
       this.numberOfImportFile = numberOfImportFiles + 1;
     });
   }

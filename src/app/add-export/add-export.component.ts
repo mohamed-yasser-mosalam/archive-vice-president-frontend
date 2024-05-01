@@ -14,7 +14,7 @@ export class AddExportComponent implements OnInit {
   exportForm: FormGroup;
 
 
-  constructor(private serviceExport: ExportServiceService, private router: Router,
+  constructor(private exportService: ExportServiceService, private router: Router,
               private fb: FormBuilder, private http: HttpClient) {}
   ngOnInit(): void {
     this.getExportCount();
@@ -31,13 +31,13 @@ export class AddExportComponent implements OnInit {
   }
 
   addExportFile(data: any) {
-    this.serviceExport.addExportFile(data).subscribe(() => {
+    this.exportService.addExportFile(data).subscribe(() => {
       window.location.reload();
     });
   }
 
   getExportCount(): void {
-    this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
+    this.exportService.getExportNumber().subscribe((numberOfExportFiles: any) => {
       this.numberOfExportFile = numberOfExportFiles + 1;
     });
   }

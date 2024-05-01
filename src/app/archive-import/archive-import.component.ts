@@ -10,7 +10,8 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ArchiveImportComponent implements OnInit{
   showAllImport: Showallimport[]=[]
-  searchText:string
+  searchText:string;
+  id=this.routes.snapshot.params['id']
 
   constructor(private importservice:ImportServiceService,private routes:ActivatedRoute) {
   }
@@ -19,7 +20,7 @@ export class ArchiveImportComponent implements OnInit{
 
   }
   getAllImports() {
-    return this.importservice.getImportArchiveFile(this.routes.snapshot.params['id']).subscribe((getAllImport:any)=>{
+    return this.importservice.getImportArchiveFile(this.id).subscribe((getAllImport:any)=>{
       this.showAllImport=getAllImport;
     })
   }

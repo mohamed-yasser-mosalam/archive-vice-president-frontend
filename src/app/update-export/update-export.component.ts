@@ -33,7 +33,7 @@ export class UpdateExportComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.serviceExport.getExportByPagination(this.routes.snapshot.params['id']).subscribe((result) => {
+    this.exportService.getExportByPagination(this.routes.snapshot.params['id']).subscribe((result) => {
       this.editExport = new FormGroup({
         date: new FormControl(result['date']),
         receiver: new FormControl(result['receiver']),
@@ -52,27 +52,27 @@ export class UpdateExportComponent implements OnInit {
     this.showExportFile()
   }
 
-  constructor(private serviceExport: ExportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http:HttpClient,private auth:AuthenticationServiceService
+  constructor(private exportService: ExportServiceService, private routes: ActivatedRoute, private router: Router,
+              private auth:AuthenticationServiceService
    ) {
   }
 
   update() {
-    this.serviceExport.updateExport(this.routes.snapshot.params['id'], this.editExport.value)
+    this.exportService.updateExport(this.routes.snapshot.params['id'], this.editExport.value)
       .subscribe(( ) => {
        this.router.navigate([`/export_pagination/`, this.no])
     })
   }
 
   showExportFile() {
-    this.serviceExport.getExportById(this.routes.snapshot.params['id']).subscribe((getExport: any) => {
+    this.exportService.getExportById(this.routes.snapshot.params['id']).subscribe((getExport: any) => {
       this.showExports = getExport;
       this.paths = this.showExports.paths;
       this.no=this.showExports.no
     })
   }
   deleteImage(index: number): void {
-    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe()
+    this.exportService.deleteImage(this.paths,index).subscribe()
     this.paths.splice(index, 1);
   }
 }

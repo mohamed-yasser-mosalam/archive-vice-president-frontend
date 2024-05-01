@@ -40,4 +40,11 @@ base=baseUrl
     return  this.http.post(`${this.base}/special/special`,data)
   }
 
+  addImages(id: number, formData: any) {
+    return this.http.post<any>(`${this.base}/image/multipleFiles?id=${id}&pathType=specials`, formData)
+  }
+  deleteImage(paths:string[],index:number){
+    return  this.http.delete(`${this.base}/image/image?imagePath=${paths[index]}`);
+  }
+
 }

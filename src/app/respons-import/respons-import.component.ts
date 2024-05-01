@@ -13,7 +13,7 @@ import {HttpClient} from "@angular/common/http";
 export class ResponsImportComponent implements OnInit{
   numberOfExportFile: any;
   importResponse: FormGroup;
-  x=this.routes.snapshot.params['id']
+  id=this.routes.snapshot.params['id']
   addResponse = new FormGroup({
     receiver: new FormControl(''),
     summary: new FormControl(''),
@@ -35,7 +35,7 @@ export class ResponsImportComponent implements OnInit{
     }
 
     constructor(private serviceImport: ImportServiceService,private routes: ActivatedRoute, private router: Router,
-  private http: HttpClient,private fb: FormBuilder,) {
+      private http: HttpClient,private fb: FormBuilder,private exportService:ExportServiceService) {
 
   }
 
@@ -46,7 +46,7 @@ export class ResponsImportComponent implements OnInit{
     )
   }
   getExportCount(): void {
-    this.http.get('http://localhost:1200/export/count').subscribe((numberOfExportFiles: any) => {
+    this.exportService.getExportNumber().subscribe((numberOfExportFiles: any) => {
       this.numberOfExportFile = numberOfExportFiles + 1;
     });
   }

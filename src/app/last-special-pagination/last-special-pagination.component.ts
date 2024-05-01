@@ -79,7 +79,7 @@ export class LastSpecialPaginationComponent implements OnInit {
   }
 
   getSpecialCount() {
-    this.http.get('http://localhost:1200/special/count').subscribe((numberOfSpecialFiles: any) => {
+    this.specialService.getLastSpecialNumber().subscribe((numberOfSpecialFiles: any) => {
       this.pageLength = numberOfSpecialFiles;
     })
   }

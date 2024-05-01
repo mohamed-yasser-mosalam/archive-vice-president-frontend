@@ -46,7 +46,7 @@ export class ExportPaginationComponent implements OnInit {
   }
 
   form(){
-    this.serviceExport.getExportByPagination(this.page).subscribe((result) => {
+    this.exportService.getExportByPagination(this.page).subscribe((result) => {
       this.showExport.patchValue({
         date: result['date'],
         recipientDate:result['recipientDate'],
@@ -65,7 +65,7 @@ export class ExportPaginationComponent implements OnInit {
     });
   }
   constructor(
-    private serviceExport: ExportServiceService,
+    private exportService: ExportServiceService,
     private http: HttpClient,
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
@@ -74,7 +74,7 @@ export class ExportPaginationComponent implements OnInit {
   }
 
   showExportFile(): void {
-    this.serviceExport.getExportByPagination(this.page).subscribe((getExport: any) => {
+    this.exportService.getExportByPagination(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
       this.paths = this.showExports.paths;
       this.id=this.showExports.id;
@@ -86,7 +86,7 @@ export class ExportPaginationComponent implements OnInit {
    }
 
   getExportCount(): void {
-    this.serviceExport.getExportNumber().subscribe((numberOfExportFiles: any) => {
+    this.exportService.getExportNumber().subscribe((numberOfExportFiles: any) => {
       this.pageLength = numberOfExportFiles;
     });
   }
@@ -94,7 +94,7 @@ export class ExportPaginationComponent implements OnInit {
   change(event): void {
     this.page = event;
     this.showExportFile();
-    this.serviceExport.getExportByPagination(event).subscribe((result) => {
+    this.exportService.getExportByPagination(event).subscribe((result) => {
       this.showExport = new FormGroup({
         date: new FormControl(result['date']),
         createdBy: new FormControl(result['createdBy']),
@@ -117,7 +117,7 @@ export class ExportPaginationComponent implements OnInit {
    }
 
   deleteImage(index: number): void {
-    this.http.delete(`http://localhost:1200/image/image?imagePath=${this.paths[index]}`).subscribe();
+    this.exportService.deleteImage(this.paths,index).subscribe();
     this.paths.splice(index, 1);
   }
   selectedFiles: File[] = [];
@@ -138,14 +138,12 @@ export class ExportPaginationComponent implements OnInit {
     for (let i = 0; i < this.selectedFiles.length; i++) {
       formData.append('files', this.selectedFiles[i]);
     }
-
-    this.http.post<any>(`http://localhost:1200/image/multipleFiles?id=${this.id}&pathType=exports`, formData).subscribe(() => {
+    this.exportService.addImages(this.id, formData).subscribe(() => {
     });
     setTimeout(() => {
       window.location.reload();
     }, 50);
   }
-
 
 }
 

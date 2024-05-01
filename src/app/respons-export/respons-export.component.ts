@@ -3,6 +3,7 @@ import {ExportServiceService} from "../Services/ExportsServices/export-service.s
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {ImportServiceService} from "../Services/ImportsServices/import-service.service";
 
 @Component({
   selector: 'app-respons-export',
@@ -19,7 +20,8 @@ export class ResponsExportComponent implements OnInit {
     private serviceExport: ExportServiceService,
     private routes: ActivatedRoute,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private importService:ImportServiceService
   ) {
   }
 
@@ -47,7 +49,7 @@ export class ResponsExportComponent implements OnInit {
   }
 
   getImportCount(): void {
-    this.http.get('http://localhost:1200/import/count').subscribe((numberOfImportFiles: any) => {
+    this.importService.getImportNumber().subscribe((numberOfImportFiles: any) => {
       this.numberOfImportFile = numberOfImportFiles + 1;
     });
   }

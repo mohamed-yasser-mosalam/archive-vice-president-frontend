@@ -38,7 +38,6 @@ import { ResponsExportComponent } from './respons-export/respons-export.componen
 import { ResponsImportComponent } from './respons-import/respons-import.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { UpdateLoginInformatioComponent } from './update-login-informatio/update-login-informatio.component';
-import { AnyThingComponent } from './any-thing/any-thing.component';
 import { UsersComponent } from './users/users.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { TodayExportsComponent } from './today-exports/today-exports.component';
@@ -102,7 +101,6 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     ResponsImportComponent,
     ImageSliderComponent,
     UpdateLoginInformatioComponent,
-    AnyThingComponent,
     UsersComponent,
     ChangePasswordComponent,
     TodayExportsComponent,

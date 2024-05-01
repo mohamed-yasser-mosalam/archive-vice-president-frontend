@@ -4,6 +4,7 @@ import {AuthenticationServiceService} from "../../Services/Security/authenticati
 import {FormControl} from "@angular/forms";
 import {OverlayContainer} from "@angular/cdk/overlay";
 import {HttpClient} from "@angular/common/http";
+import {UserService} from "../../Services/user/user.service";
 
 @Component({
   selector: 'app-navbar',
@@ -26,7 +27,8 @@ export class NavbarComponent implements OnInit {
   constructor(private route: Router,
               private auth: AuthenticationServiceService,
               private http: HttpClient,
-              private overlay: OverlayContainer
+              private overlay: OverlayContainer,
+              private userService:UserService
               ) {
   }
 
@@ -50,7 +52,7 @@ export class NavbarComponent implements OnInit {
     const file = event.target.files[0]
     const formDate: FormData = new FormData()
     this.x = formDate.append("file", file)
-     this.http.post(`http://localhost:1200/user/add-image?pathType=users&username=${this.userName}&id=${this.id}`,formDate).subscribe(
+     this.userService.addImages(this.userName,this.id,formDate).subscribe(
       (result) => {
         this.route.navigateByUrl('/login'),
          this.auth.clearToken()

@@ -20,7 +20,6 @@ import {ResponsExportComponent} from "./respons-export/respons-export.component"
 import {ResponsImportComponent} from "./respons-import/respons-import.component";
 import {ImportPaginationComponent} from "./import-pagination/import-pagination.component";
 import {UpdateLoginInformatioComponent} from "./update-login-informatio/update-login-informatio.component";
-import {AnyThingComponent} from "./any-thing/any-thing.component";
 import {UsersComponent} from "./users/users.component";
 import {CanActivate} from "./auth.guard";
 import {ChangePasswordComponent} from "./change-password/change-password.component";
@@ -85,7 +84,6 @@ const routes: Routes = [
   {path: 'update-login-information', component: UpdateLoginInformatioComponent, canActivate: [CanActivate]},
   {path: 'users', component: UsersComponent, canActivate: [AuthenticationServiceService, CanActivate]},
   {path: 'changepassword/:username', component: ChangePasswordComponent, canActivate: [CanActivate]},
-  {path: 'any', component: AnyThingComponent, canActivate: [CanActivate]},
   {path: 'exportfile/:summary', component: ExportFilesComponent, canActivate: [CanActivate]},
   {path: 'archiveexport/:id', component: ArchiveExportComponent, canActivate: [CanActivate]},
   {path: 'archiveimport/:id', component: ArchiveImportComponent, canActivate: [CanActivate]},

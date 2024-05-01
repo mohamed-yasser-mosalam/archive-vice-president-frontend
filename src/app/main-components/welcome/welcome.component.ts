@@ -9,6 +9,7 @@ import {AuthenticationServiceService} from "../../Services/Security/authenticati
 import {ExportServiceService} from "../../Services/ExportsServices/export-service.service";
 import {ImportServiceService} from "../../Services/ImportsServices/import-service.service";
 import {SpecialService} from "../../Services/SpecialService/special.service";
+import {WelcomeService} from "../../Services/welcome/welcome.service";
 
 @Component({
   selector: 'app-welcome',
@@ -34,7 +35,7 @@ export class WelcomeComponent implements OnInit {
 
   constructor(private http: HttpClient, private service: TodayServiceService,
               private LetterHasGoneService: LetterHasGoneService,
-              private auth: AuthenticationServiceService,
+              private welcomeservice:WelcomeService,
               private exportService:ExportServiceService,
               private importService:ImportServiceService,
               private specialService:SpecialService
@@ -57,26 +58,26 @@ export class WelcomeComponent implements OnInit {
   }
 
   getNumberOfFileHadGone() {
-    this.http.get('http://localhost:1200/import/count-response-date-passed').subscribe((numberOfFileHadGone) => {
+    this.welcomeservice.getNumberOfFileHadGone().subscribe((numberOfFileHadGone) => {
       this.NumberOfFileHadGone = numberOfFileHadGone;
     })
   }
 
   getNumberOfFileNotCome() {
-    this.http.get('http://localhost:1200/import/count-response-date-not-time').subscribe((numberOfFileNotCome) => {
+    this.welcomeservice.getNumberOfFileNotCome().subscribe((numberOfFileNotCome) => {
       this.NumberOfFileNotCome = numberOfFileNotCome;
     })
   }
 
   getNumberOfFileHasGone() {
-    this.http.get('http://localhost:1200/import/count-response-date-is-time').subscribe((numberOfFileHasGone) => {
+    this.welcomeservice.getNumberOfFileHasGone().subscribe((numberOfFileHasGone) => {
       this.NumberOfFileHasGone = numberOfFileHasGone;
     })
   }
 
 
-  private getNumberOfImportantLetter() {
-    this.http.get('http://localhost:1200/import/count-important').subscribe((numberOfImportantLetter) => {
+   getNumberOfImportantLetter() {
+    this.welcomeservice.getNumberOfImportantLetter().subscribe((numberOfImportantLetter) => {
       this.NumberOfImportantLetter = numberOfImportantLetter;
     })
   }
@@ -118,7 +119,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   getYears() {
-    this.http.get<number[]>('http://localhost:1200/general/years').subscribe((years: number[]) => {
+    this.welcomeservice.getYears().subscribe((years: number[]) => {
       const currentYear = new Date().getFullYear();
       this.years = years.filter(year => year !== currentYear);
     });
@@ -126,17 +127,12 @@ export class WelcomeComponent implements OnInit {
 
   getNumberOfLetterForYears() {
     if (this.selectedYear) {
-      this.http.get(`http://localhost:1200/export/count-export-by-year?year=${this.selectedYear}`).subscribe((numberOfLetterForYear) => {
-        this.numberOfLetterForYears = numberOfLetterForYear;
-      });
-    }
-    if (this.selectedYear) {
-      this.http.get(`http://localhost:1200/export/count-export-by-year?year=${this.selectedYear}`).subscribe((numberOfExportLetterForSpecificYears) => {
+      this.welcomeservice.getNumberOfLetterForExports(this.selectedYear).subscribe((numberOfExportLetterForSpecificYears) => {
         this.numberOfExportLetterForSpecificYear = numberOfExportLetterForSpecificYears;
       });
     }
     if (this.selectedYear) {
-      this.http.get(`http://localhost:1200/import/count-import-by-year?year=${this.selectedYear}`).subscribe((numberOfImportLetterForSpecificYears) => {
+      this.welcomeservice.getNumberOfLetterForImports(this.selectedYear).subscribe((numberOfImportLetterForSpecificYears) => {
         this.numberOfImportLetterForSpecificYear = numberOfImportLetterForSpecificYears;
       });
     }

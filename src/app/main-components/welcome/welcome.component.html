@@ -2,7 +2,7 @@
 
 <div class="row" style="background-color: var(--bg_main);">
   <div class="d-flex justify-content-between">
-  <div class="dashboard" style="width:100%; height: 87vh; zoom: 80%">
+  <div class="dashboard" style="width:100%; height: 87vh;">
     <div class="row">
       <div class="col-md-2">
         <div class="box">
@@ -79,9 +79,9 @@
     </div>
     <div class="row">
       <div class="col-5 mt-3 mx-3 "
-        style="background-color: var(--bg); height: 340px; overflow: auto; border-radius: 8px; zoom:95%;width:39%">
+        style="background-color: var(--bg); height: 240px; overflow: auto; border-radius: 8px;;width:39%">
         <div
-          style="background-color: var(--bg); overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+          style="background-color: var(--bg); overflow: auto; height: 200px; text-align:center;  border-radius: 8px;">
           <h2
             style="font-size: 22px; padding: 10px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
             <a routerLink="/filehasgone"> <label
@@ -109,22 +109,21 @@
 
       </div>
       <div class="col-7 mt-3"
-        style="background-color: var(--bg); height: 340px; overflow: auto; border-radius: 8px; zoom:95%;">
+        style="background-color: var(--bg); height: 240px; overflow: auto; border-radius: 8px;;">
         <div
-          style="background-color: var(--bg); overflow: auto; height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+          style="background-color: var(--bg); overflow: auto; height: 200px; text-align:center;  border-radius: 8px;">
           <h2
             style="font-size: 22px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
 
             <a>
-              <button type="button" class="btn btn w-10"
-                style="padding:5px;margin-right:650px;margin-top:10px;color:var(--color);background: var(--bg_hover);width:100px"
+              <button type="button" class="btn btn"
+                style="padding:5px;margin-right:650px;margin-top:10px;color:var(--color);background: var(--bg_hover);width:7%"
                 routerLink="/addimportfile">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg"
                   viewBox="0 0 16 16">
                   <path fill-rule="evenodd"
                     d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                 </svg>
-                اضافة
               </button>
             </a>
 
@@ -158,24 +157,24 @@
     <div class="row">
       <div class="col-5 mt-3">
         <div
-          style="background-color: var(--bg); height: 340px; overflow: auto; border-radius: 8px; zoom:95%;margin-left: 1rem;margin-right: 2rem;">
-          <div style="background-color: var(--bg);   height: 280px; text-align:center;  border-radius: 8px; zoom:95%">
+          style="background-color: var(--bg); height: 240px; overflow: auto; border-radius: 8px;;margin-left: 1rem;margin-right: 2rem;">
+          <div style="background-color: var(--bg);   height: 200px; text-align:center;  border-radius: 8px;">
             <h2
-              style="font-size: 22px;  background-color: var(--bg); color: var(--color); position: sticky;padding-top:50px;  width: 100%;">
+              style="font-size: 16px;  background-color: var(--bg); color: var(--color); position: sticky;padding-top:50px;  width: 100%;">
               <select class="px-2 m-2" style="background-color: var(--bg); color: var(--color);"
                 [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()">
                 <option selected="selected">أختار السنة</option>
                 <option *ngFor="let year of years">{{ year }}</option>
               </select>
 
-              <a style=" text-decoration:none;color: var(--color);font-weight: bold;margin-top: 30px"> عدد الخطابات لعام
+              <a style=" text-decoration:none;color: var(--color);font-weight: bold;margin-top: 20px"> عدد الخطابات لعام
               </a>
             </h2>
             <span
-              style="margin-bottom:20px!important; width:100px; margin-right: 15px; font-weight: bold;color:var(--color); font-size: 22px;">{{numberOfImportLetterForSpecificYear+numberOfExportLetterForSpecificYear}}</span>
+              style="margin-bottom:10px!important; width:100px; margin-right: 15px; font-weight: bold;color:var(--color); font-size: 22px;">{{numberOfImportLetterForSpecificYear+numberOfExportLetterForSpecificYear}}</span>
 
             <hr>
-            <div class="input-container" style="margin-top: 50px">
+            <div class="input-container" style="margin-top: 20px">
               <div class="input-data"
                 style="font-size: 22px;  background-color: var(--bg); color: var(--color);  top:10px;  ">
                 <a>
@@ -186,7 +185,7 @@
             </div>
             <div class="input-container">
               <div class="input-data"
-                style="font-size: 22px;   background-color: var(--bg); color: var(--color);  margin-top:30px;  ">
+                style="font-size: 16px;   background-color: var(--bg); color: var(--color);  margin-top:10px;  ">
                 <a>
                   <label type="number" style="margin-top:10px;margin-right: 15px">{{ numberOfImportLetterForSpecificYear
                     }}</label>عدد
@@ -198,26 +197,23 @@
       </div>
 
       <div class="col-7 mt-3"
-        style="background-color: var(--bg); height: 340px; overflow: auto; border-radius: 8px; zoom:95%;width:57%">
-        <div style="background-color: var(--bg); overflow: auto; text-align:center;  border-radius: 8px; zoom:95%">
+        style="background-color: var(--bg); height: 240px; overflow: auto; border-radius: 8px;width:57%">
+        <div style="background-color: var(--bg); overflow: auto; text-align:center;  border-radius: 8px;">
           <h2
             style="font-size: 22px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
 
             <a>
-              <button type="button" class="btn btn w-10"
-                style="padding:5px;margin-right:650px;margin-top:10px;color:var(--color);background: var(--bg_hover);width:100px"
+              <button type="button" class="btn btn"
+                style="padding:5px;margin-right:650px;margin-top:10px;color:var(--color);background: var(--bg_hover);width:7%"
                 routerLink="/addexportfile">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg"
                   viewBox="0 0 16 16">
                   <path fill-rule="evenodd"
                     d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                 </svg>
-                اضافة
               </button>
             </a>
-
-            <a routerLink="/todeyexports">صادر
-              اليوم</a>
+            <a routerLink="/todeyexports">صادر اليوم</a>
           </h2>
 
           <table>

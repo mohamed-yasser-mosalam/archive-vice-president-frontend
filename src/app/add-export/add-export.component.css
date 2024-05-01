@@ -5,10 +5,9 @@
 }
 
 form {
-  margin-top: 8%;
+  margin-top: 1%;
   background-color: var(--bg);
   color: var(--color);
-  zoom: 80%;
   width: 75%;
 }
 
@@ -20,7 +19,7 @@ form {
 }
 
 .wrapper .input-data {
-  height: 40px;
+  height: 30px;
   width: 90%;
   position: relative;
   margin: 35px 0;
@@ -30,7 +29,7 @@ form {
   height: 100%;
   width: 100%;
   border: none;
-  font-size: 18px;
+  font-size: 1rem;
   border-bottom: 2px solid silver;
   direction: rtl;
   background-color: var(--bg);
@@ -39,7 +38,7 @@ form {
 
 .wrapper .input-data textarea {
   border: none;
-  font-size: 18px;
+  font-size: 1rem;
   border-bottom: 2px solid silver;
 }
 

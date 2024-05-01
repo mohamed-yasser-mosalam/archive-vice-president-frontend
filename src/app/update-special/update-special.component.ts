@@ -14,15 +14,14 @@ export class UpdateSpecialComponent implements OnInit {
   form: FormGroup;
   page = this.routes.snapshot.params['id'];
   showSpecials: any;
-  subject: any;
   updateSubject: any
   updateDecision: any
   paths: []
   decision: any[];
-  specialFile:any
+  specialFile: any
 
   constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router,
-              private routes: ActivatedRoute, private http: HttpClient) {
+              private routes: ActivatedRoute) {
     this.form = this.fb.group({
       sender: [''],
       num: [''],
@@ -71,16 +70,15 @@ export class UpdateSpecialComponent implements OnInit {
   }
 
 
-
   showSpecialFile() {
     this.specialService.getSpecialsById(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
       this.updateSubject = this.showSpecials.subjects
       this.updateDecision = this.showSpecials.subjects.decision;
       this.paths = this.showSpecials.paths;
-      console.log(this.showSpecials.subjects)
     })
   }
+
   ngOnInit(): void {
     this.showSpecialFile();
     this.specialService.getSpecialsById(this.routes.snapshot.params['id']).subscribe((result) => {
@@ -90,30 +88,7 @@ export class UpdateSpecialComponent implements OnInit {
         num: new FormControl(result['num']),
         subjects: new FormArray([])
       });
-
-      const subjectsArray = this.form.get('subjects') as FormArray;
-      const subjects = result['subjects'];
-
-      for (let i = 0; i < subjects.length; i++) {
-        const subject = subjects[i];
-        const decisionArray = this.fb.array([]);
-
-
-        const subjectGroup = this.fb.group({
-          num: new FormControl(subject['num']),
-          head: new FormControl(subject['head']),
-          decision: decisionArray
-        });
-
-        subjectsArray.push(subjectGroup);
-      }
-
-      console.log(result);
     });
-   this.getUser()
-  }
-  getUser(): void {
-    this.specialService.getSpecialsById(this.page)
-      .subscribe(user => this.specialFile = user);
-  }
+   }
+
 }

@@ -3,12 +3,8 @@ import {map, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationServiceService} from "../Security/authentication-service.service";
 import {
-  ActivatedRoute,
-  ActivatedRouteSnapshot,
   CanActivate,
   Router,
-  RouterStateSnapshot,
-  UrlTree
 } from "@angular/router";
 
 @Injectable({

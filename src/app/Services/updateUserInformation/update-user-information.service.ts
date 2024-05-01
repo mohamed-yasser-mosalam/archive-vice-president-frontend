@@ -1,28 +1,29 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import baseUrl from "../../url";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UpdateUserInformationService {
-
+base=baseUrl
   constructor( private http:HttpClient) { }
   getUserInformationById(id:number){
-    return this.http.get(`http://localhost:1200/user/user?id=${id}`)
+    return this.http.get(`${this.base}/user/user?id=${id}`)
   }
 
   getAllUsers(){
-    return this.http.get('http://localhost:1200/user/users')
+    return this.http.get(`${this.base}/user/users`)
   }
 
 
   update(id :number,data:any) {
-    return this.http.put(`http://localhost:1200/user/user?id=${id}`, data)
+    return this.http.put(`${this.base}/user/user?id=${id}`, data)
   }
 changePassword(username:string,data:any){
-  return this.http.put(`http://localhost:1200/user/changePassword?username=${username}`,data)
+  return this.http.put(`${this.base}/user/changePassword?username=${username}`,data)
 }
 changePasswordByAdmin(id:number,password:number){
-    return this.http.put(`http://localhost:1200/user/changePassword-admin?id=${id}&password=${password}`,null)
+    return this.http.put(`${this.base}/user/changePassword-admin?id=${id}&password=${password}`,null)
 }
 }

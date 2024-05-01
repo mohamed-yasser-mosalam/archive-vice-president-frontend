@@ -1,30 +1,32 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import baseUrl from "../../url";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignsService {
+  base=baseUrl
   constructor(private http: HttpClient) {
   }
 
   addSign(data: any) {
-    return this.http.post(`http://localhost:1200/sign/sign`, data)
+    return this.http.post(`${this.base}/sign/sign`, data)
   }
 
   updateSigns(id:number,data:any) {
-  return this.http.put(`http://localhost:1200/sign/sign?id=${id}`,data)
+  return this.http.put(`${this.base}/sign/sign?id=${id}`,data)
   }
 
   getSignsByPage(page:number) {
-   return this.http.get(`http://localhost:1200/sign/sign-pagination?page=${page}`)
+   return this.http.get(`${this.base}/sign/sign-pagination?page=${page}`)
   }
   getAllSigns(){
-    return this.http.get(`http://localhost:1200/sign/signs`)
+    return this.http.get(`${this.base}sign/signs`)
   }
 
   getNumberOfSigns(){
-    return this.http.get(`http://localhost:1200/sign/count`)
+    return this.http.get(`${this.base}/sign/count`)
   }
 
 }

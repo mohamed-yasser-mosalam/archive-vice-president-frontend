@@ -1,9 +1,11 @@
 
-import {Component, DoCheck, OnInit} from '@angular/core';
+import {Component, DoCheck, HostBinding, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {SpecialService} from "../Services/SpecialService/special.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
+import {OverlayContainer} from "@angular/cdk/overlay";
 
 
 @Component({
@@ -11,81 +13,64 @@ import {HttpClient} from "@angular/common/http";
   templateUrl: './any-thing.component.html',
   styleUrls: ['./any-thing.component.css']
 })
-export class AnyThingComponent implements OnInit {
-  dataForm: FormGroup;
-  subjects:any
+export class AnyThingComponent   implements OnInit {
+  name: string;
+  img: string;
+  x:any;
+  y:any
+  id:string;
+  userName:string;
+  switchTheme = new FormControl(false)
+  @HostBinding('class') className=""
+  darkClass="dark"
+  lightClass="light"
+  idOfUser:string
+  pageLength:number
+  show:boolean = true
+  unShow:boolean = !this.show
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private route: Router,
+              private auth: AuthenticationServiceService,
+              private http: HttpClient,
+              private overlay: OverlayContainer
+  ) {
+  }
 
   ngOnInit(): void {
-    this.initForm();
-    this.fetchData();
+    this.name = this.auth.getName()
+    this.img = this.auth.getUserImage()
+    this.id=this.auth.getuserId()
+    this.userName=this.auth.getUserName()
+    this.switchTheme.valueChanges.subscribe((currentTheme) => {
+      this.className = currentTheme ? this.darkClass : this.lightClass
+      if(currentTheme){
+        this.overlay.getContainerElement().classList.add(this.darkClass)
+      }else{
+        this.overlay.getContainerElement().classList.remove(this.darkClass)
+
+      }
+    })
+    this.idOfUser=this.auth.getUserRoles()
+
   }
 
-  initForm() {
-    this.dataForm = this.fb.group({
-      subjects: this.fb.array([])
-    });
-  }
+  onImageSelected(event) {
+    const file = event.target.files[0]
+    const formDate: FormData = new FormData()
+    this.x = formDate.append("file", file)
+    this.http.post(`http://localhost:1200/user/add-image?pathType=users&username=${this.userName}&id=${this.id}`,formDate).subscribe(
+      (result) => {
+        this.route.navigateByUrl('/login'),
+          this.auth.clearToken()
+      })
 
-  fetchData() {
-    // Fetch data from the API
-    this.http.get<any>('your-api-endpoint')
-      .subscribe(data => {
-        this.setFormData(data);
-      });
   }
-
-  setFormData(data: any) {
-    const subjectsArray = this.dataForm.get('subjects') as FormArray;
-    data.subjects.forEach(subject => {
-      const subjectGroup = this.fb.group({
-        num: [subject.num],
-        head: [subject.head],
-        decision: this.fb.array([])
-      });
-      subject.decision.forEach(decision => {
-        (subjectGroup.get('decision') as FormArray).push(this.fb.group({
-          num: [decision.num],
-          summary: [decision.summary]
-        }));
-      });
-      subjectsArray.push(subjectGroup);
-    });
+  clearToken(){
+    this.auth.clearToken()
   }
+  hideMenu(): void {
+    this.show =!this.show
+    this.unShow =!this.unShow
 
-  addSubject() {
-    const subjectsArray = this.dataForm.get('subjects') as FormArray;
-    subjectsArray.push(this.fb.group({
-      num: [''],
-      head: [''],
-      decision: this.fb.array([])
-    }));
   }
-
-  addDecision(subjectIndex: number) {
-    const subjectsArray = this.dataForm.get('subjects') as FormArray;
-    const decisionsArray = (subjectsArray.at(subjectIndex).get('decision') as FormArray);
-    decisionsArray.push(this.fb.group({
-      num: [''],
-      summary: ['']
-    }));
-  }
-
-  removeDecision(subjectIndex: number, decisionIndex: number) {
-    const subjectsArray = this.dataForm.get('subjects') as FormArray;
-    const decisionsArray = (subjectsArray.at(subjectIndex).get('decision') as FormArray);
-    decisionsArray.removeAt(decisionIndex);
-  }
-
-  submitForm() {
-    // Submit the form data to the API
-    const formData = this.dataForm.value;
-    this.http.put('your-api-endpoint', formData)
-      .subscribe(() => {
-        console.log('Form data submitted successfully.');
-      });
-  }
-
-  decisions:any
 }

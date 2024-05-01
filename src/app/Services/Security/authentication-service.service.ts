@@ -2,13 +2,14 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {Router} from "@angular/router";
+import baseUrl from "../../url";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationServiceService implements OnInit {
-
+  base=baseUrl
   constructor(private http: HttpClient,private  router:Router) {
 
   }
@@ -18,7 +19,7 @@ export class AuthenticationServiceService implements OnInit {
 
   }
   executeAuthentication(username, password): Observable<any> {
-    return this.http.post<any>('http://localhost:1200/login', {username, password})
+    return this.http.post<any>(`${this.base}/login`, {username, password})
       .pipe(map(
         response => {
           sessionStorage.setItem('roles', response.roles,)

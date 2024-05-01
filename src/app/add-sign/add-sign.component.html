@@ -4,11 +4,10 @@
   <div class="w-100">
     <form [formGroup]="signForm" (ngSubmit)="onSubmit()">
       <div class="wrapper">
-        <legend class="text-center" style="font-weight: bolder;font-size: 25px;color:var(--color);">رقم الأشارة
+        <legend class="text-center" style="font-weight: bolder;font-size: 20px;color:var(--color);">رقم الأشارة
           {{ numberOfSign }}
         </legend>
-        <div class="d-flex" style="margin:20px auto;font-size:20px">
-
+        <div class="input-container">
           <div class="input-data" style="width:90%;margin-right: 50px">
             <input type="datetime-local" required id="date" name="date" formControlName="date">
             <label for="date">بتاريخ :  </label>
@@ -17,7 +16,6 @@
             <input type="text" required id="universityYear" name="universityYear" formControlName="universityYear">
             <label for="universityYear">للعام الجامعي :</label>
           </div>
-
         </div>
         <div class="input-container ">
           <div class="input-data">

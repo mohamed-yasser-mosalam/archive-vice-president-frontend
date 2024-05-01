@@ -8,7 +8,7 @@ a {
 }
 
 .logo h2 {
-  font-size: .3em;
+  font-size: 1.5rem;
 }
 
 .logo svg {
@@ -18,10 +18,9 @@ a {
 nav {
   display: flex;
   justify-content: space-between;
-  zoom: 55%;
   background-color: var(--bg);
   color: var(--color);
-  height: 13vh;
+  height: 7vh;
 
 }
 

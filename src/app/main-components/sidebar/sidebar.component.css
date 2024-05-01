@@ -31,8 +31,8 @@ position: relative;
 
 .menu {
   width: 100%;
-  height: 116vh;
-  padding: 30px;
+  height: 93vh;
+  padding: 15px;
   background-color: var(--bg);
 }
 
@@ -61,7 +61,6 @@ ul li a,
 }
 
 .dropdown-toggle:hover {
-  text-decoration: none;
   background-color: var(--bg);
   color: var(--color);
 }

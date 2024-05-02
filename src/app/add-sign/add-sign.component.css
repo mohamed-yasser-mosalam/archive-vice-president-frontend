@@ -1,15 +1,13 @@
-
 form {
   background-color: var(--bg);
   color: var(--color);
   width: 85%;
   margin: 0 auto;
   margin-top: 1%;
-  /* zoom: 70%; */
 }
 
 .wrapper {
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: column;
@@ -20,21 +18,21 @@ form {
   direction: rtl;
   margin-right: auto;
   display: flex;
-  justify-content:space-around
+  justify-content: space-around
 }
 
 .wrapper .input-data {
-  height: 40px;
+  height: 20px;
   width: 45%;
   position: relative;
-  margin: 20px 0;
+  margin: 19px 0;
 }
 
 .wrapper .input-data input {
   height: 100%;
   width: 100%;
   border: none;
-  font-size: 18px;
+  font-size: 1rem;
   border-bottom: 2px solid silver;
   background-color: var(--bg);
   color: var(--color);
@@ -42,28 +40,28 @@ form {
 
 .wrapper .input-data textarea {
   border: none;
-  font-size: 18px;
+  font-size: 1rem;
   border-bottom: 2px solid silver;
 }
 
-/*.input-data input:focus,*/
-/*.input-data textarea:focus {*/
-/*  outline:none ;*/
-/*  border: none;*/
-/*}*/
+.input-data input:focus,
+.input-data textarea:focus {
+  outline: none;
+  border: none;
+}
 
 .input-data input:focus~label,
 .input-data input:valid~label,
 .input-data textarea:focus~label,
 .input-data textarea:valid~label {
   transform: translateY(-5px);
-  font-size: 15px;
+  font-size: 14px;
   color: var(--color);
 }
 
 .wrapper .input-data label {
   position: absolute;
-  bottom:40px;
+  bottom: 20px;
   right: 7%;
   color: var(--color);
   pointer-events: none;

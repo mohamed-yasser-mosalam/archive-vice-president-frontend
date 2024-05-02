@@ -55,14 +55,13 @@ form {
   transform: translateY(-15px);
   font-size: 15px;
   color: var(--color);
-
 }
 
 .wrapper .input-data label {
   position: absolute;
   bottom: 10px;
   right: 7%;
-  color: rgb(128, 128, 128);
+  color: var(--color);
   pointer-events: none;
   transition: .3s ease;
   text-align: center;
@@ -122,7 +121,7 @@ form {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #ffffff;
+  background-color: #333;
 }
 
 ::-webkit-scrollbar-thumb {

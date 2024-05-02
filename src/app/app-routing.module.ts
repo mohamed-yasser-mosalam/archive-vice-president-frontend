@@ -57,6 +57,7 @@ import {SignPaginationComponent} from "./sign-pagination/sign-pagination.compone
 import {AddSignComponent} from "./add-sign/add-sign.component";
 import {UpdateSignComponent} from "./update-sign/update-sign.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
+import {UpdateComponent} from "./update/update.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -112,6 +113,7 @@ const routes: Routes = [
   {path:'sign_pagination/:page',component:SignPaginationComponent,canActivate:[CanActivate]},
   {path:'addsign',component:AddSignComponent,canActivate:[CanActivate]},
   {path:'updatesign/:page',component:UpdateSignComponent,canActivate:[CanActivate]},
+  {path:'update/:page',component:UpdateComponent,canActivate:[CanActivate]},
   { path: "**",component:ErrorPageComponent},
 
 ];

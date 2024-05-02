@@ -60,8 +60,7 @@ export class SpecialPaginationComponent implements OnInit {
   }
 
   constructor(private specialService: SpecialService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient, private auth: AuthenticationServiceService
-  ) {
+              private auth: AuthenticationServiceService) {
   }
 
 

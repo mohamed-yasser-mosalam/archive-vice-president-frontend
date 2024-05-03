@@ -4,7 +4,7 @@
 }
 
 .box {
-  margin: 10px;
+  margin: 8px;
   background-color: var(--bg);
   border-radius: 10px;
   display: flex;
@@ -15,8 +15,8 @@
 .box .data p {
   width: 100%;
   padding-top: 5px;
-  padding-left: 100px;
-  font-size: 16px;
+  padding-left: 80px;
+  font-size: 20px;
   background-color: var(--bg);
   color: var(--color);
 }
@@ -46,10 +46,21 @@ a {
   width: 100%;
 }
 
-a {
+span{
   text-decoration: none;
   color: var(--color);
-  font-weight: bold
+  font-weight: bold;
+  margin-left:20%;
+}
+span{
+  text-decoration: none;
+  color: var(--color);
+  font-weight: bold;
+ }
+select{
+  box-shadow:var(--bg_main);
+  border-radius: 10px;
+  /*background-color:var(--bg_main);*/
 }
 
 h2 {

@@ -1,140 +1,138 @@
 <app-navbar></app-navbar>
-
 <div class="row" style="background-color: var(--bg_main);">
   <div class="d-flex justify-content-between">
-  <div class="dashboard" style="width:100%; height: 93vh;">
-    <div class="row">
-      <div class="col-md-2">
-        <div class="box">
-          <div class="data">
-            <p>
-              <a routerLink="/filenotcome"> خطابات
-                لم يأت
-                موعدها </a>
-            </p>
-            <span>{{ NumberOfFileNotCome }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="box">
-          <div class="data">
-            <p>
-              <a routerLink="/filehadgone"> خطابات
-                ذهب
-                موعدها </a>
-            </p>
-            <span> {{ NumberOfFileHadGone }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="box">
-          <div class="data">
-            <p>
-              <a routerLink="/importantletter">عدد
-                الخطابات
-                الهامة</a>
-            </p>
-            <span> {{ NumberOfImportantLetter }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="box">
-          <div class="data">
-            <p>
-              <a routerLink="/specialfile">
-                المكاتبات المحفوظة</a>
-            </p>
-            <span> {{ numberOfAllSpecial }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="box">
-          <div class="data">
-            <p>
-              <a routerLink="/getallImports">عدد
-                الخطابات
-                الواردة</a>
-            </p>
-            <span> {{ NumberOfAllImports }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
+    <div class="dashboard" style=" height: 93vh;width:100%">
+      <div class="row">
 
-        <div class="box">
-          <div class="data">
-            <p>
-              <a routerLink="/getallexports">عدد
-                الخطابات
-                الصادرة</a>
-            </p>
-            <span> {{ NumberOfAllExports }}</span>
+        <div class="col-md-2">
+          <div class="box">
+            <div class="data">
+              <p>
+                <a routerLink="/filenotcome"> خطابات
+                  لم يأت
+                  موعدها </a>
+              </p>
+              <span>{{ NumberOfFileNotCome }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="box">
+            <div class="data">
+              <p>
+                <a routerLink="/filehadgone"> خطابات
+                  ذهب
+                  موعدها </a>
+              </p>
+              <span> {{ NumberOfFileHadGone }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="box">
+            <div class="data">
+              <p>
+                <a routerLink="/importantletter">عدد
+                  الخطابات
+                  الهامة</a>
+              </p>
+              <span> {{ NumberOfImportantLetter }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="box">
+            <div class="data">
+              <p>
+                <a routerLink="/specialfile">
+                  المكاتبات المحفوظة</a>
+              </p>
+              <span> {{ numberOfAllSpecial }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="box">
+            <div class="data">
+              <p>
+                <a routerLink="/getallImports">عدد
+                  الخطابات
+                  الواردة</a>
+              </p>
+              <span> {{ NumberOfAllImports }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+
+          <div class="box">
+            <div class="data">
+              <p>
+                <a routerLink="/getallexports">عدد
+                  الخطابات
+                  الصادرة</a>
+              </p>
+              <span> {{ NumberOfAllExports }}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-5 mt-3 mx-3 "
-        style="background-color: var(--bg); height: 260px; overflow: auto; border-radius: 8px;;width:39%">
-        <div
-          style="background-color: var(--bg); overflow: auto; height: 200px; text-align:center;  border-radius: 8px;">
-          <h2
-            style="font-size: 22px; padding: 10px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
-            <a routerLink="/filehasgone"> <label
-                style="font-size: 20px;font-weight: lighter"> ({{ NumberOfFileHasGone }})</label> خطابات حان موعدها </a>
-          </h2>
+      <div class="row" style="margin-left:5px;">
+        <div class="col-5 mx-1 mt-1"
+             style="background-color: #fff; height: 260px; overflow: auto; border-radius: 8px; zoom:95%;width:400px ">
+          <div
+            style="background-color: #fff; overflow: auto; height: 260px; text-align:center;  border-radius: 8px;">
+            <h2
+              style="font-size: 22px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0;">
+              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px" routerLink="/filehasgone"> <label
+                style=";font-size: 20px;font-weight: lighter"> [{{ NumberOfFileHasGone }}]</label> خطابات حان موعدها </a>
+            </h2>
 
-          <table>
-            <thead>
+            <table class="table" style="direction: rtl">
+              <thead style=" position: sticky; background-color: #fff;">
               <tr>
                 <th scope="col">رقم الخطاب</th>
                 <th scope="col">ملخص الخطاب</th>
                 <th scope="col">التاريخ المتوقع للرد</th>
 
               </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let item of showLetterHasGone">
-              <td>{{ item.no }}</td>
-              <td>{{ item.summary }}</td>
-              <td>{{ item.expectResponseDate }}</td>
-            </tr>
-          </tbody>
-          </table>
+              </thead>
+              <tr *ngFor="let item of showLetterHasGone">
+                <td>{{ item.no }}</td>
+                <td>{{ item.summary }}</td>
+                <td>{{ item.expectResponseDate }}</td>
+              </tr>
+            </table>
+          </div>
+
         </div>
 
-      </div>
-      <div class="col-7 mt-3"
-        style="background-color: var(--bg); height: 260px; overflow: auto; border-radius: 8px;">
-        <div
-          style="background-color: var(--bg); overflow: auto;text-align:center;  border-radius: 8px;">
-          <h2
-            style="font-size: 22px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
-            <div class="d-flex justify-content-around">
-            <a>
-              <button type="button" class="btn btn"
-                style="padding:5px;margin-top:10px;color:var(--color);background: var(--bg_hover);width:7%"
-                routerLink="/addimportfile">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg"
-                  viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
-                </svg>
-              </button>
-            </a>
+        <div class="col-6 mt-1 mx-1"
+             style="background-color: #fff; height:260px; overflow: auto; border-radius: 8px; zoom:95%;width:745px;margin-left:30px!important;">
+          <div
+            style="background-color: #fff; overflow: auto; height: 260px; border-radius: 8px;">
+            <h2
+              style="font-size: 22px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
 
-            <a routerLink="/todayimports">وارد
-              اليوم</a>
-            </div>
+              <a>
+                <button type="button" class="btn btn w-10"
+                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:black;background: var(--bg_main);width:70px"
+                        routerLink="/addimportfile">
+<!--                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"-->
+<!--                       class="bi bi-plus-lg"-->
+<!--                       viewBox="0 0 16 16">-->
+<!--                    <path fill-rule="evenodd"-->
+<!--                          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>-->
+<!--                  </svg>-->
+                  اضافة
+                </button>
+              </a>
 
-          </h2>
+              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px" routerLink="/todayimports">وارد اليوم</a>
+            </h2>
 
-          <table>
-            <thead>
+            <table class="table" style="direction: rtl">
+              <thead style=" position: sticky; top: 44px; background-color: #fff;">
               <tr>
                 <th scope="col">رقم الخطاب</th>
                 <th scope="col">الجهة الوارد منها الخطاب</th>
@@ -143,88 +141,83 @@
 
 
               </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let item of showAllTodayImports">
-              <td>{{ item.no }}</td>
-              <td>{{ item.sender }}</td>
-              <td>{{ item.summary }}</td>
-              <td>{{ item.recipientName }}</td>
-            </tr>
-          </tbody>
-          </table>
-        </div>
-
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-5 mt-3 mx-3 "
-        style="background-color: var(--bg); height: 260px; overflow: auto; border-radius: 8px;;width:39%">
-        <div
-          style="background-color: var(--bg); height: 260px; overflow: auto; border-radius: 8px;;margin-left: 1rem;margin-right: 2rem;">
-          <div style="background-color: var(--bg);   height: 200px; text-align:center;  border-radius: 8px;">
-            <h2
-              style="font-size: 16px;  background-color: var(--bg); color: var(--color); position: sticky;padding-top:50px;  width: 100%;">
-              <select class="px-2 m-2" style="background-color: var(--bg); color: var(--color);"
-                [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()">
-                <option selected="selected">أختار السنة</option>
-                <option *ngFor="let year of years">{{ year }}</option>
-              </select>
-
-              <a style=" text-decoration:none;color: var(--color);font-weight: bold;margin-top: 20px"> عدد الخطابات لعام
-              </a>
-            </h2>
-            <span
-              style="margin-bottom:10px!important; width:100px; margin-right: 15px; font-weight: bold;color:var(--color); font-size: 22px;">{{numberOfImportLetterForSpecificYear+numberOfExportLetterForSpecificYear}}</span>
-
-            <hr>
-            <div class="input-container" style="margin-top: 20px">
-              <div class="input-data"
-                style="font-size: 22px;  background-color: var(--bg); color: var(--color);  top:10px;  ">
-                <a>
-                  <label type="number"
-                    style="margin-top:10px; margin-right: 15px">{{numberOfExportLetterForSpecificYear}} </label>عدد
-                  الخطابات الصادرة</a>
-              </div>
-            </div>
-            <div class="input-container">
-              <div class="input-data"
-                style="font-size: 16px;   background-color: var(--bg); color: var(--color);  margin-top:10px;  ">
-                <a>
-                  <label type="number" style="margin-top:10px;margin-right: 15px">{{ numberOfImportLetterForSpecificYear
-                    }}</label>عدد
-                  الخطابات الواردة </a>
-              </div>
-            </div>
+              </thead>
+              <tr *ngFor="let item of showAllTodayImports">
+                <td>{{ item.no }}</td>
+                <td>{{ item.sender }}</td>
+                <td>{{ item.summary }}</td>
+                <td>{{ item.recipientName }}</td>
+              </tr>
+            </table>
           </div>
         </div>
-
       </div>
-      <div class="col-7 mt-3"
-        style="background-color: var(--bg); height: 260px; overflow: auto; border-radius: 8px;">
-        <div 
-        style="background-color: var(--bg); overflow: auto;text-align:center;  border-radius: 8px;">
+
+      <div class="row" style="margin-left:5px;margin-top: 10px">
+        <div class="mx-1 mt-1"
+             style="background-color: #fff; height: 250px; overflow: auto; border-radius: 8px; zoom:95%;width:400px ">
           <h2
-            style="font-size: 22px; padding: 5px 0; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 100%;">
-            <div class="d-flex justify-content-around">
-            <a>
-              <button type="button" class="btn btn"
-                style="padding:5px;margin-top:10px;color:var(--color);background: var(--bg_hover);width:7%"
-                routerLink="/addexportfile">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg"
-                  viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
-                </svg>
-              </button>
-            </a>
-            <a routerLink="/todeyexports">صادر اليوم</a>
-          </div>
-          </h2>
+            style="font-size: 22px;  background-color: #fff; color: #3333338f;padding-top:20px">
+            <select class="px-2 mx-4" [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()">
+              <option selected="selected">أختار السنة</option>
+              <option *ngFor="let year of years">{{ year }}</option>
+            </select>
+            <a style=" text-decoration:none;color: black;font-weight: bolder;margin-top: 30px;font-size: 20px"> عدد الخطابات لعام
+            </a></h2>
+          <hr>
+          <div class="container"style="margin-top: 20px">
+            <div class="input-data"
+                 style="font-size: 22px;  background-color: #fff; color: #3333338f; top:15px;  ">
+                  <span style=" text-decoration:none;color: black;font-weight: bold">
+                    <label type="number"
+                           style="margin-top:15px; margin-right: 15px">{{ numberOfExportLetterForSpecificYear }} </label>: عدد
+                   الخطابات الصادرة </span>
+            </div>
 
-          <table>
-            <thead>
+            <div class="input-data"
+                 style="font-size: 22px;  background-color: #fff; color: #3333338f; top:15px;  ">
+                  <span style=" text-decoration:none;color: black;font-weight: bold">
+                    <label type="number"
+                           style="margin-top:15px;margin-right: 15px">{{ numberOfImportLetterForSpecificYear }}</label>: عدد
+                    الخطابات الواردة </span></div>
+          </div>
+          <div class="input-data"
+               style="font-size: 22px;  background-color: #fff; color: #3333338f; top:15px;  ">
+               <span
+                 style="margin-bottom:20px!important; width:100px; margin-right: 15%; font-weight: bold; font-size: 22px;">{{ numberOfImportLetterForSpecificYear + numberOfExportLetterForSpecificYear }}
+                 <label type="number"
+                        style="margin-top:35px; margin-right: 15px"> </label>: عدد
+                    الخطابات الكلية </span>
+          </div>
+
+        </div>
+
+        <div class=" mt-1"
+             style="background-color: #fff; height:250px; overflow: auto; border-radius: 8px; zoom:95%;width:745px;margin-left:30px">
+          <div
+            style="background-color: #fff; overflow: auto; height: 250px; border-radius: 8px;">
+            <h2
+              style="font-size: 22px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
+
+              <a>
+                <button type="button" class="btn btn w-10"
+                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:black;background: var(--bg_main);width:70px"
+                        routerLink="/addexportfile">
+<!--                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"-->
+<!--                       class="bi bi-plus-lg"-->
+<!--                       viewBox="0 0 16 16">-->
+<!--                    <path fill-rule="evenodd"-->
+<!--                          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>-->
+<!--                  </svg>-->
+                  اضافة
+                </button>
+              </a>
+
+              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px" routerLink="/todeyexports">صادر اليوم</a>
+            </h2>
+
+            <table class="table" style="direction: rtl">
+              <thead style=" position: sticky; top: 44px; background-color: #fff;">
               <tr>
                 <th scope="col">رقم الخطاب</th>
                 <th scope="col">الجهة الصادر منها الخطاب</th>
@@ -232,24 +225,20 @@
                 <th scope="col">المستلم</th>
 
               </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let item of showAllTodayExports">
-              <td>{{ item.no }}</td>
-              <td>{{ item.receiver }}</td>
-              <td>{{ item.summary }}</td>
-              <td>{{ item.recipientName }}</td>
-            </tr>
-          </tbody>
-          </table>
+              </thead>
+              <tr *ngFor="let item of showAllTodayExports">
+                <td>{{ item.no }}</td>
+                <td>{{ item.receiver }}</td>
+                <td>{{ item.summary }}</td>
+                <td>{{ item.recipientName }}</td>
+              </tr>
+            </table>
+          </div>
         </div>
-
       </div>
-
+    </div>
+    <div class="col-2 position-relative">
+      <app-sidebar></app-sidebar>
     </div>
   </div>
-  <div>
-    <app-sidebar></app-sidebar>
-  </div>
-</div>
 </div>

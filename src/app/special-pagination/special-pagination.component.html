@@ -118,9 +118,8 @@
           <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'"
                   type="submit" class="btn "
                   style="width: 23%; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover)"
-                  routerLink="/updatespecial/{{page}}"
-                  (click)="getSpecialById({page})"
-          >
+                  routerLink="/updatespecial/{{id}}"
+                  (click)="getSpecialById({page})">
             تعديل
           </button>
 

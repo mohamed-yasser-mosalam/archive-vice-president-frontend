@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Showallexport} from "../Models/showAllExports/showallexport";
 import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
 import {HttpClient} from "@angular/common/http";
@@ -10,8 +10,10 @@ import {TodayServiceService} from "../Services/TodayServices/today-service.servi
   templateUrl: './today-exports.component.html',
   styleUrls: ['./today-exports.component.css']
 })
-export class TodayExportsComponent {
+export class TodayExportsComponent implements OnInit{
   showTodayExport: ShowTodayExports[]=[];
+  searchText: string
+
   constructor(private todayServiceService: TodayServiceService, private http: HttpClient){
 
   }
@@ -24,5 +26,7 @@ export class TodayExportsComponent {
       this.showTodayExport=getAllExport;
     })
   }
-
+  onsearchTextEntered(searchValue) {
+    this.searchText = searchValue
+  }
 }

@@ -9,19 +9,22 @@ table {
   direction: rtl;
 }
 
-thead tr{
+ thead tr{
   position: sticky;
   top: 50px;
-  background-color: white;
+  background-color: #F6EAEA!important;
   color: black;
   margin: 10%;
   font-size:17px;
   border-color: black;
 }
+th, td {
+  padding: 15px;
+}
 
 tbody tr{
   font-size:14px;
-}
+ }
 ::-webkit-scrollbar{
   width:10px;
   height: 2px;
@@ -42,8 +45,8 @@ tbody tr{
   background: #333333;
 }
 tr:nth-child(odd) {
-  /*background-color: var(--bg_main);*/
-  background-color: #CFC9E5;
+   /*background-color: #BED7DC;*/
+  background-color:white;
 
 }
 tr:nth-child(even) {

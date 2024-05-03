@@ -1,17 +1,9 @@
 .search {
-    background-color: var(--bg);
-    color: var(--color);
+   background-color: var(--bg_main);
+  color: var(--color);
 }
 
 .search::placeholder {
     color: var(--color);
 }
 
-.input-data {
-    height: 100%;
-    width: 100%;
-    border: none;
-    font-size: 23px;
-    background-color: var(--bg);
-    color: var(--color);
-}

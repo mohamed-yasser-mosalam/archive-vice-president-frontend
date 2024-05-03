@@ -22,6 +22,8 @@ export class WelcomeComponent implements OnInit {
   NumberOfFileNotCome: any;
   NumberOfImportantLetter: any;
   NumberOfAllExports: any;
+  NumberOfAllSigns: any;
+  NumberOfAllDeanDecisions: any;
   NumberOfAllImports: any;
   numberOfAllSpecial: any;
   years: any;
@@ -54,6 +56,8 @@ export class WelcomeComponent implements OnInit {
     this.getLetterHasGone();
     this.getNumberOfAllSpecials();
     this.getYears();
+    this.getNumberOfSigns();
+    this.getNumberOfAllDeanDecisions();
     // this.getNumberOfLetterForYears();
   }
 
@@ -100,15 +104,25 @@ export class WelcomeComponent implements OnInit {
     })
   }
 
-  private getAllTodayExports() {
+ getAllTodayExports() {
     return this.service.getAllTodayExport().subscribe((allTodayExport: any) => {
       this.showAllTodayExports = allTodayExport;
     })
   }
 
-  private getAllTodayImports() {
+   getAllTodayImports() {
     return this.service.getAllTodayImport().subscribe((allTodayImport: any) => {
       this.showAllTodayImports = allTodayImport;
+    })
+  }
+  private getNumberOfSigns() {
+    this.welcomeservice.getNumberOfSigns().subscribe((numberOfAllSigns) => {
+      this.NumberOfAllSigns = numberOfAllSigns;
+    })
+  }
+  private getNumberOfAllDeanDecisions() {
+    this.welcomeservice.getNumberOfDeanDecision().subscribe((numberOfAllDeanDecisions) => {
+      this.NumberOfAllDeanDecisions = numberOfAllDeanDecisions;
     })
   }
 

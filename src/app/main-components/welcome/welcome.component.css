@@ -4,13 +4,14 @@
 }
 
 .box {
-  margin: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   background-color: var(--bg);
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
-  transition: 0.5s;
-}
+  width: 130px;
+  }
 
 .box .data p {
   width: 100%;
@@ -52,11 +53,7 @@ span{
   font-weight: bold;
   margin-left:20%;
 }
-span{
-  text-decoration: none;
-  color: var(--color);
-  font-weight: bold;
- }
+
 select{
   box-shadow:var(--bg_main);
   border-radius: 10px;
@@ -96,18 +93,17 @@ button {
   margin-right: 650px;
   margin-top: 10px;
   color: var(--color);
-  background: var(--btn_bg);
   width: 100px
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 5px;
+  width: 7px;
+  height:1px;
 }
 
 ::-webkit-scrollbar:hover {
-  width: 10px;
-  height: 5px;
+  width:7px;
+  height:1px;
 }
 
 ::-webkit-scrollbar-track {
@@ -115,8 +111,8 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #333333;
-  border-radius: 10px;
+  background-color:black;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

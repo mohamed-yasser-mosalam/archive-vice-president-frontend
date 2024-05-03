@@ -38,5 +38,11 @@ export class WelcomeService {
    return  this.http.get(`${this.base}/import/count-import-by-year?year=${selectedYear}`)
 
   }
+  getNumberOfSigns() {
+    return this.http.get(`${this.base}/sign/count`)
+  }
+  getNumberOfDeanDecision() {
+    return this.http.get(`${this.base}/dean-decisions/count-current`)
+  }
 
 }

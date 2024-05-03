@@ -22,7 +22,7 @@ export class SignsService {
    return this.http.get(`${this.base}/sign/sign-pagination?page=${page}`)
   }
   getAllSigns(){
-    return this.http.get(`${this.base}sign/signs`)
+    return this.http.get(`${this.base}/sign/signs`)
   }
 
   getNumberOfSigns(){

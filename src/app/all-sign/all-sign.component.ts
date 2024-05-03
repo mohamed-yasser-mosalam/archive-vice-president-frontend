@@ -16,11 +16,11 @@ export class AllSignComponent  implements OnInit{
   getAllSigns(){
     return this.signsService.getAllSigns().subscribe((getAllSign:any)=> {
       this.getSigns = getAllSign;
-    })
-  }
+    });
+    }
 
   ngOnInit(): void {
-    this.getAllSigns()
+    this.getAllSigns();
   }
   onsearchTextEntered(searchValue){
     this.searchText=searchValue

@@ -16,6 +16,6 @@ export class TodayServiceService {
   }
 
   getAllTodayImport() {
-    return this.http.get(`\`${this.base}/import/import-date`)
+    return this.http.get(`${this.base}/import/import-date`)
   }
 }

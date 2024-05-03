@@ -2,12 +2,12 @@
 <div class="row w-auto" style="background-color: var(--bg_main);">
   <div class="d-flex justify-content-between">
     <div class="dashboard" style=" height: 93vh">
-      <div class="row">
-        <div class="col-md-2">
+      <div class="row" style="margin-left:2%">
+        <div class="col-md-1" style="margin-right: 45px!important;">
           <div class="box">
             <div class="data">
               <p>
-                <a routerLink="/filenotcome"> خطابات
+                <a routerLink="/filenotcome">
                   لم يأت
                   موعدها </a>
               </p>
@@ -15,11 +15,11 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1" style="margin-right: 45px!important;">
           <div class="box">
             <div class="data">
               <p>
-                <a routerLink="/filehadgone"> خطابات
+                <a routerLink="/filehadgone">
                   ذهب
                   موعدها </a>
               </p>
@@ -27,11 +27,11 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1" style="margin-right: 45px!important;">
           <div class="box">
             <div class="data">
               <p>
-                <a routerLink="/importantletter">عدد
+                <a routerLink="/importantletter">
                   الخطابات
                   الهامة</a>
               </p>
@@ -39,37 +39,58 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2">
+
+        <div class="col-md-1" style="margin-right: 45px!important;">
+          <div class="box">
+            <div class="data">
+              <p>
+                <a routerLink="/allsigns">
+                  الاشارات </a>
+              </p>
+              <span> {{ NumberOfAllSigns }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1" style="margin-right: 45px!important;">
+          <div class="box">
+            <div class="data">
+              <p>
+                <a routerLink="/deandecision">
+                  قرارات العميدة </a>
+              </p>
+              <span> {{ NumberOfAllDeanDecisions }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-1" style="margin-right: 45px!important;">
           <div class="box">
             <div class="data">
               <p>
                 <a routerLink="/specialfile">
-                  المكاتبات المحفوظة</a>
+                  ملفات الحفظ</a>
               </p>
               <span> {{ numberOfAllSpecial }}</span>
             </div>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1" style="margin-right: 45px!important;">
           <div class="box">
             <div class="data">
               <p>
-                <a routerLink="/getallImports">عدد
-                  الخطابات
-                  الواردة</a>
+                <a routerLink="/getallImports">
+                  الخطابات الواردة</a>
               </p>
               <span> {{ NumberOfAllImports }}</span>
             </div>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1" style="margin-right: 45px!important;">
 
           <div class="box">
             <div class="data">
               <p>
-                <a routerLink="/getallexports">عدد
-                  الخطابات
-                  الصادرة</a>
+                <a routerLink="/getallexports">الخطابات الصادرة</a>
               </p>
               <span> {{ NumberOfAllExports }}</span>
             </div>
@@ -78,13 +99,15 @@
       </div>
       <div class="row" style="margin-left:5px;">
         <div class="col-5 mx-1 mt-1"
-             style="background-color: #fff; height: 260px; overflow: auto; border-radius: 8px; zoom:95%;width:400px ">
+             style="background-color: #fff; height: 260px;  border-radius: 8px; zoom:95%;width:400px ">
           <div
             style="background-color: #fff; overflow: auto; height: 260px; text-align:center;  border-radius: 8px;">
             <h2
               style="font-size: 22px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0;">
-              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px" routerLink="/filehasgone"> <label
-                style=";font-size: 20px;font-weight: lighter"> [{{ NumberOfFileHasGone }}]</label> خطابات حان موعدها </a>
+              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px" routerLink="/filehasgone">
+                <label
+                  style=";font-size: 20px;font-weight: lighter"> [{{ NumberOfFileHasGone }}]</label> خطابات حان موعدها
+              </a>
             </h2>
 
             <table class="table" style="direction: rtl">
@@ -117,17 +140,12 @@
                 <button type="button" class="btn btn w-10"
                         style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:black;background: var(--bg_main);width:70px"
                         routerLink="/addimportfile">
-<!--                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"-->
-<!--                       class="bi bi-plus-lg"-->
-<!--                       viewBox="0 0 16 16">-->
-<!--                    <path fill-rule="evenodd"-->
-<!--                          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>-->
-<!--                  </svg>-->
                   اضافة
                 </button>
               </a>
 
-              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px" routerLink="/todayimports">وارد اليوم</a>
+              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px"
+                 routerLink="/todayimports">وارد اليوم</a>
             </h2>
 
             <table class="table" style="direction: rtl">
@@ -161,10 +179,11 @@
               <option selected="selected">أختار السنة</option>
               <option *ngFor="let year of years">{{ year }}</option>
             </select>
-            <a style=" text-decoration:none;color: black;font-weight: bolder;margin-top: 30px;font-size: 20px"> عدد الخطابات لعام
+            <a style=" text-decoration:none;color: black;font-weight: bolder;margin-top: 30px;font-size: 20px"> عدد
+              الخطابات لعام
             </a></h2>
           <hr>
-          <div class="container"style="margin-top: 20px">
+          <div class="container" style="margin-top: 20px">
             <div class="input-data"
                  style="font-size: 22px;  background-color: #fff; color: #3333338f; top:15px;  ">
                   <span style=" text-decoration:none;color: black;font-weight: bold">
@@ -202,17 +221,18 @@
                 <button type="button" class="btn btn w-10"
                         style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:black;background: var(--bg_main);width:70px"
                         routerLink="/addexportfile">
-<!--                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"-->
-<!--                       class="bi bi-plus-lg"-->
-<!--                       viewBox="0 0 16 16">-->
-<!--                    <path fill-rule="evenodd"-->
-<!--                          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>-->
-<!--                  </svg>-->
+                  <!--                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"-->
+                  <!--                       class="bi bi-plus-lg"-->
+                  <!--                       viewBox="0 0 16 16">-->
+                  <!--                    <path fill-rule="evenodd"-->
+                  <!--                          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>-->
+                  <!--                  </svg>-->
                   اضافة
                 </button>
               </a>
 
-              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px" routerLink="/todeyexports">صادر اليوم</a>
+              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px"
+                 routerLink="/todeyexports">صادر اليوم</a>
             </h2>
 
             <table class="table" style="direction: rtl">

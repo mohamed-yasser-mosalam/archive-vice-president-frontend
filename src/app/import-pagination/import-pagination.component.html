@@ -2,8 +2,8 @@
 
 <div class="row" style="background-color: var(--bg);">
   <div class="d-flex justify-content-between">
-  <div class="d-flex w-100">
-  <ngb-carousel style="width: 40%;">
+  <div class="row w-100">
+  <ngb-carousel class="col-md-5">
     <ng-template ngbSlide *ngFor="let item of paths;let i=index">
       <div class="carousel-wrapper" style="margin-top: 20px; ">
         <img src="{{item}}" style="height:83vh">
@@ -19,7 +19,7 @@
       </div>
     </ng-template>
   </ngb-carousel>
-  <form style="zoom:55%;width:51%" [formGroup]="showImport">
+  <form style="zoom:55%;" class="col-md-7" [formGroup]="showImport">
     <div class="wrapper">
       <legend class="text-center" style="font-weight: bolder;font-size: 30px;color:var(--color);"> الخطابات الواردة
         (0/1)</legend>

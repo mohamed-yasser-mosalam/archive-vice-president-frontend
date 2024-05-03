@@ -9,17 +9,18 @@ table {
   direction: rtl;
 }
 
-thead {
+thead tr{
   position: sticky;
   top: 50px;
-  background-color: var(--bg_hover);
-  color: var(--color);
+  background-color: white;
+  color: black;
   margin: 10%;
+  font-size:17px;
+  border-color: black;
 }
 
-tbody {
-  background-color: var(--bg);
-  color: var(--color);
+tbody tr{
+  font-size:14px;
 }
 ::-webkit-scrollbar{
   width:10px;
@@ -41,8 +42,10 @@ tbody {
   background: #333333;
 }
 tr:nth-child(odd) {
-  background-color: var(--color1);
+  /*background-color: var(--bg_main);*/
+  background-color: #CFC9E5;
+
 }
 tr:nth-child(even) {
-  background-color: var(--color2);
+  background-color:white;
 }

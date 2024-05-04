@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  /* border: 1px solid #333; */
+
 }
 
 table {
@@ -9,44 +9,44 @@ table {
   direction: rtl;
 }
 
-thead {
+thead tr{
   position: sticky;
-  top: 44px;
-  background-color: var(--bg_hover);
-  color: var(--color);
+  top: 50px;
+  background-color:#E2C799;
+  color: black;
+  margin: 10%;
+  font-size:17px;
+  border-color: black;
 }
 
-tbody {
-  background-color: var(--bg);
-  color: var(--color);
-}
 
-tr:nth-child(odd) {
-  background-color: var(--color1);
+tbody tr{
+  font-size:14px;
 }
+::-webkit-scrollbar{
+  width:10px;
+  height: 2px;
 
-tr:nth-child(even) {
-  background-color: var(--color2);
 }
-::-webkit-scrollbar {
-  width: 15px;
-  height: 5px;
-}
-
-::-webkit-scrollbar:hover {
-  width: 20px;
+::-webkit-scrollbar:hover{
+  width:20px;
   height: 10px;
 }
-
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-track{
   background-color: #33333332;
 }
-
-::-webkit-scrollbar-thumb {
-  background-color: #333333;
+::-webkit-scrollbar-thumb{
+  background: #333333;
   border-radius: 10px;
 }
+::-webkit-scrollbar-thumb:hover{
+  background: #333333;
+}
+tr:nth-child(odd) {
+  /*background-color: #BED7DC;*/
+  background-color: #F2ECBE;
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #33333332;
+}
+tr:nth-child(even) {
+  background-color:white;
 }

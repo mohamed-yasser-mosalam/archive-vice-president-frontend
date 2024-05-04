@@ -10,6 +10,7 @@ import {ImportantLetterServiceService} from "../Services/ImportantLetter/importa
 })
 export class ImportantLetterComponent implements OnInit{
   showAllImportant: Showallimport[]=[]
+  searchText:string
 
   constructor(private service:ImportantLetterServiceService) {
   }
@@ -21,5 +22,9 @@ export class ImportantLetterComponent implements OnInit{
       this.showAllImportant=getAllImportantLetter;
     })
   }
+  onsearchTextEntered(searchValue){
+    this.searchText=searchValue
+  }
+
 
 }

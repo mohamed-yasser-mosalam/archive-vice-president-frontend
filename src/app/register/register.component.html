@@ -1,6 +1,8 @@
 <app-navbar></app-navbar>
 
-<div class="row" style="background-color: var(--bg);">
+<div class="row" style="background-color: var(--bg_main);">
+  <div class="d-flex justify-content-between">
+    <div class="row w-100">
   <div class="col-2"></div>
   <form class="col-8" style="zoom: 80%" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
@@ -48,7 +50,10 @@
       </button>
     </div>
   </form>
-  <div class="col-2 position-relative">
+  <div class="col-2" ></div>
+</div>
+  <div>
     <app-sidebar></app-sidebar>
+  </div>
   </div>
 </div>

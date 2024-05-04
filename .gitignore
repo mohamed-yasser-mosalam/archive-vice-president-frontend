@@ -45,5 +45,5 @@ Thumbs.db
 /src/assets/exports
 /src/assets/imports
 /src/assets/users
-
+/src/app/url.ts
 

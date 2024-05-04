@@ -9,7 +9,7 @@ import {DeandecisionService} from "../Services/DeanDecision/deandecision.service
 })
 export class AdddeandecisionComponent implements OnInit {
   deanDecisionForm: FormGroup;
-  numberOfDeanDecision:number;
+  numberOfDeanDecisions:any;
 
 
   constructor(private deanDecisionService: DeandecisionService,
@@ -27,8 +27,13 @@ export class AdddeandecisionComponent implements OnInit {
 
   ngOnInit(): void {
     this.deanForm()
+    this.numberOfDeanDecision()
   }
-
+  numberOfDeanDecision(){
+    this.deanDecisionService.getNumberOfDeanDecision().subscribe((result:any)=>{
+       this.numberOfDeanDecisions=result+1
+    })
+  }
   addDeanDecision(data) {
     this.deanDecisionService.addDeanDecision(data).subscribe(() => {
       window.location.reload();

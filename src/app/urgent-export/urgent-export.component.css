@@ -9,7 +9,7 @@ form {
   background-color: var(--bg);
   color: var(--color);
   zoom: 80%;
-  
+  width: 100%;
 }
 
 .wrapper {

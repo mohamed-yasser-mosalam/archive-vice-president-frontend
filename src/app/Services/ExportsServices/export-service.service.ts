@@ -57,6 +57,9 @@ export class ExportServiceService {
     return this.http.get(`${this.base}/export/count`)
   }
 
+  // addImages(id: number, formData: any) {
+  //   return this.http.post<any>(`${this.base}/image/multipleFiles?id=${id}&pathType=exports`, formData)
+  // }
   addImages(id: number, formData: any) {
     return this.http.post<any>(`${this.base}/image/multipleFiles?id=${id}&pathType=exports`, formData)
   }
@@ -72,5 +75,4 @@ export class ExportServiceService {
   deleteImage(paths:string[],index:number){
     return  this.http.delete(`${this.base}/image/image?imagePath=${paths[index]}`);
   }
-
 }

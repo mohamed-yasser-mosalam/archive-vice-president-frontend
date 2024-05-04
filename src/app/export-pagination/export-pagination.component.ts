@@ -11,7 +11,9 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./export-pagination.component.css']
 })
 export class ExportPaginationComponent implements OnInit {
+  x:any
   id: number;
+  path='http://192.168.1.7:1200/'
   no:number
   roleOfUser = this.auth.getUserRoles();
   page=this.routes.snapshot.params['page']
@@ -72,18 +74,21 @@ export class ExportPaginationComponent implements OnInit {
     private router: Router
   ) {
   }
-
   showExportFile(): void {
     this.exportService.getExportByPagination(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
-      this.paths = this.showExports.paths;
-      this.id=this.showExports.id;
-      this.isHasUrgent=this.showExports.hasUrgent;
-      this.isHasResponse=this.showExports.hasResponse;
-      this.isHasSpecial=this.showExports.hasSpecial
-      this.no=this.showExports.no
-     });
-   }
+      this.paths = this.showExports.paths.map((path: string) => {
+         return this.path + path;
+      });
+      this.id = this.showExports.id;
+      this.isHasUrgent = this.showExports.hasUrgent;
+      this.isHasResponse = this.showExports.hasResponse;
+      this.isHasSpecial = this.showExports.hasSpecial;
+      this.no = this.showExports.no;
+      this.x=this.showExports.paths
+      console.log(this.paths);
+    });
+  }
 
   getExportCount(): void {
     this.exportService.getExportNumber().subscribe((numberOfExportFiles: any) => {
@@ -117,7 +122,7 @@ export class ExportPaginationComponent implements OnInit {
    }
 
   deleteImage(index: number): void {
-    this.exportService.deleteImage(this.paths,index).subscribe();
+    this.exportService.deleteImage(this.x,index).subscribe();
     this.paths.splice(index, 1);
   }
   selectedFiles: File[] = [];

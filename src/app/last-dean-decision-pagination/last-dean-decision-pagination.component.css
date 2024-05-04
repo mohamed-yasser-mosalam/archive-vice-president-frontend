@@ -104,12 +104,12 @@ ul li a,
 }
 
 ngb-pagination ::ng-deep ul>li.active>a {
-  background-color: var(--bg) !important;
+  background-color: var(--bg_main) !important;
   color: var(--color) !important;
 }
 
 ngb-pagination ::ng-deep a {
-  color: var(--bg) !important;
+  color: var(--color) !important;
 }
 
 ngb-pagination ::ng-deep .page-item.active .page-link {

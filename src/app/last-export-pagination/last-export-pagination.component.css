@@ -108,8 +108,14 @@ ngb-pagination ::ng-deep ul>li.active>a {
   color: var(--color) !important;
 }
 
+
+ngb-pagination ::ng-deep ul>li.active>a {
+  background-color: var(--bg_main) !important;
+  color: var(--color) !important;
+}
+
 ngb-pagination ::ng-deep a {
-  color: var(--bg) !important;
+  color: var(--color) !important;
 }
 
 ngb-pagination ::ng-deep .page-item.active .page-link {
@@ -140,3 +146,4 @@ input[type=file]::file-selector-button {
 input[type=file]::file-selector-button:hover {
   background: var(--bg);
 }
+

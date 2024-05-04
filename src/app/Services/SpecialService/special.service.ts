@@ -27,7 +27,7 @@ base=baseUrl
     return this.http.get(`${this.base}/special/count-current`)
   }
   getLastSpecialNumber(){
-    return this.http.get(`${this.base}/Special/count`)
+    return this.http.get(`${this.base}/special/count`)
   }
   getSpecialsByPagination(id:number){
     return this.http.get(`${this.base}/special/specials-pagination?page=${id}`)

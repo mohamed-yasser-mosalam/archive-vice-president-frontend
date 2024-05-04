@@ -3,12 +3,11 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   --bg: #ffffff;
-  --bg_main:#F7F7F8;
-  --bg_hover: #188752;
-  --color: black;
+  --bg_main:#E2C799;
+  --bg_hover: #E2C799;
+  --color: #333;
   --color1: #ddd;
-  --color2:white;
-  --color3:#188752;
+  --color2:#eee;
   transition: all 0.5s ease;
 }
 
@@ -28,5 +27,3 @@ body {
     --color1: #ddd;
     --color2:#eee;
 } */
-
-

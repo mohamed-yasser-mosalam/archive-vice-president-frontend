@@ -4,6 +4,7 @@ import {ImportServiceService} from "../Services/ImportsServices/import-service.s
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-last-import-pagination',
@@ -11,6 +12,8 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./last-import-pagination.component.css']
 })
 export class LastImportPaginationComponent implements OnInit {
+  pathOfDeleteImage:any
+  base=baseUrl+'/'
   id= this.routes.snapshot.params['page']
   no:number
   page = this.routes.snapshot.params['page']
@@ -75,7 +78,10 @@ export class LastImportPaginationComponent implements OnInit {
   showImportFile() {
     this.importService.getImportById(this.page).subscribe((getImport: any) => {
       this.showImports = getImport;
-      this.paths = this.showImports.paths;
+      this.paths = this.showImports.paths.map((path: string) => {
+        return this.base + path;
+      });
+      this.pathOfDeleteImage = this.showImports.paths;
       this.id=this.showImports.id
       this.isHasResponse=this.showImports.hasResponse;
       this.isHasSpecial=this.showImports.hasSpecial

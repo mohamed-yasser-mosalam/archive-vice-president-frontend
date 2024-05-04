@@ -4,6 +4,7 @@ import {SpecialService} from "../Services/SpecialService/special.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-last-special-pagination',
@@ -11,8 +12,8 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./last-special-pagination.component.css']
 })
 export class LastSpecialPaginationComponent implements OnInit {
-  x: any;
-  y: any
+  pathOfDeleteImage:any
+  base=baseUrl+'/'
   id: number;
   summary: string;
   createdBy:string;
@@ -68,7 +69,10 @@ export class LastSpecialPaginationComponent implements OnInit {
   showSpecialFile() {
     this.specialService.getSpecialsById(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
-      this.paths = this.showSpecials.paths;
+      this.paths = this.showSpecials.paths.map((path: string) => {
+        return this.base + path;
+      });
+      this.pathOfDeleteImage = this.showSpecials.paths;
       this.summary = this.showSpecials.summary;
       this.subjects = this.showSpecials.subjects;
       this.decisions = this.showSpecials.subjects.decisions;

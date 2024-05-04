@@ -4,6 +4,7 @@ import {ExportServiceService} from "../Services/ExportsServices/export-service.s
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-export-pagination',
@@ -11,9 +12,9 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./export-pagination.component.css']
 })
 export class ExportPaginationComponent implements OnInit {
-  x:any
+  pathOfDeleteImage:any
   id: number;
-  path='http://192.168.1.7:1200/'
+  base=baseUrl+'/'
   no:number
   roleOfUser = this.auth.getUserRoles();
   page=this.routes.snapshot.params['page']
@@ -78,14 +79,14 @@ export class ExportPaginationComponent implements OnInit {
     this.exportService.getExportByPagination(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
       this.paths = this.showExports.paths.map((path: string) => {
-         return this.path + path;
+         return this.base + path;
       });
       this.id = this.showExports.id;
       this.isHasUrgent = this.showExports.hasUrgent;
       this.isHasResponse = this.showExports.hasResponse;
       this.isHasSpecial = this.showExports.hasSpecial;
       this.no = this.showExports.no;
-      this.x=this.showExports.paths
+      this.pathOfDeleteImage=this.showExports.paths
       console.log(this.paths);
     });
   }
@@ -122,7 +123,7 @@ export class ExportPaginationComponent implements OnInit {
    }
 
   deleteImage(index: number): void {
-    this.exportService.deleteImage(this.x,index).subscribe();
+    this.exportService.deleteImage(this.pathOfDeleteImage,index).subscribe();
     this.paths.splice(index, 1);
   }
   selectedFiles: File[] = [];

@@ -4,6 +4,7 @@ import {ExportServiceService} from "../Services/ExportsServices/export-service.s
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-last-export-pagination',
@@ -11,6 +12,8 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./last-export-pagination.component.css']
 })
 export class LastExportPaginationComponent implements OnInit {
+  pathOfDeleteImage:any
+  base=baseUrl+'/'
   id= this.routes.snapshot.params['page']
   no:number
   roleOfUser = this.auth.getUserRoles();
@@ -76,7 +79,10 @@ export class LastExportPaginationComponent implements OnInit {
   showExportFile(): void {
     this.serviceExport.getExportsById(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
-      this.paths = this.showExports.paths;
+      this.paths = this.showExports.paths.map((path: string) => {
+        return this.base + path;
+      });
+      this.pathOfDeleteImage = this.showExports.paths;
       this.id=this.showExports.id;
       this.isHasUrgent=this.showExports.hasUrgent;
       this.isHasResponse=this.showExports.hasResponse;

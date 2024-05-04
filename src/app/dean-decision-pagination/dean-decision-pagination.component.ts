@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 import {HttpClient} from "@angular/common/http";
 import {FormControl, FormGroup} from "@angular/forms";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-dean-decision-pagination',
@@ -11,6 +12,8 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./dean-decision-pagination.component.css']
 })
 export class DeanDecisionPaginationComponent  implements OnInit {
+  pathOfDeleteImage:any
+  base=baseUrl+'/'
   page = this.routes.snapshot.params['page'];
   deanDecision: any;
   no: number;
@@ -59,16 +62,20 @@ export class DeanDecisionPaginationComponent  implements OnInit {
   getDeanDecisionByPage() {
     this.deanDecisionService.getDeanDecisionByPage(this.page).subscribe((deanDecision: any) => {
       this.deanDecision = deanDecision;
+      this.paths = this.deanDecision.paths.map((path: string) => {
+        return this.base + path;
+      });
       this.no = this.deanDecision.no;
-      this.paths = this.deanDecision.paths;
-      this.id = this.deanDecision.id
-    })
+      this.pathOfDeleteImage = this.deanDecision.paths;
+      this.id = this.deanDecision.id;
+      console.log(this.paths)
 
+    })
   }
 
 
   deleteImage(index: number): void {
-    this.deanDecisionService.deleteImage(this.paths,index).subscribe();
+    this.deanDecisionService.deleteImage(this.pathOfDeleteImage,index).subscribe();
     this.paths.splice(index, 1);
   }
 

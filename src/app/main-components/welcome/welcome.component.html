@@ -99,9 +99,9 @@
       </div>
       <div class="row" style="margin-left:5px;">
         <div class="col-5 mx-1 mt-1"
-             style="background-color: #fff; height: 260px;  border-radius: 8px; zoom:95%;width:400px ">
+             style="background-color: #fff; height: 250px;  border-radius: 8px; zoom:95%;width:400px ">
           <div
-            style="background-color: #fff; overflow: auto; height: 260px; text-align:center;  border-radius: 8px;">
+            style="background-color: #fff; overflow: auto; height: 250px; text-align:center;  border-radius: 8px;">
             <h2
               style="font-size: 22px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0;">
               <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px" routerLink="/filehasgone">
@@ -119,26 +119,28 @@
 
               </tr>
               </thead>
+              <tbody>
               <tr *ngFor="let item of showLetterHasGone">
                 <td>{{ item.no }}</td>
                 <td>{{ item.summary }}</td>
                 <td>{{ item.expectResponseDate }}</td>
               </tr>
+              </tbody>
             </table>
           </div>
 
         </div>
 
         <div class="col-6 mt-1 mx-1"
-             style="background-color: #fff; height:260px; overflow: auto; border-radius: 8px; zoom:95%;width:745px;margin-left:20px!important;">
+             style="background-color: #fff; height:250px; overflow: auto; border-radius: 8px; zoom:95%;width:745px;margin-left:20px!important;">
           <div
-            style="background-color: #fff; overflow: auto; height: 260px; border-radius: 8px;">
+            style="background-color: #fff; overflow: auto; height: 250px; border-radius: 8px;">
             <h2
               style="font-size: 22px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
 
               <a>
                 <button type="button" class="btn btn w-10"
-                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:black;background: var(--bg_main);width:70px"
+                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:var(--color2);background: var(--color3);width:70px"
                         routerLink="/addimportfile">
                   اضافة
                 </button>
@@ -159,12 +161,14 @@
 
               </tr>
               </thead>
+              <tbody>
               <tr *ngFor="let item of showAllTodayImports">
                 <td>{{ item.no }}</td>
                 <td>{{ item.sender }}</td>
                 <td>{{ item.summary }}</td>
                 <td>{{ item.recipientName }}</td>
               </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -219,7 +223,7 @@
 
               <a>
                 <button type="button" class="btn btn w-10"
-                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:black;background: var(--bg_main);width:70px"
+                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:var(--color2);background: var(--color3);width:70px"
                         routerLink="/addexportfile">
                   <!--                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"-->
                   <!--                       class="bi bi-plus-lg"-->
@@ -245,12 +249,14 @@
 
               </tr>
               </thead>
+              <tbody>
               <tr *ngFor="let item of showAllTodayExports">
                 <td>{{ item.no }}</td>
                 <td>{{ item.receiver }}</td>
                 <td>{{ item.summary }}</td>
                 <td>{{ item.recipientName }}</td>
               </tr>
+              </tbody>
             </table>
           </div>
         </div>

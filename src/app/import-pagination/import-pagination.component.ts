@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {ImportServiceService} from "../Services/ImportsServices/import-service.service";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-import-pagination',
@@ -12,6 +13,8 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./import-pagination.component.css']
 })
 export class ImportPaginationComponent implements OnInit {
+  pathOfDeleteImage:any;
+  base=baseUrl+'/'
   id: any;
   no:number
   page = this.routes.snapshot.params['page']
@@ -76,8 +79,11 @@ export class ImportPaginationComponent implements OnInit {
   showImportFile() {
     this.importService.getImportPagination(this.page).subscribe((getImport: any) => {
       this.showImports = getImport;
-      this.paths = this.showImports.paths;
-      this.id=this.showImports.id
+      this.paths = this.showImports.paths.map((path: string) => {
+        return this.base + path;
+      });
+      this.pathOfDeleteImage=this.showImports.paths
+       this.id=this.showImports.id
       this.isHasResponse=this.showImports.hasResponse;
       this.isHasSpecial=this.showImports.hasSpecial
       this.no=this.showImports.no
@@ -118,7 +124,7 @@ export class ImportPaginationComponent implements OnInit {
   }
 
   deleteImage(index: number): void {
-    this.importService.deleteImage(this.paths,index).subscribe();
+    this.importService.deleteImage(this.pathOfDeleteImage,index).subscribe();
     this.paths.splice(index, 1);
   }
 

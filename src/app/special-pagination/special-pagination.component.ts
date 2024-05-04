@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {SpecialService} from "../Services/SpecialService/special.service";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-special-pagination',
@@ -11,6 +12,8 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./special-pagination.component.css']
 })
 export class SpecialPaginationComponent implements OnInit {
+  pathOfDeleteImage:any
+  base=baseUrl+'/'
   x: any;
   y: any
   id: number;
@@ -67,7 +70,10 @@ export class SpecialPaginationComponent implements OnInit {
   showSpecialFile() {
     this.specialService.getSpecialsByPagination(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
-      this.paths = this.showSpecials.paths;
+      this.paths = this.showSpecials.paths.map((path: string) => {
+        return this.base + path;
+      });
+      this.pathOfDeleteImage=this.showSpecials.paths
       this.summary = this.showSpecials.summary;
       this.subjects = this.showSpecials.subjects;
       this.decisions = this.showSpecials.subjects.decisions;
@@ -108,7 +114,7 @@ export class SpecialPaginationComponent implements OnInit {
 
 
   deleteImage(index: number): void {
-    this.specialService.deleteImage(this.paths,index).subscribe()
+    this.specialService.deleteImage(this.pathOfDeleteImage,index).subscribe()
     this.paths.splice(index, 1);
   }
 

@@ -4,6 +4,7 @@ import {DeandecisionService} from "../Services/DeanDecision/deandecision.service
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-last-dean-decision-pagination',
@@ -11,6 +12,8 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./last-dean-decision-pagination.component.css']
 })
 export class LastDeanDecisionPaginationComponent  implements OnInit {
+  pathOfDeleteImage:any
+  base=baseUrl+'/'
   page = this.routes.snapshot.params['page'];
   deanDecision: any;
   no: number;
@@ -57,8 +60,11 @@ export class LastDeanDecisionPaginationComponent  implements OnInit {
   getDeanDecisionById() {
     this.deanDecisionService.getDeanDecisionById(this.page).subscribe((deanDecision: any) => {
       this.deanDecision = deanDecision;
+      this.paths = this.deanDecision.paths.map((path: string) => {
+        return this.base + path;
+      });
       this.no = this.deanDecision.no;
-      this.paths = this.deanDecision.paths;
+      this.pathOfDeleteImage = this.deanDecision.paths;
       this.id = this.deanDecision.id
     })
 

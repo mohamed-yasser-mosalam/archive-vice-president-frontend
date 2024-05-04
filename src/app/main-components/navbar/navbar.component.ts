@@ -5,6 +5,7 @@ import {FormControl} from "@angular/forms";
 import {OverlayContainer} from "@angular/cdk/overlay";
 import {HttpClient} from "@angular/common/http";
 import {UserService} from "../../Services/user/user.service";
+import baseUrl from "../../url";
 
 @Component({
   selector: 'app-navbar',
@@ -12,12 +13,13 @@ import {UserService} from "../../Services/user/user.service";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  formDate:any
   name: string;
   img: string;
-  x:any;
-  y:any
   id:string;
   userName:string;
+  pathOfDeleteImage:any
+  base=baseUrl+'/'
   switchTheme = new FormControl(false)
   @HostBinding('class') className=""
   darkClass="dark"
@@ -34,7 +36,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = this.auth.getName()
-    this.img = this.auth.getUserImage()
+    this.img =this.base+ this.auth.getUserImage()
     this.id=this.auth.getuserId()
     this.userName=this.auth.getUserName()
     this.switchTheme.valueChanges.subscribe((currentTheme) => {
@@ -45,13 +47,14 @@ export class NavbarComponent implements OnInit {
         this.overlay.getContainerElement().classList.remove(this.darkClass)
 
       }
-    })
+     })
+
   }
 
   onImageSelected(event) {
     const file = event.target.files[0]
     const formDate: FormData = new FormData()
-    this.x = formDate.append("file", file)
+    this.formDate= formDate.append("file", file)
      this.userService.addImages(this.userName,this.id,formDate).subscribe(
       (result) => {
         this.route.navigateByUrl('/login'),

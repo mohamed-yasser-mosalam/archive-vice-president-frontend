@@ -10,8 +10,9 @@ import jwt from 'jsonwebtoken';
   providedIn: 'root'
 })
 export class AuthenticationServiceService implements OnInit {
-  base=baseUrl
-  constructor(private http: HttpClient,private  router:Router) {
+  base = baseUrl
+
+  constructor(private http: HttpClient, private router: Router) {
 
   }
 
@@ -19,6 +20,7 @@ export class AuthenticationServiceService implements OnInit {
     this.canActivate();
 
   }
+
   executeAuthentication(username, password): Observable<any> {
     return this.http.post<any>(`${this.base}/login`, {username, password})
       .pipe(map(
@@ -49,12 +51,10 @@ export class AuthenticationServiceService implements OnInit {
     return sessionStorage.getItem('name') || "";
   }
 
-  // getUserName() {
-  //   return sessionStorage.getItem('username') || "";
-  // }
- static getUserName() {
-    return this.getUsernameFromToken(sessionStorage.getItem('token')||'');
+  getUserName() {
+    return sessionStorage.getItem('username') || "";
   }
+
   getToken() {
     return sessionStorage.getItem('token') || "";
   }
@@ -67,17 +67,4 @@ export class AuthenticationServiceService implements OnInit {
     if (sessionStorage.getItem('roles') != 'admin')
       return this.router.navigateByUrl('/home');
   }
-  static getUsernameFromToken(token: string): string | null {
-    try {
-      const decodedToken = jwt.verify(token, 'your-secret-key-here') as TokenPayload;
-      return decodedToken.username;
-    } catch (error) {
-      console.error('Error decoding token:', error);
-      return null;
-    }
-  }
-}
-interface TokenPayload {
-  username: string;
-  // other fields you may have in your token
 }

@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {Router} from "@angular/router";
 import baseUrl from "../../url";
+import jwt from 'jsonwebtoken';
 
 
 @Injectable({
@@ -48,10 +49,12 @@ export class AuthenticationServiceService implements OnInit {
     return sessionStorage.getItem('name') || "";
   }
 
-  getUserName() {
-    return sessionStorage.getItem('username') || "";
+  // getUserName() {
+  //   return sessionStorage.getItem('username') || "";
+  // }
+ static getUserName() {
+    return this.getUsernameFromToken(sessionStorage.getItem('token'));
   }
-
   getToken() {
     return sessionStorage.getItem('token') || "";
   }
@@ -64,5 +67,17 @@ export class AuthenticationServiceService implements OnInit {
     if (sessionStorage.getItem('roles') != 'admin')
       return this.router.navigateByUrl('/home');
   }
-
+  static getUsernameFromToken(token: string): string | null {
+    try {
+      const decodedToken = jwt.verify(token, 'your-secret-key-here') as TokenPayload;
+      return decodedToken.username;
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return null;
+    }
+  }
+}
+interface TokenPayload {
+  username: string;
+  // other fields you may have in your token
 }

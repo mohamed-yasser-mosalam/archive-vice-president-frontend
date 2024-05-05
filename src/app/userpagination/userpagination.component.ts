@@ -5,6 +5,7 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
 import {ActivatedRoute, Router} from "@angular/router";
 import {UpdateUserInformationService} from "../Services/updateUserInformation/update-user-information.service";
 import {UserService} from "../Services/user/user.service";
+import {ActivateUserService} from "../Services/ActivateUsers/activate-user.service";
 
 @Component({
   selector: 'app-userpagination',
@@ -12,6 +13,7 @@ import {UserService} from "../Services/user/user.service";
   styleUrls: ['./userpagination.component.css']
 })
 export class UserpaginationComponent implements OnInit {
+  isActive:number
   user: any;
   img:string;
   username:any
@@ -46,13 +48,28 @@ export class UserpaginationComponent implements OnInit {
     this.userService.getUserById(this.id).subscribe((result: any) => {
       this.user = result;
       this.img=this.base+result.imagePath;
-      this.username=result.username
+      this.username=result.username;
+      this.isActive=result.isActive
     })
   }
 
   constructor(
     private routes: ActivatedRoute,
     private userService: UserService,
+    private activateUserService:ActivateUserService,
   ) {
+  }
+  unActivateUser(username:string){
+    this.activateUserService.unActivateUser(username)
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
+  }
+  activatedUser(username:string){
+    this.activateUserService.activateUser(username)
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
+
   }
 }

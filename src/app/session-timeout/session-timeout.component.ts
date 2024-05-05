@@ -10,46 +10,27 @@ import {UpdateUserInformationService} from "../Services/updateUserInformation/up
   templateUrl: './session-timeout.component.html',
   styleUrls: ['./session-timeout.component.css']
 })
-export class SessionTimeoutComponent implements OnInit {
-  name: string;
-  img: string;
-  id: any;
-  userName: string;
-  pathOfDeleteImage: any
-  base = baseUrl + '/'
-  editUserName = new FormGroup({
-    username: new FormControl(''),
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    password: new FormControl('')
-  })
+export class SessionTimeoutComponent{
 
-  ngOnInit(): void {
-    this.name = this.auth.getName()
-    this.img = this.base + this.auth.getUserImage()
-    this.id = +this.auth.getuserId()
-    this.userName = this.auth.getUserName()
-    this.updateUserInformationService.getUserInformationById(this.id)
-      .subscribe((result) => {
-        this.editUserName = new FormGroup({
-          username: new FormControl(result['username']),
-          firstName: new FormControl(result['firstName']),
-          lastName: new FormControl(result['lastName']),
-          password: new FormControl(result['password']),
-        })
-        console.log(this.updateUserInformationService.getUserInformationById(2))
-      })
+}
+
+import jwt from 'jsonwebtoken';
+
+interface TokenPayload {
+  username: string;
+  // other fields you may have in your token
+}
+
+class TokenService {
+  static getUsernameFromToken(token: string): string | null {
+    try {
+      const decodedToken = jwt.verify(token, 'your-secret-key-here') as TokenPayload;
+      return decodedToken.username;
+    } catch (error) {
+      // Token is invalid or expired
+      console.error('Error decoding token:', error);
+      return null;
+    }
   }
 
-  constructor(private auth: AuthenticationServiceService,
-              private router: Router,
-              private updateUserInformationService: UpdateUserInformationService,) {
-  }
-
-  updateUserInformation() {
-    this.updateUserInformationService.update(this.id, this.editUserName.value).subscribe((result) => {
-      this.router.navigateByUrl('/login');
-      this.auth.clearToken()
-    })
-  }
 }

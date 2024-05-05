@@ -13,24 +13,3 @@ import {UpdateUserInformationService} from "../Services/updateUserInformation/up
 export class SessionTimeoutComponent{
 
 }
-
-import jwt from 'jsonwebtoken';
-
-interface TokenPayload {
-  username: string;
-  // other fields you may have in your token
-}
-
-class TokenService {
-  static getUsernameFromToken(token: string): string | null {
-    try {
-      const decodedToken = jwt.verify(token, 'your-secret-key-here') as TokenPayload;
-      return decodedToken.username;
-    } catch (error) {
-      // Token is invalid or expired
-      console.error('Error decoding token:', error);
-      return null;
-    }
-  }
-
-}

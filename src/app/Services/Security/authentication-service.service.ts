@@ -53,7 +53,7 @@ export class AuthenticationServiceService implements OnInit {
   //   return sessionStorage.getItem('username') || "";
   // }
  static getUserName() {
-    return this.getUsernameFromToken(sessionStorage.getItem('token'));
+    return this.getUsernameFromToken(sessionStorage.getItem('token')||'');
   }
   getToken() {
     return sessionStorage.getItem('token') || "";

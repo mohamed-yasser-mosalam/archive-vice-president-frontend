@@ -69,7 +69,6 @@ export class ExportPaginationComponent implements OnInit {
   }
   constructor(
     private exportService: ExportServiceService,
-    private http: HttpClient,
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
     private router: Router
@@ -87,7 +86,7 @@ export class ExportPaginationComponent implements OnInit {
       this.isHasSpecial = this.showExports.hasSpecial;
       this.no = this.showExports.no;
       this.pathOfDeleteImage=this.showExports.paths
-      console.log(this.paths);
+      console.log(this.showExports);
     });
   }
 
@@ -125,7 +124,11 @@ export class ExportPaginationComponent implements OnInit {
   deleteImage(index: number): void {
     this.exportService.deleteImage(this.pathOfDeleteImage,index).subscribe();
     this.paths.splice(index, 1);
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   }
+
   selectedFiles: File[] = [];
 
   onFileSelected(event: any): void {

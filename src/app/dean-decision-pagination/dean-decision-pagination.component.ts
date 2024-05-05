@@ -77,6 +77,9 @@ export class DeanDecisionPaginationComponent  implements OnInit {
   deleteImage(index: number): void {
     this.deanDecisionService.deleteImage(this.pathOfDeleteImage,index).subscribe();
     this.paths.splice(index, 1);
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   }
 
   onFileSelected(event: any): void {

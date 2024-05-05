@@ -5,6 +5,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 import {HttpClient} from "@angular/common/http";
 import {NgConfirmService} from "ng-confirm-box";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-update-export',
@@ -12,9 +13,11 @@ import {NgConfirmService} from "ng-confirm-box";
   styleUrls: ['./update-export.component.css']
 })
 export class UpdateExportComponent implements OnInit {
+  pathOfDeleteImage:any
+  base=baseUrl+'/'
   showExports: any;
-  paths:any[]
-  x = this.routes.snapshot.params['id']
+  paths: string[];
+  id = this.routes.snapshot.params['id']
   no:number;
   roleOfUser = this.auth.getUserRoles()
   editExport = new FormGroup({
@@ -33,7 +36,7 @@ export class UpdateExportComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.exportService.getExportByPagination(this.routes.snapshot.params['id']).subscribe((result) => {
+    this.exportService.getExportsById(this.id).subscribe((result) => {
       this.editExport = new FormGroup({
         date: new FormControl(result['date']),
         receiver: new FormControl(result['receiver']),
@@ -58,21 +61,27 @@ export class UpdateExportComponent implements OnInit {
   }
 
   update() {
-    this.exportService.updateExport(this.routes.snapshot.params['id'], this.editExport.value)
+    this.exportService.updateExport(this.id, this.editExport.value)
       .subscribe(( ) => {
        this.router.navigate([`/export_pagination/`, this.no])
     })
   }
 
   showExportFile() {
-    this.exportService.getExportById(this.routes.snapshot.params['id']).subscribe((getExport: any) => {
+    this.exportService.getExportById(this.id).subscribe((getExport: any) => {
       this.showExports = getExport;
-      this.paths = this.showExports.paths;
-      this.no=this.showExports.no
-    })
+      this.paths = this.showExports.paths.map((path: string) => {
+        return this.base + path;
+      });
+      this.pathOfDeleteImage = this.showExports.paths;
+      this.no=this.showExports.no;
+     })
   }
   deleteImage(index: number): void {
-    this.exportService.deleteImage(this.paths,index).subscribe()
+    this.exportService.deleteImage(this.pathOfDeleteImage,index).subscribe();
     this.paths.splice(index, 1);
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   }
 }

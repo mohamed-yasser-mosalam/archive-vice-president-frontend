@@ -75,6 +75,7 @@ import { AllSignComponent } from './all-sign/all-sign.component';
 import { SignPaginationComponent } from './sign-pagination/sign-pagination.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { UpdateComponent } from './update/update.component';
+import { SessionTimeoutComponent } from './session-timeout/session-timeout.component';
    @NgModule({
   declarations: [
     AppComponent,
@@ -137,6 +138,7 @@ import { UpdateComponent } from './update/update.component';
     SignPaginationComponent,
     ErrorPageComponent,
     UpdateComponent,
+    SessionTimeoutComponent,
 
    ],
      imports: [

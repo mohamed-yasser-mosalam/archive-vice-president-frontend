@@ -126,6 +126,9 @@ export class ImportPaginationComponent implements OnInit {
   deleteImage(index: number): void {
     this.importService.deleteImage(this.pathOfDeleteImage,index).subscribe();
     this.paths.splice(index, 1);
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   }
 
   selectedFiles: File[] = [];

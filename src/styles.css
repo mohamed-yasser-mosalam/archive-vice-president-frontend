@@ -5,8 +5,8 @@ body {
   --bg: #ffffff;
   --bg_main:#E2C799;
   --bg_hover: #E2C799;
-  --color: #333;
-  --color1: #ddd;
+  --color: black;
+  --color1: white;
   --color2:#eee;
   transition: all 0.5s ease;
 }

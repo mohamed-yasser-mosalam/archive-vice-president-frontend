@@ -4,6 +4,7 @@ import {DeandecisionService} from "../Services/DeanDecision/deandecision.service
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-updatedeandecision',
@@ -11,6 +12,8 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./updatedeandecision.component.css']
 })
 export class UpdatedeandecisionComponent implements OnInit {
+  pathOfDeleteImage:any
+  base=baseUrl+'/'
   page = this.routes.snapshot.params['page'];
   deanDecision: any;
   no: number;
@@ -60,18 +63,22 @@ export class UpdatedeandecisionComponent implements OnInit {
     this.deanDecisionService.getDeanDecisionByPage(this.page).subscribe((deanDecision: any) => {
       this.deanDecision = deanDecision;
       this.no = this.deanDecision.no;
-      this.paths = this.deanDecision.paths;
-      this.id = this.deanDecision.id
+      this.paths = this.deanDecision.paths.map((path: string) => {
+        return this.base + path;
+      });
+      this.pathOfDeleteImage = this.deanDecision.paths;      this.id = this.deanDecision.id
     })
 
   }
 
 
   deleteImage(index: number): void {
-    this.deanDecisionService.deleteImage(this.paths,index).subscribe();
+    this.deanDecisionService.deleteImage(this.pathOfDeleteImage,index).subscribe();
     this.paths.splice(index, 1);
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   }
-
 
   getNumberOfDeanDecision() {
     this.deanDecisionService.getNumberOfDeanDecision().subscribe((numberOfDeanDecision: any) => {

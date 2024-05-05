@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ImportServiceService} from "../Services/ImportsServices/import-service.service";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-update-import',
@@ -12,6 +13,8 @@ import {AuthenticationServiceService} from "../Services/Security/authentication-
   styleUrls: ['./update-import.component.css']
 })
 export class UpdateImportComponent implements OnInit {
+  pathOfDeleteImage:any
+  base=baseUrl+'/'
   showImports: any;
   paths: any[];
   no:any
@@ -75,14 +78,19 @@ export class UpdateImportComponent implements OnInit {
   showImportFile() {
     this.importService.getImportById(this.routes.snapshot.params['id']).subscribe((getImport: any) => {
       this.showImports = getImport;
-      this.paths = this.showImports.paths;
+      this.paths = this.showImports.paths.map((path: string) => {
+        return this.base + path;
+      });
+      this.pathOfDeleteImage = this.showImports.paths;
       this.no=this.showImports.no
     })
   }
 
   deleteImage(index: number): void {
-    this.importService.deleteImage(this.paths,index).subscribe()
+    this.importService.deleteImage(this.pathOfDeleteImage,index).subscribe();
     this.paths.splice(index, 1);
-
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   }
 }

@@ -114,8 +114,11 @@ export class SpecialPaginationComponent implements OnInit {
 
 
   deleteImage(index: number): void {
-    this.specialService.deleteImage(this.pathOfDeleteImage,index).subscribe()
+    this.specialService.deleteImage(this.pathOfDeleteImage,index).subscribe();
     this.paths.splice(index, 1);
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   }
 
   getSpecialById(archiveId: any) {

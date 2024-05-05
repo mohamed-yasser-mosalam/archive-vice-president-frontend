@@ -12,7 +12,9 @@ import {UserService} from "../Services/user/user.service";
   styleUrls: ['./userpagination.component.css']
 })
 export class UserpaginationComponent implements OnInit {
-  user: any
+  user: any;
+  img:string;
+  username:any
   id = this.routes.snapshot.params['page']
   pathOfDeleteImage: any
   base = baseUrl + '/'
@@ -42,7 +44,9 @@ export class UserpaginationComponent implements OnInit {
 
   showUserById() {
     this.userService.getUserById(this.id).subscribe((result: any) => {
-      this.user = result
+      this.user = result;
+      this.img=this.base+result.imagePath;
+      this.username=result.username
     })
   }
 

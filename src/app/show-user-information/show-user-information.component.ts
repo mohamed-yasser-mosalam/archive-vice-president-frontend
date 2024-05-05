@@ -66,6 +66,5 @@ export class ShowUserInformationComponent  implements OnInit {
          this.route.navigateByUrl('/login'),
           this.auth.clearToken()
       })
-
   }
 }

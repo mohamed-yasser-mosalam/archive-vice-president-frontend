@@ -1,59 +1,57 @@
 <app-navbar></app-navbar>
-
-<div class="row" style="background-color: var(--bg_main);">
+<div class="row w-auto" style="background-color: var(--bg_main);">
   <div class="d-flex justify-content-between">
-    <div class="row w-100">
-  <div class="col-2"></div>
-  <form class="col-8" style="zoom: 80%" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="container rounded bg-white " style="zoom:95%;">
+      <form class="row" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="col-md-5 border-right"
+             style="direction: rtl;margin-right: 100px;margin-left: 300px;margin-top:60px">
+          <div>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h2 class="text-right">بيانات المستخدم</h2>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6"><label class="labels">الاسم الاول</label>
+                <input type="text" class="form-control"
+                       placeholder="الأسم الأول" value="" formControlName="firstName">
+              </div>
+              <div class="col-md-6"><label class="labels">الاسم الثاني</label>
+                <input type="text" class="form-control"
+                       value=""
+                       placeholder="الأسم الثاني" formControlName="lastName">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12"><label class="labels">اسم المستخدم</label>
+                <input type="text" class="form-control"
+                       placeholder="اسم المستخدم" formControlName="username">
+                <small *ngIf="registerForm.get('username')?.invalid">* مطلوب</small>
+              </div>
 
-    <div class="wrapper">
-      <legend class="text-center" style="color:var(--color)">تسجيل مستخدم جديد</legend>
+            </div>
 
-      <div style="display: flex;  justify-content: space-between;">
-        <div class="input-container">
-          <div class="input-data">
-            <input type="text" required id="firstName" name="firstName" formControlName="firstName">
-            <div class="underLine"></div>
-            <label for="firstName">الاسم الاول</label>
-            <small *ngIf="registerForm.get('firstName')?.invalid">* مطلوب</small>
+            <div class="row mt-3">
+              <div class="col-md-12"><label class="labels">الرقم السري</label>
+                <input type="text" class="form-control"
+                       id="password" name="password" formControlName="password">
+                <small *ngIf="registerForm.get('password')?.invalid">* مطلوب</small>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12"><label class="labels">رقم الموبايل</label>
+                <input type="text" class="form-control" formControlName="phone"
+                       placeholder="رقم الموبايل"
+                       value=""></div>
+            </div>
 
-          </div>
-
-          <div class="input-data">
-            <input type="text" required id="lastName" name="lastName" formControlName="lastName">
-            <div class="underLine-text"></div>
-            <label for="lastName"> الاسم الثاني</label>
-            <small *ngIf="registerForm.get('lastName')?.invalid">* مطلوب</small>
-
+            <div class="mt-5 text-center">
+              <button class="btn   profile-button" type="submit">حفظ</button>
+            </div>
           </div>
         </div>
-
-        <div class="input-container">
-          <div class="input-data">
-            <input type="text" required id="username" name="username" formControlName="username">
-            <div class="underLine"></div>
-            <label for="username">اسم المستخدم</label>
-            <small *ngIf="registerForm.get('username')?.invalid">* مطلوب</small>
-
-          </div>
-
-          <div class="input-data">
-            <input type="password" required id="password" name="password" formControlName="password">
-            <div class="underLine"></div>
-            <label for="password">الرقم السري</label>
-            <small *ngIf="registerForm.get('password')?.invalid">* مطلوب</small>
-
-          </div>
-        </div>
-      </div>
-      <button type="submit" class="btn" style="width:100px; padding:1px;color: var(--color);background: var(--bg_hover);font-size:22px;margin-right:10%"> حفظ
-      </button>
+      </form>
     </div>
-  </form>
-  <div class="col-2" ></div>
-</div>
-  <div>
-    <app-sidebar></app-sidebar>
-  </div>
+    <div>
+      <app-sidebar></app-sidebar>
+    </div>
   </div>
 </div>

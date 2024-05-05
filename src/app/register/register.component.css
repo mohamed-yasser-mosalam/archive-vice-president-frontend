@@ -1,101 +1,56 @@
 * {
   margin: 0;
   padding: 0;
+}
+.container{
+  margin-left: 9%;
+  margin-top: 30px;
+  height: 550px;
+  width:70%;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--bg_main);
+}
+
+.profile-button {
+  background: var(--bg_main);
+  width: 150px;
+  padding: 5px;
 
 }
 
-form {
-  margin-top: 5%;
+.profile-button:hover {
+  background: var(--bg_main);
   color: var(--color);
 }
 
-.wrapper {
-  padding: 30px;
-  background-color: var(--bg);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
+.profile-button:focus {
+  background: #682773;
+  box-shadow: none
 }
 
-.wrapper .input-data {
-  height: 30px;
-  width: 90%;
-  position: relative;
-  margin: 55px 0;
+.profile-button:active {
+  background: var(--bg_main);
+  box-shadow: none
 }
 
-.wrapper .input-data input {
-  height: 100%;
-  width: 100%;
-  border: none;
-  font-size: 1rem;
-  border-bottom: 2px solid silver;
-  direction: rtl;
-  background-color: var(--bg);
-  color: var(--color);
+.back:hover {
+  color: var(--bg_main);
+  cursor: pointer
 }
 
-.wrapper .input-data textarea {
-  border: none;
-  font-size: 1rem;
-  border-bottom: 2px solid silver;
-}
-
-.input-data input:focus,
-.input-data textarea:focus {
-  outline: none;
-  border: none;
-}
-
-.input-data input:focus~label,
-.input-data input:valid~label,
-.input-data textarea:focus~label,
-.input-data textarea:valid~label {
-  transform: translateY(-35px);
+.labels {
   font-size: 15px;
-  color: var(--color);
+  margin-right: 5px;
 }
 
-.wrapper .input-data label {
-  position: absolute;
-  bottom: 10px;
-  right: 7%;
-  color: var(--color);
-  pointer-events: none;
-  transition: .3s ease;
-  text-align: center;
-  direction: rtl;
+.add-experience:hover {
+  background:  var(--bg_main);
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px  var(--bg_main);
 }
-
-.wrapper .input-data .underLine {
-  position: absolute;
-  bottom: 0;
-  height: 2px;
-  width: 100%;
-}
-
-.wrapper .input-data .underLine::before,
-.wrapper .input-data .underLine-text::before {
-  position: absolute;
-  content: "";
-  height: 2px;
-  width: 100%;
-  background: var(--bg);
-  transform: scaleX(0);
-  transition: all .3s ease-in-out;
-}
-
-.wrapper .input-data .underLine-text::before {
-  bottom: -123px;
-}
-
-.input-data input:focus~.underLine::before,
-.input-data input:valid~.underLine::before,
-.input-data textarea:focus~.underLine-text::before,
-.input-data textarea:valid~.underLine-text::before {
-  transform: scaleX(1);
-}
-
-.input-container {
-  width: 45%;
+small{
+  color: red
 }

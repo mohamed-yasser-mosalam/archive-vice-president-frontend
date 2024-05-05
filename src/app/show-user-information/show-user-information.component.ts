@@ -23,7 +23,9 @@ export class ShowUserInformationComponent  implements OnInit {
     username: new FormControl(''),
     firstName: new FormControl(''),
     lastName: new FormControl(''),
-    password: new FormControl('')
+    password: new FormControl(''),
+    roles: new FormControl(''),
+    phone:new FormControl('')
   })
 
   ngOnInit(): void {
@@ -38,6 +40,8 @@ export class ShowUserInformationComponent  implements OnInit {
           firstName: new FormControl(result['firstName']),
           lastName: new FormControl(result['lastName']),
           password: new FormControl(result['password']),
+          roles:new FormControl(result['roles']),
+          phone: new FormControl(result['phone']),
         })
         console.log(this.updateUserInformationService.getUserInformationById(2))
       })
@@ -57,7 +61,9 @@ export class ShowUserInformationComponent  implements OnInit {
     this.formDate= formDate.append("file", file)
     this.userService.addImages(this.userName,this.id,formDate).subscribe(
       (result) => {
-        this.route.navigateByUrl('/login'),
+        // const imagePath = result.imagePath;
+        // sessionStorage.setItem("imagePath", imagePath);
+         this.route.navigateByUrl('/login'),
           this.auth.clearToken()
       })
 

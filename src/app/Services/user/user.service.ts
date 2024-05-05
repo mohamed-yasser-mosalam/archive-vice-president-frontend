@@ -12,5 +12,8 @@ export class UserService {
   addImages(userName: any, id: string, formDate: any) {
     return this.http.post<any>(`${this.base}/user/add-image?pathType=users&username=${userName}&id=${id}`,formDate)
   }
+  getUserById(id:number){
+    return this.http.get(`${this.base}/user/user?id=${id}`)
+  }
 
 }

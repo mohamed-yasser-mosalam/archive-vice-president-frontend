@@ -60,6 +60,7 @@ import {ErrorPageComponent} from "./error-page/error-page.component";
 import {UpdateComponent} from "./update/update.component";
 import {SessionTimeoutComponent} from "./session-timeout/session-timeout.component";
 import {ShowUserInformationComponent} from "./show-user-information/show-user-information.component";
+import {UserpaginationComponent} from "./userpagination/userpagination.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -84,7 +85,7 @@ const routes: Routes = [
   {path: 'add-urgent/:id', component: UrgentExportComponent, canActivate: [CanActivate]},
   {path: 'add-export-response/:id', component: ResponsExportComponent, canActivate: [CanActivate]},
   {path: 'add-import-response/:id', component: ResponsImportComponent, canActivate: [CanActivate]},
-  {path: 'update-login-information', component: UpdateLoginInformatioComponent, canActivate: [CanActivate]},
+  {path: 'update-login-information/:id', component: UpdateLoginInformatioComponent, canActivate: [CanActivate]},
   {path: 'users', component: UsersComponent, canActivate: [AuthenticationServiceService, CanActivate]},
   {path: 'changepassword/:username', component: ChangePasswordComponent, canActivate: [CanActivate]},
   {path: 'exportfile/:summary', component: ExportFilesComponent, canActivate: [CanActivate]},
@@ -118,6 +119,7 @@ const routes: Routes = [
   {path:'update/:page',component:UpdateComponent,canActivate:[CanActivate]},
   { path: 'session-timeout', component: SessionTimeoutComponent,canActivate:[CanActivate] },
   { path: 'showuserinformation', component:ShowUserInformationComponent,canActivate:[CanActivate] },
+  { path: 'userpagination/:page', component:UserpaginationComponent,canActivate:[CanActivate] },
   { path: "**",component:ErrorPageComponent},
 
 ];

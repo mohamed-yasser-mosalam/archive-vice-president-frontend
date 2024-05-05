@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
   show: boolean = true
   unShow: boolean = !this.show
 
-  constructor( private auth: AuthenticationServiceService) {
+  constructor(private auth: AuthenticationServiceService) {
   }
 
   hideMenu(): void {
@@ -22,7 +22,10 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.idOfUser = this.auth.getUserRoles()
+    this.idOfUser =
+      this.auth.getUserRoles()
   }
-
+  clearToken(){
+    this.auth.clearToken()
+  }
 }

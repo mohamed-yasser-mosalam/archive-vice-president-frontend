@@ -30,14 +30,14 @@
             </div>
             <div class="row mt-3">
               <div class="col-md-12"><label class="labels">رقم الموبايل</label>
-                <input type="text" class="form-control" readonly
-                       placeholder="رقم الموبايل"
-                       value=""></div>
+                <input type="text" class="form-control" readonly formControlName="phone"></div>
+              <div class="col-md-12"><label class="labels">دوره</label>
+                <input type="text" class="form-control" readonly formControlName="roles"></div>
 
             </div>
 
             <div class="mt-5 text-center">
-              <button class="btn   profile-button" type="submit" routerLink="/update-login-information">تعديل البيانات
+              <button class="btn   profile-button" type="submit" routerLink="/update-login-information/{{id}}">تعديل البيانات
               </button>
               <button class="btn m-3  profile-button" type="submit" routerLink="/changepassword/{{userName}}">تغيير
                 الرقم
@@ -56,6 +56,8 @@
             </label>
               <input class="form-control" type="file" name="img" accept="image/*" (change)="onImageSelected($event)">
             </div>
+
+
           </div>
         </div>
       </form>

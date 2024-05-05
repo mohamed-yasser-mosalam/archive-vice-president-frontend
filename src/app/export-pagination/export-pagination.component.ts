@@ -130,7 +130,6 @@ export class ExportPaginationComponent implements OnInit {
   }
 
   selectedFiles: File[] = [];
-
   onFileSelected(event: any): void {
     const files: FileList = event.target.files;
     if (files) {

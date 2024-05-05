@@ -14,8 +14,7 @@ import {UserService} from "../Services/user/user.service";
   templateUrl: './update-login-informatio.component.html',
   styleUrls: ['./update-login-informatio.component.css']
 })
-export class UpdateLoginInformatioComponent  implements OnInit {
-  formDate:any
+export class UpdateLoginInformatioComponent implements OnInit {
   name: string;
   img: string;
   id: any;
@@ -26,52 +25,43 @@ export class UpdateLoginInformatioComponent  implements OnInit {
     username: new FormControl(''),
     firstName: new FormControl(''),
     lastName: new FormControl(''),
-    password: new FormControl('')
+    password: new FormControl(''), roles: new FormControl(''),
+    phone: new FormControl('')
   })
 
   ngOnInit(): void {
     this.name = this.auth.getName()
-    this.img = this.base + this.auth.getUserImage()
-    this.id = +this.auth.getuserId()
-    this.userName = this.auth.getUserName()
+    this.id = this.routes.snapshot.params['id']
     this.updateUserInformationService.getUserInformationById(this.id)
-      .subscribe((result) => {
+      .subscribe((result: any) => {
         this.editUserName = new FormGroup({
           username: new FormControl(result['username']),
           firstName: new FormControl(result['firstName']),
           lastName: new FormControl(result['lastName']),
           password: new FormControl(result['password']),
+          roles: new FormControl(result['roles']),
+          phone: new FormControl(result['phone']),
         })
-        console.log(this.updateUserInformationService.getUserInformationById(2))
+        this.userName = result.username;
+        this.img = this.base+result.imagePath
       })
   }
 
   constructor(private auth: AuthenticationServiceService,
               private router: Router,
               private updateUserInformationService: UpdateUserInformationService,
-              private userService:UserService,
-              private route: Router,
+              private routes: ActivatedRoute,
   ) {
   }
 
   updateUserInformation() {
-    this.updateUserInformationService.update(this.id, this.editUserName.value).subscribe((result:any) => {
-      // this.router.navigateByUrl('/login');
-      // this.auth.clearToken();
-       sessionStorage.setItem("username",'aaaa');
-     this.router.navigateByUrl('/home');
+    this.updateUserInformationService.update(this.id, this.editUserName.value).subscribe((result: any) => {
+      this.router.navigateByUrl('/login');
+      this.auth.clearToken();
+      // sessionStorage.setItem("username", 'aaaa');
+      // this.router.navigateByUrl('/home');
 
     })
   }
-  onImageSelected(event) {
-    const file = event.target.files[0]
-    const formDate: FormData = new FormData()
-    this.formDate= formDate.append("file", file)
-    this.userService.addImages(this.userName,this.id,formDate).subscribe(
-      (result) => {
-        this.route.navigateByUrl('/login'),
-          this.auth.clearToken()
-      })
 
-  }
 }

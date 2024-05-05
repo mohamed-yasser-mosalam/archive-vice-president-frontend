@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
 import {Users} from "../Models/Users/users";
 import {HttpClient} from "@angular/common/http";
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-change-password-by-admin',
@@ -12,26 +13,28 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ChangePasswordByAdminComponent implements OnInit {
 
-  informationUserById: Users
   id = +this.routes.snapshot.params['id']
-  username: string
-  changePasswordByAdmin: any
-
+  name: string
+  img: string
+  base = baseUrl + '/'
   constructor(private updateUserInformationService: UpdateUserInformationService,
               private router: Router, private routes: ActivatedRoute,
-              private auth: AuthenticationServiceService,
-              private http: HttpClient
   ) {
   }
 
   ngOnInit(): void {
+    this.getUserById()
   }
 
+  getUserById() {
+    this.updateUserInformationService.getUserInformationById(this.id).subscribe((result: any) => {
+      this.name = result.username;
+      this.img = this.base+result.imagePath
+    })
+  }
 
   changePassword(newPassword: any) {
-    this.updateUserInformationService.changePasswordByAdmin(this.id,newPassword).subscribe()
+    this.updateUserInformationService.changePasswordByAdmin(this.id, newPassword).subscribe()
     this.router.navigateByUrl("/home")
-   }
-
-
+  }
 }

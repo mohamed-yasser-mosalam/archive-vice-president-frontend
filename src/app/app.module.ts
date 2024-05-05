@@ -77,6 +77,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { UpdateComponent } from './update/update.component';
 import { SessionTimeoutComponent } from './session-timeout/session-timeout.component';
 import { ShowUserInformationComponent } from './show-user-information/show-user-information.component';
+import { UserpaginationComponent } from './userpagination/userpagination.component';
    @NgModule({
   declarations: [
     AppComponent,
@@ -141,6 +142,7 @@ import { ShowUserInformationComponent } from './show-user-information/show-user-
     UpdateComponent,
     SessionTimeoutComponent,
     ShowUserInformationComponent,
+    UserpaginationComponent,
 
    ],
      imports: [

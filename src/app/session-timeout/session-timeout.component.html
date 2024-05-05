@@ -1,4 +1,57 @@
-<div>
-  <p>Your session has expired. Please log in again.</p>
-  <!-- You can provide a button to navigate to the login page -->
+<app-navbar></app-navbar>
+<div class="row w-auto" style="background-color: var(--bg_main);">
+  <div class="d-flex justify-content-between">
+    <div class="container rounded bg-white " style="zoom:95%;">
+      <form class="row" [formGroup]="editUserName" (ngSubmit)="updateUserInformation()">
+
+        <div class="col-md-5 border-right"
+             style="direction: rtl;margin-right: 100px;margin-left: 150px;margin-top:60px">
+          <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h2 class="text-right">بيانات المستخدم</h2>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6"><label class="labels">الاسم الاول</label>
+                <input type="text" class="form-control"
+                       placeholder="الأسم الأول" value="" formControlName="firstName">
+              </div>
+              <div class="col-md-6"><label class="labels">الاسم الثاني</label>
+                <input type="text" class="form-control"
+                       value=""
+                       placeholder="الأسم الثاني" formControlName="lastName">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12"><label class="labels">اسم المستخدم</label>
+                <input type="text" class="form-control"
+                       placeholder="اسم المستخدم" formControlName="username">
+              </div>
+
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12"><label class="labels">رقم الموبايل</label>
+                <input type="text" class="form-control"
+                       placeholder="رقم الموبايل"
+                       value=""></div>
+            </div>
+            <div class="mt-5 text-center">
+              <button class="btn   profile-button" type="submit">حفظ</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5"
+          style="margin-top: 20px">
+            <img class="rounded-circle mt-5"
+                 style="height:200px;width:200px; margin-left: 15px; border-radius:100%;margin-top:50px"
+                 src={{img}}><span
+            class="font-weight-bold">{{ name }}</span><span class="text-black-50"></span><span> </span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div>
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
 </div>

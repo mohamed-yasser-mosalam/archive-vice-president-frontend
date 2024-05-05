@@ -59,6 +59,7 @@ import {UpdateSignComponent} from "./update-sign/update-sign.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import {UpdateComponent} from "./update/update.component";
 import {SessionTimeoutComponent} from "./session-timeout/session-timeout.component";
+import {ShowUserInformationComponent} from "./show-user-information/show-user-information.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -116,6 +117,7 @@ const routes: Routes = [
   {path:'updatesign/:page',component:UpdateSignComponent,canActivate:[CanActivate]},
   {path:'update/:page',component:UpdateComponent,canActivate:[CanActivate]},
   { path: 'session-timeout', component: SessionTimeoutComponent,canActivate:[CanActivate] },
+  { path: 'showuserinformation', component:ShowUserInformationComponent,canActivate:[CanActivate] },
   { path: "**",component:ErrorPageComponent},
 
 ];

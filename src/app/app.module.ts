@@ -76,6 +76,7 @@ import { SignPaginationComponent } from './sign-pagination/sign-pagination.compo
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { UpdateComponent } from './update/update.component';
 import { SessionTimeoutComponent } from './session-timeout/session-timeout.component';
+import { ShowUserInformationComponent } from './show-user-information/show-user-information.component';
    @NgModule({
   declarations: [
     AppComponent,
@@ -139,6 +140,7 @@ import { SessionTimeoutComponent } from './session-timeout/session-timeout.compo
     ErrorPageComponent,
     UpdateComponent,
     SessionTimeoutComponent,
+    ShowUserInformationComponent,
 
    ],
      imports: [

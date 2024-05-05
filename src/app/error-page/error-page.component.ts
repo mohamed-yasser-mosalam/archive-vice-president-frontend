@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import baseUrl from "../url";
 
 @Component({
   selector: 'app-error-page',
@@ -6,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./error-page.component.css']
 })
 export class ErrorPageComponent {
-
-}
+  }

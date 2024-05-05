@@ -1,20 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {RegisterService} from "../Services/Register/register.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
-import {ExportServiceService} from "../Services/ExportsServices/export-service.service";
+import baseUrl from "../url";
 import {FormControl, FormGroup} from "@angular/forms";
 import {AuthenticationServiceService} from "../Services/Security/authentication-service.service";
+import {Router} from "@angular/router";
 import {UpdateUserInformationService} from "../Services/updateUserInformation/update-user-information.service";
-import baseUrl from "../url";
 import {UserService} from "../Services/user/user.service";
 
 @Component({
-  selector: 'app-update-login-informatio',
-  templateUrl: './update-login-informatio.component.html',
-  styleUrls: ['./update-login-informatio.component.css']
+  selector: 'app-show-user-information',
+  templateUrl: './show-user-information.component.html',
+  styleUrls: ['./show-user-information.component.css']
 })
-export class UpdateLoginInformatioComponent  implements OnInit {
+export class ShowUserInformationComponent  implements OnInit {
   formDate:any
   name: string;
   img: string;
@@ -54,15 +51,6 @@ export class UpdateLoginInformatioComponent  implements OnInit {
   ) {
   }
 
-  updateUserInformation() {
-    this.updateUserInformationService.update(this.id, this.editUserName.value).subscribe((result:any) => {
-      // this.router.navigateByUrl('/login');
-      // this.auth.clearToken();
-       sessionStorage.setItem("username",'aaaa');
-     this.router.navigateByUrl('/home');
-
-    })
-  }
   onImageSelected(event) {
     const file = event.target.files[0]
     const formDate: FormData = new FormData()

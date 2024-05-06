@@ -3,44 +3,38 @@
   padding: 0;
 
 }
-
-/*form {*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  margin-left:0px;*/
-/*  height: 300px;*/
-
-/*}*/
-
+form{
+  background-color: var(--bg_main);
+  margin-left: 90px;
+  height: 98%;
+}
 .wrapper {
   position: relative;
-  bottom: 0;
   width: 100%;
-  padding: 10px;
   display: flex;
+  padding-top: 20px;
   flex-direction: column;
-  margin-top: 10px;
 }
 
 .wrapper .input-data {
   height: 40px;
   width: 100%;
   position: relative;
-  margin: 30px 0;
-  margin-top: 20px;
-
+  margin: 20px 20px 30px 0;
+  font-size: 50px;
 }
 
 .wrapper .input-data input {
-  height: 60%;
+  padding: 0 10px;
+  height: 100%;
   width: 100%;
   border: none;
-  font-size: 20px;
+  font-size: 23px;
   border-bottom: 2px solid silver;
   direction: rtl;
   background-color: var(--bg);
   color: var(--color);
-}
+ }
 
 .wrapper .input-data textarea {
   border: none;
@@ -56,12 +50,14 @@
 
 .wrapper .input-data label {
   position: absolute;
-  bottom: 40px;
+  bottom: 1px;
   right: 7px;
   color: var(--color);
   pointer-events: none;
   transition: .3s ease;
   text-align: center;
+  margin-bottom: 30px;
+  font-size: 20px;
 }
 
 .wrapper .input-data .underLine {
@@ -77,9 +73,10 @@
   content: "";
   height: 2px;
   width: 100%;
-  background-color: #333333;
+  background-color: var(--bg);
   transform: scaleX(0);
   transition: all .3s ease-in-out;
+  margin-top: 20px;
 }
 
 .wrapper .input-data .underLine-text::before {
@@ -91,27 +88,37 @@
 .input-data textarea:focus~.underLine-text::before,
 .input-data textarea:valid~.underLine-text::before {
   transform: scaleX(1);
+  margin-top: 0;
 }
 
 .input-container {
   width: 45%;
 }
 
+ul li a,
+.dropdown-toggle {
+  display: block;
+  width: 3em;
+  padding: 5px;
 
-
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
 ngb-pagination ::ng-deep ul>li.active>a {
-  background-color: #333333 !important;
-  color: white !important;
+  background-color: var(--bg_main) !important;
+  color: var(--color) !important;
 }
 
 ngb-pagination ::ng-deep a {
-  color: black !important;
+  color: var(--color) !important;
 }
 
 ngb-pagination ::ng-deep .page-item.active .page-link {
   border-color: black;
-  background-color: lightgrey;
+  background-color: var(--bg);
 }
 
 ngb-pagination ::ng-deep .page-item.active .page-link:focus,
@@ -123,44 +130,17 @@ ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
   box-shadow: 0 0 0 0.1rem dimgrey;
 }
 
-
-
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 5px;
-}
-
-::-webkit-scrollbar:hover {
-  width: 5px;
-  height: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #ffffff;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #333333;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #333333;
-}
-
-
 input[type=file]::file-selector-button {
   margin-right: 20px;
   border: none;
-  background: #333333;
+  background: var(--bg);
   padding: 10px 20px;
   border-radius: 10px;
-  color: #fff;
+  color: var(--color);
   cursor: pointer;
   transition: background .2s ease-in-out;
 }
 
 input[type=file]::file-selector-button:hover {
-  background: #333333;
+  background: var(--bg);
 }

@@ -1,23 +1,27 @@
 * {
   margin: 0;
   padding: 0;
-}
 
+}
+form{
+  background-color: var(--bg_main);
+  margin-left: 90px;
+  height: 98%;
+}
 .wrapper {
   position: relative;
   width: 100%;
   display: flex;
   padding-top: 20px;
   flex-direction: column;
-
-
 }
 
 .wrapper .input-data {
   height: 40px;
   width: 100%;
   position: relative;
-  margin: 50px 0;
+  margin: 50px 20px;
+  font-size: 50px;
 }
 
 .wrapper .input-data input {
@@ -29,7 +33,8 @@
   direction: rtl;
   background-color: var(--bg);
   color: var(--color);
-}
+  padding: 0 10px;
+ }
 
 .wrapper .input-data textarea {
   border: none;
@@ -101,8 +106,6 @@ ul li a,
   align-items: center;
   gap: 20px;
 }
-
-
 
 ngb-pagination ::ng-deep ul>li.active>a {
   background-color: var(--bg_main) !important;

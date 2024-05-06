@@ -1,31 +1,28 @@
 * {
   margin: 0;
   padding: 0;
-}
-
-form {
-  align-items: center;
-  justify-content: center;
-  margin-left: 0px;
-  height: 500px;
 
 }
-
+form{
+  background-color: var(--bg_main);
+  margin-left: 90px;
+  height: 98%;
+}
 .wrapper {
   position: relative;
-  bottom: 0;
   width: 100%;
   display: flex;
-  flex-direction: column;
   padding-top: 20px;
-
+  flex-direction: column;
 }
 
 .wrapper .input-data {
   height: 40px;
   width: 100%;
   position: relative;
-  margin: 50px 0;
+  margin: 30px 0;
+  font-size: 50px;
+  margin-right: 20px;
 }
 
 .wrapper .input-data input {
@@ -36,8 +33,9 @@ form {
   border-bottom: 2px solid silver;
   direction: rtl;
   background-color: var(--bg);
-  color: var(--color)
-}
+  color: var(--color);
+  padding: 0 10px;
+ }
 
 .wrapper .input-data textarea {
   border: none;
@@ -98,14 +96,52 @@ form {
   width: 45%;
 }
 
-
 ul li a,
 .dropdown-toggle {
   display: block;
   width: 3em;
   padding: 5px;
+
   border-radius: 8px;
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+ngb-pagination ::ng-deep ul>li.active>a {
+  background-color: var(--bg_main) !important;
+  color: var(--color) !important;
+}
+
+ngb-pagination ::ng-deep a {
+  color: var(--color) !important;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link {
+  border-color: black;
+  background-color: var(--bg);
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link:focus,
+.page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: var(--bg);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: var(--color);
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: var(--bg);
 }

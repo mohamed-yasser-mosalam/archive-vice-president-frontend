@@ -20,18 +20,18 @@
           </button>
         </ng-template>
       </ngb-carousel>
-      <form class="col-md-7" style="margin-top:1%;zoom: 60% " [formGroup]="editImport" (ngSubmit)="update()">
+      <form class="col-md-7" style="zoom: 60% " [formGroup]="editImport" (ngSubmit)="update()">
 
         <div class="wrapper">
           <legend class="text-center" style="font-weight: bold;font-size:25px;color:var(--color)">{{ x }} تعديل ملف وارد رقم</legend>
           <div style="display: flex;  justify-content: space-between;">
             <div class="input-container ">
 
-              <div class="input-data">
+              <div class="input-data" style="margin-left: 20px;">
                 <input type="text"  id="numberOfAttachments" formControlName="numberOfAttachments">
                 <label for="numberOfAttachments">عدد المرفقات</label>
               </div>
-              <div class="input-data" style="top:50px">
+              <div class="input-data" style="top:50px;margin-left: 20px;">
                 <input type="text" id="sender" formControlName="sender">
                 <label for="sender">الجهة الوارد منها الخطاب</label>
               </div>
@@ -59,35 +59,35 @@
               </div>
             </div>
           </div>
-          <div class="input-data" style="bottom:20px">
+          <div class="input-data" style="width:96%;margin-left: 20px;">
             <input type="text" style="height: 50px;" id="summary" formControlName="summary">
-            <label for="summary">ملخص الخطاب</label>
+            <label style="bottom:5px" for="summary">ملخص الخطاب</label>
           </div>
 
           <div style="display: flex;  justify-content: space-between;">
-            <div class="input-container position-relative" style="bottom:60px">
-              <div class="input-data">
+            <div class="input-container position-relative" >
+              <div class="input-data" style="margin-left: 20px;">
                 <input type="text" readonly id="responseSide" formControlName="responseSide">
                 <label for="responseSide">الجهة الصادر اليها </label>
               </div>
-              <div class="input-data">
+              <div class="input-data" style="margin-left: 20px;">
                 <input type="Date" id="recipientDate" formControlName="recipientDate">
                 <label for="recipientDate">تاريخ الاستلام</label>
               </div>
-              <div class="input-data">
+              <div class="input-data" style="margin-left: 20px;">
                 <input type="Date" required id="expectResponseDate" formControlName="expectResponseDate">
                 <label for="expectResponseDate">التاريخ المتوقع للرد</label>
               </div>
 
               <div class="input-data" style="bottom:0px; ">
                 <button type="submit" class="btn  "
-                        style="width:150px; padding:5px;color: var(--color);background: var(--bg_hover);font-size:25px;margin-left:96%"
+                        style="width:150px; padding:5px;color: var(--color);background: var(--color1);font-size:25px;margin-left:96%"
                 > حفظ
                 </button>
               </div>
 
             </div>
-            <div class="input-container position-relative" style="bottom:60px">
+            <div class="input-container position-relative" >
               <div style="display: flex;">
                 <div class="input-data w-50">
                   <input type="Date" readonly id="responseDate" formControlName="responseDate">
@@ -98,11 +98,11 @@
                   <label for="responseNumber">الرد</label>
                 </div>
               </div>
-              <div class="input-data" style="bottom: 50px;">
+              <div class="input-data" style="bottom: 10px; width:97%">
                 <input type="text" id="recipientName" formControlName="recipientName">
                 <label for="recipientName" style="margin-top: 40px;">المستلم</label>
               </div>
-              <div class="input-data" style="bottom: 55px;">
+              <div class="input-data" style="bottom: 10px; width:97%;">
                 <input type="text" id="num" formControlName="num">
                 <label for="num">رقم الملف</label>
               </div>

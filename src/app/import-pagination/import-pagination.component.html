@@ -10,7 +10,7 @@
         </div>
         <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'" type="submit" (click)="deleteImage(i)"
                 class="btn"
-                style="width:150px;padding:1px;margin-top:10px;margin-left:100px;color: var(--color);background: var(--bg_hover);font-size:15px">
+                style="width:150px;padding:1px;margin-top:10px;margin-left:100px;color: var(--color);background: var(--color1);font-size:15px">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
                viewBox="0 0 16 16">
             <path
@@ -27,7 +27,6 @@
 
       <div style="display: flex;  justify-content: space-between;">
         <div class="input-container ">
-
           <div class="input-data">
             <input type="text" required readonly id="numberOfAttachments" formControlName="numberOfAttachments">
             <label for="numberOfAttachments">عدد المرفقات</label>
@@ -60,9 +59,9 @@
           </div>
         </div>
       </div>
-      <div class="input-data" style="bottom:20px">
+      <div class="input-data" style="width:97%;margin-bottom: 80px;">
         <input style="height:60px;" readonly required id="summary" formControlName="summary">
-        <label for="summary" style="margin-bottom: 20px">ملخص الخطاب</label>
+        <label for="summary" style="margin-bottom: 35px">ملخص الخطاب</label>
       </div>
 
       <div style="display: flex;  justify-content: space-between;">
@@ -99,11 +98,11 @@
               <label for="responseNumber">الرد</label>
             </div>
           </div>
-          <div class="input-data" style="bottom: 55px;">
+          <div class="input-data" style="bottom: 55px;width: 93%;">
             <input type="text" required readonly id="recipientName" formControlName="recipientName">
             <label for="recipientName">المستلم</label>
           </div>
-          <div class="input-data" style="bottom: 55px;">
+          <div class="input-data" style="bottom: 55px;width: 93%;">
             <input type="text" required readonly id="num" formControlName="num">
             <label for="num">رقم الملف</label>
           </div>
@@ -113,35 +112,35 @@
       </div>
       <div class="input-data" style="bottom:150px;margin-left: 20% ">
         <form (ngSubmit)="onSubmit()" enctype="multipart/form-data"
-          style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px">
+          style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px;width:65%">
           <button type="submit"
-            style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--bg_hover);font-size:25px"
+            style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-size:25px"
             routerLink="/import_pagination/{{no}}">حفظ المرفقات</button>
           <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
         </form>
         <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'" type="submit" class="btn "
-          style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover);font-size:25px"
+          style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"
           routerLink="/updateimport/{{id}}">
           تعديل
         </button>
         <button type="submit" class="btn  "
-          style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover);font-size:25px"
+          style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"
           routerLink="/addimportfile">
           تسجيل جديد
         </button>
 
         <button type="submit" class="btn " *ngIf="isHasResponse"
-          style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover);font-size:25px"
+          style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"
           routerLink="/add-import-response/{{id}}">
           اضافه رد
         </button>
         <button type="submit" class="btn " *ngIf="isHasSpecial"
-                style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--bg_hover);font-size:25px"
+                style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"
                 routerLink="/savefileimport/{{id}}">
            حفظ
         </button>
 
-        <div class="col-md-9 pag" style="margin-top:50px;bottom:0px;margin-left: 12%">
+        <div class="col-md-9 pag" style="margin-top:30px;bottom:0px;margin-left: 12%">
           <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change($event)"
             [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
             routerLink="/import_pagination/{{page}}">

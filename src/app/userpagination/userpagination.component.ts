@@ -51,7 +51,7 @@ export class UserpaginationComponent implements OnInit {
   }
 
   showUserById() {
-    this.userService.getUserById(this.id).subscribe((result: any) => {
+    this.userService.getUserById(this.page).subscribe((result: any) => {
       this.user = result;
       this.img=this.base+result.imagePath;
       this.username=this.user.username;
@@ -99,7 +99,7 @@ export class UserpaginationComponent implements OnInit {
       this.img=this.base+result.imagePath;
 
     });
-    const nextPageUrl = `/userpagination/${this.id}`;
+    const nextPageUrl = `/userpagination/${this.page}`;
     this.router.navigate([nextPageUrl]);
   }
 }

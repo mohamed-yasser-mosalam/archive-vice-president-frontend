@@ -3,9 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {Router} from "@angular/router";
 import baseUrl from "../../url";
-import jwt from 'jsonwebtoken';
-
-
 @Injectable({
   providedIn: 'root'
 })

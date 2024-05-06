@@ -51,3 +51,41 @@
   cursor: pointer;
   border: solid 1px  var(--bg_main);
 }
+
+ngb-pagination ::ng-deep ul>li.active>a {
+  background-color: var(--bg) !important;
+  color: var(--color) !important;
+}
+
+ngb-pagination ::ng-deep a {
+  color: var(--bg) !important;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link {
+  border-color: black;
+  background-color: var(--bg);
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link:focus,
+.page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: var(--bg);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: var(--color);
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: var(--bg);
+}

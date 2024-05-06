@@ -15,5 +15,8 @@ export class UserService {
   getUserById(id:number){
     return this.http.get(`${this.base}/user/user?id=${id}`)
   }
+  getCountOfUser(){
+    return this.http.get(`${this.base}/user/count`)
+  }
 
 }

@@ -13,6 +13,9 @@ import {ActivateUserService} from "../Services/ActivateUsers/activate-user.servi
   styleUrls: ['./userpagination.component.css']
 })
 export class UserpaginationComponent implements OnInit {
+  page = this.routes.snapshot.params['page'];
+  pageLength: number;
+  size:number=1
   isActive:number
   user: any;
   img:string;
@@ -30,9 +33,10 @@ export class UserpaginationComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.getCountOfUsers();
     this.showUserById()
     this.userService.getUserById(this.id)
-      .subscribe((result) => {
+      .subscribe((result:any) => {
         this.showAllUsers = new FormGroup({
           username: new FormControl(result['username']),
           firstName: new FormControl(result['firstName']),
@@ -41,6 +45,8 @@ export class UserpaginationComponent implements OnInit {
           roles: new FormControl(result['roles']),
           phone: new FormControl(result['phone']),
         })
+        this.img=this.base+result.imagePath
+
       })
   }
 
@@ -48,8 +54,8 @@ export class UserpaginationComponent implements OnInit {
     this.userService.getUserById(this.id).subscribe((result: any) => {
       this.user = result;
       this.img=this.base+result.imagePath;
-      this.username=result.username;
-      this.isActive=result.isActive
+      this.username=this.user.username;
+      this.isActive=this.user.isActive;
     })
   }
 
@@ -57,6 +63,7 @@ export class UserpaginationComponent implements OnInit {
     private routes: ActivatedRoute,
     private userService: UserService,
     private activateUserService:ActivateUserService,
+    private router:Router
   ) {
   }
   unActivateUser(username:string){
@@ -71,5 +78,28 @@ export class UserpaginationComponent implements OnInit {
       window.location.reload();
     }, 50);
 
+  }
+  getCountOfUsers(){
+    this.userService.getCountOfUser().subscribe((result:any)=>{
+      this.pageLength=result;
+    })
+  }
+  change(event): void {
+    this.page = event;
+    this.showUserById();
+    this.userService.getUserById(event).subscribe((result:any) => {
+      this.showAllUsers = new FormGroup({
+        username: new FormControl(result['username']),
+        firstName: new FormControl(result['firstName']),
+        lastName: new FormControl(result['lastName']),
+        password: new FormControl(result['password']),
+        roles: new FormControl(result['roles']),
+        phone: new FormControl(result['phone']),
+      });
+      this.img=this.base+result.imagePath;
+
+    });
+    const nextPageUrl = `/userpagination/${this.id}`;
+    this.router.navigate([nextPageUrl]);
   }
 }

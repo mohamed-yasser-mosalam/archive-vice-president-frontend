@@ -68,9 +68,6 @@ export class AuthenticationServiceService implements OnInit {
     return this.userService.getUserByUserName(this.getUserName()).imagePath.toString()
   }
 
-
-
-
   clearToken() {
     sessionStorage.clear()
   }

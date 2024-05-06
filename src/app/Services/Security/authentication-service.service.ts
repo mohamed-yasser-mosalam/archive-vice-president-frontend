@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {Router} from "@angular/router";
 import baseUrl from "../../url";
+import {jwtDecode} from "jwt-decode";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +27,7 @@ export class AuthenticationServiceService implements OnInit {
           sessionStorage.setItem('roles', response.roles,)
           sessionStorage.setItem('id', response.id)
           sessionStorage.setItem("imagePath", response.imagePath)
-          sessionStorage.setItem("username", response.username)
+          // sessionStorage.setItem("username", response.username)
           sessionStorage.setItem("name", response.name)
           sessionStorage.setItem("token", `Bearer ${response.token}`)
           return response;
@@ -49,7 +51,7 @@ export class AuthenticationServiceService implements OnInit {
   }
 
   getUserName() {
-    return sessionStorage.getItem('username') || "";
+    return this.decodeToken().sub || '';
   }
 
   getToken() {
@@ -64,4 +66,10 @@ export class AuthenticationServiceService implements OnInit {
     if (sessionStorage.getItem('roles') != 'admin')
       return this.router.navigateByUrl('/home');
   }
+
+  decodeToken() {
+    return jwtDecode(this.getToken());
+  }
+
+
 }

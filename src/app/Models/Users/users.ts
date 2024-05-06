@@ -5,6 +5,7 @@ export class Users {
   lastName: string;
   roles:string
   isActive: number;
+  imagePath: number;
 
   constructor(
     id:number,
@@ -12,13 +13,17 @@ export class Users {
     firstName: string,
     lastName: string,
     roles:string,
-    isActive: number
+    isActive: number,
+    imagePath:number
   ) {
     this.id=id;
     this.username=username;
     this.firstName=firstName;
     this.lastName=lastName;
     this.roles=roles;
-    this.isActive=isActive
+    this.isActive=isActive;
+    this.imagePath=imagePath;
+
+
   }
 }

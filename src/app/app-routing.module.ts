@@ -95,7 +95,7 @@ const routes: Routes = [
   {path: 'add-urgent/:id', component: UrgentExportComponent, canActivate: [CanActivate]},
   {path: 'add-export-response/:id', component: ResponsExportComponent, canActivate: [CanActivate]},
   {path: 'add-import-response/:id', component: ResponsImportComponent, canActivate: [CanActivate]},
-  {path: 'update-login-information/:id', component: UpdateLoginInformatioComponent, canActivate: [CanActivate]},
+  {path: 'update-login-information/:username', component: UpdateLoginInformatioComponent, canActivate: [CanActivate]},
   {path: 'users', component: UsersComponent, canActivate: [AuthenticationServiceService, CanActivate]},
   {path: 'changepassword/:username', component: ChangePasswordComponent, canActivate: [CanActivate]},
   {path: 'exportfile/:summary', component: ExportFilesComponent, canActivate: [CanActivate]},
@@ -126,7 +126,7 @@ const routes: Routes = [
   {path:'sign_pagination/:page',component:SignPaginationComponent,canActivate:[CanActivate]},
   {path:'addsign',component:AddSignComponent,canActivate:[CanActivate]},
   {path:'updatesign/:page',component:UpdateSignComponent,canActivate:[CanActivate]},
-  { path: 'showuserinformation', component:ShowUserInformationComponent,canActivate:[CanActivate] },
+  { path: 'showuserinformation/:username', component:ShowUserInformationComponent,canActivate:[CanActivate] },
   { path: 'userpagination/:page', component:UserpaginationComponent,canActivate:[CanActivate] },
   { path: "**",component:ErrorPageComponent},
 

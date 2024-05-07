@@ -100,3 +100,6 @@ form {
 .input-container {
   width: 45%;
 }
+small{
+  color: red;
+}

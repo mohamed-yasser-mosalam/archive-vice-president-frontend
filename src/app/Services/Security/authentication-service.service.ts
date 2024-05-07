@@ -21,7 +21,7 @@ export class AuthenticationServiceService implements OnInit {
 
   }
 
-  executeAuthentication(username, password): Observable<any> {
+  executeAuthentication(username:any, password:any): Observable<any> {
     return this.http.post<any>(`${this.base}/login`, {username, password})
       .pipe(map(
         response => {
@@ -73,9 +73,8 @@ export class AuthenticationServiceService implements OnInit {
   }
 
   canActivate(): any {
-    if (sessionStorage.getItem('roles') != 'admin')
+    if (this.getUserRoles() != 'admin')
       return this.router.navigateByUrl('/home');
   }
-
 
 }

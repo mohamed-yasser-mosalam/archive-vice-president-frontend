@@ -33,6 +33,7 @@ form {
   direction: rtl;
   background-color: var(--bg);
   color: var(--color);
+
 }
 
 .wrapper .input-data textarea {
@@ -59,14 +60,14 @@ form {
 
 .wrapper .input-data label {
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   right: 7%;
   color: var(--color);
   pointer-events: none;
   transition: .3s ease;
   text-align: center;
   font-size: 15px;
-}
+ }
 
 .wrapper .input-data .underLine {
   position: absolute;
@@ -99,4 +100,7 @@ form {
 
 .input-container {
   width: 45%;
+}
+small{
+  color: red;
 }

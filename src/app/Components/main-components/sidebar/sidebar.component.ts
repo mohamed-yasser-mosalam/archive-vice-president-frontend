@@ -1,0 +1,30 @@
+import {Component, OnInit} from '@angular/core';
+import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
+
+@Component({
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.css']
+})
+export class SidebarComponent implements OnInit {
+  idOfUser: string
+  pageLength: number
+  show: boolean = true
+  unShow: boolean = !this.show
+
+  constructor(private auth: AuthenticationServiceService) {
+  }
+
+  hideMenu(): void {
+    this.show = !this.show
+    this.unShow = !this.unShow
+  }
+
+  ngOnInit(): void {
+    this.idOfUser =
+      this.auth.getUserRoles()
+  }
+  clearToken(){
+    this.auth.clearToken()
+  }
+}

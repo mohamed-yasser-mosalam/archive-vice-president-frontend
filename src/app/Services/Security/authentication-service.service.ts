@@ -57,15 +57,15 @@ export class AuthenticationServiceService implements OnInit {
   }
 
   getName() {
-    return this.userService.getUserByUserName(this.getUserName()).firstName + ' ' + this.userService.getUserByUserName(this.getUserName()).lastName
+    return this.decodeToken().iss || '';
   }
 
   getUserRoles() {
-    return this.userService.getUserByUserName(this.getUserName()).roles.toString()
+    return this.decodeToken().jti || '';
   }
 
   getUserImage() {
-    return this.userService.getUserByUserName(this.getUserName()).imagePath.toString()
+    return this.decodeToken().aud || '';
   }
 
   clearToken() {

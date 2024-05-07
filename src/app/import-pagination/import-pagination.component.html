@@ -118,7 +118,7 @@
             routerLink="/import_pagination/{{no}}">حفظ المرفقات</button>
           <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
         </form>
-        <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'" type="submit" class="btn "
+        <button type="submit" class="btn "
           style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"
           routerLink="/updateimport/{{id}}">
           تعديل

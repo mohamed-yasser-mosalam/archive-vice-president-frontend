@@ -27,7 +27,7 @@ export class UpdateLoginInformatioComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = this.auth.getName()
-    this.id = this.routes.snapshot.params['id']
+    this.id = this.auth.getuserId()
     this.updateUserInformationService.getUserInformationById(this.id)
       .subscribe((result: any) => {
         this.editUserName = new FormGroup({

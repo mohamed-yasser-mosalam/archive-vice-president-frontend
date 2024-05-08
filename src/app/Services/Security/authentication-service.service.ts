@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {Router} from "@angular/router";
 import baseUrl from "../../url";
-import {jwtDecode} from "jwt-decode";
+import {jwtDecode, JwtDecodeOptions} from "jwt-decode";
 import {UserService} from "../user/user.service";
 
 @Injectable({
@@ -21,11 +21,12 @@ export class AuthenticationServiceService implements OnInit {
 
   }
 
-  executeAuthentication(username:any, password:any): Observable<any> {
+  executeAuthentication(username: any, password: any): Observable<any> {
     return this.http.post<any>(`${this.base}/login`, {username, password})
       .pipe(map(
         response => {
           sessionStorage.setItem("token", `Bearer ${response.token}`)
+          sessionStorage.setItem("id", response.id)
           return response;
         }))
   }
@@ -44,6 +45,15 @@ export class AuthenticationServiceService implements OnInit {
     return jwtDecode(this.getToken());
   }
 
+
+  getuserId() {
+    return sessionStorage.getItem('id')||''
+  }
+
+  getName() {
+    return this.decodeToken().iss || '';
+  }
+
   /**
    * get username from token
    **/
@@ -51,14 +61,6 @@ export class AuthenticationServiceService implements OnInit {
     return this.decodeToken().sub || '';
   }
 
-
-  getuserId() {
-    return this.userService.getUserByUserName(this.getUserName()).id.toString()
-  }
-
-  getName() {
-    return this.decodeToken().iss || '';
-  }
 
   getUserRoles() {
     return this.decodeToken().jti || '';
@@ -75,6 +77,16 @@ export class AuthenticationServiceService implements OnInit {
   canActivate(): any {
     if (this.getUserRoles() != 'admin')
       return this.router.navigateByUrl('/home');
+  }
+
+  substringUpToCustomChar(inputString: string, customChar: string): string {
+    const index = inputString.indexOf(customChar);
+    return inputString.substring(0, index);
+  }
+
+  substringFromCustomChar(inputString: string, customChar: string): string {
+    const index = inputString.indexOf(customChar);
+    return inputString.substring(index + 1);
   }
 
 }

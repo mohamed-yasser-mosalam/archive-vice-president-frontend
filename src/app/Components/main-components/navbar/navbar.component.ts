@@ -37,6 +37,8 @@ export class NavbarComponent implements OnInit {
     this.name = this.auth.getName()
     this.img =this.base+ this.auth.getUserImage()
     this.id=this.auth.getuserId()
+    console.log(this.id + "bbbbbbbbbbbbbbbbb")
+
     this.userName=this.auth.getUserName()
     this.switchTheme.valueChanges.subscribe((currentTheme) => {
       this.className = currentTheme ? this.darkClass : this.lightClass

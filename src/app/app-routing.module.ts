@@ -71,6 +71,14 @@ import {
 import {
   LastImportPaginationComponent
 } from "./Components/imports/last-import-pagination/last-import-pagination.component";
+import {AddFacultyPhoneComponent} from "./Components/PhoneDirectory/add-faculty-phone/add-faculty-phone.component";
+import {AddTeachingPhoneComponent} from "./Components/PhoneDirectory/add-teaching-phone/add-teaching-phone.component";
+import {
+  FacultyPhoneDirectoryComponent
+} from "./Components/PhoneDirectory/faculty-phone-directory/faculty-phone-directory.component";
+import {
+  TeachingPhoneDirectoryComponent
+} from "./Components/PhoneDirectory/teaching-phone-directory/teaching-phone-directory.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -125,9 +133,13 @@ const routes: Routes = [
   {path:'sign-pagination?page=/:page',component:SignPaginationComponent,canActivate:[CanActivate]},
   {path:'add-sign',component:AddSignComponent,canActivate:[CanActivate]},
   {path:'update-sign/:page',component:UpdateSignComponent},
-  { path: 'show-user-information/:username', component:ShowUserInformationComponent,canActivate:[CanActivate] },
-  { path: 'user-pagination?page=/:page', component:UserpaginationComponent,canActivate:[CanActivate] },
-  { path: "**",component:ErrorPageComponent},
+  {path: 'show-user-information/:username', component:ShowUserInformationComponent,canActivate:[CanActivate] },
+  {path: 'user-pagination?page=/:page', component:UserpaginationComponent,canActivate:[CanActivate] },
+  {path: 'add-faculty-phone', component:AddFacultyPhoneComponent,canActivate:[CanActivate] },
+  {path: 'add-teaching-phone', component:AddTeachingPhoneComponent,canActivate:[CanActivate] },
+  {path: 'faculty-phone-directly', component:FacultyPhoneDirectoryComponent,canActivate:[CanActivate] },
+  {path: 'teaching-phone-directly', component:TeachingPhoneDirectoryComponent,canActivate:[CanActivate] },
+  {path: "**",component:ErrorPageComponent},
 
 ];
 

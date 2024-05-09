@@ -93,6 +93,14 @@ import {
 import {
   LastImportPaginationComponent
 } from "./Components/imports/last-import-pagination/last-import-pagination.component";
+import {
+  FacultyPhoneDirectoryComponent
+} from './Components/PhoneDirectory/faculty-phone-directory/faculty-phone-directory.component';
+import {
+  TeachingPhoneDirectoryComponent
+} from './Components/PhoneDirectory/teaching-phone-directory/teaching-phone-directory.component';
+import {AddTeachingPhoneComponent} from './Components/PhoneDirectory/add-teaching-phone/add-teaching-phone.component';
+import {AddFacultyPhoneComponent} from './Components/PhoneDirectory/add-faculty-phone/add-faculty-phone.component';
 
 @NgModule({
   declarations: [
@@ -157,6 +165,10 @@ import {
     ErrorPageComponent,
     ShowUserInformationComponent,
     UserpaginationComponent,
+    FacultyPhoneDirectoryComponent,
+    TeachingPhoneDirectoryComponent,
+    AddTeachingPhoneComponent,
+    AddFacultyPhoneComponent,
 
   ],
   imports: [

@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="d-flex justify-content-between">
+    <div class="w-100" style="
+  zoom: 80%;
+  background-color: var(--bg);
+  text-align: center;
+  position: sticky;
+  overflow: auto;
+  height:733px;
+  border-radius: 8px;
+  width:100%">
+      <div class="row">
+        <div class="d-flex"
+             style="
+           font-size: 20px;
+           padding: 10px 32%;
+           background-color: var(--bg);
+           color: var(--color);
+           position: sticky;
+           top: 0;
+           font-weight: bold">
+          <app-search (searchTextChange)=onSearchTextEntered($event)></app-search>
+          <div class="input-data ">
+            <h1 style="margin-left: 10px">دليل الاتصال بأعضاء هيئة التدريس</h1>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+          <tr>
+            <th>القيد</th>
+            <th>الأسم</th>
+            <th>الوظيفة</th>
+            <th>القسم</th>
+            <th>الموبايل</th>
+            <th>العنوان</th>
+            <th>الايميل</th>
+            <th>الملاحظات</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of teachingPhoneDirectory| search:searchText" class="p-4 ">
+            <td>{{ item.serial }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.job }}</td>
+            <td>{{ item.department }}</td>
+            <td>{{ item.mobile }}</td>
+            <td>{{ item.address }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.notes }}</td>
+            <td>
+              <button class="btn" (click)="deletePhone(item.id)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-trash"
+                     viewBox="0 0 16 16">
+                  <path
+                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                  <path
+                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                </svg>
+              </button>
+            </td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>
+

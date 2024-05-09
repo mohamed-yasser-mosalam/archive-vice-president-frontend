@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import baseUrl from "../../url";
 import {jwtDecode, JwtDecodeOptions} from "jwt-decode";
 import {UserService} from "../user/user.service";
@@ -10,9 +10,10 @@ import {UserService} from "../user/user.service";
   providedIn: 'root'
 })
 export class AuthenticationServiceService implements OnInit {
+  chackStatus:any
   base = baseUrl
 
-  constructor(private http: HttpClient, private router: Router, private userService: UserService) {
+  constructor(private http: HttpClient, private router: Router, private routes: ActivatedRoute) {
 
   }
 
@@ -79,14 +80,5 @@ export class AuthenticationServiceService implements OnInit {
       return this.router.navigateByUrl('/home');
   }
 
-  substringUpToCustomChar(inputString: string, customChar: string): string {
-    const index = inputString.indexOf(customChar);
-    return inputString.substring(0, index);
-  }
-
-  substringFromCustomChar(inputString: string, customChar: string): string {
-    const index = inputString.indexOf(customChar);
-    return inputString.substring(index + 1);
-  }
 
 }

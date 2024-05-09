@@ -86,7 +86,6 @@ export class ExportPaginationComponent implements OnInit {
       this.isHasSpecial = this.showExports.hasSpecial;
       this.no = this.showExports.no;
       this.pathOfDeleteImage=this.showExports.paths
-      console.log(this.showExports);
     });
   }
 
@@ -96,7 +95,7 @@ export class ExportPaginationComponent implements OnInit {
     });
   }
 
-  change(event): void {
+  change(event:any): void {
     this.page = event;
     this.showExportFile();
     this.exportService.getExportByPagination(event).subscribe((result) => {

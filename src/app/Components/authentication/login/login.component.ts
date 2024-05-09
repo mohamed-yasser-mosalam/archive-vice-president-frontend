@@ -8,25 +8,28 @@ import {Router} from "@angular/router";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
-  loginParentGroup:FormGroup;
-   constructor(private formChildGroup:FormBuilder,
-              private auth:AuthenticationServiceService,
-              private router:Router
+export class LoginComponent implements OnInit {
+  loginParentGroup: FormGroup;
+
+  constructor(private formChildGroup: FormBuilder,
+              private auth: AuthenticationServiceService,
+              private router: Router
   ) {
   }
+
   ngOnInit(): void {
     this.myFormLogin();
-
+    this.auth.clearToken()
   }
-  myFormLogin(){
+
+  myFormLogin() {
     this.loginParentGroup = this.formChildGroup.group({
-      user:this.formChildGroup.group({
-        username:new FormControl('',[
+      user: this.formChildGroup.group({
+        username: new FormControl('', [
           Validators.required,
           Validators.pattern('^([a-zA-Z0-9]{5,})$')
         ]),
-          password:['',[Validators.minLength(7)]]
+        password: ['', [Validators.minLength(7)]]
       })
     })
   }
@@ -36,12 +39,12 @@ export class LoginComponent implements OnInit{
       this.loginParentGroup.controls['user'].value.username,
       this.loginParentGroup.controls['user'].value.password
     ).subscribe({
-      next:respose=>{
+      next: respose => {
         this.router.navigateByUrl("/home")
       },
-      error:err => {
+      error: err => {
         alert('خطأ في تسجيل الدخول')
-       }
+      }
     })
 
   }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
+import {AuthGuardService} from "../../../Services/guard/auth-guard.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -8,23 +9,13 @@ import {AuthenticationServiceService} from "../../../Services/Security/authentic
 })
 export class SidebarComponent implements OnInit {
   idOfUser: string
-  pageLength: number
-  show: boolean = true
-  unShow: boolean = !this.show
 
-  constructor(private auth: AuthenticationServiceService) {
-  }
-
-  hideMenu(): void {
-    this.show = !this.show
-    this.unShow = !this.unShow
+  constructor(private auth: AuthenticationServiceService,
+              private authGuardService: AuthGuardService) {
   }
 
   ngOnInit(): void {
-    this.idOfUser =
-      this.auth.getUserRoles()
+    this.idOfUser = this.auth.getUserRoles();
   }
-  clearToken(){
-    this.auth.clearToken()
-  }
+
 }

@@ -44,7 +44,7 @@ export class ResponsExportComponent implements OnInit {
 
   addResponse(data: any): void {
     this.serviceExport.addExportResponse(this.routes.snapshot.params['id'], data).subscribe(
-      () => this.router.navigateByUrl('/getallImports'),
+      () => this.router.navigateByUrl('/get-all-imports'),
     );
   }
 

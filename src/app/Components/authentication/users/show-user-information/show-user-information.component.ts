@@ -34,7 +34,7 @@ export class ShowUserInformationComponent  implements OnInit {
     this.id = +this.auth.getuserId()
     this.userName = this.auth.getUserName()
     this.updateUserInformationService.getUserInformationById(this.id)
-      .subscribe((result) => {
+      .subscribe((result:any) => {
         this.editUserName = new FormGroup({
           username: new FormControl(result['username']),
           firstName: new FormControl(result['firstName']),

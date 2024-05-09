@@ -42,7 +42,7 @@ export class ResponsImportComponent implements OnInit{
 
   addImportResponse(data:any) {
     this.serviceImport.addImportResponse(this.routes.snapshot.params['id'],data).subscribe(
-      response => this.router.navigateByUrl('/getallexports')
+      response => this.router.navigateByUrl('/get-all-exports')
     )
   }
   getExportCount(): void {

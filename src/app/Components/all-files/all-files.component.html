@@ -39,7 +39,7 @@
              <td>{{ item.name }}</td>
             <td>{{ item.typeNumber }}/{{ item.num }}</td>
             <td *ngIf="item.id<=21;else first">
-              <a routerLink="/archiveimport/{{item.id}}">
+              <a routerLink="/archive-import/{{item.id}}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                   class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
                   <path fill-rule="evenodd"
@@ -50,7 +50,7 @@
               </a>
             </td>
             <ng-template #first>
-              <a *ngIf="item.id>21 && item.id<43 ; else second" routerLink="/archiveexport/{{item.id}}">
+              <a *ngIf="item.id>21 && item.id<43 ; else second" routerLink="/archive-export/{{item.id}}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                   class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
                   <path fill-rule="evenodd"
@@ -61,7 +61,7 @@
               </a>
             </ng-template>
             <ng-template #second>
-              <a *ngIf="item.id >=43" routerLink="/archivespecial/{{item.id}}">
+              <a *ngIf="item.id >=43" routerLink="/archive-special/{{item.id}}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                   class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
                   <path fill-rule="evenodd"

@@ -109,14 +109,14 @@
               <button
                 type="submit" class="btn"
                 style="color: var(--color);background: var(--bg_hover);padding:5px 20px!important;margin-left: 10px;"
-                routerLink="/addsign">
+                routerLink="/add-sign">
                 اضافة
               </button>
 
               <button
                       type="submit" class="btn"
                       style="color: var(--color);background: var(--bg_hover);padding:5px 20px!important;margin-left: 10px;"
-                      routerLink="/updatesign/{{page}}">
+                      routerLink="/update-sign/{{page}}">
                 تعديل
               </button>
             </div>
@@ -124,7 +124,7 @@
                 <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength"
                                 (pageChange)="change($event)"
                                 [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
-                                routerLink="/sign_pagination/{{page}}">
+                                routerLink="/sign-pagination?page=/{{page}}">
                 </ngb-pagination>
               </div>
             </div>

@@ -90,7 +90,7 @@ export class LastDeanDecisionPaginationComponent  implements OnInit {
         typeNumber: new FormControl(result['typeNumber'])
       });
     });
-    const nextPageUrl = `/lastdeandecision_pagination/${this.page}`;
+    const nextPageUrl = `/last-dean-decision-pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.form();
   }

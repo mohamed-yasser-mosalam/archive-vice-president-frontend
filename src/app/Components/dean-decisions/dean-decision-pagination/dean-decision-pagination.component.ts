@@ -125,7 +125,7 @@ export class DeanDecisionPaginationComponent  implements OnInit {
         typeNumber: new FormControl(result['typeNumber'])
       });
     });
-    const nextPageUrl = `/deandecision_pagination/${this.page}`;
+    const nextPageUrl = `/dean-decision-pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.form();
   }

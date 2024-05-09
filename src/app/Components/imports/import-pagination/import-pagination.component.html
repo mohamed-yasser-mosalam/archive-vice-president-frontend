@@ -115,17 +115,17 @@
           style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px;width:65%">
           <button type="submit"
             style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-size:25px"
-            routerLink="/import_pagination/{{no}}">حفظ المرفقات</button>
+            routerLink="/import-pagination?page=/{{no}}">حفظ المرفقات</button>
           <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
         </form>
         <button type="submit" class="btn "
           style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"
-          routerLink="/updateimport/{{id}}">
+          routerLink="/update-import/{{id}}">
           تعديل
         </button>
         <button type="submit" class="btn  "
           style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"
-          routerLink="/addimportfile">
+          routerLink="/add-import-file">
           تسجيل جديد
         </button>
 
@@ -136,14 +136,14 @@
         </button>
         <button type="submit" class="btn " *ngIf="isHasSpecial"
                 style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"
-                routerLink="/savefileimport/{{id}}">
+                routerLink="/save-file-import/{{id}}">
            حفظ
         </button>
 
         <div class="col-md-9 pag" style="margin-top:30px;bottom:0px;margin-left: 12%">
           <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change($event)"
             [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
-            routerLink="/import_pagination/{{page}}">
+            routerLink="/import-pagination?page=/{{page}}">
           </ngb-pagination>
         </div>
 

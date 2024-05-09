@@ -12,8 +12,8 @@ import baseUrl from "../../../url";
   styleUrls: ['./updatedeandecision.component.css']
 })
 export class UpdatedeandecisionComponent implements OnInit {
-  pathOfDeleteImage:any
-  base=baseUrl+'/'
+  pathOfDeleteImage: any
+  base = baseUrl + '/'
   page = this.routes.snapshot.params['page'];
   deanDecision: any;
   no: number;
@@ -66,14 +66,15 @@ export class UpdatedeandecisionComponent implements OnInit {
       this.paths = this.deanDecision.paths.map((path: string) => {
         return this.base + path;
       });
-      this.pathOfDeleteImage = this.deanDecision.paths;      this.id = this.deanDecision.id
+      this.pathOfDeleteImage = this.deanDecision.paths;
+      this.id = this.deanDecision.id
     })
 
   }
 
 
   deleteImage(index: number): void {
-    this.deanDecisionService.deleteImage(this.pathOfDeleteImage,index).subscribe();
+    this.deanDecisionService.deleteImage(this.pathOfDeleteImage, index).subscribe();
     this.paths.splice(index, 1);
     setTimeout(() => {
       window.location.reload();
@@ -89,7 +90,7 @@ export class UpdatedeandecisionComponent implements OnInit {
   update() {
     const formValues = this.deanDecisions.value;
     this.deanDecisionService.updateDeanDecision(this.page, formValues).subscribe((result) => {
-      this.router.navigate([`/deandecision_pagination/`, this.no]);
+      this.router.navigate([`/dean-decision-pagination?page=/`, this.no]);
     });
   }
 

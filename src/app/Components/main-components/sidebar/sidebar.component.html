@@ -18,7 +18,7 @@
             </button>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-danger" routerLink="/import_pagination/{{1}}"
+            <button class="btn btn-outline-danger" routerLink="/import-pagination?page=/{{1}}"
                     style="background-color:white;color:red ">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-box-arrow-in-down"
                    viewBox="0 0 16 16" style="color: var(--color)">
@@ -32,7 +32,7 @@
           </li>
 
           <li class="nav-item">
-            <button class="btn btn-outline-success" routerLink="/export_pagination/{{1}}"
+            <button class="btn btn-outline-success" routerLink="/export-pagination?page=/{{1}}"
                     style="background-color: white;color:green">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="green" class="bi bi-box-arrow-up"
                    viewBox="0 0 16 16" style="color: var(--color)">
@@ -60,7 +60,7 @@
 
 
           <li class="nav-item">
-            <button class="btn btn-outline-light" routerLink="/deandecision_pagination/{{1}}"
+            <button class="btn btn-outline-light" routerLink="/dean-decision-pagination?page=/{{1}}"
                     style="color: black;background-color: white">
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
                 <path
@@ -70,7 +70,7 @@
             </button>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-light" routerLink="/sign_pagination/{{1}}"
+            <button class="btn btn-outline-light" routerLink="/sign-pagination?page=/{{1}}"
                     style="color: black;background-color: white">
               <!--            <a routerLink="/allsigns">-->
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
@@ -83,7 +83,7 @@
 
 
           <li class="nav-item">
-            <button class=" btn btn-outline-light" routerLink="/allfiles" style="color: black;background-color: white">
+            <button class=" btn btn-outline-light" routerLink="/all-files" style="color: black;background-color: white">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-archive"
                    viewBox="0 0 16 16" style="color: var(--color)">
                 <path
@@ -104,7 +104,7 @@
             </button>
             <ul class="dropdown-menu" style="background-color: var(--bg);">
               <li class="nav-item dropdown-item" *ngIf="idOfUser=='admin'">
-                <a routerLink="/useractivity">
+                <a routerLink="/user-activity">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                        class="bi bi-justify" viewBox="0 0 16 16" style="color: var(--color)">
                     <path fill-rule="evenodd"
@@ -114,7 +114,7 @@
                 </a>
               </li>
               <li class="nav-item dropdown-item" *ngIf="idOfUser=='admin'">
-                <a routerLink="/userpagination/{{1}}">
+                <a routerLink="/user-pagination?page=/{{1}}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                        class="bi bi-person-circle" viewBox="0 0 16 16" style="color: var(--color)">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -153,7 +153,7 @@
             </button>
             <ul class="dropdown-menu" style="background-color: var(--bg);">
               <li class="nav-item dropdown-item">
-                <a routerLink="/lastexports">
+                <a routerLink="/last-exports">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                        class="bi bi-box-arrow-up" viewBox="0 0 16 16" style="color: var(--color)">
                     <path fill-rule="evenodd"
@@ -165,7 +165,7 @@
                 </a>
               </li>
               <li class="nav-item dropdown-item">
-                <a routerLink="/lastimports">
+                <a routerLink="/last-imports">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                        class="bi bi-box-arrow-in-down" viewBox="0 0 16 16" style="color: var(--color)">
                     <path fill-rule="evenodd"
@@ -177,7 +177,7 @@
                 </a>
               </li>
               <li class="nav-item dropdown-item">
-                <a class="dropdown-item" routerLink="/lastspecials">
+                <a class="dropdown-item" routerLink="/last-specials">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                        class="bi bi-bookmark" viewBox="0 0 16 16" style="color: var(--color)">
                     <path
@@ -187,7 +187,7 @@
                 </a>
               </li>
               <li class="nav-item dropdown-item">
-                <a class="dropdown-item" routerLink="/lastdeandecision">
+                <a class="dropdown-item" routerLink="/last-dean-decision">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                        class="bi bi-bookmark" viewBox="0 0 16 16" style="color: var(--color)">
                     <path

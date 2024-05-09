@@ -21,7 +21,7 @@ export class SavefileexportComponent implements OnInit{
   }
   addSaveFile(data: any) {
     this.serviceExport.addSaveFile(this.id,data).subscribe(() =>
-      this.router.navigateByUrl('/specialfile'))
+      this.router.navigateByUrl('/special-file'))
   }
   onSubmit(): void {
     if (this.saveFileForm.valid) {

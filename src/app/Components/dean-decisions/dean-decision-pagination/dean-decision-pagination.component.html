@@ -75,19 +75,19 @@
                   style=" margin-bottom: 45px;margin-right:100px; display: flex;font-size:25px">
               <button type="submit"
                       style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-size:25px"
-                      routerLink="/deandecision_pagination/{{no}}">حفظ المرفقات
+                      routerLink="/dean-decision-pagination?page=/{{no}}">حفظ المرفقات
               </button>
               <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;"/>
             </form>
             <div style="margin-left: 12%">
               <button type="submit" class="btn  "
                       style="width:150px; padding:10px;margin-left:20%;color: var(--color);background: var(--color1);font-size:25px"
-                      routerLink="/adddeandecision">
+                      routerLink="/add-dean-decision">
                 اضافه تسجيل
               </button>
               <button  type="submit" class="btn "
                       style="width:150px; padding:10px;margin-left:5%;color: var(--color);background: var(--color1);font-size:25px"
-                      routerLink="/updatedeandecision/{{page}}">
+                      routerLink="/update-dean-decision/{{page}}">
                 تعديل
               </button>
 
@@ -97,7 +97,7 @@
               <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength"
                               (pageChange)="change($event)"
                               [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
-                              routerLink="/deandecision_pagination/{{page}}">
+                              routerLink="/dean-decision-pagination?page=/{{page}}">
               </ngb-pagination>
 
             </div>

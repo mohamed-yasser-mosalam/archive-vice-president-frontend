@@ -68,7 +68,7 @@ export class UpdateImportComponent implements OnInit {
 
   update() {
     this.importService.updateImport(this.routes.snapshot.params['id'], this.editImport.value).subscribe((result) => {
-      this.router.navigate([`/import_pagination/`, this.no])
+      this.router.navigate([`/import-pagination?page=/`, this.no])
 
     })
   }

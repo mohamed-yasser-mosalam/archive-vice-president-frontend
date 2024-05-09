@@ -118,7 +118,7 @@ export class ImportPaginationComponent implements OnInit {
         expectResponseDate: new FormControl(result['expectResponseDate']),
       })
     })
-    const nextPageUrl = `/import_pagination/${this.page}`;
+    const nextPageUrl = `/import-pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.form();
   }

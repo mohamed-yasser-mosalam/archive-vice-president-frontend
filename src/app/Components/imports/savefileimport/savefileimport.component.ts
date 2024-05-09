@@ -23,7 +23,7 @@ export class SavefileimportComponent implements OnInit{
   }
   addSaveFile(data: any) {
     this.importService.addSaveFile(this.id,data).subscribe(() =>
-      this.router.navigateByUrl('/specialfile'))
+      this.router.navigateByUrl('/special-file'))
   }
   onSubmit(): void {
     if (this.saveFileForm.valid) {

@@ -3,14 +3,12 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import baseUrl from "../../url";
-import {jwtDecode, JwtDecodeOptions} from "jwt-decode";
-import {UserService} from "../user/user.service";
+import {jwtDecode} from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationServiceService implements OnInit {
-  chackStatus:any
   base = baseUrl
 
   constructor(private http: HttpClient, private router: Router, private routes: ActivatedRoute) {
@@ -48,7 +46,7 @@ export class AuthenticationServiceService implements OnInit {
 
 
   getuserId() {
-    return sessionStorage.getItem('id')||''
+    return sessionStorage.getItem('id') || ''
   }
 
   getName() {

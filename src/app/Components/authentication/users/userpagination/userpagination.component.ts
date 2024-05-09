@@ -97,7 +97,7 @@ export class UserpaginationComponent implements OnInit {
       this.img=this.base+result.imagePath;
 
     });
-    const nextPageUrl = `/userpagination/${this.page}`;
+    const nextPageUrl = `/user-pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
   }
 }

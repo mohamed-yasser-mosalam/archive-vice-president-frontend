@@ -61,7 +61,7 @@ export class UpdateExportComponent implements OnInit {
   update() {
     this.exportService.updateExport(this.id, this.editExport.value)
       .subscribe(( ) => {
-       this.router.navigate([`/export_pagination/`, this.no])
+       this.router.navigate([`/export-pagination?page=/`, this.no])
     })
   }
 

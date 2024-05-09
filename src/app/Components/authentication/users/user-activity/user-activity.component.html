@@ -52,7 +52,7 @@
               <td>{{item.lastModifiedDate}}</td>
               <td>{{item.type}}</td>
               <td *ngIf="item.type=='خاص';else first">
-                <a routerLink="/special_pagination/{{item.no}}">
+                <a routerLink="/special-pagination?page=/{{item.no}}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                        class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
                     <path fill-rule="evenodd"
@@ -63,7 +63,7 @@
                 </a>
               </td>
               <ng-template #first>
-                <a *ngIf="item.type=='صادر' ; else second" routerLink="/export_pagination/{{item.no}}">
+                <a *ngIf="item.type=='صادر' ; else second" routerLink="/export-pagination?page=/{{item.no}}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                        class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
                     <path fill-rule="evenodd"
@@ -74,7 +74,7 @@
                 </a>
               </ng-template>
               <ng-template #second>
-                <a *ngIf="item.type =='وارد';else third" routerLink="/import_pagination/{{item.no}}">
+                <a *ngIf="item.type =='وارد';else third" routerLink="/import-pagination?page=/{{item.no}}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                        class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
                     <path fill-rule="evenodd"
@@ -86,7 +86,7 @@
               </ng-template>
 
               <ng-template #third>
-                <a *ngIf="item.type =='أشارات';else fourth" routerLink="/sign_pagination/{{item.id}}">
+                <a *ngIf="item.type =='أشارات';else fourth" routerLink="/sign-pagination?page=/{{item.id}}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                        class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
                     <path fill-rule="evenodd"
@@ -97,7 +97,7 @@
                 </a>
               </ng-template>
               <ng-template #fourth>
-                <a *ngIf="item.type =='قرارت عميد الكلية';" routerLink="/deandecision_pagination/{{item.no}}">
+                <a *ngIf="item.type =='قرارت عميد الكلية';" routerLink="/dean-decision-pagination?page=/{{item.no}}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                        class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
                     <path fill-rule="evenodd"

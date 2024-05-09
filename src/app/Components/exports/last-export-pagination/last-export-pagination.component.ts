@@ -118,7 +118,7 @@ export class LastExportPaginationComponent implements OnInit {
 
       });
     });
-    const nextPageUrl = `/lastexport_pagination/${this.page}`;
+    const nextPageUrl = `/last-export_pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.form();
   }

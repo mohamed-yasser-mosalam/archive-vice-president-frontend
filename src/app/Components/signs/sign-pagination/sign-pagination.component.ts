@@ -117,7 +117,7 @@ export class SignPaginationComponent implements OnInit {
         depend: new FormControl(result['depend']),
     });
     });
-    const nextPageUrl = `/sign_pagination/${this.page}`;
+    const nextPageUrl = `/sign-pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.form();
   }

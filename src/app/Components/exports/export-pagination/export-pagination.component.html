@@ -111,18 +111,18 @@
         >
           <button type="submit" class="btn"
             style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-size:25px"
-            routerLink="/export_pagination/{{no}}">حفظ المرفقات</button>
+            routerLink="/export-pagination?page=/{{no}}">حفظ المرفقات</button>
           <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
         </form>
         <div style="margin-left: 3%">
           <button type="submit" class="btn  "
                   style="width:200px; padding:10px;margin: 8px; background-color: var(--color1);color: var(--color);font-size:25px"
-            routerLink="/addexportfile">
+            routerLink="/add-export-file">
               تسجيل جديد
           </button>
           <button type="submit" class="btn "
                   style="width:200px; padding:10px;margin: 8px; background-color: var(--color1);color: var(--color);font-size:25px"
-            routerLink="/updateexport/{{id}}">
+            routerLink="/update-export/{{id}}">
             تعديل
           </button>
           <button type="submit" class="btn " *ngIf="isHasUrgent"
@@ -137,7 +137,7 @@
           </button>
           <button type="submit" class="btn " *ngIf="isHasSpecial"
                   style="width:200px; padding:10px;margin: 8px; background-color: var(--color1);color: var(--color);font-size:25px"
-                  routerLink="/savefileexport/{{id}}">
+                  routerLink="/save-file-export/{{id}}">
             حفظ
           </button>
         </div>
@@ -145,7 +145,7 @@
         <div class="col-md-9 pag" style="margin-top:30px;bottom:0px;margin-left:35%">
           <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change($event)"
             [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
-            routerLink="/export_pagination/{{page}}">
+            routerLink="/export-pagination?page=/{{page}}">
           </ngb-pagination>
 
         </div>

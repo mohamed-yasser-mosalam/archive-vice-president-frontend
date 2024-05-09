@@ -115,7 +115,7 @@ export class ExportPaginationComponent implements OnInit {
         recipientDate: new FormControl(result['recipientDate'])
       });
     });
-    const nextPageUrl = `/export_pagination/${this.page}`;
+    const nextPageUrl = `/export-pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.form();
    }

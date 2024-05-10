@@ -16,6 +16,8 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.idOfUser = this.auth.getUserRoles();
+console.log(this.authGuardService.checkTokenStatues());
   }
 
 }
+

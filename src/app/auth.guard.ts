@@ -7,9 +7,9 @@ export const CanActivate = () => {
   const guard = inject(AuthGuardService)
   const auth = inject(AuthenticationServiceService);
   const router = inject(Router)
-  if (auth.getToken())
+  if (guard.checkTokenStatues() == 1)
     return true;
-   else {
+  else {
     router.navigateByUrl('/login');
     return false;
   }

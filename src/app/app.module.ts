@@ -101,6 +101,7 @@ import {
 } from './Components/PhoneDirectory/teaching-phone-directory/teaching-phone-directory.component';
 import {AddTeachingPhoneComponent} from './Components/PhoneDirectory/add-teaching-phone/add-teaching-phone.component';
 import {AddFacultyPhoneComponent} from './Components/PhoneDirectory/add-faculty-phone/add-faculty-phone.component';
+import {NgxPrintModule} from "ngx-print";
 
 @NgModule({
   declarations: [
@@ -188,10 +189,11 @@ import {AddFacultyPhoneComponent} from './Components/PhoneDirectory/add-faculty-
     NgxPaginationModule,
     NgbCarouselModule,
     NgConfirmModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxPrintModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: HttpInterceterBaseAuthService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: HttpInterceterBaseAuthService, multi: true},
   ],
   exports: [
     NavbarComponent,

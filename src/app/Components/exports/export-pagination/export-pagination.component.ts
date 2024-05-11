@@ -12,23 +12,23 @@ import {AuthenticationServiceService} from "../../../Services/Security/authentic
   styleUrls: ['./export-pagination.component.css']
 })
 export class ExportPaginationComponent implements OnInit {
-  pathOfDeleteImage:any
+  pathOfDeleteImage: any
   id: number;
-  base=baseUrl+'/'
-  no:number
+  base = baseUrl + '/'
+  no: number
   roleOfUser = this.auth.getUserRoles();
-  page=this.routes.snapshot.params['page']
+  page = this.routes.snapshot.params['page']
   pageLength: any;
   showExports: any;
   size: number = 1;
   paths: string[];
   numbers: any = [];
-  isHasResponse:boolean;
-  isHasUrgent:boolean;
-  isHasSpecial:boolean;
+  isHasResponse: boolean;
+  isHasUrgent: boolean;
+  isHasSpecial: boolean;
   showExport = new FormGroup({
-    createdBy:new FormControl(''),
-    recipientDate:new FormControl(''),
+    createdBy: new FormControl(''),
+    recipientDate: new FormControl(''),
     date: new FormControl(''),
     receiver: new FormControl(''),
     numberOfAttachments: new FormControl(''),
@@ -42,17 +42,26 @@ export class ExportPaginationComponent implements OnInit {
     responseNumber: new FormControl(''),
   });
 
+  constructor(
+    private exportService: ExportServiceService,
+    private auth: AuthenticationServiceService,
+    private routes: ActivatedRoute,
+    private router: Router
+  ) {
+  }
+
+
   ngOnInit(): void {
     this.getExportCount();
     this.showExportFile();
     this.form();
   }
 
-  form(){
+  form() {
     this.exportService.getExportByPagination(this.page).subscribe((result) => {
       this.showExport.patchValue({
         date: result['date'],
-        recipientDate:result['recipientDate'],
+        recipientDate: result['recipientDate'],
         createdBy: result['createdBy'],
         receiver: result['receiver'],
         numberOfAttachments: result['numberOfAttachments'],
@@ -67,25 +76,21 @@ export class ExportPaginationComponent implements OnInit {
       });
     });
   }
-  constructor(
-    private exportService: ExportServiceService,
-    private auth: AuthenticationServiceService,
-    private routes: ActivatedRoute,
-    private router: Router
-  ) {
-  }
+
+
+
   showExportFile(): void {
     this.exportService.getExportByPagination(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
       this.paths = this.showExports.paths.map((path: string) => {
-         return this.base + path;
+        return this.base + path;
       });
       this.id = this.showExports.id;
       this.isHasUrgent = this.showExports.hasUrgent;
       this.isHasResponse = this.showExports.hasResponse;
       this.isHasSpecial = this.showExports.hasSpecial;
       this.no = this.showExports.no;
-      this.pathOfDeleteImage=this.showExports.paths
+      this.pathOfDeleteImage = this.showExports.paths
     });
   }
 
@@ -95,7 +100,7 @@ export class ExportPaginationComponent implements OnInit {
     });
   }
 
-  change(event:any): void {
+  change(event: any): void {
     this.page = event;
     this.showExportFile();
     this.exportService.getExportByPagination(event).subscribe((result) => {
@@ -118,10 +123,10 @@ export class ExportPaginationComponent implements OnInit {
     const nextPageUrl = `/export-pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.form();
-   }
+  }
 
   deleteImage(index: number): void {
-    this.exportService.deleteImage(this.pathOfDeleteImage,index).subscribe();
+    this.exportService.deleteImage(this.pathOfDeleteImage, index).subscribe();
     this.paths.splice(index, 1);
     setTimeout(() => {
       window.location.reload();
@@ -129,6 +134,7 @@ export class ExportPaginationComponent implements OnInit {
   }
 
   selectedFiles: File[] = [];
+
   onFileSelected(event: any): void {
     const files: FileList = event.target.files;
     if (files) {
@@ -140,6 +146,7 @@ export class ExportPaginationComponent implements OnInit {
       }
     }
   }
+
   onSubmit(): void {
     const formData: FormData = new FormData();
     for (let i = 0; i < this.selectedFiles.length; i++) {

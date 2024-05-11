@@ -68,7 +68,6 @@ export class DeanDecisionPaginationComponent  implements OnInit {
       this.no = this.deanDecision.no;
       this.pathOfDeleteImage = this.deanDecision.paths;
       this.id = this.deanDecision.id;
-      console.log(this.paths)
 
     })
   }

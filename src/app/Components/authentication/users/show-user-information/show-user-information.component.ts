@@ -43,7 +43,6 @@ export class ShowUserInformationComponent  implements OnInit {
           roles:new FormControl(result['roles']),
           phone: new FormControl(result['phone']),
         })
-        console.log(this.updateUserInformationService.getUserInformationById(2))
       })
   }
 

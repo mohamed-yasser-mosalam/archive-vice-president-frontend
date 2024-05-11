@@ -8,16 +8,14 @@ import {AuthGuardService} from "../../../Services/guard/auth-guard.service";
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  idOfUser: string
 
-  constructor(private auth: AuthenticationServiceService,
-              private authGuardService: AuthGuardService) {
+  userRole: string
+
+  constructor(private auth: AuthenticationServiceService, private authGuardService: AuthGuardService) {
   }
 
   ngOnInit(): void {
-    this.idOfUser = this.auth.getUserRoles();
-console.log(this.authGuardService.checkTokenStatues());
+    this.userRole = this.auth.getUserRoles();
   }
-
 }
 

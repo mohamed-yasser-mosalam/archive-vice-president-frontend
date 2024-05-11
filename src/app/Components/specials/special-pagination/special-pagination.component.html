@@ -110,7 +110,7 @@
 
       <div class="input-data" style=" margin-left: 100px ">
         <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px" >
-          <button type="submit" style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-weight:bold ;;font-size:25px" routerLink='/special_pagination/{{no}}'
+          <button type="submit" style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-weight:bold ;;font-size:25px" routerLink='/special_pagination?page=/{{no}}'
           >حفظ المرفقات</button>
           <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
         </form>
@@ -136,7 +136,7 @@
         <div class="  pag" style="margin: 0 0 30px;margin-left: 29%">
           <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change($event)"
                           [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
-                          routerLink="/special_pagination/{{page}}">
+                          routerLink="/special_pagination?page=/{{page}}">
           </ngb-pagination>
 
         </div>

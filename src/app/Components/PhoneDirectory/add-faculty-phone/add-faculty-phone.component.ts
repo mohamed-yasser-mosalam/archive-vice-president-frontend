@@ -19,7 +19,7 @@ export class AddFacultyPhoneComponent implements OnInit {
     this.facultyForm = this.fb.group({
       serial: ['', [Validators.required]],
       side: ['', [Validators.required, Validators.minLength(4)]],
-      phone: ['', [Validators.required, Validators.minLength(4)]],
+      phone: ['', [Validators.required]],
     });
   }
 

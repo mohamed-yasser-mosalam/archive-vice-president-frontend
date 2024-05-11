@@ -88,7 +88,7 @@ export class SpecialPaginationComponent implements OnInit {
     })
   }
 
-  change(event) {
+  change(event:any) {
     this.page = event;
     this.showSpecialFile();
     this.specialService.getSpecialsByPagination(event).subscribe((result) => {
@@ -105,7 +105,7 @@ export class SpecialPaginationComponent implements OnInit {
         num: new FormControl(result['num']),
       })
     })
-    const nextPageUrl = `/special_pagination/${this.page}`;
+    const nextPageUrl = `/special_pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.showSpecial;
   }

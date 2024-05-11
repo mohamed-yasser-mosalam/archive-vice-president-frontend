@@ -13,5 +13,6 @@ export interface Special {
   typeNumber: number;
   num: number;
   createdBy:string;
-  fileType:string
+  fileType:string;
+  archiveId:number
 }

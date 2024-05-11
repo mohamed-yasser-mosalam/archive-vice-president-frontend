@@ -34,7 +34,7 @@ base=baseUrl
   }
 
   updateSpecial(id:number,data:any){
-    return this.http.put(`${this.base}/special/special`,data)
+    return this.http.put(`${this.base}/special/special?id=${id}`,data)
   }
   addSpecialFile(data:any){
     return  this.http.post(`${this.base}/special/special`,data)

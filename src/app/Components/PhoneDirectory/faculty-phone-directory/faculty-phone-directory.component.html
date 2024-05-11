@@ -11,16 +11,20 @@
   border-radius: 8px;
   width:100%">
       <div class="row">
+
         <div class="d-flex"
              style="
-           font-size: 20px;
-           padding: 10px 32%;
            background-color: var(--bg);
            color: var(--color);
            position: sticky;
            top: 0;
            font-weight: bold">
-          <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
+          <button type="submit" class="btn  "
+                  style="width:100px;margin:20px; background-color: var(--bg_main);color: var(--color);font-size:25px"
+                  routerLink="/add-faculty-phone">
+            اضافة
+          </button>
+          <app-search (searchTextChange)=onsearchTextEntered($event) style="margin-left: 20%"></app-search>
           <div class="input-data ">
             <h1 style="margin-left: 10px">دليل تليفونات كلية الحاسبات والمعلومات</h1>
           </div>
@@ -37,9 +41,9 @@
           </thead>
           <tbody>
           <tr *ngFor="let item of facultyPhoneDirectory | search:searchText" class="p-4 ">
-            <td>{{item.serial}}</td>
-            <td>{{item.side}}</td>
-            <td>{{item.phone}}</td>
+            <td>{{ item.serial }}</td>
+            <td>{{ item.side }}</td>
+            <td>{{ item.phone }}</td>
             <td>
               <button class="btn" (click)="deletePhone(item.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-trash"

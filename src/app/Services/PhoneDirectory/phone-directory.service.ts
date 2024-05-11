@@ -12,11 +12,11 @@ export class PhoneDirectoryService {
   }
 
   addTeachingPhoneDirectory(data: any) {
-    this.http.post(`${this.base}/t-phone/t-phone`, data)
+   return  this.http.post(`${this.base}/t-phone/t-phone`, data)
   }
 
   addFacultyPhoneDirectory(data: any) {
-    this.http.post(`${this.base}/f-phone/f-phone`, data)
+   return  this.http.post(`${this.base}/f-phone/f-phone`, data)
   }
 
   deleteTeachingPhoneDirectory(id:number) {

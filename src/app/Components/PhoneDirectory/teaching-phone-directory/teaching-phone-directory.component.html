@@ -13,14 +13,17 @@
       <div class="row">
         <div class="d-flex"
              style="
-           font-size: 20px;
-           padding: 10px 32%;
            background-color: var(--bg);
            color: var(--color);
            position: sticky;
            top: 0;
            font-weight: bold">
-          <app-search (searchTextChange)=onSearchTextEntered($event)></app-search>
+          <button type="submit" class="btn  "
+                  style="width:100px;margin:20px; background-color: var(--bg_main);color: var(--color);font-size:25px"
+                  routerLink="/add-teaching-phone">
+            اضافة
+          </button>
+          <app-search (searchTextChange)=onSearchTextEntered($event) style="margin-left: 20%"></app-search>
           <div class="input-data ">
             <h1 style="margin-left: 10px">دليل الاتصال بأعضاء هيئة التدريس</h1>
           </div>

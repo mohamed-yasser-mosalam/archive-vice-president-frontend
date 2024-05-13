@@ -79,6 +79,10 @@ import {
 import {
   TeachingPhoneDirectoryComponent
 } from "./Components/PhoneDirectory/teaching-phone-directory/teaching-phone-directory.component";
+import {
+  EmployeePhoneDirectoryComponent
+} from "./Components/PhoneDirectory/employee-phone-directory/employee-phone-directory.component";
+import {AddEmployeePhoneComponent} from "./Components/PhoneDirectory/add-employee-phone/add-employee-phone.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -137,8 +141,10 @@ const routes: Routes = [
   {path: 'user-pagination?page=/:page', component:UserpaginationComponent,canActivate:[CanActivate] },
   {path: 'add-faculty-phone', component:AddFacultyPhoneComponent,canActivate:[CanActivate] },
   {path: 'add-teaching-phone', component:AddTeachingPhoneComponent,canActivate:[CanActivate] },
+  {path: 'add-emoloyee-phone', component:AddEmployeePhoneComponent,canActivate:[CanActivate] },
   {path: 'faculty-phone-directly', component:FacultyPhoneDirectoryComponent,canActivate:[CanActivate] },
   {path: 'teaching-phone-directly', component:TeachingPhoneDirectoryComponent,canActivate:[CanActivate] },
+  {path: 'employee-phone-directly', component:EmployeePhoneDirectoryComponent,canActivate:[CanActivate] },
   {path: "**",component:ErrorPageComponent},
 
 ];

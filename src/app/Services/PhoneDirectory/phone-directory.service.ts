@@ -12,26 +12,38 @@ export class PhoneDirectoryService {
   }
 
   addTeachingPhoneDirectory(data: any) {
-   return  this.http.post(`${this.base}/t-phone/t-phone`, data)
+    return this.http.post(`${this.base}/t-phone/t-phone`, data)
   }
 
   addFacultyPhoneDirectory(data: any) {
-   return  this.http.post(`${this.base}/f-phone/f-phone`, data)
+    return this.http.post(`${this.base}/f-phone/f-phone`, data)
   }
 
-  deleteTeachingPhoneDirectory(id:number) {
+  addEmployeePhoneDirectory(data: any) {
+    return this.http.post(`${this.base}/e-phone/e-phone`, data)
+  }
+
+  deleteTeachingPhoneDirectory(id: number) {
     return this.http.delete(`${this.base}/t-phone/t-phone?id=${id}`)
   }
 
   deleteFacultyPhoneDirectory(id: number) {
-   return  this.http.delete(`${this.base}/f-phone/f-phone?id=${id}`)
+    return this.http.delete(`${this.base}/f-phone/f-phone?id=${id}`)
+  }
+
+  deleteEmployeePhoneDirectory(id: number) {
+    return this.http.delete(`${this.base}/e-phone/e-phone?id=${id}`)
   }
 
   showAllTeachingPhoneDirectory() {
-   return  this.http.get(`${this.base}/t-phone/t-phones`)
+    return this.http.get(`${this.base}/t-phone/t-phones`)
   }
 
   showAllFacultyPhoneDirectory() {
-   return  this.http.get(`${this.base}/f-phone/f-phones`)
+    return this.http.get(`${this.base}/f-phone/f-phones`)
+  }
+
+  showAllEmployeePhoneDirectory() {
+    return this.http.get(`${this.base}/e-phone/e-phones`)
   }
 }

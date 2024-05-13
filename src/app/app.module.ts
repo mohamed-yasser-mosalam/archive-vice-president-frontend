@@ -102,6 +102,8 @@ import {
 import {AddTeachingPhoneComponent} from './Components/PhoneDirectory/add-teaching-phone/add-teaching-phone.component';
 import {AddFacultyPhoneComponent} from './Components/PhoneDirectory/add-faculty-phone/add-faculty-phone.component';
 import {NgxPrintModule} from "ngx-print";
+import { EmployeePhoneDirectoryComponent } from './Components/PhoneDirectory/employee-phone-directory/employee-phone-directory.component';
+import { AddEmployeePhoneComponent } from './Components/PhoneDirectory/add-employee-phone/add-employee-phone.component';
 
 @NgModule({
   declarations: [
@@ -170,6 +172,8 @@ import {NgxPrintModule} from "ngx-print";
     TeachingPhoneDirectoryComponent,
     AddTeachingPhoneComponent,
     AddFacultyPhoneComponent,
+    EmployeePhoneDirectoryComponent,
+    AddEmployeePhoneComponent,
 
   ],
   imports: [

@@ -10,6 +10,7 @@ export class Showallexport {
   urgentNum: number;
   urgentDate: Date;
   responseNumber: number;
+  numberOfImage: number;
   responseDate: Date;
   archiveId: number;
   typeNumber: number;
@@ -19,25 +20,9 @@ export class Showallexport {
   createdBy:string;
   recipientDate:Date;
   hasSpecial:boolean;
-  constructor(id: number, date: Date,
-              numberOfAttachments: number,
-              paths: string [],
-              receiver: string,
-              summary: string,
-              recipientName: string,
-              urgentNum: number,
-              urgentDate: Date,
-              responseNumber: number,
-              responseDate: Date,
-              archiveId: number,
-              typeNumber: number,
-              num: number,
-              no:number,
-              hasResponse:boolean,
-              hasUrgent:boolean,
-              createdBy:string,
-              recipientDate:Date,
-              hasSpecial:boolean) {
+
+  constructor(no: number, id: number, date: Date, numberOfAttachments: number, paths: string[], receiver: string, summary: string, recipientName: string, urgentNum: number, urgentDate: Date, responseNumber: number, numberOfImage: number, responseDate: Date, archiveId: number, typeNumber: number, num: number, hasResponse: boolean, hasUrgent: boolean, createdBy: string, recipientDate: Date, hasSpecial: boolean) {
+    this.no = no;
     this.id = id;
     this.date = date;
     this.numberOfAttachments = numberOfAttachments;
@@ -48,16 +33,15 @@ export class Showallexport {
     this.urgentNum = urgentNum;
     this.urgentDate = urgentDate;
     this.responseNumber = responseNumber;
+    this.numberOfImage = numberOfImage;
     this.responseDate = responseDate;
     this.archiveId = archiveId;
     this.typeNumber = typeNumber;
     this.num = num;
-    this.no=no;
-    this.hasResponse=hasResponse;
-    this.hasUrgent=hasUrgent;
-    this.createdBy=createdBy;
-    this.recipientDate=recipientDate;
-    this.hasSpecial=hasSpecial
-
+    this.hasResponse = hasResponse;
+    this.hasUrgent = hasUrgent;
+    this.createdBy = createdBy;
+    this.recipientDate = recipientDate;
+    this.hasSpecial = hasSpecial;
   }
 }

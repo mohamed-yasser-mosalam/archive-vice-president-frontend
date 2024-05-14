@@ -161,6 +161,4 @@ export class ExportPaginationComponent implements OnInit {
       window.location.reload();
     }, 50);
   }
-
 }
-

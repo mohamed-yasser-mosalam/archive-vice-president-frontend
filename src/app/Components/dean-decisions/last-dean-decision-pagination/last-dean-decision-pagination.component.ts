@@ -29,6 +29,8 @@ export class LastDeanDecisionPaginationComponent  implements OnInit {
     createdBy: new FormControl(''),
     typeNumber: new FormControl(''),
     num: new FormControl(''),
+    numberOfAttachments: new FormControl(''),
+    numberOfImages: new FormControl(''),
   })
 
 
@@ -52,6 +54,8 @@ export class LastDeanDecisionPaginationComponent  implements OnInit {
         summary: result['summary'],
         createdBy: result['createdBy'],
         typeNumber: result['typeNumber'],
+        numberOfAttachments: result['numberOfAttachments'],
+        numberOfImages: result['numberOfImages'],
         num: result['num']
       })
     })
@@ -87,6 +91,8 @@ export class LastDeanDecisionPaginationComponent  implements OnInit {
         no: new FormControl(result['no']),
         num: new FormControl(result['num']),
         summary: new FormControl(result['summary']),
+        numberOfAttachments: new FormControl(result['numberOfAttachments']),
+        numberOfImages: new FormControl(result['numberOfImages']),
         typeNumber: new FormControl(result['typeNumber'])
       });
     });

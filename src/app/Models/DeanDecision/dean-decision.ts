@@ -8,10 +8,10 @@ export class DeanDecision {
   archiveId: number;
   num: number;
   typeNumber: number;
-
+  numberOfAttachments: number;
 
   constructor(id: number, no: number, date: Date, summary: string, createdBy: string, paths: string[],
-              archiveId: number, num: number, typeNumber: number) {
+              archiveId: number, num: number, numberOfAttachments: number, typeNumber: number) {
     this.id = id;
     this.no = no;
     this.date = date;
@@ -21,5 +21,6 @@ export class DeanDecision {
     this.archiveId = archiveId;
     this.num = num;
     this.typeNumber = typeNumber;
+    this.numberOfAttachments = numberOfAttachments;
   }
 }

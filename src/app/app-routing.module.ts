@@ -132,7 +132,7 @@ const routes: Routes = [
   {path:'last-export-pagination?page=/:page',component:LastExportPaginationComponent,canActivate:[CanActivate]},
   {path:'last-import-pagination?page=/:page',component:LastImportPaginationComponent,canActivate:[CanActivate]},
   {path:'last-special-pagination?page/:page',component:LastSpecialPaginationComponent,canActivate:[CanActivate]},
-  {path:'last-dean-decision_pagination/:page',component:LastDeanDecisionPaginationComponent,canActivate:[CanActivate]},
+  {path:'last-dean-decision-pagination?page=/:page',component:LastDeanDecisionPaginationComponent,canActivate:[CanActivate]},
   {path:'all-signs',component:AllSignComponent,canActivate:[CanActivate]},
   {path:'sign-pagination?page=/:page',component:SignPaginationComponent,canActivate:[CanActivate]},
   {path:'add-sign',component:AddSignComponent,canActivate:[CanActivate]},

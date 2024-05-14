@@ -1,38 +1,24 @@
-<div style="background-color: var(--bg_main);height: 100vh;">
-  <div style="display: flex;justify-content: space-around;">
+<div style="height: 100vh;">
+  <div style="display: flex;justify-content: space-between;">
   <img src="assets\logo\Zagazig university.logo.png" style="height:60px;width: 60px ;">
   <img src="assets\logo\fci.zu.jpeg" style="height:60px;width: 60px;">
 </div>
-  <div class="card">
-    <div class="card-header">
-      <legend class="text-center" style=" font-weight: bold">
-        برنامج الارشيف الألكتروني
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="currentColor" class="bi bi-archive"
-          viewBox="0 0 16 16">
-          <path
-            d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
-        </svg>
-      </legend>
-      <div class="d-flex justify-content-end social_icon">
-        <span><i class="fab fa-facebook-square"></i></span>
-        <span><i class="fab fa-google-plus-square"></i></span>
-        <span><i class="fab fa-twitter-square"></i></span>
-      </div>
-    </div>
-    <div class="card-body">
+  <div class="card-container"> 
+    <div class="card-body w-50 position-relative" style="padding: 50px;text-align: center;">
       <form (ngSubmit)="login()" [formGroup]="loginParentGroup">
+        <legend style="color:#143e81;margin-bottom:20px">تسجيل الدخول</legend>
         <div formGroupName="user">
-          <div class="input-group form-group">
-            <input formControlName="username" type="text" class="form-control" placeholder="username">
+          <div class="input-group form-group" style="margin: auto">
+            <input formControlName="username" type="text" class="form-control" style="background-color: #ddd;"  placeholder="اسم المستخدم">
             <small *ngIf="loginParentGroup.get('username')?.invalid">* مطلوب</small>
           </div>
-          <div class="input-group form-group mt-3">
-            <input formControlName="password" type="password" class="form-control" placeholder="password">
+          <div class="input-group form-group mt-3" style="margin: auto">
+            <input formControlName="password" type="password" class="form-control"  style="background-color: #ddd;" placeholder="الرقم السري">
             <small *ngIf="loginParentGroup.get('password')?.invalid">* مطلوب</small>
           </div>
           <div class="form-group my-3 ml-2">
-            <button type="submit" class="btn float-right login_btn"
-              style="color: var(--color);background: var(--bg_hover);height:35px;margin-left:30%;margin-top: 30px;width:160px">
+            <button type="submit" class="btn login_btn"
+              style="height:35px;margin-top: 30px;width:160px">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                 class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -40,11 +26,21 @@
                 <path fill-rule="evenodd"
                   d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
               </svg>
-              تسجيل الدخول
+          الدخول للبرنامج
             </button>
           </div>
         </div>
       </form>
+    </div>
+    <div class="archive" style="">
+      <legend class="text-center" style=" font-weight: bold;color:#fff">
+        برنامج الارشيف الألكتروني <br> و ادارة المستندات
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="currentColor" class="bi bi-archive"
+          viewBox="0 0 16 16">
+          <path
+            d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
+        </svg>
+      </legend>
     </div>
   </div>
 </div>

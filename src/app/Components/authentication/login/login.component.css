@@ -1,15 +1,24 @@
-img{
-  margin-top:20px
+img {
+  margin-top: 20px
 }
-.card {
-  position: relative;
-  height: 280px;
-  width: 35%;
-  margin: 150px auto;
-  /* transform: translate(50%, 50%); */
-  background-color: var(--bg) !important;
-  color: var(--color);
-  z-index: 11111111111111111;
+
+.card-container {
+  height: 65%;
+  width: 60%;
+  display: flex;
+  box-shadow: -2px 1px 13px 2px;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+form{
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .card-header h3 {
@@ -17,8 +26,8 @@ img{
 }
 
 .login_btn {
-  color: var(--color);
-  background-color: var(--bg_hover);
+  color: #fff;
+  background-color: #143e81;
   width: 100px;
 }
 
@@ -34,6 +43,22 @@ img{
 small {
   color: red;
   font-size: large;
+}
+
+.archive {
+  position: relative;
+  text-align: center;
+  width: 50%;
+  background: rgba(15, 63, 120, 1);
+  border-radius: 0 20px 20px 0;
+  background: linear-gradient(270deg, #535388, #050251);
+}
+
+.archive legend {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 768px) {

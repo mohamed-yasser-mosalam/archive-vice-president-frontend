@@ -29,11 +29,11 @@
 
           <div style="display: flex;  justify-content: space-between;">
             <div class="input-container ">
-
-              <div class="input-data">
-                <input type="Date" id="date" formControlName="date">
-                <label for="date">تاريخ الصادر</label>
+              <div class="input-data" style="">
+                <input type="number" id="numberOfAttachments" formControlName="numberOfAttachments">
+                <label for="numberOfAttachments">عدد المرفقات</label>
               </div>
+
               <div class="input-data" style="top:32px">
                 <input type="text" id="receiver" formControlName="receiver">
                 <label for="receiver">الجهة الصادر اليها الخطاب</label>
@@ -41,30 +41,39 @@
             </div>
             <div class="input-container">
               <div class="d-flex">
-                <div class="input-data" style="width: 65%">
-                  <input type="number" id="numberOfAttachments" formControlName="numberOfAttachments">
-                  <label for="numberOfAttachments">عدد المرفقات</label>
+
+
+
+                <div class="input-data " style="width:95%;">
+                  <input type="text" required id="num" formControlName="num">
+                  <label for="num">رقم الملف</label>
                 </div>
-                <div class="input-data " style="width:30%; margin-left:auto;">
+
+
+                <div class="input-data " style=" margin-left:auto;">
                   <input type="number" readonly id="no" formControlName="no">
                   <label for="no">رقم الخطاب</label>
                 </div>
               </div>
               <div class="d-flex">
+                
+
+
+                <div class="input-data">
+                  <input type="Date" id="date" formControlName="date">
+                  <label for="date">تاريخ الصادر</label>
+                </div>
                 <div class="input-data" style="width: 65%">
                   <input type="text" required id="recipientName" formControlName="recipientName">
                   <label for="recipientName">المستلم</label>
                 </div>
-                <div class="input-data " style="width:30%; margin-left:auto;">
-                  <input type="text" required id="num" formControlName="num">
-                  <label for="num">رقم الملف</label>
-                </div>
+
               </div>
             </div>
           </div>
           <div class="input-data" style="width: 97%;">
             <input cols="40" rows="1" style="height:60px" id="summary" formControlName="summary">
-            <label for="summary">ملخص الخطاب</label>
+            <label for="summary" style="bottom: 10px">ملخص الخطاب</label>
           </div>
 
           <div class="mt-5" style="display: flex;  justify-content: space-between;">
@@ -90,7 +99,6 @@
             </div>
           </div>
 
-
           <div class="input-data" style="bottom:40px; ">
             <button type="submit" class="btn  "
                     style="width:150px; padding:5px;color: var(--color);background:var(--color1);font-size:22px;margin-left:42%"
@@ -106,5 +114,15 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 

@@ -28,6 +28,7 @@ export class ImportPaginationComponent implements OnInit {
   showImport = new FormGroup({
     createdBy:new FormControl(''),
     numberOfAttachments: new FormControl(''),
+    numberOfImages: new FormControl(''),
     sender: new FormControl(''),
     incomeDate: new FormControl(''),
     no: new FormControl(''),
@@ -55,6 +56,7 @@ export class ImportPaginationComponent implements OnInit {
       this.showImport.patchValue({
         createdBy :result['createdBy'],
         numberOfAttachments :result['numberOfAttachments'],
+        numberOfImages :result['numberOfImages'],
         sender:result['sender'],
         incomeDate: result['incomeDate'],
         no: result['no'],
@@ -103,6 +105,7 @@ export class ImportPaginationComponent implements OnInit {
       this.showImport = new FormGroup({
         createdBy: new FormControl(result['createdBy']),
         numberOfAttachments: new FormControl(result['numberOfAttachments']),
+        numberOfImages: new FormControl(result['numberOfImages']),
         sender: new FormControl(result['sender']),
         incomeDate: new FormControl(result['incomeDate']),
         no: new FormControl(result['no']),

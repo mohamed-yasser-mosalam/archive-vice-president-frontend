@@ -17,12 +17,18 @@
 
           <div style="display: flex;  justify-content: space-between;">
             <div class="input-container ">
-
-              <div class="input-data">
-                <input type="text" required readonly id="numberOfAttachments" formControlName="numberOfAttachments">
-                <label for="numberOfAttachments">عدد المرفقات</label>
+              <div class="d-flex">
+                <div class="input-data" style="width:40%; margin-left:auto;">
+                  <input type="number" readonly id="numberOfImages" formControlName="numberOfImages">
+                  <div class="underLine"></div>
+                  <label for="numberOfImages"> عدد المرفقات الفعلي</label>
+                </div>
+                <div class="input-data" style="width: 40%;">
+                  <input type="text" required readonly id="numberOfAttachments" formControlName="numberOfAttachments">
+                  <label for="numberOfAttachments">عدد المرفقات</label>
+                </div>
               </div>
-              <div class="input-data" style="top:55px">
+              <div class="input-data">
                 <input type="text" required readonly id="sender" formControlName="sender">
                 <label for="sender">الجهة الوارد منها الخطاب</label>
               </div>

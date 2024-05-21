@@ -25,7 +25,7 @@
           </button>
           <app-search (searchTextChange)=onSearchTextEntered($event) style="margin-left: 20%"></app-search>
           <div class="input-data ">
-            <h1 style="margin-left: 10px">دليل الاتصال بأعضاء هيئة التدريس</h1>
+            <h1 style="margin-left: 10px">دليل الاتصال بموظفين الكلية</h1>
           </div>
         </div>
 
@@ -37,6 +37,7 @@
             <th>الوظيفة</th>
             <th>القسم</th>
             <th>الموبايل</th>
+            <th>موبايل الطوارئ</th>
             <th>العنوان</th>
             <th>الايميل</th>
             <th>الملاحظات</th>
@@ -50,6 +51,7 @@
             <td>{{ item.job }}</td>
             <td>{{ item.department }}</td>
             <td>{{ item.mobile }}</td>
+            <td>{{ item.phone}}</td>
             <td>{{ item.address }}</td>
             <td>{{ item.email }}</td>
             <td>{{ item.notes }}</td>

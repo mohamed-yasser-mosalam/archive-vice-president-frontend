@@ -3,8 +3,8 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   --bg: #ffffff;
-  --bg_main: #ccc4c2;
-  --bg_hover: #ccc4c2;
+  --bg_main: red;
+  --bg_hover: red;
   --color: black;
   --color1: white;
   --color2: #eee;

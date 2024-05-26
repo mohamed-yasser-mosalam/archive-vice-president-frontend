@@ -20,6 +20,7 @@
         <thead>
         <tr>
           <th scope="col">رقم القيد</th>
+          <th scope="col">عدد المرفقات</th>
           <th scope="col">تاريخ القرار</th>
           <th scope="col">موضوع القرار</th>
           <th scope="col"> رقم الملف</th>
@@ -27,6 +28,7 @@
         </thead>
         <tr *ngFor="let item of deanDecision | search:searchText">
           <td>{{ item.no }}</td>
+          <td>{{ item.numberOfImages }}</td>
           <td>{{ item.date }}</td>
           <td>{{ item.summary }}</td>
           <td>{{ item.typeNumber }}/{{ item.num }}</td>

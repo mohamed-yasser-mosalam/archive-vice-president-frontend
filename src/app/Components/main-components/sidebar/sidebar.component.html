@@ -138,6 +138,16 @@
                   <p> اضافة مستخدم </p>
                 </a>
               </li>
+              <li class="nav-item dropdown-item" *ngIf="userRole=='admin'">
+                <a (click)="backUp()" class="dropdown-item" routerLink="/home">
+                  <p> نسخة احتياطية </p>
+                </a>
+              </li>
+              <li class="nav-item dropdown-item" *ngIf="userRole=='admin'">
+                <a (click)="restore()" class="dropdown-item" routerLink="/home">
+                  <p> استرجاع نسخة احتياطية </p>
+                </a>
+              </li>
             </ul>
           </div>
 

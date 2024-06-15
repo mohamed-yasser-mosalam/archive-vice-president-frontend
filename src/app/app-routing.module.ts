@@ -83,6 +83,7 @@ import {
   EmployeePhoneDirectoryComponent
 } from "./Components/PhoneDirectory/employee-phone-directory/employee-phone-directory.component";
 import {AddEmployeePhoneComponent} from "./Components/PhoneDirectory/add-employee-phone/add-employee-phone.component";
+import {AddArchiveFileComponent} from "./Components/all-files/add-archive-file/add-archive-file.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -145,6 +146,7 @@ const routes: Routes = [
   {path: 'faculty-phone-directly', component:FacultyPhoneDirectoryComponent,canActivate:[CanActivate] },
   {path: 'teaching-phone-directly', component:TeachingPhoneDirectoryComponent,canActivate:[CanActivate] },
   {path: 'employee-phone-directly', component:EmployeePhoneDirectoryComponent,canActivate:[CanActivate] },
+  {path: 'add-archive-file', component:AddArchiveFileComponent,canActivate:[CanActivate] },
   {path: "**",component:ErrorPageComponent},
 
 ];

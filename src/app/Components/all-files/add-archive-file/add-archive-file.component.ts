@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-archive-file.component.css']
 })
 export class AddArchiveFileComponent {
+  constructor(){}
 
 }

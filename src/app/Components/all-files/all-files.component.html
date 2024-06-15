@@ -14,16 +14,24 @@
       <div class="d-flex"
            style="
            font-size: 20px;
-           padding: 10px 35%;
+           padding: 10px 30%;
            background-color: var(--bg);
            color: var(--color);
            position: sticky;
            top: 0;
            font-weight: bold">
+           <div>
+            <button routerLink="/add-archive-file" class="btn" style="padding:5px 15px;margin-right: 20px;background-color: var(--bg_main);">اضافة</button>
+          </div>
+          <div>
+            <button routerLink="/" class="btn " style="padding:5px 15px;margin-right: 20px;background-color: var(--bg_main);">تعديل</button>
+          </div>
+          
         <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
-        <div class="input-data ">
-          <h2 style="margin-left: 20px">ملفات الارشيف </h2>
+        <div>
+          <h2 style="margin-left: 20px;padding:0 20px">ملفات الارشيف </h2>
         </div>
+        
       </div>
 
       <table>

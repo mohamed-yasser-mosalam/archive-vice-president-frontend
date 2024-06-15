@@ -21,4 +21,7 @@ export class AllFilesService {
   }
 
 
+  deleteArchiveFile(typeNumber, num) {
+    return this.http.delete(`${this.base}/archive/archive?typeNumber=${typeNumber}&num=${num}`);
+  }
 }

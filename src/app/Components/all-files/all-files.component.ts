@@ -11,10 +11,10 @@ export class AllFilesComponent  implements OnInit{
   AllFiles:AllFiles[]=[]
   searchText:string
 
-  constructor(private AllFilesService:AllFilesService) {
+  constructor(private allFilesService:AllFilesService) {
   }
   getAllFiles(){
-    return this.AllFilesService.getAllFile().subscribe((getAllFile:any)=> {
+    return this.allFilesService.getAllFile().subscribe((getAllFile:any)=> {
       this.AllFiles = getAllFile;
     })
   }
@@ -24,6 +24,21 @@ export class AllFilesComponent  implements OnInit{
   }
   onsearchTextEntered(searchValue){
     this.searchText=searchValue
+  }
+
+  deleteArchiveFile(typeNumber:number , num:number) {
+    this.allFilesService.deleteArchiveFile(typeNumber , num).subscribe((result: any) => {
+      this.allFilesService.getAllFile();
+    } ,
+      (error: any) => {alert(error.error.message)}
+
+    )
+
+
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   }
 }
 

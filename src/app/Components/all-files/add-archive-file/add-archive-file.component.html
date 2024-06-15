@@ -2,27 +2,28 @@
 <div class="row">
   <div class="col-2" style="background-color: var(--bg_main);"></div>
   <div class="col-8" style="background-color:var(--bg_main)">
-    <form class="col-8" >
+    <form class="col-8" [formGroup]="archiveForm" (ngSubmit)="onSubmit()">
         <div class="wrapper " style="direction: ltr;">
             <legend class="text-center">ادخال ملف الارشيف</legend>
 
 
             <div class="input-data" style="width:30%; margin-left:auto;">
-                <input type="number" min="1" max="3" required id="receiver" name="receiver" formControlName="receiver">
-                <label for="receiver">نوع الملف</label>
-                
+                <input type="number" min="1" max="3" required id="typeNumber" name="typeNumber" formControlName="typeNumber">
+                <label for="typeNumber">نوع الملف</label>
+
               </div>
               <div class="input-data" style="width:30%; margin-left:auto;">
-                <input type="number" required id="receiver" name="receiver" formControlName="receiver">
-                <label for="receiver">رقم الملف</label>
-                
+                <input type="number" required id="num" name="num" formControlName="num">
+                <label for="num">رقم الملف</label>
+
               </div>
               <div class="input-data" style="width:30%; margin-left:auto;">
-                <input type="text" required id="receiver" name="receiver" formControlName="receiver">
-                <label for="receiver">اسم الملف</label>
-                
+                <input type="text" required id="name" name="name" formControlName="name">
+                <label for="name">اسم الملف</label>
+
               </div>
         </div>
+      <button type="submit" class="btn" [disabled]="!archiveForm.valid">save</button>
     </form>
   </div>
   <div class="col-2 position-relative">

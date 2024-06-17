@@ -101,7 +101,7 @@
               <label for="urgentDate">تاربخ الاستعجال</label>
             </div>
             <div class="input-data" style="width:45%; margin-left:auto;">
-              <input type="number" readonly id="urgentNum" formControlName="urgentNum">
+              <input type="number" readonly id="urgentNum" formControlName="urgentNum" >
               <div class="underLine"></div>
               <label for="urgentNum">رقم الاستعجال</label>
             </div>
@@ -113,7 +113,7 @@
               <label for="responseDate">تاريخ الرد</label>
             </div>
             <div class="input-data" style="width:45%; margin-left:auto;">
-              <input type="number" readonly id="responseNumber" name="responseNumber" formControlName="responseNumber">
+              <input type="number" readonly id="responseNumber" name="responseNumber" formControlName="responseNumber" [routerLink]="showExport.getRawValue().responseNumber ? ['/import-pagination?page=/', showExport.getRawValue().responseNumber] : null">
               <div class="underLine"></div>
               <label for="responseNumber">رقم الرد الوارد</label>
             </div>

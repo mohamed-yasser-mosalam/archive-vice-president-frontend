@@ -112,7 +112,7 @@
               <label for="responseDate">تاريخ الرد</label>
             </div>
             <div class="input-data" style="width:35%; margin-left:auto;">
-              <input type="text" required readonly id="responseNumber" formControlName="responseNumber">
+              <input type="text" required readonly id="responseNumber" formControlName="responseNumber"  [routerLink]="showImport.getRawValue().responseNumber ? ['/export-pagination?page=/', showImport.getRawValue().responseNumber] : null"  >
               <label for="responseNumber">الرد</label>
             </div>
           </div>

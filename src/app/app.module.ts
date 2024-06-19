@@ -105,6 +105,7 @@ import {NgxPrintModule} from "ngx-print";
 import { EmployeePhoneDirectoryComponent } from './Components/PhoneDirectory/employee-phone-directory/employee-phone-directory.component';
 import { AddEmployeePhoneComponent } from './Components/PhoneDirectory/add-employee-phone/add-employee-phone.component';
 import { AddArchiveFileComponent } from './Components/all-files/add-archive-file/add-archive-file.component';
+import { UpdateArchiveFileComponent } from './Components/all-files/update-archive-file/update-archive-file.component';
 
 @NgModule({
   declarations: [
@@ -176,6 +177,7 @@ import { AddArchiveFileComponent } from './Components/all-files/add-archive-file
     EmployeePhoneDirectoryComponent,
     AddEmployeePhoneComponent,
     AddArchiveFileComponent,
+    UpdateArchiveFileComponent,
 
   ],
   imports: [

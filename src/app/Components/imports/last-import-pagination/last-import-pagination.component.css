@@ -4,10 +4,9 @@
 
 }
 form{
-  /* background-color: var(--bg_main); */
+  background-color: var(--bg_main);
   margin-left: 90px;
-  margin-top: 2%;
-  height: 95%;
+  height: 98%;
 }
 .wrapper {
   position: relative;
@@ -35,7 +34,7 @@ form{
   background-color: var(--bg);
   color: var(--color);
   padding: 0 10px;
- }
+}
 
 .wrapper .input-data textarea {
   border: none;

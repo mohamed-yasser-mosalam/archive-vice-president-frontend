@@ -136,16 +136,17 @@
             routerLink="/import-pagination?page=/{{no}}">حفظ المرفقات</button>
           <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
         </form>
-        <button type="submit" class="btn "
-          style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"
-          routerLink="/update-import/{{id}}">
-          تعديل
-        </button>
         <button type="submit" class="btn  "
           style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"
           routerLink="/add-import-file">
           تسجيل جديد
         </button>
+        <button type="submit" class="btn "
+          style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"
+          routerLink="/update-import/{{id}}">
+          تعديل
+        </button>
+        
 
         <button type="submit" class="btn " *ngIf="isHasResponse"
           style="width:150px; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-size:25px"

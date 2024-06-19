@@ -2,11 +2,7 @@
   <div class="row">
     <div class=" position-relative">
       <div class="menu">
-
-
         <ul class="nav flex-column">
-
-
           <li class="nav-item">
             <button class="btn " routerLink="/home" style="background-color:#102C57;color: white">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-house"
@@ -30,7 +26,6 @@
               الخطابات الواردة
             </button>
           </li>
-
           <li class="nav-item">
             <button class="btn btn-outline-success" routerLink="/export-pagination?page=/{{1}}"
                     style="background-color: white;color:green">
@@ -44,8 +39,6 @@
               الخطابات الصادرة
             </button>
           </li>
-
-
           <li class="nav-item">
             <button class="btn btn-outline-secondary" routerLink="/special_pagination?page=/{{1}}"
                     style="background-color: white;color: #24344c">
@@ -57,8 +50,6 @@
               ملفات الحفظ
             </button>
           </li>
-
-
           <li class="nav-item">
             <button class="btn btn-outline-light" routerLink="/dean-decision-pagination?page=/{{1}}"
                     style="color: black;background-color: white">
@@ -80,8 +71,56 @@
               الاشارات
             </button>
           </li>
-
-
+          <div class="dropdown">
+            <button class="btn btn-outline-light" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    style="color: black;background-color: white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                   class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+              </svg>
+              دليل الأتصال
+            </button>
+            <ul class="dropdown-menu" style="background-color: var(--bg);">
+  
+              <li class="nav-item dropdown-item">
+                <a routerLink="/teaching-phone-directly">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                       class="bi bi-box-arrow-in-down" viewBox="0 0 16 16" style="color: var(--color)">
+                    <path fill-rule="evenodd"
+                          d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
+                    <path fill-rule="evenodd"
+                          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                  </svg>
+                  <p>أعضاء هيئة التدريس</p>
+                </a>
+              </li>
+              <li class="nav-item dropdown-item">
+                <a routerLink="/employee-phone-directly">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                       class="bi bi-box-arrow-in-down" viewBox="0 0 16 16" style="color: var(--color)">
+                    <path fill-rule="evenodd"
+                          d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
+                    <path fill-rule="evenodd"
+                          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                  </svg>
+                  <p>موظفين الكلية</p>
+                </a>
+              </li>
+              <li class="nav-item dropdown-item">
+                <a routerLink="/faculty-phone-directly">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                       class="bi bi-box-arrow-up" viewBox="0 0 16 16" style="color: var(--color)">
+                    <path fill-rule="evenodd"
+                          d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
+                    <path fill-rule="evenodd"
+                          d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708z"/>
+                  </svg>
+                  <p>الأرقام الداخلية والخارجية الهامة</p>
+                </a>
+              </li>
+            </ul>
+          </div>
           <li class="nav-item">
             <button class=" btn btn-outline-light" routerLink="/all-files" style="color: black;background-color: white">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-archive"
@@ -92,7 +131,6 @@
               ملفات الأرشيف
             </button>
           </li>
-
           <div class="dropdown" *ngIf="userRole=='admin'">
             <button class="btn btn-outline-light " type="button" data-bs-toggle="dropdown" aria-expanded="false"
                     style="color: black;background-color: white">
@@ -150,61 +188,7 @@
               </li>
             </ul>
           </div>
-
-
         </ul>
-
-
-        <div class="dropdown">
-          <button class="btn btn-outline-light" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                  style="color: black;background-color: white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                 class="bi bi-telephone-fill" viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                    d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-            </svg>
-            دليل الأتصال
-          </button>
-          <ul class="dropdown-menu" style="background-color: var(--bg);">
-
-            <li class="nav-item dropdown-item">
-              <a routerLink="/teaching-phone-directly">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                     class="bi bi-box-arrow-in-down" viewBox="0 0 16 16" style="color: var(--color)">
-                  <path fill-rule="evenodd"
-                        d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
-                  <path fill-rule="evenodd"
-                        d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
-                </svg>
-                <p>أعضاء هيئة التدريس</p>
-              </a>
-            </li>
-            <li class="nav-item dropdown-item">
-              <a routerLink="/employee-phone-directly">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                     class="bi bi-box-arrow-in-down" viewBox="0 0 16 16" style="color: var(--color)">
-                  <path fill-rule="evenodd"
-                        d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
-                  <path fill-rule="evenodd"
-                        d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
-                </svg>
-                <p>موظفين الكلية</p>
-              </a>
-            </li>
-            <li class="nav-item dropdown-item">
-              <a routerLink="/faculty-phone-directly">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                     class="bi bi-box-arrow-up" viewBox="0 0 16 16" style="color: var(--color)">
-                  <path fill-rule="evenodd"
-                        d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
-                  <path fill-rule="evenodd"
-                        d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708z"/>
-                </svg>
-                <p>الأرقام الداخلية والخارجية الهامة</p>
-              </a>
-            </li>
-          </ul>
-        </div>
         <div class="dropdown">
           <button class="btn btn-outline-light" type="button" data-bs-toggle="dropdown" aria-expanded="false"
                   style="color: black;background-color: white">
@@ -262,8 +246,6 @@
             </li>
           </ul>
         </div>
-
-
         <div>
           <a routerLink="/login">
             <button type="submit" class="btn w-100" style="color: #f00;background:var(--bg_main)  ">

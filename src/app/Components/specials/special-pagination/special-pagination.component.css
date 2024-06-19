@@ -4,9 +4,10 @@
 
 }
 form{
-  background-color: var(--bg_main);
+  /* background-color: var(--bg_main); */
   margin-left: 90px;
-  height: 98%;
+  margin-top: 2%;
+  height: 95%;
 }
 .wrapper {
   position: relative;

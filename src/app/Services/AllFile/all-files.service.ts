@@ -16,8 +16,16 @@ export class AllFilesService {
     return this.http.get(`${this.base}/archive/archives`);
   }
 
+  getById(id: number) {
+    return this.http.get<ArchiveFile>(`${this.base}/archive-id?id=${id}`);
+  }
+
   saveArchiveFile(archiveFile: ArchiveFile) {
     return this.http.post(`${this.base}/archive/archive`, archiveFile);
+  }
+
+  updateArchiveFile(id: number, name: any) {
+    return this.http.put(`${this.base}/archive/archive-name?id=${id}`, name)
   }
 
 
@@ -25,3 +33,4 @@ export class AllFilesService {
     return this.http.delete(`${this.base}/archive/archive?typeNumber=${typeNumber}&num=${num}`);
   }
 }
+

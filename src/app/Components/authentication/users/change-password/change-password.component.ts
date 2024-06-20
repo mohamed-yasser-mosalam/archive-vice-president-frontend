@@ -38,6 +38,7 @@ export class ChangePasswordComponent implements OnInit {
         // if(this.errorMessage!=null){
         //   alert('الرقم السري المدخل غير صحيح')
         // }
+        alert(err.error.message)
       }
     )
 

@@ -24,7 +24,7 @@
               style="padding:5px 15px;margin-right: 20px;background-color: var(--bg_main);">اضافة</button>
           </div>
           <div>
-            <button routerLink="/update-archive-file" class="btn"style="padding:5px 15px;margin-right: 20px;background-color: var(--bg_main);">تعديل</button>
+           
           </div>
 
           <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
@@ -39,6 +39,7 @@
             <tr>
               <th> الاسم</th>
               <th>رقم الملف</th>
+              <th></th>
               <th></th>
               <th></th>
             </tr>
@@ -57,6 +58,11 @@
                     <path
                       d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                   </svg>
+                </button>
+              </td>
+              <td>
+                <button routerLink="/update-archive-file" class="btn"style="padding:5px 15px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0f0"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
                 </button>
               </td>
 

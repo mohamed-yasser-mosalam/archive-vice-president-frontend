@@ -54,10 +54,8 @@ export class UpdateLoginInformatioComponent implements OnInit {
     this.updateUserInformationService.update(this.id, this.editUserName.value).subscribe((result: any) => {
       this.router.navigateByUrl('/login');
       this.auth.clearToken();
-      // sessionStorage.setItem("username", 'aaaa');
-      // this.router.navigateByUrl('/home');
-
-    })
+      },error => alert(error.error.message)
+    )
   }
 
 }

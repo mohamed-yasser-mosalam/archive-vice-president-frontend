@@ -21,7 +21,8 @@
            font-weight: bold">
           <div>
             <button routerLink="/add-archive-file" class="btn"
-              style="padding:5px 15px;margin-right: 20px;background-color: var(--bg_main);">اضافة</button>
+                    style="padding:5px 15px;margin-right: 20px;background-color: var(--bg_main);">اضافة
+            </button>
           </div>
           <div>
            
@@ -45,10 +46,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of AllFiles | search:searchText" class="p-4 ">
-              <td>{{ item.name }}</td>
-              <td>{{ item.typeNumber }}/{{ item.num }}</td>
+          <tr *ngFor="let item of AllFiles | search:searchText" class="p-4 ">
+            <td>{{ item.name }}</td>
+            <td>{{ item.typeNumber }}/{{ item.num }}</td>
 
+              <td>
+                <button routerLink="/update-archive-file" class="btn"style="padding:5px 15px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0f0"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
+                </button>
+              </td>
               <td>
                 <button class="btn" (click)="deleteArchiveFile(item.typeNumber , item.num)" *ngIf="item.canDelete">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-trash"
@@ -60,66 +66,44 @@
                   </svg>
                 </button>
               </td>
-              <td>
-                <button routerLink="/update-archive-file" class="btn"style="padding:5px 15px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0f0"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
-                </button>
-              </td>
 
-              <td *ngIf="item.id<=21;else first">
-                <a routerLink="/archive-import/{{item.id}}">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                    class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
-                    <path fill-rule="evenodd"
-                      d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
-                    <path fill-rule="evenodd"
-                      d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
-                  </svg>
-                </a>
-              </td>
+            <td *ngIf="item.typeNumber==1;else first">
+              <a routerLink="/archive-import/{{item.id}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
+                  <path fill-rule="evenodd"
+                        d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                  <path fill-rule="evenodd"
+                        d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                </svg>
+              </a>
+            </td>
 
 
+            <ng-template #first>
+              <a *ngIf="item.typeNumber==2 ; else second" routerLink="/archive-export/{{item.id}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
+                  <path fill-rule="evenodd"
+                        d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                  <path fill-rule="evenodd"
+                        d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                </svg>
+              </a>
+            </ng-template>
+            <ng-template #second>
+              <a *ngIf="item.typeNumber ==3" routerLink="/archive-special/{{item.id}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
+                  <path fill-rule="evenodd"
+                        d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                  <path fill-rule="evenodd"
+                        d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                </svg>
+              </a>
+            </ng-template>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <ng-template #first>
-                <a *ngIf="item.id>21 && item.id<43 ; else second" routerLink="/archive-export/{{item.id}}">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                    class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
-                    <path fill-rule="evenodd"
-                      d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
-                    <path fill-rule="evenodd"
-                      d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
-                  </svg>
-                </a>
-              </ng-template>
-              <ng-template #second>
-                <a *ngIf="item.id >=43" routerLink="/archive-special/{{item.id}}">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                    class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
-                    <path fill-rule="evenodd"
-                      d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
-                    <path fill-rule="evenodd"
-                      d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
-                  </svg>
-                </a>
-              </ng-template>
-
-            </tr>
+          </tr>
           </tbody>
         </table>
       </div>

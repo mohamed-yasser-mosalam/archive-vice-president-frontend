@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit{
 
     this.registerService.createUser(this.registerForm.value).subscribe(
       response => this.router.navigateByUrl('/home'),
+      error => alert(error.error.message)
      );
   }
 

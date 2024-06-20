@@ -33,7 +33,7 @@ export class ChangePasswordByAdminComponent implements OnInit {
   changePassword(newPassword: any) {
     this.updateUserInformationService.changePasswordByAdmin(this.id, newPassword).subscribe()
     // this.router.navigateByUrl("/home")
-    const nextPageUrl = `/userpagination/${this.id}`;
+    const nextPageUrl = `/user-pagination?page=/${this.id}`;
     this.router.navigate([nextPageUrl]);
   }
 }

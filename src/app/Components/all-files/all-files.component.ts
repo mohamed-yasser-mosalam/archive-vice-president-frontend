@@ -40,6 +40,8 @@ export class AllFilesComponent  implements OnInit{
       window.location.reload();
     }, 50);
   }
+
+
 }
 
 

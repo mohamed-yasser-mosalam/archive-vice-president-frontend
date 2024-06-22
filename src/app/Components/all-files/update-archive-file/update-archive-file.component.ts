@@ -1,7 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
-import {AllFilesService} from "../../../Services/AllFile/all-files.service";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-update-archive-file',
@@ -9,6 +6,5 @@ import {AllFilesService} from "../../../Services/AllFile/all-files.service";
   styleUrls: ['./update-archive-file.component.css']
 })
 export class UpdateArchiveFileComponent  {
-
 
 }

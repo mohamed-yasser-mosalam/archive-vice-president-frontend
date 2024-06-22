@@ -17,7 +17,7 @@ export class AllFilesService {
   }
 
   getById(id: number) {
-    return this.http.get<ArchiveFile>(`${this.base}/archive-id?id=${id}`);
+    return this.http.get<ArchiveFile>(`${this.base}/archive/archive-id?id=${id}`);
   }
 
   saveArchiveFile(archiveFile: ArchiveFile) {

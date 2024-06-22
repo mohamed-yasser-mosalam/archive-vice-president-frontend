@@ -148,7 +148,7 @@ const routes: Routes = [
   {path: 'teaching-phone-directly', component:TeachingPhoneDirectoryComponent,canActivate:[CanActivate] },
   {path: 'employee-phone-directly', component:EmployeePhoneDirectoryComponent,canActivate:[CanActivate] },
   {path: 'add-archive-file', component:AddArchiveFileComponent,canActivate:[CanActivate] },
-  {path: 'update-archive-file', component:UpdateArchiveFileComponent,canActivate:[CanActivate] },
+  {path: 'update-archive-file/:id', component:UpdateArchiveFileComponent,canActivate:[CanActivate] },
   {path: "**",component:ErrorPageComponent},
 
 ];

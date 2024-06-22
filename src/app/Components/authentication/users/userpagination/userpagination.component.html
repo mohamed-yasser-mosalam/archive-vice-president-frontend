@@ -37,8 +37,8 @@
             </div>
 
             <div class="text-center row mt-4">
-              <div class="col-md-6" *ngIf="isActive==1;else notactive">
-                <button class="btn  profile-button" (click)="unActivateUser(username)" type="button">
+              <div class="col-md-6" *ngIf="isActive==1;else notactive" >
+                <button class="btn  profile-button" (click)="unActivateUser(username)" type="button" *ngIf="user.roles!='admin'">
                   الغاء تفعيل
                 </button>
               </div>

@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
       next: respose => {
         this.router.navigateByUrl("/home")
       },
-      error: err => {
-        alert('خطأ في تسجيل الدخول')
+      error: error => {
+        alert(error.error.message)
       }
     })
 

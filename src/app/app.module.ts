@@ -106,6 +106,8 @@ import { EmployeePhoneDirectoryComponent } from './Components/PhoneDirectory/emp
 import { AddEmployeePhoneComponent } from './Components/PhoneDirectory/add-employee-phone/add-employee-phone.component';
 import { AddArchiveFileComponent } from './Components/all-files/add-archive-file/add-archive-file.component';
 import { UpdateArchiveFileComponent } from './Components/all-files/update-archive-file/update-archive-file.component';
+import { AllSignsComponent } from './Components/signs/all-signs/all-signs.component';
+import { AllSignsPaginationComponent } from './Components/signs/all-signs-pagination/all-signs-pagination.component';
 
 @NgModule({
   declarations: [
@@ -178,6 +180,8 @@ import { UpdateArchiveFileComponent } from './Components/all-files/update-archiv
     AddEmployeePhoneComponent,
     AddArchiveFileComponent,
     UpdateArchiveFileComponent,
+    AllSignsComponent,
+    AllSignsPaginationComponent,
 
   ],
   imports: [

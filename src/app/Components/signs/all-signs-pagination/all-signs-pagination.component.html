@@ -5,7 +5,7 @@
     <form [formGroup]="signForm">
       <div class="wrapper">
         <legend class="text-center" style="font-weight: bolder;font-size: 20px;color:var(--color);">رقم الأشارة
-          {{ no }}
+          {{ id }}
         </legend>
         <div class="input-container ">
           <div class="input-data">
@@ -16,7 +16,7 @@
             <input type="text" readonly id="universityYear" name="universityYear" formControlName="universityYear">
             <label for="universityYear">للعام الجامعي :</label>
           </div>
-          </div>
+        </div>
 
         <div class="input-container ">
           <div class="input-data">
@@ -105,26 +105,15 @@
           </div>
           <div class="input-data">
             <div class="d-flex justify-content-around">
-            <div class="">
-              <button
-                type="submit" class="btn"
-                style="color: var(--color);background: var(--bg_hover);padding:5px 20px!important;margin-left: 10px;"
-                routerLink="/add-sign">
-                اضافة
-              </button>
+              <div class="">
 
-              <button
-                      type="submit" class="btn"
-                      style="color: var(--color);background: var(--bg_hover);padding:5px 20px!important;margin-left: 10px;"
-                      routerLink="/update-sign/{{page}}">
-                تعديل
-              </button>
-            </div>
+
+              </div>
               <div class="  pag" style="margin-right:30px;direction: ltr">
                 <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength"
                                 (pageChange)="change($event)"
                                 [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
-                                routerLink="/sign-pagination?page=/{{page}}">
+                                routerLink="/all-sign-pagination?page=/{{page}}">
                 </ngb-pagination>
               </div>
             </div>

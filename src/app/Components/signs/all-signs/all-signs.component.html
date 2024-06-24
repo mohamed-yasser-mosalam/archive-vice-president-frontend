@@ -8,7 +8,7 @@
              style="font-size: 20px; padding: 10px 0;margin-left: 50%; background-color: var(--bg); color: var(--color); position: sticky; top: 0; width: 50%;font-weight: bold">
           <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
           <div class="input-data ">
-            <h2 style="margin-left: 20px"> ألأشارات </h2>
+            <h2 style="margin-left: 20px">ألأشارات </h2>
           </div>
         </div>
 
@@ -54,7 +54,7 @@
             <td>{{item.signExecutionDate}}</td>
             <td>{{item.depend}}</td>
             <td>
-              <a routerLink="/sign-pagination?page=/{{item.no}}">
+              <a routerLink="/all-sign-pagination?page=/{{item.id}}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                      class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
                   <path fill-rule="evenodd"

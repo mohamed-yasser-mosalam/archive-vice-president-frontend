@@ -29,18 +29,19 @@ export class WelcomeComponent implements OnInit {
   years: any;
   selectedYear: number = new Date().getFullYear();
   numberOfLetterForYears: any
-  numberOfExportLetterForSpecificYear:any=0;
-  numberOfImportLetterForSpecificYear:any=0;
+  numberOfExportLetterForSpecificYear: any = 0;
+  numberOfImportLetterForSpecificYear: any = 0;
+  numberOfSpecialLetterForSpecificYear: any = 0;
   showAllTodayExports: ShowTodayExports[] = []
   showAllTodayImports: ShowTodayImports[] = []
   showLetterHasGone: ShowAllImportantFile[] = []
 
   constructor(private http: HttpClient, private service: TodayServiceService,
               private LetterHasGoneService: LetterHasGoneService,
-              private welcomeservice:WelcomeService,
-              private exportService:ExportServiceService,
-              private importService:ImportServiceService,
-              private specialService:SpecialService
+              private welcomeservice: WelcomeService,
+              private exportService: ExportServiceService,
+              private importService: ImportServiceService,
+              private specialService: SpecialService
   ) {
   }
 
@@ -80,7 +81,7 @@ export class WelcomeComponent implements OnInit {
   }
 
 
-   getNumberOfImportantLetter() {
+  getNumberOfImportantLetter() {
     this.welcomeservice.getNumberOfImportantLetter().subscribe((numberOfImportantLetter) => {
       this.NumberOfImportantLetter = numberOfImportantLetter;
     })
@@ -104,22 +105,24 @@ export class WelcomeComponent implements OnInit {
     })
   }
 
- getAllTodayExports() {
+  getAllTodayExports() {
     return this.service.getAllTodayExport().subscribe((allTodayExport: any) => {
       this.showAllTodayExports = allTodayExport;
     })
   }
 
-   getAllTodayImports() {
+  getAllTodayImports() {
     return this.service.getAllTodayImport().subscribe((allTodayImport: any) => {
       this.showAllTodayImports = allTodayImport;
     })
   }
+
   private getNumberOfSigns() {
     this.welcomeservice.getNumberOfSigns().subscribe((numberOfAllSigns) => {
       this.NumberOfAllSigns = numberOfAllSigns;
     })
   }
+
   private getNumberOfAllDeanDecisions() {
     this.welcomeservice.getNumberOfDeanDecision().subscribe((numberOfAllDeanDecisions) => {
       this.NumberOfAllDeanDecisions = numberOfAllDeanDecisions;
@@ -150,6 +153,11 @@ export class WelcomeComponent implements OnInit {
         this.numberOfImportLetterForSpecificYear = numberOfImportLetterForSpecificYears;
       });
     }
+    if (this.selectedYear) {
+      this.welcomeservice.getNumberOfLetterForSpecials(this.selectedYear).subscribe((numberOfSpecialLetterForSpecificYear) => {
+        this.numberOfSpecialLetterForSpecificYear = numberOfSpecialLetterForSpecificYear;
+      });
+    }
   }
 
- }
+}

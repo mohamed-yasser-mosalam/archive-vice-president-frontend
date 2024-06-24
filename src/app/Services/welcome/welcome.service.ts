@@ -6,7 +6,8 @@ import baseUrl from "../../url";
   providedIn: 'root'
 })
 export class WelcomeService {
-   base=baseUrl
+  base = baseUrl
+
   constructor(private http: HttpClient) {
   }
 
@@ -31,16 +32,23 @@ export class WelcomeService {
   getYears() {
     return this.http.get<number[]>(`${this.base}/general/years`)
   }
-  getNumberOfLetterForExports(selectedYear:any){
+
+  getNumberOfLetterForExports(selectedYear: any) {
     return this.http.get(`${this.base}/export/count-export-by-year?year=${selectedYear}`)
   }
-  getNumberOfLetterForImports(selectedYear:any){
-   return  this.http.get(`${this.base}/import/count-import-by-year?year=${selectedYear}`)
 
+  getNumberOfLetterForImports(selectedYear: any) {
+    return this.http.get(`${this.base}/import/count-import-by-year?year=${selectedYear}`)
   }
+
+  getNumberOfLetterForSpecials(selectedYear: any) {
+    return this.http.get(`${this.base}/special/count-special-by-year?year=${selectedYear}`)
+  }
+
   getNumberOfSigns() {
-    return this.http.get(`${this.base}/sign/count`)
+    return this.http.get(`${this.base}/sign/count-current`)
   }
+
   getNumberOfDeanDecision() {
     return this.http.get(`${this.base}/dean-decisions/count-current`)
   }

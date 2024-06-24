@@ -1,17 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {SignsService} from "../../../Services/signs/signs.service";
 import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {SignsService} from "../../../Services/signs/signs.service";
 
 @Component({
-  selector: 'app-sign-pagination',
-  templateUrl: './sign-pagination.component.html',
-  styleUrls: ['./sign-pagination.component.css']
+  selector: 'app-all-signs-pagination',
+  templateUrl: './all-signs-pagination.component.html',
+  styleUrls: ['./all-signs-pagination.component.css']
 })
-export class SignPaginationComponent implements OnInit {
+export class AllSignsPaginationComponent {
   id= this.routes.snapshot.params['page']
-  no=this.routes.snapshot.params['page']
+  no:number
   roleOfUser = this.auth.getUserRoles();
   page=this.routes.snapshot.params['page']
   pageLength: any;
@@ -19,25 +19,25 @@ export class SignPaginationComponent implements OnInit {
   size: number = 1;
   paths: string[];
   numbers: any = [];
- signForm = new FormGroup({
-   id:new FormControl(''),
-   universityYear:new FormControl(''),
-   date: new FormControl(''),
-   sender:new FormControl(''),
-   via: new FormControl(''),
-   signInformer: new FormControl(''),
-   signInformerSelf: new FormControl(''),
-   signInformerPhone: new FormControl(''),
-   summary: new FormControl(''),
-   signSignature: new FormControl(''),
-   signSelf: new FormControl(''),
-   signRecipientName: new FormControl(''),
-   signRecipientSelf: new FormControl(''),
-   signRecipientDate: new FormControl(''),
-   signExcutedName: new FormControl(''),
-   signExcutedSelf: new FormControl(''),
-   signExecutionDate: new FormControl(''),
-   depend: new FormControl(''),
+  signForm = new FormGroup({
+    id:new FormControl(''),
+    universityYear:new FormControl(''),
+    date: new FormControl(''),
+    sender:new FormControl(''),
+    via: new FormControl(''),
+    signInformer: new FormControl(''),
+    signInformerSelf: new FormControl(''),
+    signInformerPhone: new FormControl(''),
+    summary: new FormControl(''),
+    signSignature: new FormControl(''),
+    signSelf: new FormControl(''),
+    signRecipientName: new FormControl(''),
+    signRecipientSelf: new FormControl(''),
+    signRecipientDate: new FormControl(''),
+    signExcutedName: new FormControl(''),
+    signExcutedSelf: new FormControl(''),
+    signExecutionDate: new FormControl(''),
+    depend: new FormControl(''),
   });
 
   ngOnInit(): void {
@@ -68,7 +68,7 @@ export class SignPaginationComponent implements OnInit {
         signExecutionDate: result['signExecutionDate'],
         depend:result['depend'],
       });
-     });
+    });
   }
   constructor(
     private signService: SignsService,
@@ -80,14 +80,14 @@ export class SignPaginationComponent implements OnInit {
   }
 
   showSignFile(): void {
-    this.signService.getSignsByPage(this.page).subscribe((getSign: any) => {
+    this.signService.getLastSignsByPage(this.page).subscribe((getSign: any) => {
       this.showSigns = getSign;
       this.id=this.showSigns.id;
-     });
+    });
   }
 
   getSignNumber(): void {
-    this.signService.getNumberOfSigns().subscribe((numberOfSigns: any) => {
+    this.signService.getNumberOfAllSigns().subscribe((numberOfSigns: any) => {
       this.pageLength = numberOfSigns;
     });
   }
@@ -115,12 +115,14 @@ export class SignPaginationComponent implements OnInit {
         signExcutedSelf: new FormControl(result['signExcutedSelf']),
         signExecutionDate:new FormControl( result['signExecutionDate']),
         depend: new FormControl(result['depend']),
+      });
     });
-    });
-    const nextPageUrl = `/sign-pagination?page=/${this.page}`;
+    const nextPageUrl = `/all-sign-pagination?page=/${this.id}`;
     this.router.navigate([nextPageUrl]);
     this.form();
   }
+
+
 
 
 

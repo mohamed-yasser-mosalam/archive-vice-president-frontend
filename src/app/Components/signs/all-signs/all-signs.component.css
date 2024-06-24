@@ -49,10 +49,11 @@ tbody tr {
 }
 
 tr:nth-child(odd) {
+  /*background-color: #BED7DC;*/
   background-color: var(--tableOod);
+
 }
 
 tr:nth-child(even) {
   background-color: white;
 }
-

@@ -3,7 +3,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   --bg: #ffffff;
-  --bg_main: #ccc4c2;
+  --bg_main: #dee2e6;
   --bg_hover: #ccc4c2;
   --color: black;
   --color1: white;
@@ -11,9 +11,9 @@ body {
   transition: all 0.5s ease;
 
   /**table design */
-  --tableOod: #faf1f2;
+  --tableOod: #dee2e6;
   --tableScroll: #faf1f2;
-  --tableHead: #faf1f2;
+  --tableHead: #c5ced7;
 }
 
 /* .dark{

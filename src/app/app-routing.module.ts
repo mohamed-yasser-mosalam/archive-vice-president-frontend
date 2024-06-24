@@ -85,6 +85,8 @@ import {
 import {AddEmployeePhoneComponent} from "./Components/PhoneDirectory/add-employee-phone/add-employee-phone.component";
 import {AddArchiveFileComponent} from "./Components/all-files/add-archive-file/add-archive-file.component";
 import { UpdateArchiveFileComponent } from './Components/all-files/update-archive-file/update-archive-file.component';
+import {AllSignsComponent} from "./Components/signs/all-signs/all-signs.component";
+import {AllSignsPaginationComponent} from "./Components/signs/all-signs-pagination/all-signs-pagination.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -135,8 +137,10 @@ const routes: Routes = [
   {path:'last-import-pagination?page=/:page',component:LastImportPaginationComponent,canActivate:[CanActivate]},
   {path:'last-special-pagination?page/:page',component:LastSpecialPaginationComponent,canActivate:[CanActivate]},
   {path:'last-dean-decision-pagination?page=/:page',component:LastDeanDecisionPaginationComponent,canActivate:[CanActivate]},
-  {path:'all-signs',component:AllSignComponent,canActivate:[CanActivate]},
+  {path:'signs',component:AllSignComponent,canActivate:[CanActivate]},
+  {path:'all-signs',component:AllSignsComponent,canActivate:[CanActivate]},
   {path:'sign-pagination?page=/:page',component:SignPaginationComponent,canActivate:[CanActivate]},
+  {path:'all-sign-pagination?page=/:page',component:AllSignsPaginationComponent,canActivate:[CanActivate]},
   {path:'add-sign',component:AddSignComponent,canActivate:[CanActivate]},
   {path:'update-sign/:page',component:UpdateSignComponent},
   {path: 'show-user-information/:username', component:ShowUserInformationComponent,canActivate:[CanActivate] },

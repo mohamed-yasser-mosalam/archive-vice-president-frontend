@@ -47,7 +47,7 @@ export class AllSignsPaginationComponent implements OnInit{
   }
 
   form(){
-    this.signService.getSignsByPage(this.page).subscribe((result) => {
+    this.signService.getLastSignsByPage(this.page).subscribe((result) => {
       this.signForm.patchValue({
         id:result['id'],
         universityYear:result['universityYear'],
@@ -95,7 +95,7 @@ export class AllSignsPaginationComponent implements OnInit{
   change(event): void {
     this.page = event;
     this.showSignFile();
-    this.signService.getSignsByPage(event).subscribe((result) => {
+    this.signService.getLastSignsByPage(event).subscribe((result) => {
       this.signForm = new FormGroup({
         id: new FormControl(result['id']),
         universityYear: new FormControl(result['universityYear']),

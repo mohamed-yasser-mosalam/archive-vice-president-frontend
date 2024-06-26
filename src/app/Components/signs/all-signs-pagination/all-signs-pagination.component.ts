@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {SignsService} from "../../../Services/signs/signs.service";
 import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './all-signs-pagination.component.html',
   styleUrls: ['./all-signs-pagination.component.css']
 })
-export class AllSignsPaginationComponent {
+export class AllSignsPaginationComponent implements OnInit{
   id= this.routes.snapshot.params['page']
   no:number
   roleOfUser = this.auth.getUserRoles();
@@ -117,15 +117,8 @@ export class AllSignsPaginationComponent {
         depend: new FormControl(result['depend']),
       });
     });
-    const nextPageUrl = `/all-sign-pagination?page=/${this.id}`;
+    const nextPageUrl = `/all-sign-pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.form();
   }
-
-
-
-
-
-
-
 }

@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col-2" style="background-color: var(--bg_main);"></div>
+  <div class="col-8" style="background-color:var(--bg_main)">
+    <div class="row justify-content-center" style="margin-top: 150px;margin-right: 200px">
+      <div class="mx-1 mt-1" style="background-color: #fff; height: 300px; border-radius: 8px; zoom:95%; width:700px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h2 style="font-size: 22px; background-color: #fff; color: #3333338f; padding-top:20px; display: flex; align-items: center;">
+          <select class="px-2 mx-4" [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()" style="margin-right: 10px;">
+            <option selected="selected">أختار السنة</option>
+            <option *ngFor="let year of years">{{ year }}</option>
+          </select>
+          <a style="text-decoration:none; color: black; font-weight: bolder;  font-size: 20px;"> عدد الخطابات لعام </a>
+        </h2>
+        <hr style="width: 100%;">
+        <div class="row justify-content-center" style="margin-top: 5px;margin-left: 40%">
+          <div class="input-data" style="font-size: 22px; background-color: #fff; color: #3333338f; top:15px;">
+            <span style="text-decoration:none; color: black; font-weight: bold;">
+              <label type="number" style="margin-top:15px; margin-right: 15px;">{{ numberOfExportLetterForSpecificYear }} </label>: عدد الخطابات الصادرة
+            </span>
+          </div>
+          <div class="input-data" style="font-size: 22px; background-color: #fff; color: #3333338f; top:15px;">
+            <span style="text-decoration:none; color: black; font-weight: bold;">
+              <label type="number" style="margin-top:15px; margin-right: 15px;">{{ numberOfImportLetterForSpecificYear }}</label>: عدد الخطابات الواردة
+            </span>
+          </div>
+          <div class="input-data" style="font-size: 22px; background-color: #fff; color: #3333338f; top:15px;">
+            <span style="text-decoration:none; color: black; font-weight: bold;">
+              <label type="number" style="margin-top:15px; margin-right: 15px;">{{ numberOfSpecialLetterForSpecificYear }}</label>: عدد الخطابات الخاصة
+            </span>
+          </div>
+        </div>
+        <hr style="width: 100%; margin-top: 10px;">
+        <div class="input-data" style="font-size: 22px; background-color: #fff; color: #3333338f; top:15px;">
+          <span style="margin-bottom:20px!important; width:100px;font-weight: bold; font-size: 22px;margin-left: 50px">
+            {{ numberOfImportLetterForSpecificYear + numberOfExportLetterForSpecificYear + numberOfSpecialLetterForSpecificYear }}
+            <label type="number" style="margin-top:35px; margin-right:5px;"></label>: اجمالي عدد الخطابات
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-2 position-relative">
+    <app-sidebar></app-sidebar>
+  </div>
+</div>

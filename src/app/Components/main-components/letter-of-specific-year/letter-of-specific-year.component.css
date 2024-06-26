@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+span{
+  text-decoration: none;
+  color: var(--color);
+  font-weight: bold;
+}
+
+select{
+  box-shadow:var(--bg_main);
+  border-radius: 10px;
+  /*background-color:var(--bg_main);*/
+}
+
+h2 {
+
+  background-color: var(--bg);
+  color: var(--color);
+
+}
+

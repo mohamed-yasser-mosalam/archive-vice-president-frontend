@@ -87,6 +87,9 @@ import {AddArchiveFileComponent} from "./Components/all-files/add-archive-file/a
 import { UpdateArchiveFileComponent } from './Components/all-files/update-archive-file/update-archive-file.component';
 import {AllSignsComponent} from "./Components/signs/all-signs/all-signs.component";
 import {AllSignsPaginationComponent} from "./Components/signs/all-signs-pagination/all-signs-pagination.component";
+import {
+  LetterOfSpecificYearComponent
+} from "./Components/main-components/letter-of-specific-year/letter-of-specific-year.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -153,6 +156,7 @@ const routes: Routes = [
   {path: 'employee-phone-directly', component:EmployeePhoneDirectoryComponent,canActivate:[CanActivate] },
   {path: 'add-archive-file', component:AddArchiveFileComponent,canActivate:[CanActivate] },
   {path: 'update-archive-file/:id', component:UpdateArchiveFileComponent,canActivate:[CanActivate] },
+  {path: 'letter-of-specific-year', component:LetterOfSpecificYearComponent,canActivate:[CanActivate] },
   {path: "**",component:ErrorPageComponent},
 
 ];

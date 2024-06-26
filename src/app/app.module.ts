@@ -108,6 +108,7 @@ import { AddArchiveFileComponent } from './Components/all-files/add-archive-file
 import { UpdateArchiveFileComponent } from './Components/all-files/update-archive-file/update-archive-file.component';
 import { AllSignsComponent } from './Components/signs/all-signs/all-signs.component';
 import { AllSignsPaginationComponent } from './Components/signs/all-signs-pagination/all-signs-pagination.component';
+import { LetterOfSpecificYearComponent } from './Components/main-components/letter-of-specific-year/letter-of-specific-year.component';
 
 @NgModule({
   declarations: [
@@ -182,6 +183,7 @@ import { AllSignsPaginationComponent } from './Components/signs/all-signs-pagina
     UpdateArchiveFileComponent,
     AllSignsComponent,
     AllSignsPaginationComponent,
+    LetterOfSpecificYearComponent,
 
   ],
   imports: [

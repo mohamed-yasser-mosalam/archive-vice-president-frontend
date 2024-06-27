@@ -16,7 +16,7 @@ export class ImportPaginationComponent implements OnInit {
   base = baseUrl + '/';
   id: any;
   no: number;
-  page: number = 1; // Default page
+  page= this.routes.snapshot.params['page']
   pageLength: any;
   showImports: any;
   size: number = 1;
@@ -52,7 +52,6 @@ export class ImportPaginationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadPageNumber();
     this.loadCollectionSize();
     this.getImportCount();
     this.showImportFile();
@@ -60,17 +59,10 @@ export class ImportPaginationComponent implements OnInit {
   }
 
   // Load the current page number from local storage
-  loadPageNumber() {
-    const savedPage = localStorage.getItem('currentPage');
-    if (savedPage) {
-      this.page = parseInt(savedPage, 10);
-    }
-  }
+
 
   // Save the current page number to local storage
-  savePageNumber() {
-    localStorage.setItem('currentPage', this.page.toString());
-  }
+
 
   // Load the collection size from local storage
   loadCollectionSize() {
@@ -130,7 +122,6 @@ export class ImportPaginationComponent implements OnInit {
 
   change(event: number) {
     this.page = event;
-    this.savePageNumber();
     this.showImportFile();
     this.importService.getImportPagination(event).subscribe((result) => {
       this.showImport = new FormGroup({

@@ -16,7 +16,7 @@ export class ExportPaginationComponent implements OnInit {
   base = baseUrl + '/';
   no: number;
   roleOfUser = this.auth.getUserRoles();
-  page: number = 1; // Default page
+  page = this.routes.snapshot.params['page']
   pageLength: number;
   showExports: any;
   size: number = 1;
@@ -50,23 +50,10 @@ export class ExportPaginationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadPageNumber();
     this.loadCollectionSize();
     this.getExportCount();
     this.showExportFile();
     this.form();
-  }
-
-  loadPageNumber() {
-    const savedPage = localStorage.getItem('currentPage');
-    if (savedPage) {
-      this.page = parseInt(savedPage, 10);
-    }
-  }
-
-  // Save the current page number to local storage
-  savePageNumber() {
-    localStorage.setItem('currentPage', this.page.toString());
   }
 
   loadCollectionSize() {
@@ -126,7 +113,6 @@ export class ExportPaginationComponent implements OnInit {
 
   change(event: any): void {
     this.page = event;
-    this.savePageNumber();
     this.showExportFile();
     this.exportService.getExportByPagination(event).subscribe((result) => {
       this.showExport = new FormGroup({

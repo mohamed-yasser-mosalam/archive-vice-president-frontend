@@ -22,6 +22,7 @@ export class Showallimport {
   createdBy: string;
   hasResponse: boolean;
   hasSpecial: boolean;
+  saved : number
 
 
   constructor(no: number, id: number, incomeDate: Date, numberOfImages: number, numberOfAttachments: number, paths: string[], sender: string, incomingLetterNumber: number, incomingLetterDate: Date, summary: string, recipientName: string, recipientDate: Date, responseNumber: number, responseDate: Date, responseSide: string, archiveId: number, typeNumber: number, num: number, expectResponseDate: Date, receiver: string, createdBy: string, hasResponse: boolean, hasSpecial: boolean) {

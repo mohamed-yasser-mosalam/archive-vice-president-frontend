@@ -38,6 +38,7 @@
           <th scope="col">تاريخ الاستعجال</th>
           <th scope="col"> رقم الرد</th>
           <th scope="col"> تاريخ الرد</th>
+          <th scope="col">حفظ</th>
           <th scope="col">رقم الملف</th>
           <th></th>
         </tr>
@@ -57,6 +58,7 @@
           <td><a style="color: black"
                  routerLink="/import-pagination?page=/{{ item.responseNumber }}">{{ item.responseNumber }}</a></td>
           <td>{{ item.responseDate }}</td>
+          <td ><a *ngIf="item.saved!=0" style="color: black" routerLink = "/special_pagination?page=/{{item.saved}}">{{ item.saved }}</a></td>
           <td>{{ item.typeNumber }}/{{ item.num }}</td>
           <td>
             <a routerLink="/export-pagination?page=/{{item.no}}">

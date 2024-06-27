@@ -1,9 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {DeandecisionService} from "../../../Services/DeanDecision/deandecision.service";
-import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
+import { DeandecisionService } from "../../../Services/DeanDecision/deandecision.service";
+import { AuthenticationServiceService } from "../../../Services/Security/authentication-service.service";
+import { ActivatedRoute, Router } from "@angular/router";
 import baseUrl from "../../../url";
 
 @Component({
@@ -11,17 +10,17 @@ import baseUrl from "../../../url";
   templateUrl: './last-dean-decision-pagination.component.html',
   styleUrls: ['./last-dean-decision-pagination.component.css']
 })
-export class LastDeanDecisionPaginationComponent  implements OnInit {
-  pathOfDeleteImage:any
-  base=baseUrl+'/'
+export class LastDeanDecisionPaginationComponent implements OnInit {
+  pathOfDeleteImage: any;
+  base = baseUrl + '/';
   page = this.routes.snapshot.params['page'];
   deanDecision: any;
   no: number;
   paths: string[];
   roleOfUser = this.auth.getUserRoles();
   pageLength: number;
-  size:number=1
-  id=this.routes.snapshot.params['page'];
+  size: number = 1;
+  id = this.routes.snapshot.params['page'];
   deanDecisions = new FormGroup({
     no: new FormControl(''),
     date: new FormControl(''),
@@ -31,19 +30,20 @@ export class LastDeanDecisionPaginationComponent  implements OnInit {
     num: new FormControl(''),
     numberOfAttachments: new FormControl(''),
     numberOfImages: new FormControl(''),
-  })
+  });
 
-
-  constructor(private deanDecisionService: DeandecisionService,
-              private auth: AuthenticationServiceService,
-              private routes: ActivatedRoute,
-              private router:Router) {
-  }
+  constructor(
+    private deanDecisionService: DeandecisionService,
+    private auth: AuthenticationServiceService,
+    private routes: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.loadCollectionSize();
     this.form();
     this.getDeanDecisionById();
-    this.getNumberOfDeanDecision()
+    this.getNumberOfDeanDecision();
   }
 
   form() {
@@ -57,8 +57,8 @@ export class LastDeanDecisionPaginationComponent  implements OnInit {
         numberOfAttachments: result['numberOfAttachments'],
         numberOfImages: result['numberOfImages'],
         num: result['num']
-      })
-    })
+      });
+    });
   }
 
   getDeanDecisionById() {
@@ -69,16 +69,28 @@ export class LastDeanDecisionPaginationComponent  implements OnInit {
       });
       this.no = this.deanDecision.no;
       this.pathOfDeleteImage = this.deanDecision.paths;
-      this.id = this.deanDecision.id
-    })
-
+      this.id = this.deanDecision.id;
+    });
   }
 
+  // Load the collection size from local storage
+  loadCollectionSize() {
+    const savedSize = localStorage.getItem('collectionSize');
+    if (savedSize) {
+      this.pageLength = parseInt(savedSize, 10);
+    }
+  }
+
+  // Save the collection size to local storage
+  saveCollectionSize(size: number) {
+    localStorage.setItem('collectionSize', size.toString());
+  }
 
   getNumberOfDeanDecision() {
-    this.deanDecisionService.getNumberOfLastDeanDecision().subscribe((numberOfDeanDecision:any)=>{
-      this.pageLength=numberOfDeanDecision
-    })
+    this.deanDecisionService.getNumberOfLastDeanDecision().subscribe((numberOfDeanDecision: any) => {
+      this.pageLength = numberOfDeanDecision;
+      this.saveCollectionSize(this.pageLength); // Save the collection size whenever it changes
+    });
   }
 
   change(event): void {

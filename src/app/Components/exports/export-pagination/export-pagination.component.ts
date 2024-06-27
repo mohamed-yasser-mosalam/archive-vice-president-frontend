@@ -1,10 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 import baseUrl from "../../../url";
-import {ExportServiceService} from "../../../Services/ExportsServices/export-service.service";
-import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
-
+import { ExportServiceService } from "../../../Services/ExportsServices/export-service.service";
+import { AuthenticationServiceService } from "../../../Services/Security/authentication-service.service";
 
 @Component({
   selector: 'app-export-pagination',
@@ -12,13 +11,13 @@ import {AuthenticationServiceService} from "../../../Services/Security/authentic
   styleUrls: ['./export-pagination.component.css']
 })
 export class ExportPaginationComponent implements OnInit {
-  pathOfDeleteImage: any
+  pathOfDeleteImage: any;
   id: number;
-  base = baseUrl + '/'
-  no: number
+  base = baseUrl + '/';
+  no: number;
   roleOfUser = this.auth.getUserRoles();
-  page = this.routes.snapshot.params['page']
-  pageLength: any;
+  page: number = 1; // Default page
+  pageLength: number;
   showExports: any;
   size: number = 1;
   paths: string[];
@@ -48,14 +47,38 @@ export class ExportPaginationComponent implements OnInit {
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
     private router: Router
-  ) {
-  }
-
+  ) {}
 
   ngOnInit(): void {
+    this.loadPageNumber();
+    this.loadCollectionSize();
     this.getExportCount();
     this.showExportFile();
     this.form();
+  }
+
+  loadPageNumber() {
+    const savedPage = localStorage.getItem('currentPage');
+    if (savedPage) {
+      this.page = parseInt(savedPage, 10);
+    }
+  }
+
+  // Save the current page number to local storage
+  savePageNumber() {
+    localStorage.setItem('currentPage', this.page.toString());
+  }
+
+  loadCollectionSize() {
+    const savedSize = localStorage.getItem('collectionSize');
+    if (savedSize) {
+      this.pageLength = parseInt(savedSize, 10);
+    }
+  }
+
+  // Save the collection size to local storage
+  saveCollectionSize(size: number) {
+    localStorage.setItem('collectionSize', size.toString());
   }
 
   form() {
@@ -79,8 +102,6 @@ export class ExportPaginationComponent implements OnInit {
     });
   }
 
-
-
   showExportFile(): void {
     this.exportService.getExportByPagination(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
@@ -92,18 +113,20 @@ export class ExportPaginationComponent implements OnInit {
       this.isHasResponse = this.showExports.hasResponse;
       this.isHasSpecial = this.showExports.hasSpecial;
       this.no = this.showExports.no;
-      this.pathOfDeleteImage = this.showExports.paths
+      this.pathOfDeleteImage = this.showExports.paths;
     });
   }
 
   getExportCount(): void {
     this.exportService.getExportNumber().subscribe((numberOfExportFiles: any) => {
       this.pageLength = numberOfExportFiles;
+      this.saveCollectionSize(this.pageLength);
     });
   }
 
   change(event: any): void {
     this.page = event;
+    this.savePageNumber();
     this.showExportFile();
     this.exportService.getExportByPagination(event).subscribe((result) => {
       this.showExport = new FormGroup({
@@ -155,8 +178,7 @@ export class ExportPaginationComponent implements OnInit {
     for (let i = 0; i < this.selectedFiles.length; i++) {
       formData.append('files', this.selectedFiles[i]);
     }
-    this.exportService.addImages(this.id, formData).subscribe(() => {
-    });
+    this.exportService.addImages(this.id, formData).subscribe(() => {});
     setTimeout(() => {
       window.location.reload();
     }, 50);

@@ -12,23 +12,23 @@ import baseUrl from "../../../url";
   styleUrls: ['./last-export-pagination.component.css']
 })
 export class LastExportPaginationComponent implements OnInit {
-  pathOfDeleteImage:any
-  base=baseUrl+'/'
-  id= this.routes.snapshot.params['page']
-  no:number
+  pathOfDeleteImage: any;
+  base = baseUrl + '/';
+  id = this.routes.snapshot.params['page'];
+  no: number;
   roleOfUser = this.auth.getUserRoles();
-  page=this.routes.snapshot.params['page']
+  page = this.routes.snapshot.params['page'];
   pageLength: any;
   showExports: any;
   size: number = 1;
   paths: string[];
   numbers: any = [];
-  isHasResponse:boolean;
-  isHasUrgent:boolean;
-  isHasSpecial:boolean;
+  isHasResponse: boolean;
+  isHasUrgent: boolean;
+  isHasSpecial: boolean;
   showExport = new FormGroup({
-    createdBy:new FormControl(''),
-    recipientDate:new FormControl(''),
+    createdBy: new FormControl(''),
+    recipientDate: new FormControl(''),
     date: new FormControl(''),
     receiver: new FormControl(''),
     numberOfAttachments: new FormControl(''),
@@ -44,16 +44,17 @@ export class LastExportPaginationComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.loadCollectionSize();
     this.getExportCount();
     this.showExportFile();
     this.form();
   }
 
-  form(){
+  form() {
     this.serviceExport.getExportsById(this.page).subscribe((result) => {
       this.showExport.patchValue({
         date: result['date'],
-        recipientDate:result['recipientDate'],
+        recipientDate: result['recipientDate'],
         createdBy: result['createdBy'],
         receiver: result['receiver'],
         numberOfAttachments: result['numberOfAttachments'],
@@ -69,13 +70,25 @@ export class LastExportPaginationComponent implements OnInit {
       });
     });
   }
+
   constructor(
     private serviceExport: ExportServiceService,
     private router: Router,
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
+  ) {}
 
-  ) {
+  // Load the collection size from local storage
+  loadCollectionSize() {
+    const savedSize = localStorage.getItem('collectionSize');
+    if (savedSize) {
+      this.pageLength = parseInt(savedSize, 10);
+    }
+  }
+
+  // Save the collection size to local storage
+  saveCollectionSize(size: number) {
+    localStorage.setItem('collectionSize', size.toString());
   }
 
   showExportFile(): void {
@@ -85,19 +98,20 @@ export class LastExportPaginationComponent implements OnInit {
         return this.base + path;
       });
       this.pathOfDeleteImage = this.showExports.paths;
-      this.id=this.showExports.id;
-      this.isHasUrgent=this.showExports.hasUrgent;
-      this.isHasResponse=this.showExports.hasResponse;
-      this.isHasSpecial=this.showExports.hasSpecial
-      this.no=this.showExports.no
+      this.id = this.showExports.id;
+      this.isHasUrgent = this.showExports.hasUrgent;
+      this.isHasResponse = this.showExports.hasResponse;
+      this.isHasSpecial = this.showExports.hasSpecial;
+      this.no = this.showExports.no;
     });
   }
 
   getExportCount(): void {
     this.serviceExport.getLastExportNumber().subscribe((numberOfExportFiles: any) => {
       this.pageLength = numberOfExportFiles;
+      this.saveCollectionSize(this.pageLength); // Save the collection size whenever it changes
     });
-   }
+  }
 
   change(event): void {
     this.page = event;
@@ -118,15 +132,10 @@ export class LastExportPaginationComponent implements OnInit {
         responseDate: new FormControl(result['responseDate']),
         responseNumber: new FormControl(result['responseNumber']),
         recipientDate: new FormControl(result['recipientDate'])
-
       });
     });
-    const nextPageUrl = `/last-export_pagination?page=/${this.page}`;
+    const nextPageUrl = `/last-export-pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.form();
   }
-
-
-
 }
-

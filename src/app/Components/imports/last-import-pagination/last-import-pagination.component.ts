@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { HttpClient } from "@angular/common/http";
 import baseUrl from "../../../url";
-import {ImportServiceService} from "../../../Services/ImportsServices/import-service.service";
-import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
+import { ImportServiceService } from "../../../Services/ImportsServices/import-service.service";
+import { AuthenticationServiceService } from "../../../Services/Security/authentication-service.service";
 
 @Component({
   selector: 'app-last-import-pagination',
@@ -12,20 +12,20 @@ import {AuthenticationServiceService} from "../../../Services/Security/authentic
   styleUrls: ['./last-import-pagination.component.css']
 })
 export class LastImportPaginationComponent implements OnInit {
-  pathOfDeleteImage:any
-  base=baseUrl+'/'
-  id= this.routes.snapshot.params['page']
-  no:number
-  page = this.routes.snapshot.params['page']
+  pathOfDeleteImage: any;
+  base = baseUrl + '/';
+  id = this.routes.snapshot.params['page'];
+  no: number;
+  page = this.routes.snapshot.params['page'];
   pageLength: any;
   showImports: any;
   size: number = 1;
   paths: string[];
-  isHasResponse:boolean;
-  isHasSpecial:boolean;
-  roleOfUser = this.auth.getUserRoles()
+  isHasResponse: boolean;
+  isHasSpecial: boolean;
+  roleOfUser = this.auth.getUserRoles();
   showImport = new FormGroup({
-    createdBy:new FormControl(''),
+    createdBy: new FormControl(''),
     numberOfAttachments: new FormControl(''),
     numberOfImages: new FormControl(''),
     sender: new FormControl(''),
@@ -41,40 +41,57 @@ export class LastImportPaginationComponent implements OnInit {
     recipientName: new FormControl(''),
     num: new FormControl(''),
     expectResponseDate: new FormControl('')
+  });
 
-  })
+  constructor(
+    private importService: ImportServiceService,
+    private routes: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient,
+    private auth: AuthenticationServiceService
+  ) { }
 
   ngOnInit(): void {
+    this.loadCollectionSize();
     this.getImportCount();
     this.showImportFile();
-    this.form()
+    this.form();
   }
 
   form() {
     this.importService.getImportsById(this.page).subscribe((result) => {
       this.showImport.patchValue({
-        createdBy :result['createdBy'],
-        numberOfAttachments :result['numberOfAttachments'],
-        numberOfImages :result['numberOfImages'],
-        sender:result['sender'],
+        createdBy: result['createdBy'],
+        numberOfAttachments: result['numberOfAttachments'],
+        numberOfImages: result['numberOfImages'],
+        sender: result['sender'],
         incomeDate: result['incomeDate'],
         no: result['no'],
         incomingLetterDate: result['incomingLetterDate'],
-        incomingLetterNumber:  result['incomingLetterNumber'],
-        summary:  result['summary'],
+        incomingLetterNumber: result['incomingLetterNumber'],
+        summary: result['summary'],
         recipientDate: result['recipientDate'],
         responseDate: result['responseDate'],
-        responseSide:  result['responseSide'],
+        responseSide: result['responseSide'],
         responseNumber: result['responseNumber'],
-        recipientName:  result['recipientName'],
-        num:  result['num'],
-        expectResponseDate:  result['expectResponseDate']
-      })
-    })
+        recipientName: result['recipientName'],
+        num: result['num'],
+        expectResponseDate: result['expectResponseDate']
+      });
+    });
   }
 
-  constructor(private importService: ImportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient, private auth: AuthenticationServiceService) {
+  // Load the collection size from local storage
+  loadCollectionSize() {
+    const savedSize = localStorage.getItem('collectionSize');
+    if (savedSize) {
+      this.pageLength = parseInt(savedSize, 10);
+    }
+  }
+
+  // Save the collection size to local storage
+  saveCollectionSize(size: number) {
+    localStorage.setItem('collectionSize', size.toString());
   }
 
   showImportFile() {
@@ -84,17 +101,18 @@ export class LastImportPaginationComponent implements OnInit {
         return this.base + path;
       });
       this.pathOfDeleteImage = this.showImports.paths;
-      this.id=this.showImports.id
-      this.isHasResponse=this.showImports.hasResponse;
-      this.isHasSpecial=this.showImports.hasSpecial
-      this.no=this.showImports.no
+      this.id = this.showImports.id;
+      this.isHasResponse = this.showImports.hasResponse;
+      this.isHasSpecial = this.showImports.hasSpecial;
+      this.no = this.showImports.no;
     });
   }
 
   getImportCount() {
     this.importService.getLastImportNumber().subscribe((numberOfImportFiles: any) => {
       this.pageLength = numberOfImportFiles;
-    })
+      this.saveCollectionSize(this.pageLength); // Save the collection size whenever it changes
+    });
   }
 
   change(event) {
@@ -118,11 +136,10 @@ export class LastImportPaginationComponent implements OnInit {
         recipientName: new FormControl(result['recipientName']),
         num: new FormControl(result['num']),
         expectResponseDate: new FormControl(result['expectResponseDate']),
-      })
-    })
+      });
+    });
     const nextPageUrl = `/last-import-pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.form();
   }
-
 }

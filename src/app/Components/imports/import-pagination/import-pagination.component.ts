@@ -1,11 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { HttpClient } from "@angular/common/http";
 import baseUrl from "../../../url";
-import {ImportServiceService} from "../../../Services/ImportsServices/import-service.service";
-import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
-
+import { ImportServiceService } from "../../../Services/ImportsServices/import-service.service";
+import { AuthenticationServiceService } from "../../../Services/Security/authentication-service.service";
 
 @Component({
   selector: 'app-import-pagination',
@@ -13,20 +12,20 @@ import {AuthenticationServiceService} from "../../../Services/Security/authentic
   styleUrls: ['./import-pagination.component.css']
 })
 export class ImportPaginationComponent implements OnInit {
-  pathOfDeleteImage:any;
-  base=baseUrl+'/'
+  pathOfDeleteImage: any;
+  base = baseUrl + '/';
   id: any;
-  no:number
-  page = this.routes.snapshot.params['page']
+  no: number;
+  page: number = 1; // Default page
   pageLength: any;
   showImports: any;
   size: number = 1;
   paths: string[];
-  isHasResponse:boolean;
-  isHasSpecial:boolean;
-  roleOfUser = this.auth.getUserRoles()
+  isHasResponse: boolean;
+  isHasSpecial: boolean;
+  roleOfUser = this.auth.getUserRoles();
   showImport = new FormGroup({
-    createdBy:new FormControl(''),
+    createdBy: new FormControl(''),
     numberOfAttachments: new FormControl(''),
     numberOfImages: new FormControl(''),
     sender: new FormControl(''),
@@ -42,40 +41,70 @@ export class ImportPaginationComponent implements OnInit {
     recipientName: new FormControl(''),
     num: new FormControl(''),
     expectResponseDate: new FormControl('')
+  });
 
-  })
+  constructor(
+    private importService: ImportServiceService,
+    private routes: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient,
+    private auth: AuthenticationServiceService
+  ) {}
 
   ngOnInit(): void {
+    this.loadPageNumber();
+    this.loadCollectionSize();
     this.getImportCount();
     this.showImportFile();
-    this.form()
+    this.form();
+  }
+
+  // Load the current page number from local storage
+  loadPageNumber() {
+    const savedPage = localStorage.getItem('currentPage');
+    if (savedPage) {
+      this.page = parseInt(savedPage, 10);
+    }
+  }
+
+  // Save the current page number to local storage
+  savePageNumber() {
+    localStorage.setItem('currentPage', this.page.toString());
+  }
+
+  // Load the collection size from local storage
+  loadCollectionSize() {
+    const savedSize = localStorage.getItem('collectionSize');
+    if (savedSize) {
+      this.pageLength = parseInt(savedSize, 10);
+    }
+  }
+
+  saveCollectionSize(size: number) {
+    localStorage.setItem('collectionSize', size.toString());
   }
 
   form() {
     this.importService.getImportPagination(this.page).subscribe((result) => {
       this.showImport.patchValue({
-        createdBy :result['createdBy'],
-        numberOfAttachments :result['numberOfAttachments'],
-        numberOfImages :result['numberOfImages'],
-        sender:result['sender'],
+        createdBy: result['createdBy'],
+        numberOfAttachments: result['numberOfAttachments'],
+        numberOfImages: result['numberOfImages'],
+        sender: result['sender'],
         incomeDate: result['incomeDate'],
         no: result['no'],
         incomingLetterDate: result['incomingLetterDate'],
-        incomingLetterNumber:  result['incomingLetterNumber'],
-        summary:  result['summary'],
+        incomingLetterNumber: result['incomingLetterNumber'],
+        summary: result['summary'],
         recipientDate: result['recipientDate'],
         responseDate: result['responseDate'],
-        responseSide:  result['responseSide'],
+        responseSide: result['responseSide'],
         responseNumber: result['responseNumber'],
-        recipientName:  result['recipientName'],
-        num:  result['num'],
-        expectResponseDate:  result['expectResponseDate']
-      })
-     })
-  }
-
-  constructor(private importService: ImportServiceService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient, private auth: AuthenticationServiceService) {
+        recipientName: result['recipientName'],
+        num: result['num'],
+        expectResponseDate: result['expectResponseDate']
+      });
+    });
   }
 
   showImportFile() {
@@ -84,22 +113,24 @@ export class ImportPaginationComponent implements OnInit {
       this.paths = this.showImports.paths.map((path: string) => {
         return this.base + path;
       });
-      this.pathOfDeleteImage=this.showImports.paths
-       this.id=this.showImports.id
-      this.isHasResponse=this.showImports.hasResponse;
-      this.isHasSpecial=this.showImports.hasSpecial
-      this.no=this.showImports.no
+      this.pathOfDeleteImage = this.showImports.paths;
+      this.id = this.showImports.id;
+      this.isHasResponse = this.showImports.hasResponse;
+      this.isHasSpecial = this.showImports.hasSpecial;
+      this.no = this.showImports.no;
     });
-    }
+  }
 
   getImportCount() {
     this.importService.getImportNumber().subscribe((numberOfImportFiles: any) => {
       this.pageLength = numberOfImportFiles;
-    })
+      this.saveCollectionSize(this.pageLength);
+    });
   }
 
-  change(event) {
+  change(event: number) {
     this.page = event;
+    this.savePageNumber();
     this.showImportFile();
     this.importService.getImportPagination(event).subscribe((result) => {
       this.showImport = new FormGroup({
@@ -118,16 +149,16 @@ export class ImportPaginationComponent implements OnInit {
         responseNumber: new FormControl(result['responseNumber']),
         recipientName: new FormControl(result['recipientName']),
         num: new FormControl(result['num']),
-        expectResponseDate: new FormControl(result['expectResponseDate']),
-      })
-    })
+        expectResponseDate: new FormControl(result['expectResponseDate'])
+      });
+    });
     const nextPageUrl = `/import-pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.form();
   }
 
   deleteImage(index: number): void {
-    this.importService.deleteImage(this.pathOfDeleteImage,index).subscribe();
+    this.importService.deleteImage(this.pathOfDeleteImage, index).subscribe();
     this.paths.splice(index, 1);
     setTimeout(() => {
       window.location.reload();
@@ -154,8 +185,7 @@ export class ImportPaginationComponent implements OnInit {
       formData.append('files', this.selectedFiles[i]);
     }
 
-    this.importService.addImages(this.id, formData).subscribe(() => {
-     });
+    this.importService.addImages(this.id, formData).subscribe(() => {});
     setTimeout(() => {
       window.location.reload();
     }, 50);

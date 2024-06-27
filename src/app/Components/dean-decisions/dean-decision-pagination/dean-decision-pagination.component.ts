@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {DeandecisionService} from "../../../Services/DeanDecision/deandecision.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
-import {HttpClient} from "@angular/common/http";
-import {FormControl, FormGroup} from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { DeandecisionService } from "../../../Services/DeanDecision/deandecision.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { AuthenticationServiceService } from "../../../Services/Security/authentication-service.service";
+import { HttpClient } from "@angular/common/http";
+import { FormControl, FormGroup } from "@angular/forms";
 import baseUrl from "../../../url";
 
 @Component({
@@ -11,16 +11,16 @@ import baseUrl from "../../../url";
   templateUrl: './dean-decision-pagination.component.html',
   styleUrls: ['./dean-decision-pagination.component.css']
 })
-export class DeanDecisionPaginationComponent  implements OnInit {
-  pathOfDeleteImage:any
-  base=baseUrl+'/'
+export class DeanDecisionPaginationComponent implements OnInit {
+  pathOfDeleteImage: any;
+  base = baseUrl + '/';
   page = this.routes.snapshot.params['page'];
   deanDecision: any;
   no: number;
   paths: string[];
   roleOfUser = this.auth.getUserRoles();
   pageLength: number;
-  size:number=1
+  size: number = 1;
   selectedFiles: File[] = [];
   id: number;
   deanDecisions = new FormGroup({
@@ -32,20 +32,21 @@ export class DeanDecisionPaginationComponent  implements OnInit {
     num: new FormControl(''),
     numberOfAttachments: new FormControl(''),
     numberOfImages: new FormControl(''),
-  })
+  });
 
-
-  constructor(private deanDecisionService: DeandecisionService,
-              private auth: AuthenticationServiceService,
-              private routes: ActivatedRoute,
-              private http: HttpClient,
-              private router:Router) {
-  }
+  constructor(
+    private deanDecisionService: DeandecisionService,
+    private auth: AuthenticationServiceService,
+    private routes: ActivatedRoute,
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.loadCollectionSize();
     this.form();
     this.getDeanDecisionByPage();
-    this.getNumberOfDeanDecision()
+    this.getNumberOfDeanDecision();
   }
 
   form() {
@@ -59,8 +60,21 @@ export class DeanDecisionPaginationComponent  implements OnInit {
         numberOfAttachments: result['numberOfAttachments'],
         numberOfImages: result['numberOfImages'],
         num: result['num']
-      })
-    })
+      });
+    });
+  }
+
+  // Load the collection size from local storage
+  loadCollectionSize() {
+    const savedSize = localStorage.getItem('collectionSize');
+    if (savedSize) {
+      this.pageLength = parseInt(savedSize, 10);
+    }
+  }
+
+  // Save the collection size to local storage
+  saveCollectionSize(size: number) {
+    localStorage.setItem('collectionSize', size.toString());
   }
 
   getDeanDecisionByPage() {
@@ -72,13 +86,11 @@ export class DeanDecisionPaginationComponent  implements OnInit {
       this.no = this.deanDecision.no;
       this.pathOfDeleteImage = this.deanDecision.paths;
       this.id = this.deanDecision.id;
-
-    })
+    });
   }
 
-
   deleteImage(index: number): void {
-    this.deanDecisionService.deleteImage(this.pathOfDeleteImage,index).subscribe();
+    this.deanDecisionService.deleteImage(this.pathOfDeleteImage, index).subscribe();
     this.paths.splice(index, 1);
     setTimeout(() => {
       window.location.reload();
@@ -110,9 +122,10 @@ export class DeanDecisionPaginationComponent  implements OnInit {
   }
 
   getNumberOfDeanDecision() {
-   this.deanDecisionService.getNumberOfDeanDecision().subscribe((numberOfDeanDecision:any)=>{
-     this.pageLength=numberOfDeanDecision;
-   })
+    this.deanDecisionService.getNumberOfDeanDecision().subscribe((numberOfDeanDecision: any) => {
+      this.pageLength = numberOfDeanDecision;
+      this.saveCollectionSize(this.pageLength); // Save the collection size whenever it changes
+    });
   }
 
   change(event): void {

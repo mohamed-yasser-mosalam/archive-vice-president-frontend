@@ -5,13 +5,13 @@
     <div class="row w-100">
       <ngb-carousel class="col-md-4">
         <ng-template ngbSlide *ngFor="let item of paths;let i=index">
-          <div class="carousel-wrapper" style="margin-top: 20px;margin-left: 20px " id="print-section">
+          <div class="carousel-wrapper" style="margin-top: 0px;margin-left: 20px " id="print-section">
             <img src="{{item}}" style="height:83vh">
           </div>
           <div class="d-flex">
             <button *ngIf="roleOfUser=='admin'||roleOfUser=='manager'" type="submit" (click)="deleteImage(i)"
                     class="btn"
-                    style="width:150px;padding:1px;margin-top:10px;margin-left:50px;color: var(--color);background: var(--bg_hover);font-size:15px;z-index: 33333333333;">
+                    style="width:150px;padding:1px;margin-top:10px;margin-left:30px;color: var(--color);background: var(--bg_hover);font-size:15px;z-index: 33333333333;">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
                    viewBox="0 0 16 16">
                 <path

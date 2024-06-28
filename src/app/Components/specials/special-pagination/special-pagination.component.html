@@ -46,8 +46,8 @@
                   <label for="numberOfImages"> عدد المرفقات الفعلي</label>
                 </div>
                 <div class="input-data" style="margin-left: 15px;width:40%">
-                  <input type="number" required readonly id="archiveId" formControlName="archiveId">
-                  <label for="archiveId">رقم الخطاب</label>
+                  <input type="number" required readonly id="importNum" formControlName="importNum">
+                  <label for="importNum">رقم الخطاب</label>
                 </div>
               </div>
               <div class="input-data" style="top:32px;margin-left: 15px;">
@@ -131,7 +131,7 @@
                 تسجيل جديد
               </button>
 
-              <button *ngIf="false"
+              <button
                       type="submit" class="btn "
                       style="width: 23%; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-weight:bold ;"
                       routerLink="/update-special/{{id}}"

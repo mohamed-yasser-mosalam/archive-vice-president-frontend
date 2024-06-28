@@ -42,6 +42,7 @@ export class LastSpecialPaginationComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.pageLength = localStorage.getItem('collectionsize') ? parseInt(localStorage.getItem('collectionsize')!) : 0;
     this.getSpecialCount();
     this.showSpecialFile();
     this.specialService.getSpecialsById(this.page).subscribe((result) => {
@@ -87,6 +88,8 @@ export class LastSpecialPaginationComponent implements OnInit {
   getSpecialCount() {
     this.specialService.getLastSpecialNumber().subscribe((numberOfSpecialFiles: any) => {
       this.pageLength = numberOfSpecialFiles;
+      localStorage.setItem('collectionsize', this.pageLength.toString());
+
     })
   }
 

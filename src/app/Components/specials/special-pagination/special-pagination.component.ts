@@ -11,15 +11,15 @@ import baseUrl from "../../../url";
   styleUrls: ['./special-pagination.component.css']
 })
 export class SpecialPaginationComponent implements OnInit {
-  pathOfDeleteImage:any
-  base=baseUrl+'/'
+  pathOfDeleteImage:any;
+  base=baseUrl+'/';
   x: any;
-  y: any
+  y: any;
   id: number;
   summary: string;
   createdBy:string;
   no:any;
-  roleOfUser = this.auth.getUserRoles()
+  roleOfUser = this.auth.getUserRoles();
   page = this.routes.snapshot.params['page'];
   pageLength: any;
   showSpecials: any;
@@ -37,12 +37,13 @@ export class SpecialPaginationComponent implements OnInit {
     numberOfImages: new FormControl(''),
     incomeDate: new FormControl(''),
     sender: new FormControl(''),
-    archiveId: new FormControl(''),
+    importNum: new FormControl(''),
     typeNumber: new FormControl(''),
     num: new FormControl(''),
-  })
+  });
 
   ngOnInit(): void {
+    this.pageLength = localStorage.getItem('collectionsize') ? parseInt(localStorage.getItem('collectionsize')!) : 0;
     this.getSpecialCount();
     this.showSpecialFile();
     this.specialService.getSpecialsByPagination(this.page).subscribe((result) => {
@@ -55,11 +56,11 @@ export class SpecialPaginationComponent implements OnInit {
         numberOfImages: new FormControl(result['numberOfImages']),
         incomeDate: new FormControl(result['incomeDate']),
         sender: new FormControl(result['sender']),
-        archiveId: new FormControl(result['archiveId']),
+        importNum: new FormControl(result['importNum']),
         typeNumber: new FormControl(result['typeNumber']),
         num: new FormControl(result['num']),
-      })
-    })
+      });
+    });
 
   }
 
@@ -67,27 +68,27 @@ export class SpecialPaginationComponent implements OnInit {
               private auth: AuthenticationServiceService) {
   }
 
-
   showSpecialFile() {
     this.specialService.getSpecialsByPagination(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
       this.paths = this.showSpecials.paths.map((path: string) => {
         return this.base + path;
       });
-      this.pathOfDeleteImage=this.showSpecials.paths
+      this.pathOfDeleteImage=this.showSpecials.paths;
       this.summary = this.showSpecials.summary;
       this.subjects = this.showSpecials.subjects;
       this.decisions = this.showSpecials.subjects.decisions;
       this.id = this.showSpecials.id;
       this.createdBy=this.showSpecials.createdBy;
-      this.no=this.showSpecials.no
-    })
+      this.no=this.showSpecials.no;
+    });
   }
 
   getSpecialCount() {
     this.specialService.getSpecialNumber().subscribe((numberOfSpecialFiles: any) => {
       this.pageLength = numberOfSpecialFiles;
-    })
+      localStorage.setItem('collectionsize', this.pageLength.toString());
+    });
   }
 
   change(event:any) {
@@ -103,17 +104,15 @@ export class SpecialPaginationComponent implements OnInit {
         numberOfImages: new FormControl(result['numberOfImages']),
         incomeDate: new FormControl(result['incomeDate']),
         sender: new FormControl(result['sender']),
-        archiveId: new FormControl(result['archiveId']),
+        importNum: new FormControl(result['importNum']),
         typeNumber: new FormControl(result['typeNumber']),
         num: new FormControl(result['num']),
-      })
-    })
+      });
+    });
     const nextPageUrl = `/special_pagination?page=/${this.page}`;
     this.router.navigate([nextPageUrl]);
     this.showSpecial;
   }
-
-
 
   deleteImage(index: number): void {
     this.specialService.deleteImage(this.pathOfDeleteImage,index).subscribe();
@@ -125,7 +124,7 @@ export class SpecialPaginationComponent implements OnInit {
 
   getSpecialById(archiveId: any) {
     this.specialService.getSpecialsById(this.page).subscribe((result) => {
-    })
+    });
   }
 
   selectedFiles: File[] = [];
@@ -142,19 +141,16 @@ export class SpecialPaginationComponent implements OnInit {
     }
   }
 
-
   onSubmit(): void {
     const formData: FormData = new FormData();
     for (let i = 0; i < this.selectedFiles.length; i++) {
       formData.append('files', this.selectedFiles[i]);
     }
     this.specialService.addImages(this.id, formData).subscribe(() => {
-     });
+    });
     setTimeout(() => {
       window.location.reload();
     }, 50);
   }
 
-
 }
-

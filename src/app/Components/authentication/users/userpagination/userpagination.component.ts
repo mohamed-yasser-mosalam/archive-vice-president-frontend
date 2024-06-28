@@ -31,6 +31,7 @@ export class UserpaginationComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.pageLength = localStorage.getItem('collectionsize') ? parseInt(localStorage.getItem('collectionsize')!) : 0;
     this.getCountOfUsers();
     this.showUserById()
     this.userService.getUserById(this.id)
@@ -80,6 +81,8 @@ export class UserpaginationComponent implements OnInit {
   getCountOfUsers(){
     this.userService.getCountOfUser().subscribe((result:any)=>{
       this.pageLength=result;
+      localStorage.setItem('collectionsize', this.pageLength.toString());
+
     })
   }
   change(event): void {

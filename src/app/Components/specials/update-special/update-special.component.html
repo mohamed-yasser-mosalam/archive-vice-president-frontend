@@ -1,95 +1,224 @@
+<!--<app-navbar></app-navbar>-->
+
+<!--<div class="row" style="background-color: var(&#45;&#45;bg);">-->
+<!--  <div class="d-flex justify-content-between">-->
+
+<!--    <div class="d-flex w-100">-->
+<!--      <div style="width: 20%;"></div>-->
+<!--      <form style="width:71%;zoom: 80%" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">-->
+<!--        <div class="wrapper">-->
+<!--          <legend class="text-center">تعديل ملف خاص</legend>-->
+<!--          <div style="display: flex;  justify-content: space-between;">-->
+
+<!--            <div class="input-container">-->
+
+<!--              <div class="input-data">-->
+<!--                <input type="text"   id="sender" name="sender" [(ngModel)]="special.sender">-->
+<!--                <div class="underLine"></div>-->
+<!--                <label for="sender">الجهة الوارد منها الخطاب</label>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="input-container">-->
+
+<!--              <div class="input-data">-->
+<!--                <input type="number"   id="archiveId" name="archiveId" [(ngModel)]="special.archiveId">-->
+<!--                <div class="underLine"></div>-->
+<!--                <label for="archiveId">رقم الملف</label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="input-data">-->
+<!--            <input type="text"   id="summary" name="summary" [(ngModel)]="special.summary">-->
+<!--            <div class="underLine"></div>-->
+<!--            <label for="summary" style="margin-right: 0!important;">ملخص الخطاب</label>-->
+<!--          </div>-->
+<!--          <div style="display: flex;  justify-content: space-between;">-->
+
+<!--            <div class="input-container">-->
+
+<!--              <div class="input-data">-->
+<!--                <input type="date" required id="incomeDate" name="incomeDate" [(ngModel)]="special.incomeDate">-->
+<!--                <div class="underLine"></div>-->
+<!--                <label for="incomeDate">تاريخ </label>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="input-container">-->
+
+<!--              <div class="input-data">-->
+<!--                <input type="number" required id="numberOfAttachments" name="numberOfAttachments"[(ngModel)]="special.numberOfAttachments">-->
+<!--                <div class="underLine"></div>-->
+<!--                <label for="numberOfAttachments">عدد المرفقات</label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div style="overflow: scroll">-->
+<!--            <div *ngFor="let subject of special.subjects; let i = index">-->
+<!--              <div class="subjects  input-container" style="display:inline-flex;width: 100% ">-->
+
+<!--                <div class="input-data">-->
+<!--                  <input type="text" required id="head" name="head{{i}}" [(ngModel)]="subject.head">-->
+<!--                  <div class="underLine"></div>-->
+<!--                  <label for="head"> اضافة موضوع </label>-->
+<!--                </div>-->
+<!--                <div class="input-data" style="margin-left: 20px">-->
+<!--                  <input type="number" required name="num{{i}}" [(ngModel)]="subject.num">-->
+<!--                  <div class="underLine"></div>-->
+<!--                  <label > رقم موضوع </label>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <div style="overflow: scroll">-->
+<!--                <div *ngFor="let decision of subject.decisions; let j = index">-->
+
+<!--                  <div class="subjects input-container" style="display:inline-flex;width: 100% ">-->
+
+<!--                    <div class="input-data">-->
+<!--                      <input type="text" required name="summary{{i}}{{j}}" [(ngModel)]="decision.summary">-->
+<!--                      <div class="underLine"></div>-->
+<!--                      <label for="summary"> موضوع القرار </label>-->
+<!--                    </div>-->
+<!--                    <div class="input-data" style="margin-left: 20px">-->
+<!--                      <input type="number" required name="num{{i}}{{j}}" [(ngModel)]="decision.num">-->
+<!--                      <div class="underLine"></div>-->
+<!--                      <label > رقم القرار </label>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <button type="submit" class="btn" style="color: white;background-color: #333333;width:150px;height:30px;">تأكيد-->
+<!--          الحفظ-->
+<!--        </button>-->
+<!--      </form>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <app-sidebar></app-sidebar>-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</div>-->
 <app-navbar></app-navbar>
-
-<div class="row" style="background-color: var(--bg);">
+<div class="row" style="background-color: var(--bg_main);">
   <div class="d-flex justify-content-between">
+    <div class="col-8">
+      <form [formGroup]="form" (ngSubmit)="updateSpecialFile(form.value)" style="width: 110%; margin-left: 150px; zoom: 85%">
 
-    <div class="d-flex w-100">
-      <div style="width: 20%;"></div>
-      <form style="width:71%;zoom: 80%" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
         <div class="wrapper">
-          <legend class="text-center">تعديل ملف خاص</legend>
-          <div style="display: flex;  justify-content: space-between;">
+          <legend class="text-center">تحديث ملف خاص</legend>
+          <div style="display: flex; justify-content: space-between;">
 
             <div class="input-container">
-
               <div class="input-data">
-                <input type="text"   id="sender" name="sender" [(ngModel)]="special.sender">
+                <input type="text" required id="sender" name="sender" formControlName="sender">
                 <div class="underLine"></div>
                 <label for="sender">الجهة الوارد منها الخطاب</label>
               </div>
             </div>
 
             <div class="input-container">
-
               <div class="input-data">
-                <input type="number"   id="archiveId" name="archiveId" [(ngModel)]="special.archiveId">
+                <input type="number" required id="num" name="num" formControlName="num">
                 <div class="underLine"></div>
-                <label for="archiveId">رقم الملف</label>
+                <label for="num">رقم الملف</label>
               </div>
             </div>
           </div>
+
           <div class="input-data">
-            <input type="text"   id="summary" name="summary" [(ngModel)]="special.summary">
+            <input type="text" required id="summary" name="summary" formControlName="summary">
             <div class="underLine"></div>
             <label for="summary" style="margin-right: 0!important;">ملخص الخطاب</label>
           </div>
-          <div style="display: flex;  justify-content: space-between;">
 
+          <div style="display: flex; justify-content: space-between;">
             <div class="input-container">
-
               <div class="input-data">
-                <input type="date" required id="incomeDate" name="incomeDate" [(ngModel)]="special.incomeDate">
+                <input type="date" required id="incomeDate" name="incomeDate" formControlName="incomeDate">
                 <div class="underLine"></div>
-                <label for="incomeDate">تاريخ </label>
+                <label for="incomeDate">تاريخ</label>
               </div>
             </div>
 
             <div class="input-container">
-
               <div class="input-data">
-                <input type="number" required id="numberOfAttachments" name="numberOfAttachments"[(ngModel)]="special.numberOfAttachments">
+                <input type="number" required id="numberOfAttachments" name="numberOfAttachments" formControlName="numberOfAttachments">
                 <div class="underLine"></div>
                 <label for="numberOfAttachments">عدد المرفقات</label>
               </div>
             </div>
           </div>
-          <div style="overflow: scroll">
-            <div *ngFor="let subject of special.subjects; let i = index">
-              <div class="subjects  input-container" style="display:inline-flex;width: 100% ">
+
+          <!-- Subjects and Decisions -->
+          <div formArrayName="subjects" style="overflow:auto;background-color: var(--bg);">
+            <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i" class="border" style="margin-top:40px">
+              <div class="subjects input-container" style="display:inline-flex;width: 100%">
+                <a (click)="deleteSubject(i)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16" style="color: red;margin-right: 10px">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
+                  </svg>
+                </a>
+                <a (click)="addSubject()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" style="color: green">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                  </svg>
+                </a>
 
                 <div class="input-data">
-                  <input type="text" required id="head" name="head{{i}}" [(ngModel)]="subject.head">
+                  <input type="text" required id="head" name="head" formControlName="head">
                   <div class="underLine"></div>
-                  <label for="head"> اضافة موضوع </label>
+                  <label for="head">اضافة موضوع</label>
                 </div>
               </div>
 
-              <div style="overflow: scroll">
-                <div *ngFor="let decision of subject.decisions; let j = index">
+              <!-- Decisions -->
+              <div formArrayName="decision" style="overflow:auto;background-color: var(--bg);margin-top: 0!important;">
+                <div *ngFor="let decision of getDecisions(i).controls; let j = index" [formGroupName]="j">
+                  <a (click)="deleteDecision(i, j)" style="margin-left: 0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16" style="color: red;margin-right: 10px">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                      <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
+                    </svg>
+                  </a>
+                  <a (click)="addDecision(i)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" style="color: blue">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                    </svg>
+                  </a>
 
-                  <div class="subjects input-container" style="display:inline-flex;width: 100% ">
-
-                    <div class="input-data">
-                      <input type="text" required name="summary{{i}}{{j}}" [(ngModel)]="decision.summary">
+                  <div class="subjects input-container" style="display:inline-flex;width:100%;margin-top:0!important;margin-left: 10px">
+                    <div class="input-data" style="margin-top: 0!important;margin-right:10px">
+                      <input type="text" required name="qarar" formControlName="qarar" id="qarar">
                       <div class="underLine"></div>
-                      <label for="summary"> موضوع القرار </label>
+                      <label for="qarar">القرار</label>
                     </div>
+                  </div>
+
+                  <div class="input-data" style="margin-top: 10px!important;margin-bottom: 40px;width: 98%;margin-left:12px">
+                    <input type="text" required name="summary" formControlName="summary">
+                    <div class="underLine"></div>
+                    <label for="summary">موضوع</label>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <button type="submit" class="btn" style="color: white;background-color: #333333;width:150px;height:30px;">تأكيد
-          الحفظ
-        </button>
+          <button type="submit" class="btn m-auto" style="color: var(--color);background-color: var(--bg_hover);width:150px;height:30px;">تأكيد التحديث</button>
+        </div>
       </form>
     </div>
-
+    <div class="col-2"></div>
     <div>
       <app-sidebar></app-sidebar>
     </div>
-
   </div>
 </div>

@@ -27,7 +27,7 @@ export class SpecialPaginationComponent implements OnInit {
   paths: string[];
   numbers: any[];
   subjects: any[];
-  decisions: any[];
+  decision: any[];
   showSpecial = new FormGroup({
     createdBy:new FormControl(''),
     no: new FormControl(''),
@@ -77,7 +77,7 @@ export class SpecialPaginationComponent implements OnInit {
       this.pathOfDeleteImage=this.showSpecials.paths;
       this.summary = this.showSpecials.summary;
       this.subjects = this.showSpecials.subjects;
-      this.decisions = this.showSpecials.subjects.decisions;
+      this.decision = this.showSpecials.subjects.decision;
       this.id = this.showSpecials.id;
       this.createdBy=this.showSpecials.createdBy;
       this.no=this.showSpecials.no;

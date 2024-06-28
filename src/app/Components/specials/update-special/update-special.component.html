@@ -107,11 +107,12 @@
 <div class="row" style="background-color: var(--bg_main);">
   <div class="d-flex justify-content-between">
     <div class="col-8">
-      <form [formGroup]="form" (ngSubmit)="updateSpecialFile(form.value)" style="width: 110%; margin-left: 150px; zoom: 85%">
+      <form [formGroup]="form" (ngSubmit)="updateSpecialFile(form.value)"
+      style="width: 110%; margin-left: 150px;zoom: 85%">
 
         <div class="wrapper">
           <legend class="text-center">تحديث ملف خاص</legend>
-          <div style="display: flex; justify-content: space-between;">
+          <div style="display: flex;  justify-content: space-between;">
 
             <div class="input-container">
               <div class="input-data">
@@ -154,7 +155,6 @@
             </div>
           </div>
 
-          <!-- Subjects and Decisions -->
           <div formArrayName="subjects" style="overflow:auto;background-color: var(--bg);">
             <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i" class="border" style="margin-top:40px">
               <div class="subjects input-container" style="display:inline-flex;width: 100%">
@@ -178,10 +178,9 @@
                 </div>
               </div>
 
-              <!-- Decisions -->
               <div formArrayName="decision" style="overflow:auto;background-color: var(--bg);margin-top: 0!important;">
                 <div *ngFor="let decision of getDecisions(i).controls; let j = index" [formGroupName]="j">
-                  <a (click)="deleteDecision(i, j)" style="margin-left: 0">
+                  <a (click)="deleteDecision(i,j)" style="margin-left: 0">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16" style="color: red;margin-right: 10px">
                       <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                       <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>

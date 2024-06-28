@@ -159,11 +159,11 @@
 // }
 
 
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
-import { SpecialService } from "../../../Services/SpecialService/special.service";
-import { ActivatedRoute, Router } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
+import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {SpecialService} from "../../../Services/SpecialService/special.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-update-special',
@@ -174,13 +174,7 @@ export class UpdateSpecialComponent implements OnInit {
   form: FormGroup;
   specialFileId: number;
 
-  constructor(
-    private fb: FormBuilder,
-    private specialService: SpecialService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private http: HttpClient
-  ) {
+  constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router, private route: ActivatedRoute, private http: HttpClient) {
     this.form = this.fb.group({
       incomeDate: [null],
       sender: [''],
@@ -195,14 +189,15 @@ export class UpdateSpecialComponent implements OnInit {
     return this.fb.group({
       num: [subjectData?.num || null],
       head: [subjectData?.head || ''],
-      decision: this.fb.array(subjectData?.decision ? subjectData.decision.map(decisionData => this.createDecision(decisionData)) : [])
+      decision: this.fb.array(subjectData?.decision ? subjectData.decision.map(decisionData => this.createDecision(decisionData)) : [this.createDecision()])
     });
   }
 
   createDecision(decisionData?): FormGroup {
     return this.fb.group({
-      qarar: [decisionData?.qarar || ''],
-      summary: [decisionData?.summary || '']
+      num: [decisionData?.num || null],
+      summary: [decisionData?.summary || ''],
+      qarar: [decisionData?.qarar || '']
     });
   }
 
@@ -230,15 +225,10 @@ export class UpdateSpecialComponent implements OnInit {
     this.getDecisions(subjectIndex).removeAt(decisionIndex);
   }
 
-  updateSpecialFile(): void {
-    if (this.form.valid) {
-      const formData = this.form.value;
-      this.specialService.updateSpecial(this.specialFileId, formData).subscribe(() => {
-        this.router.navigate(['/special-files']);
-      });
-    } else {
-      // Handle form validation errors if needed
-    }
+  updateSpecialFile(data): void {
+    this.specialService.updateSpecial(this.specialFileId, data).subscribe(() => {
+      this.router.navigate(['/special-files']);
+    });
   }
 
   loadSpecialFile(): void {
@@ -267,5 +257,4 @@ export class UpdateSpecialComponent implements OnInit {
     this.loadSpecialFile();
   }
 }
-
 

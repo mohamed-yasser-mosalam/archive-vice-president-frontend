@@ -100,7 +100,7 @@
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
+          <td><span *ngFor="let days of item.deputationDays">{{days.day}}  </span></td>
           <td>{{ item.notes }}</td>
         </tr>
         </tbody>

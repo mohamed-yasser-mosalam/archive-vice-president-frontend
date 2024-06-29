@@ -173,6 +173,8 @@ import {HttpClient} from "@angular/common/http";
 export class UpdateSpecialComponent implements OnInit {
   form: FormGroup;
   specialFileId: number;
+  no:number;
+
 
   constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router, private route: ActivatedRoute, private http: HttpClient) {
     this.form = this.fb.group({
@@ -225,9 +227,9 @@ export class UpdateSpecialComponent implements OnInit {
     this.getDecisions(subjectIndex).removeAt(decisionIndex);
   }
 
-  updateSpecialFile(data): void {
+  updateSpecialFile(data:any): void {
     this.specialService.updateSpecial(this.specialFileId, data).subscribe(() => {
-      this.router.navigate(['/special-files']);
+       this.router.navigate([`/special_pagination?page=/`,this.specialFileId]);
     });
   }
 
@@ -239,7 +241,8 @@ export class UpdateSpecialComponent implements OnInit {
         sender: data.sender,
         num: data.num,
         summary: data.summary,
-        numberOfAttachments: data.numberOfAttachments
+        numberOfAttachments: data.numberOfAttachments,
+        no:data.no
       });
 
       // Clear existing subjects and decisions

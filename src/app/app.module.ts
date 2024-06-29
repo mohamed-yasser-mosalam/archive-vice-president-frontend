@@ -110,6 +110,8 @@ import { AllSignsComponent } from './Components/signs/all-signs/all-signs.compon
 import { AllSignsPaginationComponent } from './Components/signs/all-signs-pagination/all-signs-pagination.component';
 import { LetterOfSpecificYearComponent } from './Components/main-components/letter-of-specific-year/letter-of-specific-year.component';
 import { AllMandateComponent } from './Components/Mandate/all-mandate/all-mandate.component';
+import { AddMandateComponent } from './Components/Mandate/add-mandate/add-mandate.component';
+import { UpdateMandateComponent } from './Components/Mandate/update-mandate/update-mandate.component';
 
 @NgModule({
   declarations: [
@@ -186,6 +188,8 @@ import { AllMandateComponent } from './Components/Mandate/all-mandate/all-mandat
     AllSignsPaginationComponent,
     LetterOfSpecificYearComponent,
     AllMandateComponent,
+    AddMandateComponent,
+    UpdateMandateComponent,
 
   ],
   imports: [

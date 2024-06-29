@@ -1,1 +1,114 @@
-<p>all-mandate works!</p>
+<app-navbar></app-navbar>
+
+<div class="row" style="background-color: var(--bg);">
+  <div class="d-flex justify-content-between">
+    <div style="
+      zoom: 80%;
+      text-align: center;
+      position: sticky;
+      overflow: auto;
+      height: 733px;
+      border-radius: 8px;
+      width: 100%"
+    >
+      <div class="d-flex"
+           style="
+            font-size: 20px;
+            padding: 10px 35%;
+            background-color: var(--bg);
+            color: var(--color);
+            position: sticky;
+            top: 0;
+            font-weight: bold"
+      >
+        <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
+        <div class="input-data">
+          <h2 style="font-weight: bold;">إنتدبات</h2>
+        </div>
+      </div>
+
+      <table border="2" align="center">
+        <thead>
+        <tr align="center">
+          <th rowspan="2">مسلسل</th>
+          <th rowspan="2">الدرجة</th>
+          <th rowspan="2">اسم عضو هيئة التدريس</th>
+          <th rowspan="2">القسم</th>
+          <th rowspan="2">الجامعة المنتسب اليها</th>
+          <th colspan="3">فترة الإنتداب</th>
+          <th colspan="3">موافقة مجلس الكلية</th>
+          <th colspan="2">موافقة مجلس الجامعة</th>
+          <th rowspan="2">أيام الإنتداب</th>
+          <th rowspan="2">ملاحظات</th>
+        </tr>
+        <tr align="center">
+          <th>الأول</th>
+          <th>الثاني</th>
+          <th>العام كامل</th>
+          <th>موضوع</th>
+          <th>رقم</th>
+          <th>تاريخ</th>
+          <th>رقم</th>
+          <th>تاريخ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <tr *ngFor="let item of showAllMandate | search:searchText">
+          <td>{{ item.id }}</td>
+          <td>{{ item.degree }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.department }}</td>
+          <td>{{ item.deputationUniversity }}</td>
+          <td *ngIf="item.deputationPeriod==1;else notactive">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
+                 viewBox="0 0 16 16">
+              <path
+                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+            </svg>
+          </td>
+          <td>
+            <ng-template #notactive>
+
+            </ng-template>
+          </td>
+          <td *ngIf="item.deputationPeriod==2;else notactive">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
+                 viewBox="0 0 16 16">
+              <path
+                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+            </svg>
+          </td>
+          <td>
+            <ng-template #notactive>
+
+            </ng-template>
+          </td>
+          <td *ngIf="item.deputationPeriod==3;else notactive">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
+                 viewBox="0 0 16 16">
+              <path
+                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+            </svg>
+          </td>
+          <td>
+            <ng-template #notactive>
+
+            </ng-template>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ item.notes }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>

@@ -90,6 +90,7 @@ import {AllSignsPaginationComponent} from "./Components/signs/all-signs-paginati
 import {
   LetterOfSpecificYearComponent
 } from "./Components/main-components/letter-of-specific-year/letter-of-specific-year.component";
+import {AllMandateComponent} from "./Components/Mandate/all-mandate/all-mandate.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -157,6 +158,7 @@ const routes: Routes = [
   {path: 'add-archive-file', component:AddArchiveFileComponent,canActivate:[CanActivate] },
   {path: 'update-archive-file/:id', component:UpdateArchiveFileComponent,canActivate:[CanActivate] },
   {path: 'letter-of-specific-year', component:LetterOfSpecificYearComponent,canActivate:[CanActivate] },
+  {path: 'all-mandate', component:AllMandateComponent,canActivate:[CanActivate] },
   {path: "**",component:ErrorPageComponent},
 
 ];

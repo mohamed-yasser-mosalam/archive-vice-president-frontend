@@ -53,7 +53,7 @@
           </div>
         </div>
           <div formArrayName="subjects" style="overflow:auto;background-color: var(--bg);">
-            <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i" class="border"
+            <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i" class=""
                  style="margin-top:40px">
               <div class="subjects  input-container" style="display:inline-flex;width: 100% ">
 
@@ -77,13 +77,8 @@
                 <div class="input-data">
                   <input type="text" required id="head" name="head" formControlName="head">
                   <div class="underLine"></div>
-                  <label for="head"> اضافة موضوع </label>
+                  <label for="head" style="font-weight: bold"> اضافة موضوع </label>
                 </div>
-<!--                <div class="input-data" style="margin-left: 20px">-->
-<!--                  <input type="number" required name="num" formControlName="num">-->
-<!--                  <div class="underLine"></div>-->
-<!--                  <label for="num"> رقم موضوع </label>-->
-<!--                </div>-->
               </div>
 
               <div formArrayName="decision" style="overflow:auto;background-color: var(--bg);;margin-top: 0!important;">

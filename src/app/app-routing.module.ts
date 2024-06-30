@@ -91,6 +91,12 @@ import {
   LetterOfSpecificYearComponent
 } from "./Components/main-components/letter-of-specific-year/letter-of-specific-year.component";
 import {AllMandateComponent} from "./Components/Mandate/all-mandate/all-mandate.component";
+import {MandateDashboardComponent} from "./Components/Mandate/mandate-dashboard/mandate-dashboard.component";
+import {AddMandateComponent} from "./Components/Mandate/add-mandate/add-mandate.component";
+import {UpdateMandateComponent} from "./Components/Mandate/update-mandate/update-mandate.component";
+import {AcceptMandateComponent} from "./Components/Mandate/accept-mandate/accept-mandate.component";
+import {RefusedMandateComponent} from "./Components/Mandate/refused-mandate/refused-mandate.component";
+import {CurrentMandateComponent} from "./Components/Mandate/current-mandate/current-mandate.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -158,7 +164,13 @@ const routes: Routes = [
   {path: 'add-archive-file', component:AddArchiveFileComponent,canActivate:[CanActivate] },
   {path: 'update-archive-file/:id', component:UpdateArchiveFileComponent,canActivate:[CanActivate] },
   {path: 'letter-of-specific-year', component:LetterOfSpecificYearComponent,canActivate:[CanActivate] },
+  {path: 'mandate-dashboard', component:MandateDashboardComponent,canActivate:[CanActivate] },
   {path: 'all-mandate', component:AllMandateComponent,canActivate:[CanActivate] },
+  {path: 'all-accept-mandate', component:AcceptMandateComponent,canActivate:[CanActivate] },
+  {path: 'all-refused-mandate', component:RefusedMandateComponent,canActivate:[CanActivate] },
+  {path: 'add-mandate', component:AddMandateComponent,canActivate:[CanActivate] },
+  {path: 'current-mandate', component:CurrentMandateComponent,canActivate:[CanActivate] },
+  {path: 'update-mandate/:id', component:UpdateMandateComponent,canActivate:[CanActivate] },
   {path: "**",component:ErrorPageComponent},
 
 ];

@@ -23,7 +23,7 @@
       >
         <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
         <div class="input-data">
-          <h2 style="font-weight: bold;">إنتدبات</h2>
+          <h2 style="font-weight: bold;"> الإنتدبات الموافق عليها</h2>
         </div>
       </div>
 
@@ -58,7 +58,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of showAllMandate | search:searchText">
+        <tr *ngFor="let item of showAllAcceptsMandate | search:searchText">
           <td>{{ item.id }}</td>
           <td>{{ item.degree }}</td>
           <td>{{ item.name }}</td>
@@ -92,14 +92,14 @@
           <td>{{ item.departmentDate }}</td>
           <td>
             <label  *ngIf="item.departmentAccept;else departmentAccept">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-check-lg"
-                 viewBox="0 0 16 16">
-              <path
-                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-            </svg>
-              </label>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-check-lg"
+                   viewBox="0 0 16 16">
+                <path
+                  d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+              </svg>
+            </label>
           </td>
-         <ng-template #departmentAccept><span style="color: red">X</span></ng-template>
+          <ng-template #departmentAccept><span style="color: red">X</span></ng-template>
           <td>{{ item.facultyRecordNum }}</td>
           <td>{{ item.facultyDate }}</td>
           <td>
@@ -114,8 +114,8 @@
           <ng-template #facultyAccept><span style="color: red">X</span></ng-template>
           <td>
             <a routerLink="/import-pagination?page=/{{item.universityRecordNum}}"
-            style="color: black;text-decoration: black">
-            {{ item.universityRecordNum }}
+               style="color: black;text-decoration: black">
+              {{ item.universityRecordNum }}
             </a></td>
           <td>{{ item.universityDate }}</td>
           <td>

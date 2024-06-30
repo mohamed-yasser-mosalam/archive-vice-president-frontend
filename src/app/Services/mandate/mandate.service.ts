@@ -17,7 +17,32 @@ export class MandateService {
   getAllMandate() {
     return this.http.get(`${this.base}/deputation/deputations`);
   }
+  getAllAcceptsMandate() {
+    return this.http.get(`${this.base}/deputation/accepted-deputations`);
+  }
+  getAllRefusedMandate() {
+    return this.http.get(`${this.base}/deputation/not-accepted-deputations`);
+  }
+  getCurrentMandate() {
+    return this.http.get(`${this.base}/deputation/current-deputations`);
+  }
+  getAllTodayMandate() {
+    return this.http.get(`${this.base}/deputation/today-deputations`);
+  }
   updateMandate(id: number, data: any) {
     return this.http.put(`${this.base}/deputation/deputation?id=${id}`, data)
   }
+  getAllAcceptsMandateNumber() {
+    return this.http.get(`${this.base}/deputation/count-accepted-deputations`);
+  }
+  getAllRefusedMandateNumber() {
+    return this.http.get(`${this.base}/deputation/count-not-accepted-deputations`);
+  }
+  getAllMandateNumbers() {
+    return this.http.get(`${this.base}/deputation/count-deputations `);
+  }
+  getCurrentMandateNumber() {
+    return this.http.get(`${this.base}/deputation/count-current-deputations`);
+  }
+
 }

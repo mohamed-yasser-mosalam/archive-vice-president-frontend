@@ -112,6 +112,10 @@ import { LetterOfSpecificYearComponent } from './Components/main-components/lett
 import { AllMandateComponent } from './Components/Mandate/all-mandate/all-mandate.component';
 import { AddMandateComponent } from './Components/Mandate/add-mandate/add-mandate.component';
 import { UpdateMandateComponent } from './Components/Mandate/update-mandate/update-mandate.component';
+import { MandateDashboardComponent } from './Components/Mandate/mandate-dashboard/mandate-dashboard.component';
+import { AcceptMandateComponent } from './Components/Mandate/accept-mandate/accept-mandate.component';
+import { RefusedMandateComponent } from './Components/Mandate/refused-mandate/refused-mandate.component';
+import { CurrentMandateComponent } from './Components/Mandate/current-mandate/current-mandate.component';
 
 @NgModule({
   declarations: [
@@ -190,6 +194,10 @@ import { UpdateMandateComponent } from './Components/Mandate/update-mandate/upda
     AllMandateComponent,
     AddMandateComponent,
     UpdateMandateComponent,
+    MandateDashboardComponent,
+    AcceptMandateComponent,
+    RefusedMandateComponent,
+    CurrentMandateComponent,
 
   ],
   imports: [

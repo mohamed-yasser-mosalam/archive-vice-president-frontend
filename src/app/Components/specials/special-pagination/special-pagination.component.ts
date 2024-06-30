@@ -71,6 +71,7 @@ export class SpecialPaginationComponent implements OnInit {
   showSpecialFile() {
     this.specialService.getSpecialsByPagination(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
+      console.log(this.showSpecials)
       this.paths = this.showSpecials.paths.map((path: string) => {
         return this.base + path;
       });

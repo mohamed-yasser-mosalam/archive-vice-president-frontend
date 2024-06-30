@@ -32,5 +32,11 @@ export class AllFilesService {
   deleteArchiveFile(typeNumber, num) {
     return this.http.delete(`${this.base}/archive/archive?typeNumber=${typeNumber}&num=${num}`);
   }
+  closeArchiveFile(data:any) {
+    return this.http.post(`${this.base}/archive/close`,data);
+  }
+  getStateCloseArchiveFile() {
+    return this.http.get(`${this.base}/archive/can-closed`);
+  }
 }
 

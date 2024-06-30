@@ -23,6 +23,10 @@
             <button routerLink="/add-archive-file" class="btn"
                     style="padding:5px 15px;margin-right: 20px;background-color: var(--bg_main);">اضافة
             </button>
+
+            <button class="btn" *ngIf="stateOfClose==true" (click)="closeArchive($event)"
+                    style="padding:5px 15px;margin-right: 20px;background-color: var(--bg_main);">غلق
+            </button>
           </div>
           <div>
 

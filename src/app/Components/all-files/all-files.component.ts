@@ -7,40 +7,56 @@ import {AllFilesService} from "../../Services/AllFile/all-files.service";
   templateUrl: './all-files.component.html',
   styleUrls: ['./all-files.component.css']
 })
-export class AllFilesComponent  implements OnInit{
-  AllFiles:AllFiles[]=[]
-  searchText:string
+export class AllFilesComponent implements OnInit {
+  AllFiles: AllFiles[] = []
+  searchText: string;
+  stateOfClose:boolean;
 
-  constructor(private allFilesService:AllFilesService) {
+  constructor(private allFilesService: AllFilesService) {
   }
-  getAllFiles(){
-    return this.allFilesService.getAllFile().subscribe((getAllFile:any)=> {
+
+  getAllFiles() {
+    return this.allFilesService.getAllFile().subscribe((getAllFile: any) => {
       this.AllFiles = getAllFile;
     })
   }
 
   ngOnInit(): void {
-    this.getAllFiles()
-  }
-  onsearchTextEntered(searchValue){
-    this.searchText=searchValue
+    this.getAllFiles();
+    this.getStateOfClose();
   }
 
-  deleteArchiveFile(typeNumber:number , num:number) {
-    this.allFilesService.deleteArchiveFile(typeNumber , num).subscribe((result: any) => {
-      this.allFilesService.getAllFile();
-    } ,
-      (error: any) => {alert(error.error.message)}
+  onsearchTextEntered(searchValue) {
+    this.searchText = searchValue
+  }
 
+  deleteArchiveFile(typeNumber: number, num: number) {
+    this.allFilesService.deleteArchiveFile(typeNumber, num).subscribe((result: any) => {
+        this.allFilesService.getAllFile();
+      },
+      (error: any) => {
+        alert(error.error.message)
+      }
     )
-
-
 
     setTimeout(() => {
       window.location.reload();
     }, 50);
   }
 
+  closeArchive(data: any) {
+     this.allFilesService.closeArchiveFile(data).subscribe(() => {
+      },)
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
+  }
+
+  getStateOfClose() {
+    return this.allFilesService.getStateCloseArchiveFile().subscribe((stateOfClose: any) => {
+      this.stateOfClose = stateOfClose;
+    })
+  }
 
 }
 

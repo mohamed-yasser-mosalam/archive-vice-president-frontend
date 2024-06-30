@@ -5,10 +5,11 @@
 }
 
 form {
-  margin-top: 5%;
+  margin-top: 2%;
   background-color: var(--bg);
   color: var(--color);
-  width: 75%;
+  zoom: 90%;
+  margin-left: 100px;
 }
 
 .wrapper {
@@ -16,6 +17,7 @@ form {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: column;
+
 }
 
 .wrapper .input-data {
@@ -52,7 +54,7 @@ form {
 .input-data input:valid~label,
 .input-data textarea:focus~label,
 .input-data textarea:valid~label {
-  transform: translateY(-35px);
+  transform: translateY(-15px);
   font-size: 15px;
   color: var(--color);
 }
@@ -66,6 +68,7 @@ form {
   transition: .3s ease;
   text-align: center;
   direction: rtl;
+  font-weight: bold;
 }
 
 .wrapper .input-data .underLine {
@@ -102,4 +105,31 @@ form {
 }
 small{
   color: red;
+}
+.weekDays-selector input {
+  display: none!important;
+}
+
+.weekDays-selector input[type=checkbox] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 60px;
+  margin-right: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.weekDays-selector input[type=checkbox]:checked + label {
+  background: #2AD705;
+  color: #ffffff;
+  margin-right: 50px;
+}
+.MandatePeriod input[type=radio] {
+  margin-left: 20px;
+}
+.departmentAccept  input[type=radio]{
+
 }

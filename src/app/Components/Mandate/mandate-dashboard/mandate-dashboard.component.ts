@@ -21,7 +21,7 @@ export class MandateDashboardComponent implements OnInit {
   numberOfAllAcceptsMandate: any;
   numberOfAllRefusedMandate: any;
   numberOfCurrentMandate: any;
-  NumberOfAllExports: any;
+  showAllTodayDoctors: any;
   NumberOfAllSigns: any;
   NumberOfAllDeanDecisions: any;
   NumberOfAllImports: any;
@@ -52,6 +52,7 @@ export class MandateDashboardComponent implements OnInit {
     this.getAllMandate();
     this.getAllCurrentMandateNumber();
     this.getAllTodayMandate();
+    this.getAllTodayDoctors()
     // this.getNumberOfLetterForYears();
   }
 
@@ -91,9 +92,9 @@ export class MandateDashboardComponent implements OnInit {
     })
   }
 
-  getAllTodayImports() {
-    return this.service.getAllTodayImport().subscribe((allTodayImport: any) => {
-      this.showAllTodayImports = allTodayImport;
+  getAllTodayDoctors() {
+    return this.mandateService.getAllTodayDoctors().subscribe((allTodayDoctors: any) => {
+      this.showAllTodayDoctors = allTodayDoctors;
     })
   }
 

@@ -2,8 +2,18 @@
 <div class="row w-auto" style="background-color: var(--bg_main);">
   <div class="d-flex justify-content-between">
     <div class="dashboard w-100" style=" height: 93vh">
-      <div class="row" style="margin-left:30%">
-        <div class="col-md-2" style="margin-right: 45px!important;">
+      <div class="row" style="margin-left:8%">
+        <div class="col-md-2" style="margin-right:100px!important;">
+          <div class="box">
+            <div class="data">
+              <p>
+                <a routerLink="/current-mandate">الإنتدبات الحالية</a>
+              </p>
+              <span> {{ numberOfCurrentMandate }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2" style="margin-right:100px!important;">
           <div class="box">
             <div class="data">
               <p>
@@ -14,7 +24,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2" style="margin-right: 45px!important;">
+        <div class="col-md-2" style="margin-right:100px!important;">
           <div class="box">
             <div class="data">
               <p>
@@ -25,17 +35,8 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2" style="margin-right: 45px!important;">
-          <div class="box">
-            <div class="data">
-              <p>
-                <a routerLink="/current-mandate">الإنتدبات الحالية</a>
-              </p>
-              <span> {{ numberOfCurrentMandate }}</span>
-          </div>
-        </div>
-      </div>
-        <div class="col-md-2" style="margin-right: 45px!important;">
+
+        <div class="col-md-2" >
 
           <div class="box">
             <div class="data">
@@ -92,91 +93,6 @@
 
               <a>
                 <button type="button" class="btn btn w-10"
-                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:350px;margin-top:10px;color:var(--color);background: var(--bg_main);width:70px"
-                        routerLink="/add-mandate">
-                  اضافة
-                </button>
-              </a>
-
-              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px"
-                 routerLink="/today-imports">الدكاترة الموجودة فعليا في الكلية اليوم</a>
-            </h2>
-
-            <table class="table" style="direction: rtl">
-              <thead style=" position: sticky; top: 44px; background-color: #fff;">
-              <tr>
-                <th scope="col">اسم الدكتور</th>
-                <th scope="col">الجامعة المنتدب إليها</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let item of showAllTodayMandate">
-                <td>{{ item.name }}</td>
-                <td>{{ item.deputationUniversity }}</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="row" style="margin-left:30px;margin-top: 10px">
-        <div class="mx-1 mt-1"
-             style="background-color: #fff; height: 250px; overflow: auto; border-radius: 8px; zoom:95%;width:400px ">
-          <h2
-            style="font-size: 22px;  background-color: #fff; color: #3333338f;padding-top:20px">
-            <select class="px-2 mx-4" [(ngModel)]="selectedYear" >
-              <option selected="selected">أختار السنة</option>
-              <option *ngFor="let year of years">{{ year }}</option>
-            </select>
-            <a style=" text-decoration:none;color: black;font-weight: bolder;margin-top: 30px;font-size: 20px"> عدد
-              الخطابات لعام
-            </a></h2>
-          <hr>
-          <div class="container" style="margin-top: 5px">
-            <div class="input-data"
-                 style="font-size: 22px;  background-color: #fff; color: #3333338f; top:15px;  ">
-                  <span style=" text-decoration:none;color: black;font-weight: bold">
-                    <label type="number"
-                           style="margin-top:15px; margin-right: 15px">{{ numberOfExportLetterForSpecificYear }} </label>: عدد
-                   الخطابات الصادرة </span>
-            </div>
-
-            <div class="input-data"
-                 style="font-size: 22px;  background-color: #fff; color: #3333338f; top:15px;  ">
-                  <span style=" text-decoration:none;color: black;font-weight: bold">
-                    <label type="number"
-                           style="margin-top:15px;margin-right: 15px">{{ numberOfImportLetterForSpecificYear }}</label>: عدد
-                    الخطابات الواردة </span></div>
-
-            <div class="input-data"
-                 style="font-size: 22px;  background-color: #fff; color: #3333338f; top:15px;  ">
-                  <span style=" text-decoration:none;color: black;font-weight: bold">
-                    <label type="number"
-                           style="margin-top:15px;margin-right: 15px">{{ numberOfSpecialLetterForSpecificYear }}</label>: عدد
-                    الخطابات الخاصة </span></div>
-          </div>
-          <hr style="margin-top: 10px">
-          <div class="input-data"
-               style="font-size: 22px;  background-color: #fff; color: #3333338f; top:15px;  ">
-               <span
-                 style="margin-bottom:20px!important; width:100px; margin-right: 15%; font-weight: bold; font-size: 22px;">{{ numberOfImportLetterForSpecificYear + numberOfExportLetterForSpecificYear + numberOfSpecialLetterForSpecificYear }}
-                 <label type="number"
-                        style="margin-top:35px; margin-right: 15px"> </label>: اجمالي
-                    عدد الخطابات </span>
-          </div>
-
-        </div>
-
-        <div class=" mt-1"
-             style="background-color: #fff; height:250px; overflow: auto; border-radius: 8px; zoom:95%;width:745px;margin-left:30px">
-          <div
-            style="background-color: #fff; overflow: auto; height: 250px; border-radius: 8px;">
-            <h2
-              style="font-size: 22px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-
-              <a>
-                <button type="button" class="btn btn w-10"
                         style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:var(--color);background: var(--bg_main);width:70px"
                         routerLink="/add-mandate">
 
@@ -185,23 +101,65 @@
               </a>
 
               <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px"
-                 routerLink="/today-exports">منتدبين اليوم</a>
+               >منتدبين اليوم</a>
             </h2>
-
             <table class="table" style="direction: rtl">
               <thead style=" position: sticky; top: 44px; background-color: #fff;">
               <tr>
+                <th>المسلسل</th>
                 <th scope="col">اسم الدكتور</th>
                 <th scope="col">الجامعة المنتدب إليها</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let item of showAllTodayMandate">
+                <td>{{ item.id }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.deputationUniversity }}</td>
               </tr>
               </tbody>
             </table>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-left:35%;margin-top: 10px">
+
+        <div class=" mt-1"
+             style="background-color: #fff; height:250px; overflow: auto; border-radius: 8px; zoom:95%;width:745px;margin-left:30px">
+          <div
+            style="background-color: #fff; overflow: auto; height: 250px; border-radius: 8px;">
+
+            <h2
+              style="font-size: 22px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
+
+              <a>
+                <button type="button" class="btn btn w-10"
+                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:350px;margin-top:10px;color:var(--color);background: var(--bg_main);width:70px"
+                        routerLink="/add-mandate">
+                  اضافة
+                </button>
+              </a>
+
+              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px"
+                 >الدكاترة الموجودة فعليا في الكلية اليوم</a>
+            </h2>
+            <table class="table" style="direction: rtl">
+              <thead style=" position: sticky; top: 44px; background-color: #fff;">
+              <tr>
+                <th scope="col">المسلسل</th>
+                <th scope="col">اسم الدكتور</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of showAllTodayDoctors">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+              </tr>
+              </tbody>
+            </table>
+
           </div>
         </div>
       </div>

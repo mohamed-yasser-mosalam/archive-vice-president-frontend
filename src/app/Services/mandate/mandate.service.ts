@@ -29,6 +29,9 @@ export class MandateService {
   getAllTodayMandate() {
     return this.http.get(`${this.base}/deputation/today-deputations`);
   }
+  getAllTodayDoctors() {
+    return this.http.get(`${this.base}/deputation/today-in`);
+  }
   updateMandate(id: number, data: any) {
     return this.http.put(`${this.base}/deputation/deputation?id=${id}`, data)
   }

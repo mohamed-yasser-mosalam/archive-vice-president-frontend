@@ -4,7 +4,9 @@ export class Mandate {
   no: number;
 
 
-  constructor(id: number, no: number, degree: string, name: string, department: string, deputationUniversity: string, deputationPeriod: number, deputationDays: DeputationDays[], note: string) {
+  constructor(id: number, no: number, degree: string, name: string, department: string,
+              deputationUniversity: string, deputationPeriod: number, deputationDays: DeputationDays[],
+              note: string,departmentRecordNum:number) {
     this.id = id;
     this.no = no;
     this.degree = degree;
@@ -14,6 +16,7 @@ export class Mandate {
     this.deputationPeriod = deputationPeriod;
     this.deputationDays = deputationDays;
     this.note = note;
+    this.departmentRecordNum=departmentRecordNum
   }
 
   degree: string;
@@ -23,6 +26,7 @@ export class Mandate {
   deputationPeriod: number;
   deputationDays: DeputationDays[]
   note: string;
+  departmentRecordNum:number
 }
 export  interface DeputationDays{
   id:number

@@ -11,16 +11,17 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AddSpecialComponent implements OnInit{
   form: FormGroup;
-  numberOfSpecialFile:any
+  numberOfSpecialFile: any;
 
   constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router,
-              private http:HttpClient) {
+              private http: HttpClient) {
     this.form = this.fb.group({
       incomeDate: [null],
       sender: [''],
       num: [null],
       summary: [''],
-      numberOfAttachments:[''],
+      numberOfAttachments: [''],
+      showSubjects: [false],
       subjects: this.fb.array([this.createSubject()])
     });
   }
@@ -29,7 +30,7 @@ export class AddSpecialComponent implements OnInit{
     return this.fb.group({
       num: [null],
       head: [''],
-      decision: this.fb.array([this.createDecision()])
+      decision: this.fb.array([this.createDecision()]),
     });
   }
 
@@ -37,7 +38,7 @@ export class AddSpecialComponent implements OnInit{
     return this.fb.group({
       num: [null],
       summary: [''],
-      qarar:['']
+      qarar: [''],
     });
   }
 
@@ -70,10 +71,11 @@ export class AddSpecialComponent implements OnInit{
       window.location.reload();
     });
   }
+
   getSpecailCount(): void {
     this.specialService.getSpecialNumber().subscribe((numberOfSpecialFiles: any) => {
-      this.numberOfSpecialFile = numberOfSpecialFiles+1;
-     });
+      this.numberOfSpecialFile = numberOfSpecialFiles + 1;
+    });
   }
 
   ngOnInit(): void {

@@ -65,13 +65,11 @@ h3 {
 
 table {
   width: 100%;
-  border: 1px solid #100808;
-  border-collapse: collapse;
+
 }
 
 th,
 td {
   padding: 10px;
-  border: 2px solid black;
 
 }

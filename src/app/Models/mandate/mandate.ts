@@ -2,11 +2,13 @@ export class Mandate {
 
   id: number;
   no: number;
+  count:number;
 
 
   constructor(id: number, no: number, degree: string, name: string, department: string,
               deputationUniversity: string, deputationPeriod: number, deputationDays: DeputationDays[],
-              note: string,departmentRecordNum:number) {
+              note: string,departmentRecordNum:number,
+              count:number) {
     this.id = id;
     this.no = no;
     this.degree = degree;
@@ -16,7 +18,8 @@ export class Mandate {
     this.deputationPeriod = deputationPeriod;
     this.deputationDays = deputationDays;
     this.note = note;
-    this.departmentRecordNum=departmentRecordNum
+    this.departmentRecordNum=departmentRecordNum;
+    this.count=count
   }
 
   degree: string;

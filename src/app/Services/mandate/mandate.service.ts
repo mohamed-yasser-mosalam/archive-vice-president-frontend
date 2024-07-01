@@ -32,6 +32,16 @@ export class MandateService {
   getAllTodayDoctors() {
     return this.http.get(`${this.base}/deputation/today-in`);
   }
+  getDaysOfMandate(){
+    return this.http.get(`${this.base}/deputation/deputation-days`)
+  }
+  getAllSpecialMandate() {
+    return this.http.get(`${this.base}/deputation/exception-deputation`);
+  }
+  getAllSpecialUniversity() {
+    return this.http.get(`${this.base}/university/university`);
+  }
+
   updateMandate(id: number, data: any) {
     return this.http.put(`${this.base}/deputation/deputation?id=${id}`, data)
   }
@@ -40,6 +50,9 @@ export class MandateService {
   }
   getAllRefusedMandateNumber() {
     return this.http.get(`${this.base}/deputation/count-not-accepted-deputations`);
+  }
+  getAllSpecialMandateNumber() {
+    return this.http.get(`${this.base}/deputation/count-exception-deputation`);
   }
   getAllMandateNumbers() {
     return this.http.get(`${this.base}/deputation/count-deputations `);

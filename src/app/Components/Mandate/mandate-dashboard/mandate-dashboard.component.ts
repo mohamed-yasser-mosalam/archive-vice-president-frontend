@@ -22,7 +22,7 @@ export class MandateDashboardComponent implements OnInit {
   numberOfAllRefusedMandate: any;
   numberOfCurrentMandate: any;
   showAllTodayDoctors: any;
-  NumberOfAllSigns: any;
+  numberOfSpecialMandate: any;
   NumberOfAllDeanDecisions: any;
   NumberOfAllImports: any;
   numberOfAllSpecial: any;
@@ -34,7 +34,7 @@ export class MandateDashboardComponent implements OnInit {
   numberOfSpecialLetterForSpecificYear: any = 0;
   showAllTodayMandate: Mandate[] = []
   showAllTodayImports: ShowTodayImports[] = []
-  showAllMandate: Mandate[] = []
+  allDaysOfMandate: Mandate[] = []
 
   constructor(private http: HttpClient,
               private service: TodayServiceService,
@@ -49,11 +49,11 @@ export class MandateDashboardComponent implements OnInit {
     this.getNumberOfAllMandate();
     this.getNumberOfAllAcceptsMandate();
     this.getNumberOfAllRefusedMandate();
-    this.getAllMandate();
+    this.getAllDaysOfMandate();
     this.getAllCurrentMandateNumber();
     this.getAllTodayMandate();
-    this.getAllTodayDoctors()
-    // this.getNumberOfLetterForYears();
+    this.getAllTodayDoctors();
+    this.getAllSpecialMandateNumber();
   }
 
   getNumberOfAllMandate() {
@@ -75,9 +75,9 @@ export class MandateDashboardComponent implements OnInit {
   }
 
 
-   getAllMandate() {
-    this.mandateService.getAllMandate().subscribe((allMandate:any) => {
-      this.showAllMandate = allMandate;
+   getAllDaysOfMandate() {
+    this.mandateService.getDaysOfMandate().subscribe((allDayMandate:any) => {
+      this.allDaysOfMandate = allDayMandate;
     })
   }
   getAllCurrentMandateNumber() {
@@ -95,6 +95,11 @@ export class MandateDashboardComponent implements OnInit {
   getAllTodayDoctors() {
     return this.mandateService.getAllTodayDoctors().subscribe((allTodayDoctors: any) => {
       this.showAllTodayDoctors = allTodayDoctors;
+    })
+  }
+  getAllSpecialMandateNumber() {
+    return this.mandateService.getAllSpecialMandateNumber().subscribe((allSpecialMandate: any) => {
+      this.numberOfSpecialMandate = allSpecialMandate;
     })
   }
 

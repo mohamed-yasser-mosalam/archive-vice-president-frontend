@@ -2,8 +2,18 @@
 <div class="row w-auto" style="background-color: var(--bg_main);">
   <div class="d-flex justify-content-between">
     <div class="dashboard w-100" style=" height: 93vh">
-      <div class="row" style="margin-left:8%">
-        <div class="col-md-2" style="margin-right:100px!important;">
+      <div class="row" style="margin-left:2%">
+        <div class="col-md-2" style="margin-right:40px!important;">
+          <div class="box">
+            <div class="data">
+              <p>
+                <a routerLink="/special-mandate">الإنتدبات الاستثنائية</a>
+              </p>
+              <span> {{ numberOfSpecialMandate }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2" style="margin-right:40px!important;">
           <div class="box">
             <div class="data">
               <p>
@@ -13,7 +23,8 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2" style="margin-right:100px!important;">
+
+        <div class="col-md-2" style="margin-right:40px!important;">
           <div class="box">
             <div class="data">
               <p>
@@ -24,7 +35,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2" style="margin-right:100px!important;">
+        <div class="col-md-2" style="margin-right:40px!important;">
           <div class="box">
             <div class="data">
               <p>
@@ -70,13 +81,15 @@
               <tr>
                 <th scope="col">اسم الدكتور</th>
                 <th scope="col">أيام الانتدبات</th>
+                <th scope="col"> اجمالي عدد الأيام</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let item of showAllMandate">
+              <tr *ngFor="let item of allDaysOfMandate">
                 <td>{{ item.name }}</td>
                 <td><label *ngFor="let days of item.deputationDays"
                 style="margin-left: 10px">{{ days.day }} </label></td>
+                <td>{{item.count}}</td>
               </tr>
               </tbody>
             </table>

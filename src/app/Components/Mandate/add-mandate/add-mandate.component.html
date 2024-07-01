@@ -37,18 +37,18 @@
             <div class="input-data" style="width:96%; margin-left: auto;">
               <label>أيام الإنتداب</label>
             </div>
-            <input type="checkbox" id="weekday-sat" formControlName="deputationDays"/>
-            <label for="weekday-sat">السبت</label>
-            <input type="checkbox" id="weekday-sun" formControlName="deputationDays"/>
-            <label for="weekday-sun">الأحد</label>
-            <input type="checkbox" id="weekday-mon" formControlName="deputationDays"/>
-            <label for="weekday-mon">الأثنين</label>
-            <input type="checkbox" id="weekday-tue" formControlName="deputationDays"/>
-            <label for="weekday-tue">الثلاثاء</label>
-            <input type="checkbox" id="weekday-wed" formControlName="deputationDays"/>
-            <label for="weekday-wed">الأربعاء</label>
-            <input type="checkbox" id="weekday-thu" formControlName="deputationDays"/>
-            <label for="weekday-thu">الخميس</label>
+            <input type="checkbox" id="weekday-1" (change)="onWeekdayChange($event, 1)"/>
+            <label for="weekday-1">السبت</label>
+            <input type="checkbox" id="weekday-2" (change)="onWeekdayChange($event, 2)"/>
+            <label for="weekday-2">الأحد</label>
+            <input type="checkbox" id="weekday-3" (change)="onWeekdayChange($event, 3)"/>
+            <label for="weekday-3">الأثنين</label>
+            <input type="checkbox" id="weekday-4" (change)="onWeekdayChange($event, 4)"/>
+            <label for="weekday-4">الثلاثاء</label>
+            <input type="checkbox" id="weekday-5" (change)="onWeekdayChange($event, 5)"/>
+            <label for="weekday-5">الأربعاء</label>
+            <input type="checkbox" id="weekday-6" (change)="onWeekdayChange($event, 6)"/>
+            <label for="weekday-6">الخميس</label>
           </div>
         </div>
 

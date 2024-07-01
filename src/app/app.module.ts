@@ -116,6 +116,7 @@ import { MandateDashboardComponent } from './Components/Mandate/mandate-dashboar
 import { AcceptMandateComponent } from './Components/Mandate/accept-mandate/accept-mandate.component';
 import { RefusedMandateComponent } from './Components/Mandate/refused-mandate/refused-mandate.component';
 import { CurrentMandateComponent } from './Components/Mandate/current-mandate/current-mandate.component';
+import { SpecialMandateComponent } from './Components/Mandate/special-mandate/special-mandate.component';
 
 @NgModule({
   declarations: [
@@ -198,6 +199,7 @@ import { CurrentMandateComponent } from './Components/Mandate/current-mandate/cu
     AcceptMandateComponent,
     RefusedMandateComponent,
     CurrentMandateComponent,
+    SpecialMandateComponent,
 
   ],
   imports: [

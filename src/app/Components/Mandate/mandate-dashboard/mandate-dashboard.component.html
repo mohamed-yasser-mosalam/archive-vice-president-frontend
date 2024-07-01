@@ -137,7 +137,51 @@
         </div>
       </div>
 
-      <div class="row" style="margin-left:35%;margin-top: 10px">
+      <div class="row" style="margin-left:30px;margin-top: 10px">
+        <div class="col-5 mx-1 mt-1"
+             style="background-color: #fff; height: 250px;  border-radius: 8px; zoom:95%;width:400px ">
+          <div
+            style="background-color: #fff; overflow: auto; height: 250px; text-align:center;  border-radius: 8px;">
+            <button type="button" class="btn btn w-10"
+                    style="padding:5px;font-weight:bold;margin-top:10px;margin-left:10px;color:var(--color);background: var(--bg_main);width:70px"
+                    routerLink="/add-special-university">
+              اضافة
+            </button>
+            <h2>
+                <label
+                  style="font-size: 20px;font-weight: lighter;color: red">
+                  <div class="wrapper" >
+                    <label style="font-size:15px"></label>
+                  </div>
+                </label> الجامعات الاستثنائية
+            </h2>
+            <table class="table" style="direction: rtl">
+              <thead style=" position: sticky; background-color: #fff;">
+              <tr>
+                <th scope="col">اسم  الجامعة</th>
+                <th scope="col">حذف  </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of specialUniversity">
+                <td>{{ item.university }}</td>
+                <td>
+                  <a class="btn" (click)="deleteSpecialUniversity(item.university)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-trash"
+                       viewBox="0 0 16 16">
+                    <path
+                      d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                    <path
+                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                  </svg>
+                </a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
 
         <div class=" mt-1"
              style="background-color: #fff; height:250px; overflow: auto; border-radius: 8px; zoom:95%;width:745px;margin-left:30px">
@@ -161,13 +205,19 @@
             <table class="table" style="direction: rtl">
               <thead style=" position: sticky; top: 44px; background-color: #fff;">
               <tr>
-                <th scope="col">المسلسل</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 <th scope="col">اسم الدكتور</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let item of showAllTodayDoctors">
-                <td>{{ item.id }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>{{ item.name }}</td>
               </tr>
               </tbody>

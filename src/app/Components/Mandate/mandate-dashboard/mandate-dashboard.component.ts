@@ -23,7 +23,7 @@ export class MandateDashboardComponent implements OnInit {
   numberOfCurrentMandate: any;
   showAllTodayDoctors: any;
   numberOfSpecialMandate: any;
-  NumberOfAllDeanDecisions: any;
+  specialUniversity: any;
   NumberOfAllImports: any;
   numberOfAllSpecial: any;
   years: any;
@@ -54,6 +54,7 @@ export class MandateDashboardComponent implements OnInit {
     this.getAllTodayMandate();
     this.getAllTodayDoctors();
     this.getAllSpecialMandateNumber();
+    this.getAllSpecialFaculty()
   }
 
   getNumberOfAllMandate() {
@@ -102,42 +103,19 @@ export class MandateDashboardComponent implements OnInit {
       this.numberOfSpecialMandate = allSpecialMandate;
     })
   }
+  getAllSpecialFaculty() {
+    return this.mandateService.getAllSpecialUniversity().subscribe((allSpecialUniversity: any) => {
+      this.specialUniversity = allSpecialUniversity;
+    })
+  }
+  deleteSpecialUniversity(universityName:any){
+    this.mandateService.deleteSpecialUniversity(universityName).subscribe((result: any) => {
+        this.mandateService.getAllSpecialUniversity();
+        window.location.reload();
+      },
+      (error: any) => {
+      }
+    )
+  }
 
-  // private getNumberOfSigns() {
-  //   this.welcomeservice.getNumberOfSigns().subscribe((numberOfAllSigns) => {
-  //     this.NumberOfAllSigns = numberOfAllSigns;
-  //   })
-  // }
-  //
-  // private getNumberOfAllDeanDecisions() {
-  //   this.welcomeservice.getNumberOfDeanDecision().subscribe((numberOfAllDeanDecisions) => {
-  //     this.NumberOfAllDeanDecisions = numberOfAllDeanDecisions;
-  //   })
-  // }
-  //
-  // getYears() {
-  //   this.welcomeservice.getYears().subscribe((years: number[]) => {
-  //     const currentYear = new Date().getFullYear();
-  //     this.years = years.filter(year => year !== currentYear);
-  //   });
-  // }
-  //
-  // getNumberOfLetterForYears() {
-  //   if (this.selectedYear) {
-  //     this.welcomeservice.getNumberOfLetterForExports(this.selectedYear).subscribe((numberOfExportLetterForSpecificYears) => {
-  //       this.numberOfExportLetterForSpecificYear = numberOfExportLetterForSpecificYears;
-  //     });
-  //   }
-  //   if (this.selectedYear) {
-  //     this.welcomeservice.getNumberOfLetterForImports(this.selectedYear).subscribe((numberOfImportLetterForSpecificYears) => {
-  //       this.numberOfImportLetterForSpecificYear = numberOfImportLetterForSpecificYears;
-  //     });
-  //   }
-  //   if (this.selectedYear) {
-  //     this.welcomeservice.getNumberOfLetterForSpecials(this.selectedYear).subscribe((numberOfSpecialLetterForSpecificYear) => {
-  //       this.numberOfSpecialLetterForSpecificYear = numberOfSpecialLetterForSpecificYear;
-  //     });
-  //   }
-  // }
-
-}
+  }

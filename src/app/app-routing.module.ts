@@ -98,6 +98,9 @@ import {AcceptMandateComponent} from "./Components/Mandate/accept-mandate/accept
 import {RefusedMandateComponent} from "./Components/Mandate/refused-mandate/refused-mandate.component";
 import {CurrentMandateComponent} from "./Components/Mandate/current-mandate/current-mandate.component";
 import {SpecialMandateComponent} from "./Components/Mandate/special-mandate/special-mandate.component";
+import {
+  AddSpecialUniversityComponent
+} from "./Components/Mandate/add-special-university/add-special-university.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -172,6 +175,7 @@ const routes: Routes = [
   {path: 'add-mandate', component:AddMandateComponent,canActivate:[CanActivate] },
   {path: 'current-mandate', component:CurrentMandateComponent,canActivate:[CanActivate] },
   {path: 'special-mandate', component:SpecialMandateComponent,canActivate:[CanActivate] },
+  {path: 'add-special-university', component:AddSpecialUniversityComponent,canActivate:[CanActivate] },
   {path: 'update-mandate/:id', component:UpdateMandateComponent,canActivate:[CanActivate] },
   {path: "**",component:ErrorPageComponent},
 

@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col-2" style="background-color: var(--bg_main);"></div>
+  <div class="col-8" style="background-color:var(--bg_main)">
+    <form class="col-8" [formGroup]="specialUniversityForm" (ngSubmit)="onSubmit()">
+      <div class="wrapper " style="direction: ltr;">
+        <legend class="text-center">ادخال جامعة إستثنائية</legend>
+
+        <div class="input-data" style="width:50%; margin-left:auto;">
+          <input type="text" required id="university" name="university" formControlName="university">
+          <label for="university">اسم الجامعة</label>
+
+        </div>
+        <button type="submit" class="btn w-25" style="background-color: var(--bg_main);" [disabled]="!specialUniversityForm.valid">حفظ</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-2 position-relative">
+    <app-sidebar></app-sidebar>
+  </div>
+</div>

@@ -45,6 +45,12 @@ export class MandateService {
   updateMandate(id: number, data: any) {
     return this.http.put(`${this.base}/deputation/deputation?id=${id}`, data)
   }
+  deleteSpecialUniversity(universityName:any){
+    return this.http.delete(`${this.base}/university/university/${universityName}`)
+  }
+  addSpecialUniversity(data:any){
+    return this.http.post(`${this.base}/university/university`,data)
+  }
   getAllAcceptsMandateNumber() {
     return this.http.get(`${this.base}/deputation/count-accepted-deputations`);
   }
@@ -54,6 +60,7 @@ export class MandateService {
   getAllSpecialMandateNumber() {
     return this.http.get(`${this.base}/deputation/count-exception-deputation`);
   }
+
   getAllMandateNumbers() {
     return this.http.get(`${this.base}/deputation/count-deputations `);
   }

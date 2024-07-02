@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MandateService } from '../../../Services/mandate/mandate.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-mandate',
@@ -11,7 +12,8 @@ export class AddMandateComponent implements OnInit {
   mandateForm: FormGroup;
   deputationDaysIds: number[] = [];
 
-  constructor(private formBuilder: FormBuilder, private mandateService: MandateService) {
+  constructor(private formBuilder: FormBuilder, private mandateService: MandateService,
+              private router: Router) {
     this.mandateForm = this.formBuilder.group({
       department: ['', Validators.required],
       name: ['', Validators.required],
@@ -44,9 +46,11 @@ export class AddMandateComponent implements OnInit {
   onSubmit() {
     if (this.mandateForm.valid) {
       const formData = this.mandateForm.value;
-      this.mandateService.addMandate(formData).subscribe(response => {
-      });
-      console.log(formData);
+      this.mandateService.addMandate(formData).subscribe(result => {
+          this.router.navigateByUrl('/add-mandate');
+          window.location.reload();
+        }
+      )
     }
   }
-}
+  }

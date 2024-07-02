@@ -25,7 +25,7 @@ export class AddSpecialUniversityComponent implements OnInit {
 
   addSpecialUniversity(specialUniversity: any) {
     this.mandateService.addSpecialUniversity(specialUniversity).subscribe(() => {
-      window.location.reload();
+      this.router.navigateByUrl('/mandate-dashboard');
     });
   }
 

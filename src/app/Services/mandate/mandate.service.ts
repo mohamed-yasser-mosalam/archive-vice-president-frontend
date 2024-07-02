@@ -41,6 +41,9 @@ export class MandateService {
   getAllSpecialUniversity() {
     return this.http.get(`${this.base}/university/university`);
   }
+  getMandateById(id:number) {
+    return this.http.get(`${this.base}/university/university`);
+  }
 
   updateMandate(id: number, data: any) {
     return this.http.put(`${this.base}/deputation/deputation?id=${id}`, data)

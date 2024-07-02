@@ -118,6 +118,9 @@ import { RefusedMandateComponent } from './Components/Mandate/refused-mandate/re
 import { CurrentMandateComponent } from './Components/Mandate/current-mandate/current-mandate.component';
 import { SpecialMandateComponent } from './Components/Mandate/special-mandate/special-mandate.component';
 import { AddSpecialUniversityComponent } from './Components/Mandate/add-special-university/add-special-university.component';
+import { UpdateEmployeePhoneComponent } from './Components/PhoneDirectory/update-employee-phone/update-employee-phone.component';
+import { UpdateFacultyPhoneComponent } from './Components/PhoneDirectory/update-faculty-phone/update-faculty-phone.component';
+import { UpdateTeachingPhoneComponent } from './Components/PhoneDirectory/update-teaching-phone/update-teaching-phone.component';
 
 @NgModule({
   declarations: [
@@ -202,6 +205,9 @@ import { AddSpecialUniversityComponent } from './Components/Mandate/add-special-
     CurrentMandateComponent,
     SpecialMandateComponent,
     AddSpecialUniversityComponent,
+    UpdateEmployeePhoneComponent,
+    UpdateFacultyPhoneComponent,
+    UpdateTeachingPhoneComponent,
 
   ],
   imports: [

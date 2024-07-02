@@ -80,6 +80,7 @@ import { AddSpecialUniversityComponent } from './Components/Mandate/add-special-
 import { UpdateEmployeePhoneComponent } from './Components/PhoneDirectory/update-employee-phone/update-employee-phone.component'
 import { UpdateFacultyPhoneComponent } from './Components/PhoneDirectory/update-faculty-phone/update-faculty-phone.component'
 import { UpdateTeachingPhoneComponent } from './Components/PhoneDirectory/update-teaching-phone/update-teaching-phone.component'
+import {UnSpecialMandateComponent} from "./Components/Mandate/un-special-mandate/un-special-mandate.component";
 
 const routes: Routes = [
   { path: 'home', component: WelcomeComponent, canActivate: [CanActivate] },
@@ -397,7 +398,7 @@ const routes: Routes = [
   },
   {
     path: 'not-special-mandate',
-    component: SpecialMandateComponent,
+    component:UnSpecialMandateComponent,
     canActivate: [CanActivate]
   },
   {

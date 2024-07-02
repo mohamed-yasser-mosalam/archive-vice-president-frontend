@@ -9,7 +9,7 @@ import { MandateService } from '../../../Services/mandate/mandate.service';
 })
 export class AddMandateComponent implements OnInit {
   mandateForm: FormGroup;
-  deputationDays: number[] = [];
+  deputationDaysIds: number[] = [];
 
   constructor(private formBuilder: FormBuilder, private mandateService: MandateService) {
     this.mandateForm = this.formBuilder.group({
@@ -18,7 +18,7 @@ export class AddMandateComponent implements OnInit {
       degree: ['', Validators.required],
       deputationUniversity: ['', Validators.required],
       deputationPeriod: ['', Validators.required],
-      deputationDays: [[], Validators.required],
+      deputationDaysIds: [[], Validators.required],
       departmentAccept: ['', Validators.required],
       departmentDate: ['', Validators.required],
       departmentRecordNum: ['', Validators.required],
@@ -36,9 +36,9 @@ export class AddMandateComponent implements OnInit {
 
   onWeekdayChange(event: any, day: number) {
     if (event.target.checked) {
-      this.deputationDays.push(day);
+      this.deputationDaysIds.push(day);
     }
-    this.mandateForm.get('deputationDays')?.setValue(this.deputationDays);
+    this.mandateForm.get('deputationDaysIds')?.setValue(this.deputationDaysIds);
   }
 
   onSubmit() {

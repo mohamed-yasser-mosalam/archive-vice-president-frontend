@@ -29,9 +29,9 @@
             <div class="input-data" style="width:96%; margin-left: auto;">
               <label>فترة الإنتداب</label>
             </div>
-            <input type="radio" formControlName="deputationPeriod" value="term1"> الترم الأول
-            <input type="radio" formControlName="deputationPeriod" value="term2"> الترم الثاني
-            <input type="radio" formControlName="deputationPeriod" value="fullYear"> العام كامل
+            <input type="radio" formControlName="deputationPeriod" value="1"> الترم الأول
+            <input type="radio" formControlName="deputationPeriod" value="2"> الترم الثاني
+            <input type="radio" formControlName="deputationPeriod" value="3"> العام كامل
           </div>
           <div class="weekDays-selector" style="margin-left: 100px">
             <div class="input-data" style="width:96%; margin-left: auto;">
@@ -56,8 +56,8 @@
           <label style="margin-left: 90%;font-weight: bold">قرار مجلس القسم</label>
           <div class="d-flex">
             <div class="d-flex" style="width:30%;">
-              <input type="radio" formControlName="departmentAccept" value="no" style="margin-left: 150px">لا
-              <input type="radio" formControlName="departmentAccept" value="yes" style="margin-left: 30px"> نعم
+              <input type="radio" formControlName="departmentAccept" value="0" style="margin-left: 150px">لا
+              <input type="radio" formControlName="departmentAccept" value="1" style="margin-left: 30px"> نعم
               <label >موافقة</label>
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
@@ -75,8 +75,8 @@
           <label style="font-weight: bold;margin-left: 90%">قرار مجلس الكلية</label>
           <div class="d-flex">
             <div class="d-flex" style="width:30%;">
-              <input type="radio" formControlName="facultyRecordAccepts" value="no" style="margin-left: 150px">لا
-              <input type="radio" formControlName="facultyRecordAccepts" value="yes" style="margin-left: 30px"> نعم
+              <input type="radio" formControlName="facultyAccept" value="0" style="margin-left: 150px">لا
+              <input type="radio" formControlName="facultyAccept" value="1" style="margin-left: 30px"> نعم
               <label>موافقة</label>
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
@@ -84,8 +84,8 @@
               <label for="facultyDate">بتاريخ</label>
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
-              <input type="number" id="facultyNum" formControlName="facultyNum" required>
-              <label for="facultyNum">محضر رقم</label>
+              <input type="number" id="facultyRecordNum" formControlName="facultyRecordNum" required>
+              <label for="facultyRecordNum">محضر رقم</label>
             </div>
           </div>
         </div>
@@ -94,8 +94,8 @@
           <label style="margin-left: 90%;font-weight: bold">قرار رئيس الجامعة</label>
           <div class="d-flex">
             <div class="d-flex" style="width:30%;">
-              <input type="radio" formControlName="universityAccept" value="no" style="margin-left: 150px">لا
-              <input type="radio" formControlName="universityAccept" value="yes" style="margin-left: 30px"> نعم
+              <input type="radio" formControlName="universityAccept" value="0" style="margin-left: 150px">لا
+              <input type="radio" formControlName="universityAccept" value="1" style="margin-left: 30px"> نعم
               <label >موافقة</label>
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
@@ -103,8 +103,8 @@
               <label for="universityDate">بتاريخ</label>
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
-              <input type="number" id="universityNumber" formControlName="universityNumber" required>
-              <label for="universityNumber">محضر رقم</label>
+              <input type="number" id="universityRecordNum" formControlName="universityRecordNum" required>
+              <label for="universityRecordNum">محضر رقم</label>
             </div>
           </div>
         </div>

@@ -22,12 +22,12 @@ export class AddMandateComponent implements OnInit {
       departmentAccept: ['', Validators.required],
       departmentDate: ['', Validators.required],
       departmentRecordNum: ['', Validators.required],
-      facultyRecordAccepts: ['', Validators.required],
+      facultyRecordNum: ['', Validators.required],
       facultyDate: ['', Validators.required],
-      facultyNum: ['', Validators.required],
+      facultyAccept: ['', Validators.required],
       universityAccept: ['', Validators.required],
       universityDate: ['', Validators.required],
-      universityNumber: ['', Validators.required],
+      universityRecordNum: ['', Validators.required],
       notes: ['']
     });
   }
@@ -37,11 +37,6 @@ export class AddMandateComponent implements OnInit {
   onWeekdayChange(event: any, day: number) {
     if (event.target.checked) {
       this.deputationDays.push(day);
-    } else {
-      // const index = this.deputationDays.indexOf(day);
-      // if (index > -1) {
-      //   this.deputationDays.splice(index, 1);
-      // }
     }
     this.mandateForm.get('deputationDays')?.setValue(this.deputationDays);
   }
@@ -50,7 +45,6 @@ export class AddMandateComponent implements OnInit {
     if (this.mandateForm.valid) {
       const formData = this.mandateForm.value;
       this.mandateService.addMandate(formData).subscribe(response => {
-        // Handle response
       });
       console.log(formData);
     }

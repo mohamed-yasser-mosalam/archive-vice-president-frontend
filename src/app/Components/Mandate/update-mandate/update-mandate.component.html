@@ -1,9 +1,135 @@
+<!--<app-navbar></app-navbar>-->
+<!--<div class="row">-->
+<!--  <div class="col-10" style="background-color:var(&#45;&#45;bg_main)">-->
+<!--    <form class="col-10" [formGroup]="editMandate" (ngSubmit)="update()">-->
+<!--      <div class="wrapper" style="direction: ltr;">-->
+<!--        <legend class="text-center">ادخال المنتدبين</legend>-->
+
+<!--        <div class="d-flex">-->
+<!--          <div class="input-data" style="width:20%; margin-left:auto;">-->
+<!--            <input type="text" id="department" formControlName="department" required>-->
+<!--            <label for="department">القسم</label>-->
+<!--          </div>-->
+<!--          <div class="input-data" style="width:20%; margin-left:auto;">-->
+<!--            <input type="text" id="name" formControlName="name" required>-->
+<!--            <label for="name">اسم عضو هيئة التدريس</label>-->
+<!--          </div>-->
+<!--          <div class="input-data" style="width:20%; margin-left:auto;">-->
+<!--            <input type="text" id="degree" formControlName="degree" required>-->
+<!--            <label for="degree">الدرجة</label>-->
+<!--          </div>-->
+<!--          <div class="input-data" style="width:20%; margin-left:auto;">-->
+<!--            <input type="text" id="deputationUniversity" formControlName="deputationUniversity" required>-->
+<!--            <label for="deputationUniversity">الكلية/الجامعة المنتسب إليها</label>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="d-flex">-->
+<!--          <div class="MandatePeriod">-->
+<!--            <div class="input-data" style="width:96%; margin-left: auto;">-->
+<!--              <label>فترة الإنتداب</label>-->
+<!--            </div>-->
+<!--            <input type="radio" formControlName="deputationPeriod" value="1"> الترم الأول-->
+<!--            <input type="radio" formControlName="deputationPeriod" value="2"> الترم الثاني-->
+<!--            <input type="radio" formControlName="deputationPeriod" value="3"> العام كامل-->
+<!--          </div>-->
+<!--          <div class="weekDays-selector" style="margin-left: 100px">-->
+<!--            <div class="input-data" style="width:96%; margin-left: auto;">-->
+<!--              <label>أيام الإنتداب</label>-->
+<!--            </div>-->
+<!--            <input type="checkbox" id="weekday-1" formControlName="deputationDaysIds"-->
+<!--                    (change)="onWeekdayChange($event, 1)"/>-->
+<!--            <label for="weekday-1">السبت</label>-->
+<!--            <input type="checkbox" id="weekday-2"value="1" formControlName="deputationDaysIds" (change)="onWeekdayChange($event, 2)"/>-->
+<!--            <label for="weekday-2">الأحد</label>-->
+<!--            <input type="checkbox" id="weekday-3" formControlName="deputationDaysIds" (change)="onWeekdayChange($event, 3)"/>-->
+<!--            <label for="weekday-3">الأثنين</label>-->
+<!--            <input type="checkbox" id="weekday-4"formControlName="deputationDaysIds"  (change)="onWeekdayChange($event, 4)"/>-->
+<!--            <label for="weekday-4">الثلاثاء</label>-->
+<!--            <input type="checkbox" id="weekday-5"formControlName="deputationDaysIds" (change)="onWeekdayChange($event, 5)"/>-->
+<!--            <label for="weekday-5">الأربعاء</label>-->
+<!--            <input type="checkbox" id="weekday-6" formControlName="deputationDaysIds"(change)="onWeekdayChange($event, 6)"/>-->
+<!--            <label for="weekday-6">الخميس</label>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div style="margin-top: 10px">-->
+<!--          <label style="margin-left: 90%;font-weight: bold">قرار مجلس القسم</label>-->
+<!--          <div class="d-flex">-->
+<!--            <div class="d-flex" style="width:30%;">-->
+<!--              <input type="radio" formControlName="departmentAccept" value="0" style="margin-left: 150px">لا-->
+<!--              <input type="radio" formControlName="departmentAccept" value="1" style="margin-left: 30px"> نعم-->
+<!--            </div>-->
+<!--            <div class="input-data" style="width:30%; margin-left:auto;">-->
+<!--              <input type="date" id="departmentDate" formControlName="departmentDate" required>-->
+<!--              <label for="departmentDate">بتاريخ</label>-->
+<!--            </div>-->
+<!--            <div class="input-data" style="width:30%; margin-left:auto;">-->
+<!--              <input type="number" id="departmentRecordNum" formControlName="departmentRecordNum" required>-->
+<!--              <label for="departmentRecordNum">محضر رقم</label>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div style="margin-top: 10px">-->
+<!--          <label style="font-weight: bold;margin-left: 90%">قرار مجلس الكلية</label>-->
+<!--          <div class="d-flex">-->
+<!--            <div class="d-flex" style="width:30%;">-->
+<!--              <input type="radio" formControlName="facultyAccept" value="0" style="margin-left: 150px">لا-->
+<!--              <input type="radio" formControlName="facultyAccept" value="1" style="margin-left: 30px"> نعم-->
+<!--            </div>-->
+<!--            <div class="input-data" style="width:30%; margin-left:auto;">-->
+<!--              <input type="date" id="facultyDate" formControlName="facultyDate" required>-->
+<!--              <label for="facultyDate">بتاريخ</label>-->
+<!--            </div>-->
+<!--            <div class="input-data" style="width:30%; margin-left:auto;">-->
+<!--              <input type="number" id="facultyRecordNum" formControlName="facultyRecordNum" required>-->
+<!--              <label for="facultyRecordNum">محضر رقم</label>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div style="margin-top: 10px">-->
+<!--          <label style="margin-left: 90%;font-weight: bold">قرار رئيس الجامعة</label>-->
+<!--          <div class="d-flex">-->
+<!--            <div class="d-flex" style="width:30%;">-->
+<!--              <input type="radio" formControlName="universityAccept" value="0" style="margin-left: 150px">لا-->
+<!--              <input type="radio" formControlName="universityAccept" value="1" style="margin-left: 30px"> نعم-->
+<!--            </div>-->
+<!--            <div class="input-data" style="width:30%; margin-left:auto;">-->
+<!--              <input type="date" id="universityDate" formControlName="universityDate" required>-->
+<!--              <label for="universityDate">بتاريخ</label>-->
+<!--            </div>-->
+<!--            <div class="input-data" style="width:30%; margin-left:auto;">-->
+<!--              <input type="number" id="universityRecordNum" formControlName="universityRecordNum" required>-->
+<!--              <label for="universityRecordNum">وارد رقم</label>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="d-flex">-->
+<!--          <button type="submit" class="btn" [disabled]="!mandateForm.valid"-->
+<!--                  style="width:100px; padding:1px;color: var(&#45;&#45;color);background: var(&#45;&#45;bg_hover);font-size:22px;margin-right:10%">-->
+<!--            حفظ-->
+<!--          </button>-->
+<!--          <div class="input-data" style="width:100%; margin:auto;">-->
+<!--            <input type="text" id="notes" formControlName="notes">-->
+<!--            <label for="notes">ملاحظات</label>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--  <div class="col-2 position-relative">-->
+<!--    <app-sidebar></app-sidebar>-->
+<!--  </div>-->
+<!--</div>-->
 <app-navbar></app-navbar>
 <div class="row">
   <div class="col-10" style="background-color:var(--bg_main)">
-    <form class="col-10" [formGroup]="editMandate" (ngSubmit)="update()">
+    <form class="col-10" [formGroup]="updateMandateForm" (ngSubmit)="onSubmit()">
       <div class="wrapper" style="direction: ltr;">
-        <legend class="text-center">ادخال المنتدبين</legend>
+        <legend class="text-center">تحديث بيانات المنتدب</legend>
 
         <div class="d-flex">
           <div class="input-data" style="width:20%; margin-left:auto;">
@@ -29,25 +155,28 @@
             <div class="input-data" style="width:96%; margin-left: auto;">
               <label>فترة الإنتداب</label>
             </div>
-            <input type="radio" formControlName="deputationPeriod" value="1"> الترم الأول
-            <input type="radio" formControlName="deputationPeriod" value="2"> الترم الثاني
-            <input type="radio" formControlName="deputationPeriod" value="3"> العام كامل
+            <div class="d-flex">
+              <input type="radio" [checked]="deputationPeriod == 3" formControlName="deputationPeriod" value="3"> العام كامل
+              <input type="radio" [checked]="deputationPeriod == 2" formControlName="deputationPeriod" value="2"> الترم الثاني
+              <input type="radio" [checked]="deputationPeriod == 1" formControlName="deputationPeriod" value="1"> الترم الأول
+            </div>
+
           </div>
           <div class="weekDays-selector" style="margin-left: 100px">
             <div class="input-data" style="width:96%; margin-left: auto;">
               <label>أيام الإنتداب</label>
             </div>
-            <input type="checkbox" id="weekday-1" (change)="onWeekdayChange($event, 1)"/>
+            <input type="checkbox" id="weekday-1" [checked]="deputationDaysIds.includes(1)" (change)="onWeekdayChange($event, 1)"/>
             <label for="weekday-1">السبت</label>
-            <input type="checkbox" id="weekday-2" (change)="onWeekdayChange($event, 2)"/>
+            <input type="checkbox" id="weekday-2" [checked]="deputationDaysIds.includes(2)" (change)="onWeekdayChange($event, 2)"/>
             <label for="weekday-2">الأحد</label>
-            <input type="checkbox" id="weekday-3" (change)="onWeekdayChange($event, 3)"/>
+            <input type="checkbox" id="weekday-3" [checked]="deputationDaysIds.includes(3)" (change)="onWeekdayChange($event, 3)"/>
             <label for="weekday-3">الأثنين</label>
-            <input type="checkbox" id="weekday-4" (change)="onWeekdayChange($event, 4)"/>
+            <input type="checkbox" id="weekday-4" [checked]="deputationDaysIds.includes(4)" (change)="onWeekdayChange($event, 4)"/>
             <label for="weekday-4">الثلاثاء</label>
-            <input type="checkbox" id="weekday-5" (change)="onWeekdayChange($event, 5)"/>
+            <input type="checkbox" id="weekday-5" [checked]="deputationDaysIds.includes(5)" (change)="onWeekdayChange($event, 5)"/>
             <label for="weekday-5">الأربعاء</label>
-            <input type="checkbox" id="weekday-6" (change)="onWeekdayChange($event, 6)"/>
+            <input type="checkbox" id="weekday-6" [checked]="deputationDaysIds.includes(6)" (change)="onWeekdayChange($event, 6)"/>
             <label for="weekday-6">الخميس</label>
           </div>
         </div>
@@ -56,8 +185,8 @@
           <label style="margin-left: 90%;font-weight: bold">قرار مجلس القسم</label>
           <div class="d-flex">
             <div class="d-flex" style="width:30%;">
-              <input type="radio" formControlName="departmentAccept" value="0" style="margin-left: 150px">لا
-              <input type="radio" formControlName="departmentAccept" value="1" style="margin-left: 30px"> نعم
+              <input type="radio" formControlName="departmentAccept" [checked]="departmentAccept == 0" [value]="0" style="margin-left: 150px">لا
+              <input type="radio" formControlName="departmentAccept" [checked]="departmentAccept == 1" [value]="1" style="margin-left: 30px"> نعم
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
               <input type="date" id="departmentDate" formControlName="departmentDate" required>
@@ -74,8 +203,8 @@
           <label style="font-weight: bold;margin-left: 90%">قرار مجلس الكلية</label>
           <div class="d-flex">
             <div class="d-flex" style="width:30%;">
-              <input type="radio" formControlName="facultyAccept" value="0" style="margin-left: 150px">لا
-              <input type="radio" formControlName="facultyAccept" value="1" style="margin-left: 30px"> نعم
+              <input type="radio" [checked]="facultyAccept == 0" formControlName="facultyAccept" value="0" style="margin-left: 150px">لا
+              <input type="radio"[checked]="facultyAccept == 1"  formControlName="facultyAccept" value="1" style="margin-left: 30px"> نعم
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
               <input type="date" id="facultyDate" formControlName="facultyDate" required>
@@ -92,8 +221,8 @@
           <label style="margin-left: 90%;font-weight: bold">قرار رئيس الجامعة</label>
           <div class="d-flex">
             <div class="d-flex" style="width:30%;">
-              <input type="radio" formControlName="universityAccept" value="0" style="margin-left: 150px">لا
-              <input type="radio" formControlName="universityAccept" value="1" style="margin-left: 30px"> نعم
+              <input type="radio"[checked]="universityAccept == 0"  formControlName="universityAccept" value="0" style="margin-left: 150px">لا
+              <input type="radio"[checked]="universityAccept == 1" formControlName="universityAccept" value="1" style="margin-left: 30px"> نعم
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
               <input type="date" id="universityDate" formControlName="universityDate" required>
@@ -107,9 +236,9 @@
         </div>
 
         <div class="d-flex">
-          <button type="submit" class="btn" [disabled]="!mandateForm.valid"
+          <button type="submit" class="btn" [disabled]="!updateMandateForm.valid"
                   style="width:100px; padding:1px;color: var(--color);background: var(--bg_hover);font-size:22px;margin-right:10%">
-            حفظ
+            تحديث
           </button>
           <div class="input-data" style="width:100%; margin:auto;">
             <input type="text" id="notes" formControlName="notes">

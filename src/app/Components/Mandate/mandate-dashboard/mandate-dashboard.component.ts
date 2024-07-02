@@ -24,7 +24,7 @@ export class MandateDashboardComponent implements OnInit {
   showAllTodayDoctors: any;
   numberOfSpecialMandate: any;
   specialUniversity: any;
-  NumberOfAllImports: any;
+  numberOfAllNotSpecial: any;
   numberOfAllSpecial: any;
   years: any;
   selectedYear: number = new Date().getFullYear();
@@ -54,7 +54,8 @@ export class MandateDashboardComponent implements OnInit {
     this.getAllTodayMandate();
     this.getAllTodayDoctors();
     this.getAllSpecialMandateNumber();
-    this.getAllSpecialFaculty()
+    this.getAllSpecialFaculty();
+    this.getNotSpecialNumber()
   }
 
   getNumberOfAllMandate() {
@@ -106,6 +107,11 @@ export class MandateDashboardComponent implements OnInit {
   getAllSpecialFaculty() {
     return this.mandateService.getAllSpecialUniversity().subscribe((allSpecialUniversity: any) => {
       this.specialUniversity = allSpecialUniversity;
+    })
+  }
+  getNotSpecialNumber() {
+    return this.mandateService.getAllNotSpecialMandateNumber().subscribe((numberOfAllNotSpecial: any) => {
+      this.numberOfAllNotSpecial = numberOfAllNotSpecial;
     })
   }
   deleteSpecialUniversity(universityName:any){

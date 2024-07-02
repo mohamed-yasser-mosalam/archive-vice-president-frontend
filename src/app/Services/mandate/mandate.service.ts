@@ -38,11 +38,14 @@ export class MandateService {
   getAllSpecialMandate() {
     return this.http.get(`${this.base}/deputation/exception-deputation`);
   }
+  getAllNotSpecialMandate() {
+    return this.http.get(`${this.base}/deputation/non-exception-deputation`);
+  }
   getAllSpecialUniversity() {
     return this.http.get(`${this.base}/university/university`);
   }
   getMandateById(id:number) {
-    return this.http.get(`${this.base}/university/university`);
+    return this.http.get(`${this.base}/deputation/deputation?id=${id}`);
   }
 
   updateMandate(id: number, data: any) {
@@ -62,6 +65,9 @@ export class MandateService {
   }
   getAllSpecialMandateNumber() {
     return this.http.get(`${this.base}/deputation/count-exception-deputation`);
+  }
+  getAllNotSpecialMandateNumber() {
+    return this.http.get(`${this.base}/deputation/count-non-exception-deputation`);
   }
 
   getAllMandateNumbers() {

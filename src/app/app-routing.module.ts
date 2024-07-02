@@ -396,6 +396,11 @@ const routes: Routes = [
     canActivate: [CanActivate]
   },
   {
+    path: 'not-special-mandate',
+    component: SpecialMandateComponent,
+    canActivate: [CanActivate]
+  },
+  {
     path: 'add-mandate',
     component: AddMandateComponent,
     canActivate: [CanActivate]
@@ -435,6 +440,7 @@ const routes: Routes = [
     component: UpdateTeachingPhoneComponent,
     canActivate: [CanActivate]
   },
+
   { path: '**', component: ErrorPageComponent }
 ]
 

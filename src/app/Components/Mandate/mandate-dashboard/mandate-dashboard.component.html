@@ -3,7 +3,19 @@
   <div class="d-flex justify-content-between">
     <div class="dashboard w-100" style=" height: 93vh">
       <div class="row" style="margin-left:2%">
-        <div class="col-md-2" style="margin-right:40px!important;">
+
+        <div class="col-md-1" style="margin-right:80px!important;margin-left: 45px">
+          <div class="box">
+            <div class="data">
+              <p>
+                <a routerLink="/not-special-mandate">
+                  الإنتدبات الغير إستثنائية</a>
+              </p>
+              <span> {{ numberOfAllNotSpecial }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1" style="margin-right:80px!important;">
           <div class="box">
             <div class="data">
               <p>
@@ -13,7 +25,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2" style="margin-right:40px!important;">
+        <div class="col-md-1" style="margin-right:80px!important;">
           <div class="box">
             <div class="data">
               <p>
@@ -24,7 +36,7 @@
           </div>
         </div>
 
-        <div class="col-md-2" style="margin-right:40px!important;">
+        <div class="col-md-1" style="margin-right:80px!important;">
           <div class="box">
             <div class="data">
               <p>
@@ -35,7 +47,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2" style="margin-right:40px!important;">
+        <div class="col-md-1" style="margin-right:80px!important;">
           <div class="box">
             <div class="data">
               <p>
@@ -47,8 +59,7 @@
           </div>
         </div>
 
-        <div class="col-md-2" >
-
+        <div class="col-md-1" style="margin-right:80px!important;">
           <div class="box">
             <div class="data">
               <p>
@@ -64,35 +75,24 @@
              style="background-color: #fff; height: 250px;  border-radius: 8px; zoom:95%;width:400px ">
           <div
             style="background-color: #fff; overflow: auto; height: 250px; text-align:center;  border-radius: 8px;">
-            <h2
-              style="font-size: 22px; padding: 10px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0;">
-              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px"
-                 routerLink="/file-has-gone">
-                <label
-                  style="font-size: 20px;font-weight: lighter;color: red">
-                  <div class="wrapper" >
-                    <label style="font-size:15px"></label>
-                  </div>
-                </label> أيام الإنتدبات
-              </a>
+            <h2>
+
+              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px;margin-left:10%"
+              >الدكاترة الموجودة فعليا في الكلية اليوم</a>
             </h2>
             <table class="table" style="direction: rtl">
-              <thead style=" position: sticky; background-color: #fff;">
+              <thead style=" position: sticky; top: 44px; background-color: #fff;">
               <tr>
                 <th scope="col">اسم الدكتور</th>
-                <th scope="col">أيام الانتدبات</th>
-                <th scope="col"> اجمالي عدد الأيام</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let item of allDaysOfMandate">
+              <tr *ngFor="let item of showAllTodayDoctors">
                 <td>{{ item.name }}</td>
-                <td><label *ngFor="let days of item.deputationDays"
-                style="margin-left: 10px">{{ days.day }} </label></td>
-                <td>{{item.count}}</td>
               </tr>
               </tbody>
             </table>
+
           </div>
 
         </div>
@@ -190,18 +190,28 @@
 
             <h2
               style="font-size: 22px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px;margin-left:65%"
-                 >الدكاترة الموجودة فعليا في الكلية اليوم</a>
-            </h2>
+              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px">
+                <label
+                  style="font-size: 20px;font-weight: lighter;color: red;margin-left: 85%">
+                  <div class="wrapper" >
+                    <label style="font-size:15px"></label>
+                  </div>
+                </label> أيام الإنتدبات
+              </a>            </h2>
             <table class="table" style="direction: rtl">
-              <thead style=" position: sticky; top: 44px; background-color: #fff;">
+              <thead style=" position: sticky; background-color: #fff;">
               <tr>
                 <th scope="col">اسم الدكتور</th>
+                <th scope="col">أيام الانتدبات</th>
+                <th scope="col"> اجمالي عدد الأيام</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let item of showAllTodayDoctors">
+              <tr *ngFor="let item of allDaysOfMandate">
                 <td>{{ item.name }}</td>
+                <td><label *ngFor="let days of item.deputationDays"
+                           style="margin-left: 10px">{{ days.day }} </label></td>
+                <td>{{item.count}}</td>
               </tr>
               </tbody>
             </table>

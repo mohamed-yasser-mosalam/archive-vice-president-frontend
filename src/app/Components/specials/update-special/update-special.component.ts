@@ -183,6 +183,7 @@ export class UpdateSpecialComponent implements OnInit {
       num: [null],
       summary: [''],
       numberOfAttachments: [''],
+      notes:[''],
       subjects: this.fb.array([])
     });
   }
@@ -242,13 +243,12 @@ export class UpdateSpecialComponent implements OnInit {
         num: data.num,
         summary: data.summary,
         numberOfAttachments: data.numberOfAttachments,
-        no:data.no
+        no:data.no,
+        notes:data.notes
       });
 
-      // Clear existing subjects and decisions
       this.subjects.clear();
 
-      // Add subjects and decisions from the fetched data
       data.subjects.forEach(subjectData => {
         const subjectFormGroup = this.createSubject(subjectData);
         this.subjects.push(subjectFormGroup);

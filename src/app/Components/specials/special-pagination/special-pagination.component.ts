@@ -40,6 +40,7 @@ export class SpecialPaginationComponent implements OnInit {
     importNum: new FormControl(''),
     typeNumber: new FormControl(''),
     num: new FormControl(''),
+    notes:new FormControl(''),
   });
 
   ngOnInit(): void {
@@ -59,6 +60,7 @@ export class SpecialPaginationComponent implements OnInit {
         importNum: new FormControl(result['importNum']),
         typeNumber: new FormControl(result['typeNumber']),
         num: new FormControl(result['num']),
+        notes:new FormControl(result['notes']),
       });
     });
 
@@ -108,6 +110,7 @@ export class SpecialPaginationComponent implements OnInit {
         importNum: new FormControl(result['importNum']),
         typeNumber: new FormControl(result['typeNumber']),
         num: new FormControl(result['num']),
+        notes:new FormControl(result['notes']),
       });
     });
     const nextPageUrl = `/special_pagination?page=/${this.page}`;

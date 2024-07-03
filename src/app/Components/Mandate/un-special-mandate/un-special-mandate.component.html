@@ -88,7 +88,8 @@
                 d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
             </svg>
           </td>
-          <td>{{ item.departmentRecordNum }}</td>
+          <td><a  routerLink = "/special_pagination?page=/{{item.departmentSpecialNum}}" style="color: black;text-decoration: black">{{ item.departmentRecordNum }} </a></td>
+
           <td>{{ item.departmentDate }}</td>
           <td>
             <label  *ngIf="item.departmentAccept;else departmentAccept">
@@ -100,7 +101,7 @@
             </label>
           </td>
           <ng-template #departmentAccept><span style="color: red">X</span></ng-template>
-          <td>{{ item.facultyRecordNum }}</td>
+          <td><a  routerLink = "/special_pagination?page=/{{item.facultySpecialNum}}" style="color: black;text-decoration: black">{{ item.facultyRecordNum }} </a></td>
           <td>{{ item.facultyDate }}</td>
           <td>
             <label  *ngIf="item.facultyAccept;else facultyAccept">

@@ -2,14 +2,14 @@ export class Mandate {
 
   id: number;
   no: number;
-  count:number;
-  deputationDaysIds:[]
-  departmentAccept:number
+  count: number;
+  deputationDaysIds: []
+  departmentAccept: number
 
   constructor(id: number, no: number, degree: string, name: string, department: string,
               deputationUniversity: string, deputationPeriod: number, deputationDays: DeputationDays[],
-              note: string,departmentRecordNum:number,deputationDaysIds:[],departmentAccept:number,
-              count:number) {
+              note: string, departmentRecordNum: number, deputationDaysIds: [], departmentAccept: number,
+              count: number) {
     this.id = id;
     this.no = no;
     this.degree = degree;
@@ -19,10 +19,10 @@ export class Mandate {
     this.deputationPeriod = deputationPeriod;
     this.deputationDays = deputationDays;
     this.note = note;
-    this.departmentRecordNum=departmentRecordNum;
-    this.count=count;
-    this.deputationDaysIds=deputationDaysIds;
-    this.departmentAccept=departmentAccept
+    this.departmentRecordNum = departmentRecordNum;
+    this.count = count;
+    this.deputationDaysIds = deputationDaysIds;
+    this.departmentAccept = departmentAccept
   }
 
   degree: string;
@@ -32,9 +32,12 @@ export class Mandate {
   deputationPeriod: number;
   deputationDays: DeputationDays[]
   note: string;
-  departmentRecordNum:number
+  departmentRecordNum: number
+  departmentSpecialNum: number
+  facultySpecialNum: number
 }
-export  interface DeputationDays{
-  id:number
-  day:string
+
+export interface DeputationDays {
+  id: number
+  day: string
 }

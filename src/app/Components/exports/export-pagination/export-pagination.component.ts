@@ -63,7 +63,6 @@ export class ExportPaginationComponent implements OnInit {
     }
   }
 
-  // Save the collection size to local storage
   saveCollectionSize(size: number) {
     localStorage.setItem('collectionSize', size.toString());
   }

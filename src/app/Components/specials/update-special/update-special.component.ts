@@ -230,10 +230,15 @@ export class UpdateSpecialComponent implements OnInit {
 
   updateSpecialFile(data:any): void {
     this.specialService.updateSpecial(this.specialFileId, data).subscribe(() => {
-       this.router.navigate([`/special_pagination?page=/`,this.specialFileId]);
+       this.router.navigate([`/special_pagination?page=/`,this.no]);
     });
   }
+  showSpecialFile() {
+    this.specialService.getSpecialsById(this.specialFileId).subscribe((getSpecial: any) => {
+      this.no = getSpecial.no;
+      });
 
+  }
   loadSpecialFile(): void {
     this.specialFileId = this.route.snapshot.params['id'];
     this.specialService.getSpecialsById(this.specialFileId).subscribe((data: any) => {
@@ -258,6 +263,7 @@ export class UpdateSpecialComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadSpecialFile();
+    this.showSpecialFile()
   }
 }
 

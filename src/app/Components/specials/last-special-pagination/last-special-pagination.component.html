@@ -88,12 +88,11 @@
 
 
           <div class="col-8 position-relative"
-
                style="background-color: var(--bg_main); height: 250px; overflow: auto; border-radius: 8px;
-              zoom:95%;width:1000px ;margin-top: 20px ">
+              zoom:95%;width:1000px ;margin-top: 30px;margin-left: 40px ">
             <div
               style="background-color: var(--bg_main); overflow: auto; height: 200px; text-align:right;  border-radius: 8px;">
-              <table class="table  table-bordered   " style="direction: rtl;background-color:var(--bg)">
+              <table class="table  table-bordered   " style="direction: rtl;background-color:var(--bg_main)">
                 <thead style=" position: sticky; top: 44px; background-color: var(--bg);">
                 <tr>
                 </tr>
@@ -101,7 +100,7 @@
                 <td style="font-weight: bolder;font-size:25px;margin-right:100%;margin-top: 10px">({{ item.num }}
                   /0) {{ item.head }}
                 </td>
-                <tr *ngFor="let i of item.decisions">
+                <tr *ngFor="let i of item.decision">
                   <td style="font-size: 20px"> ({{ i.num }}/{{ item.num }}) {{ i.summary }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;القرار&nbsp;&nbsp;({{ i.qarar }}
                     )
                   </td>

@@ -44,7 +44,7 @@ export class SpecialPaginationComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.pageLength = localStorage.getItem('collectionSize') ? parseInt(localStorage.getItem('collectionSize')!) : 0;
+    this.loadCollectionSize();
     this.getSpecialCount();
     this.showSpecialFile();
     this.specialService.getSpecialsByPagination(this.page).subscribe((result) => {
@@ -73,7 +73,6 @@ export class SpecialPaginationComponent implements OnInit {
   showSpecialFile() {
     this.specialService.getSpecialsByPagination(this.page).subscribe((getSpecial: any) => {
       this.showSpecials = getSpecial;
-      console.log(this.showSpecials)
       this.paths = this.showSpecials.paths.map((path: string) => {
         return this.base + path;
       });
@@ -86,11 +85,21 @@ export class SpecialPaginationComponent implements OnInit {
       this.no=this.showSpecials.no;
     });
   }
+  loadCollectionSize() {
+    const savedSize = localStorage.getItem('collectionSize');
+    if (savedSize) {
+      this.pageLength = parseInt(savedSize, 10);
+    }
+  }
+
+  saveCollectionSize(size: number) {
+    localStorage.setItem('collectionSize', size.toString());
+  }
 
   getSpecialCount() {
     this.specialService.getSpecialNumber().subscribe((numberOfSpecialFiles: any) => {
       this.pageLength = numberOfSpecialFiles;
-      localStorage.setItem('collectionSize', this.pageLength.toString());
+      this.saveCollectionSize(this.pageLength);
     });
   }
 

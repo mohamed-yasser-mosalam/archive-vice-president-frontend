@@ -9,7 +9,7 @@
             <div class="data">
               <p>
                 <a routerLink="/not-special-mandate">
-                  الإنتدبات الغير إستثنائية</a>
+                  الإنتدابات الغير إستثنائية</a>
               </p>
               <span> {{ numberOfAllNotSpecial }}</span>
             </div>
@@ -19,7 +19,7 @@
           <div class="box">
             <div class="data">
               <p>
-                <a routerLink="/special-mandate">الإنتدبات الاستثنائية</a>
+                <a routerLink="/special-mandate">الإنتدابات الاستثنائية</a>
               </p>
               <span> {{ numberOfSpecialMandate }}</span>
             </div>
@@ -29,7 +29,7 @@
           <div class="box">
             <div class="data">
               <p>
-                <a routerLink="/current-mandate">الإنتدبات الحالية</a>
+                <a routerLink="/current-mandate">الإنتدابات الحالية</a>
               </p>
               <span> {{ numberOfCurrentMandate }}</span>
             </div>
@@ -63,7 +63,7 @@
           <div class="box">
             <div class="data">
               <p>
-                <a routerLink="/all-mandate">الإنتدبات</a>
+                <a routerLink="/all-mandate">الإنتدابات</a>
               </p>
               <span> {{ numberOfAllMandate }}</span>
             </div>
@@ -119,14 +119,12 @@
             <table class="table" style="direction: rtl">
               <thead style=" position: sticky; top: 44px; background-color: #fff;">
               <tr>
-                <th>المسلسل</th>
                 <th scope="col">اسم الدكتور</th>
                 <th scope="col">الجامعة المنتدب إليها</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let item of showAllTodayMandate">
-                <td>{{ item.id }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.deputationUniversity }}</td>
               </tr>
@@ -142,7 +140,7 @@
              style="background-color: #fff; height: 250px;  border-radius: 8px; zoom:95%;width:400px ">
           <div
             style="background-color: #fff; overflow: auto; height: 250px; text-align:center;  border-radius: 8px;">
-            <button type="button" class="btn btn w-10"
+            <button type="button" class="btn btn w-10" *ngIf="roleOfUser=='admin'"
                     style="padding:5px;font-weight:bold;margin-top:10px;margin-left:10px;color:var(--color);background: var(--bg_main);width:70px"
                     routerLink="/add-special-university">
               اضافة
@@ -153,7 +151,7 @@
                   <div class="wrapper" >
                     <label style="font-size:15px"></label>
                   </div>
-                </label> الجامعات الاستثنائية
+                </label> الجامعات الإستثنائية
             </h2>
             <table class="table" style="direction: rtl">
               <thead style=" position: sticky; background-color: #fff;">
@@ -196,13 +194,13 @@
                   <div class="wrapper" >
                     <label style="font-size:15px"></label>
                   </div>
-                </label> أيام الإنتدبات
+                </label> أيام الإنتدابات
               </a>            </h2>
             <table class="table" style="direction: rtl">
               <thead style=" position: sticky; background-color: #fff;">
               <tr>
                 <th scope="col">اسم الدكتور</th>
-                <th scope="col">أيام الانتدبات</th>
+                <th scope="col">أيام الإنتدابات</th>
                 <th scope="col"> اجمالي عدد الأيام</th>
               </tr>
               </thead>

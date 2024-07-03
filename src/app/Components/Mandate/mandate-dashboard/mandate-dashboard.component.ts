@@ -10,6 +10,7 @@ import {ImportServiceService} from "../../../Services/ImportsServices/import-ser
 import {SpecialService} from "../../../Services/SpecialService/special.service";
 import {MandateService} from "../../../Services/mandate/mandate.service";
 import {Mandate} from "../../../Models/mandate/mandate";
+import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
 
 @Component({
   selector: 'app-mandate-dashboard',
@@ -25,7 +26,7 @@ export class MandateDashboardComponent implements OnInit {
   numberOfSpecialMandate: any;
   specialUniversity: any;
   numberOfAllNotSpecial: any;
-  numberOfAllSpecial: any;
+  roleOfUser=this.auth.getUserRoles();
   years: any;
   selectedYear: number = new Date().getFullYear();
   numberOfLetterForYears: any
@@ -39,7 +40,7 @@ export class MandateDashboardComponent implements OnInit {
   constructor(private http: HttpClient,
               private service: TodayServiceService,
               private mandateService:  MandateService,
-              private exportService: ExportServiceService,
+              private auth: AuthenticationServiceService,
               private importService: ImportServiceService,
               private specialService: SpecialService
   ) {

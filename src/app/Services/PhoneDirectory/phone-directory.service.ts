@@ -46,4 +46,27 @@ export class PhoneDirectoryService {
   showAllEmployeePhoneDirectory() {
     return this.http.get(`${this.base}/e-phone/e-phones`)
   }
+  updateTeachingPhoneDirectory(id:number,data:any) {
+    return this.http.post(`${this.base}/t-phone/t-phones`,data)
+  }
+
+  updateFacultyPhoneDirectory(data:any) {
+    return this.http.post(`${this.base}/f-phone/f-phones`,data)
+  }
+
+  updateEmployeePhoneDirectory(data:any) {
+    return this.http.post(`${this.base}/e-phone/e-phones`,data)
+  }
+  showTeachingPhoneDirectoryById(id:number) {
+    return this.http.get(`${this.base}/t-phone/t-phones`)
+  }
+
+  showFacultyPhoneDirectoryById(id:number) {
+    return this.http.get(`${this.base}/f-phone/f-phones`)
+  }
+
+  showEmployeePhoneDirectoryById(id:number) {
+    return this.http.get(`${this.base}/e-phone/e-phones`)
+  }
+
 }

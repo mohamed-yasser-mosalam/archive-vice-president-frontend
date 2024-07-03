@@ -6,46 +6,43 @@
         <div class="wrapper " style="direction: ltr;">
             <legend class="text-center">تعديل دليل الاتصال بأعضاء هيئة التدريس</legend>
 
-            <div class="d-flex">
+            <div class="d-flex" style="margin-top: 20px">
               <div class="input-data" style="width:30%; margin-left:auto;">
-                <input type="number" required>
+                <input type="number" formControlName="id" readonly>
                 <label >القيد</label>
-               
               </div>
-    
               <div class="input-data" style="width:30%; margin-left:auto;">
-                <input type="text"required>
+                <input type="text" formControlName="name">
                 <label >الأسم</label>
-    
               </div>
               <div class="input-data" style="width:30%; margin-left:auto;">
-                <input type="text"required>
+                <input type="text" formControlName="job">
                 <label >الوظيفة</label>
               </div>
             </div>
             <div class="input-data" style="width:96%; margin-left: auto;">
-              <input cols="40" rows="1"  required>
+              <input cols="40" rows="1"  formControlName="department">
               <label>القسم</label>
-    
+
             </div>
             <div class="d-flex">
               <div class="input-data" style="width:40%; margin:auto;">
-                <input type="text" required>
+                <input type="text" formControlName="mobile">
                 <label>الموبايل</label>
-    
+
               </div>
               <div class="input-data" style="width:45%; margin-left:auto;">
-                <input type="text" required>
+                <input type="text" formControlName="address">
                 <label>العنوان</label>
               </div>
             </div>
             <div class="input-data" style="width:45%; margin-left:auto;">
-              <input type="text" required>
+              <input type="text" formControlName="email">
               <label>الايميل</label>
             </div>
             <div class="input-data" style="width:45%; margin-left:auto;">
-              <input type="text" required>
-              <label for="notes">الملاحظات</label>
+              <input type="text" formControlName="notes">
+              <label for="">الملاحظات</label>
             </div>
 
               <button type="submit" class="btn w-25" style="background-color: var(--bg_main); position: relative; top:20px">حفظ</button>

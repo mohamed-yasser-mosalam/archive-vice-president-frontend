@@ -44,11 +44,11 @@
             <td>{{ item.summary }}</td>
             <td>{{ item.recipientName }}</td>
             <td>{{ item.recipientDate }}</td>
-            <td><a style="color: black"
+            <td><a style="color: black;text-decoration: black"
                    routerLink="/export-pagination?page=/{{ item.responseNumber }}">{{ item.responseNumber }}</a></td>
             <td>{{ item.responseDate }}</td>
             <td>{{ item.responseSide }}</td>
-            <td ><a *ngIf="item.saved!=0" style="color: black" routerLink = "/special_pagination?page=/{{item.saved}}">{{ item.saved }}</a></td>
+            <td ><a *ngIf="item.saved!=0" style="color: black;text-decoration: black" routerLink = "/special_pagination?page=/{{item.saved}}">{{ item.saved }}</a></td>
             <td>{{ item.typeNumber }}/{{ item.num }}</td>
             <td>{{ item.expectResponseDate }}</td>
             <td>

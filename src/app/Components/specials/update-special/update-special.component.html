@@ -14,6 +14,7 @@
                 <input type="text" required id="sender" name="sender" formControlName="sender">
                 <div class="underLine"></div>
                 <label for="sender">الجهة الوارد منها الخطاب</label>
+                <small *ngIf="form.get('sender')?.invalid">* مطلوب</small>
               </div>
             </div>
 
@@ -22,6 +23,7 @@
                 <input type="number" required id="num" name="num" formControlName="num">
                 <div class="underLine"></div>
                 <label for="num">رقم الملف</label>
+                <small *ngIf="form.get('num')?.invalid">* مطلوب</small>
               </div>
             </div>
           </div>
@@ -30,6 +32,7 @@
             <input type="text" required id="summary" name="summary" formControlName="summary">
             <div class="underLine"></div>
             <label for="summary" style="margin-right: 0!important;">ملخص الخطاب</label>
+            <small *ngIf="form.get('summary')?.invalid">* مطلوب</small>
           </div>
 
           <div style="display: flex; justify-content: space-between;">
@@ -38,6 +41,7 @@
                 <input type="date" required id="incomeDate" name="incomeDate" formControlName="incomeDate">
                 <div class="underLine"></div>
                 <label for="incomeDate">تاريخ</label>
+                <small *ngIf="form.get('incomeDate')?.invalid">* مطلوب</small>
               </div>
             </div>
 
@@ -46,7 +50,8 @@
                 <input type="number" required id="numberOfAttachments" name="numberOfAttachments" formControlName="numberOfAttachments">
                 <div class="underLine"></div>
                 <label for="numberOfAttachments">عدد المرفقات</label>
-            </div>
+                <small *ngIf="form.get('numberOfAttachments')?.invalid">* مطلوب</small>
+              </div>
             <div class="input-data">
               <input type="text" required id="notes" name="notes" formControlName="notes">
               <div class="underLine"></div>
@@ -111,7 +116,8 @@
             </div>
           </div>
 
-          <button type="submit" class="btn m-auto" style="color: var(--color);background-color: var(--bg_hover);width:150px;height:30px;">تأكيد التحديث</button>
+          <button type="submit" class="btn m-auto" style="color: var(--color);background-color: var(--bg_hover);width:150px;height:30px;"
+                  [disabled]="!form.valid">تأكيد التحديث</button>
         </div>
       </form>
     </div>

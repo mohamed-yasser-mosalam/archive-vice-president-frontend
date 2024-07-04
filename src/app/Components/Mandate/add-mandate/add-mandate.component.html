@@ -9,18 +9,22 @@
           <div class="input-data" style="width:20%; margin-left:auto;">
             <input type="text" id="department" formControlName="department" required>
             <label for="department">القسم</label>
+            <small *ngIf="mandateForm.get('departmentDate')?.invalid">* مطلوب</small>
           </div>
           <div class="input-data" style="width:20%; margin-left:auto;">
             <input type="text" id="name" formControlName="name" required>
             <label for="name">اسم عضو هيئة التدريس</label>
+            <small *ngIf="mandateForm.get('name')?.invalid">* مطلوب</small>
           </div>
           <div class="input-data" style="width:20%; margin-left:auto;">
             <input type="text" id="degree" formControlName="degree" required>
             <label for="degree">الدرجة</label>
+            <small *ngIf="mandateForm.get('degree')?.invalid">* مطلوب</small>
           </div>
           <div class="input-data" style="width:20%; margin-left:auto;">
             <input type="text" id="deputationUniversity" formControlName="deputationUniversity" required>
             <label for="deputationUniversity">الكلية/الجامعة المنتسب إليها</label>
+            <small *ngIf="mandateForm.get('deputationUniversity')?.invalid">* مطلوب</small>
           </div>
         </div>
 
@@ -28,6 +32,7 @@
           <div class="MandatePeriod">
             <div class="input-data" style="width:96%; margin-left: auto;">
               <label>فترة الإنتداب</label>
+              <small *ngIf="mandateForm.get('deputationPeriod')?.invalid">* مطلوب</small>
             </div>
             <input type="radio" formControlName="deputationPeriod" value="1"> الترم الأول
             <input type="radio" formControlName="deputationPeriod" value="2"> الترم الثاني
@@ -36,6 +41,7 @@
           <div class="weekDays-selector" style="margin-left: 100px">
             <div class="input-data" style="width:96%; margin-left: auto;">
               <label>أيام الإنتداب</label>
+              <small *ngIf="mandateForm.get('deputationDaysIds')?.invalid">* مطلوب</small>
             </div>
             <input type="checkbox" id="weekday-1" (change)="onWeekdayChange($event, 1)"/>
             <label for="weekday-1">السبت</label>
@@ -56,20 +62,24 @@
           <label style="margin-left: 90%;font-weight: bold">قرار مجلس القسم</label>
           <div class="d-flex">
             <div class="d-flex" style="width:30%;">
+              <small *ngIf="mandateForm.get('departmentAccept')?.invalid">* مطلوب</small>
               <input type="radio" formControlName="departmentAccept" value="0" style="margin-left: 150px">لا
               <input type="radio" formControlName="departmentAccept" value="1" style="margin-left: 30px"> نعم
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
               <input type="date" id="departmentDate" formControlName="departmentDate" required>
               <label for="departmentDate">بتاريخ</label>
+              <small *ngIf="mandateForm.get('departmentDate')?.invalid">* مطلوب</small>
             </div>
             <div class="input-data" style="width:15%; margin-left:auto;">
               <input type="number" id="departmentSpecialNum" formControlName="departmentSpecialNum" required>
               <label for="departmentSpecialNum">خاص رقم</label>
+              <small *ngIf="mandateForm.get('departmentSpecialNum')?.invalid">* مطلوب</small>
             </div>
             <div class="input-data" style="width:15%; margin-left:auto;">
               <input type="number" id="departmentRecordNum" formControlName="departmentRecordNum" required>
               <label for="departmentRecordNum">محضر رقم</label>
+              <small *ngIf="mandateForm.get('departmentRecordNum')?.invalid">* مطلوب</small>
             </div>
           </div>
         </div>
@@ -82,15 +92,15 @@
               <input type="radio" formControlName="facultyAccept" value="1" style="margin-left: 30px"> نعم
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
-              <input type="date" id="facultyDate" formControlName="facultyDate" required>
+              <input type="date" id="facultyDate" formControlName="facultyDate"  >
               <label for="facultyDate">بتاريخ</label>
             </div>
             <div class="input-data" style="width:15%; margin-left:auto;">
-              <input type="number" id="facultySpecialNum" formControlName="facultySpecialNum" required>
+              <input type="number" id="facultySpecialNum" formControlName="facultySpecialNum"  >
               <label for="facultySpecialNum">خاص رقم</label>
             </div>
             <div class="input-data" style="width:15%; margin-left:auto;">
-              <input type="number" id="facultyRecordNum" formControlName="facultyRecordNum" required>
+              <input type="number" id="facultyRecordNum" formControlName="facultyRecordNum"  >
               <label for="facultyRecordNum">محضر رقم</label>
             </div>
           </div>
@@ -104,11 +114,11 @@
               <input type="radio" formControlName="universityAccept" value="1" style="margin-left: 30px"> نعم
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
-              <input type="date" id="universityDate" formControlName="universityDate" required>
+              <input type="date" id="universityDate" formControlName="universityDate"  >
               <label for="universityDate">بتاريخ</label>
             </div>
             <div class="input-data" style="width:30%; margin-left:auto;">
-              <input type="number" id="universityRecordNum" formControlName="universityRecordNum" required>
+              <input type="number" id="universityRecordNum" formControlName="universityRecordNum"  >
               <label for="universityRecordNum">وارد رقم</label>
             </div>
           </div>

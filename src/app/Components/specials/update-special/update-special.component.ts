@@ -160,7 +160,7 @@
 
 
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SpecialService} from "../../../Services/SpecialService/special.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
@@ -178,11 +178,11 @@ export class UpdateSpecialComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router, private route: ActivatedRoute, private http: HttpClient) {
     this.form = this.fb.group({
-      incomeDate: [null],
-      sender: [''],
-      num: [null],
-      summary: [''],
-      numberOfAttachments: [''],
+      incomeDate: [null, [Validators.required, Validators.minLength(1)]],
+      sender: ['',[Validators.required, Validators.minLength(1)]],
+      num: [null,[Validators.required, Validators.minLength(1)]],
+      summary: ['',[Validators.required, Validators.minLength(1)]],
+      numberOfAttachments: ['',[Validators.required, Validators.minLength(1)]],
       notes:[''],
       subjects: this.fb.array([])
     });

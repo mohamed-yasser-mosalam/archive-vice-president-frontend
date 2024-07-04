@@ -136,3 +136,6 @@ small{
 .departmentAccept  input[type=radio]{
 
 }
+small{
+  color: red;
+}

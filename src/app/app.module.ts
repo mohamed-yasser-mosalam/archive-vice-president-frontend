@@ -122,6 +122,7 @@ import { UpdateEmployeePhoneComponent } from './Components/PhoneDirectory/update
 import { UpdateFacultyPhoneComponent } from './Components/PhoneDirectory/update-faculty-phone/update-faculty-phone.component';
 import { UpdateTeachingPhoneComponent } from './Components/PhoneDirectory/update-teaching-phone/update-teaching-phone.component';
 import { UnSpecialMandateComponent } from './Components/Mandate/un-special-mandate/un-special-mandate.component';
+import { AllLastMandateComponent } from './Components/Mandate/all-last-mandate/all-last-mandate.component';
 
 @NgModule({
   declarations: [
@@ -210,6 +211,7 @@ import { UnSpecialMandateComponent } from './Components/Mandate/un-special-manda
     UpdateFacultyPhoneComponent,
     UpdateTeachingPhoneComponent,
     UnSpecialMandateComponent,
+    AllLastMandateComponent,
 
   ],
   imports: [

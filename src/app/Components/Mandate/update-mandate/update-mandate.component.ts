@@ -121,6 +121,7 @@ export class UpdateMandateComponent implements OnInit {
       facultyRecordNum: ['', Validators.required],
       facultyDate: ['', Validators.required],
       facultyAccept: ['', Validators.required],
+      facultySpecialNum:['', Validators.required],
       universityAccept: ['', Validators.required],
       universityDate: ['', Validators.required],
       universityRecordNum: ['', Validators.required],

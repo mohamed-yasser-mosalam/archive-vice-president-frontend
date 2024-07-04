@@ -21,7 +21,7 @@ export class AddMandateComponent implements OnInit {
       deputationUniversity: ['', Validators.required],
       deputationPeriod: ['', Validators.required],
       deputationDaysIds: [[], Validators.required],
-      departmentAccept: ['', Validators.required],
+      departmentAccept: [''],
       departmentDate: ['', Validators.required],
       departmentRecordNum: ['', Validators.required],
       departmentSpecialNum: [''],

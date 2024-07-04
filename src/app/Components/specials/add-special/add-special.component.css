@@ -137,3 +137,6 @@ form {
   margin: 0 !important;
   background-color: var(--bg);
 }
+small{
+  color :red;
+}

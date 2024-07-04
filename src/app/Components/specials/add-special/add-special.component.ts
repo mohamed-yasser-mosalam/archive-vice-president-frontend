@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SpecialService} from "../../../Services/SpecialService/special.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
@@ -16,12 +16,12 @@ export class AddSpecialComponent implements OnInit{
   constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router,
               private http: HttpClient) {
     this.form = this.fb.group({
-      incomeDate: [null],
-      sender: [''],
-      num: [null],
-      summary: [''],
-      numberOfAttachments: [''],
-      showSubjects: [false],
+      incomeDate: [null, [Validators.required, Validators.minLength(1)]],
+      sender: ['', [Validators.required, Validators.minLength(1)]],
+      num: [null, [Validators.required, Validators.minLength(1)]],
+      summary: ['', [Validators.required, Validators.minLength(1)]],
+      numberOfAttachments: ['', [Validators.required, Validators.minLength(1)]],
+      showSubjects: [false, [Validators.required, Validators.minLength(1)]],
       subjects: this.fb.array([this.createSubject()])
     });
   }

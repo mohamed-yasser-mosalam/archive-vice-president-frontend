@@ -24,7 +24,7 @@ export class AddMandateComponent implements OnInit {
       departmentAccept: ['', Validators.required],
       departmentDate: ['', Validators.required],
       departmentRecordNum: ['', Validators.required],
-      departmentSpecialNum: ['', Validators.required],
+      departmentSpecialNum: [''],
       facultyRecordNum: [''],
       facultyDate: [''],
       facultyAccept:  [''],

@@ -17,6 +17,9 @@ export class MandateService {
   getAllMandate() {
     return this.http.get(`${this.base}/deputation/deputations`);
   }
+  getAllLastMandate() {
+    return this.http.get(`${this.base}/deputation/all-deputations`);
+  }
   getAllAcceptsMandate() {
     return this.http.get(`${this.base}/deputation/accepted-deputations`);
   }

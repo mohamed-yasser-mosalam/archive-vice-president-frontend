@@ -81,6 +81,7 @@ import { UpdateEmployeePhoneComponent } from './Components/PhoneDirectory/update
 import { UpdateFacultyPhoneComponent } from './Components/PhoneDirectory/update-faculty-phone/update-faculty-phone.component'
 import { UpdateTeachingPhoneComponent } from './Components/PhoneDirectory/update-teaching-phone/update-teaching-phone.component'
 import {UnSpecialMandateComponent} from "./Components/Mandate/un-special-mandate/un-special-mandate.component";
+import {AllLastMandateComponent} from "./Components/Mandate/all-last-mandate/all-last-mandate.component";
 
 const routes: Routes = [
   { path: 'home', component: WelcomeComponent, canActivate: [CanActivate] },
@@ -384,6 +385,11 @@ const routes: Routes = [
   {
     path: 'all-mandate',
     component: AllMandateComponent,
+    canActivate: [CanActivate]
+  },
+  {
+    path: 'all-last-mandates',
+    component:AllLastMandateComponent,
     canActivate: [CanActivate]
   },
   {

@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-2" style="background-color: var(--bg_main);"></div>
   <div class="col-9" style="background-color:var(--bg_main)">
-    <form class="col-8">
+    <form class="col-8"  [formGroup]="editTeachingPhone" (ngSubmit)="update()">
         <div class="wrapper " style="direction: ltr;">
             <legend class="text-center">تعديل دليل الاتصال بأعضاء هيئة التدريس</legend>
 
@@ -42,7 +42,7 @@
             </div>
             <div class="input-data" style="width:45%; margin-left:auto;">
               <input type="text" formControlName="notes">
-              <label for="">الملاحظات</label>
+              <label >الملاحظات</label>
             </div>
 
               <button type="submit" class="btn w-25" style="background-color: var(--bg_main); position: relative; top:20px">حفظ</button>

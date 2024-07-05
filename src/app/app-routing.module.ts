@@ -433,17 +433,17 @@ const routes: Routes = [
     canActivate: [CanActivate]
   },
   {
-    path: 'update-employee-phone',
+    path: 'update-employee-phone/:id',
     component: UpdateEmployeePhoneComponent,
     canActivate: [CanActivate]
   },
   {
-    path: 'update-faculty-phone',
+    path: 'update-faculty-phone/:id',
     component: UpdateFacultyPhoneComponent,
     canActivate: [CanActivate]
   },
   {
-    path: 'update-teaching-phone',
+    path: 'update-teaching-phone/:id',
     component: UpdateTeachingPhoneComponent,
     canActivate: [CanActivate]
   },

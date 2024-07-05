@@ -47,26 +47,26 @@ export class PhoneDirectoryService {
     return this.http.get(`${this.base}/e-phone/e-phones`)
   }
   updateTeachingPhoneDirectory(id:number,data:any) {
-    return this.http.post(`${this.base}/t-phone/t-phones`,data)
+    return this.http.put(`${this.base}/t-phone/t-phone?id=${id}`, data)
   }
 
-  updateFacultyPhoneDirectory(data:any) {
-    return this.http.post(`${this.base}/f-phone/f-phones`,data)
+  updateFacultyPhoneDirectory(id:number,data:any) {
+    return this.http.post(`${this.base}/f-phone/f-phone?id=${id}`,data)
   }
 
-  updateEmployeePhoneDirectory(data:any) {
-    return this.http.post(`${this.base}/e-phone/e-phones`,data)
+  updateEmployeePhoneDirectory(id:number,data:any) {
+    return this.http.post(`${this.base}/e-phone/e-phone?id=${id}`,data)
   }
   showTeachingPhoneDirectoryById(id:number) {
-    return this.http.get(`${this.base}/t-phone/t-phones`)
+    return this.http.get(`${this.base}/t-phone/t-phone?id=${id}`)
   }
 
   showFacultyPhoneDirectoryById(id:number) {
-    return this.http.get(`${this.base}/f-phone/f-phones`)
+    return this.http.get(`${this.base}/f-phone/f-phone?id=${id}`)
   }
 
   showEmployeePhoneDirectoryById(id:number) {
-    return this.http.get(`${this.base}/e-phone/e-phones`)
+    return this.http.get(`${this.base}/e-phone/e-phone?id=${id}`)
   }
 
 }

@@ -45,7 +45,7 @@ export class UpdateTeachingPhoneComponent implements OnInit {
         notes: new FormControl(result['notes']),
       })
     })
-    this.showExportFile()
+    console.log(this.editTeachingPhone)
   }
 
   constructor(private teachingPhoneService: PhoneDirectoryService, private routes: ActivatedRoute, private router: Router,
@@ -59,10 +59,6 @@ export class UpdateTeachingPhoneComponent implements OnInit {
       })
   }
 
-  showExportFile() {
-    this.teachingPhoneService.showTeachingPhoneDirectoryById(this.id).subscribe((getTeachingPhone: any) => {
-      this.showTeachingPhone = getTeachingPhone;
-    })
-  }
+
 
 }

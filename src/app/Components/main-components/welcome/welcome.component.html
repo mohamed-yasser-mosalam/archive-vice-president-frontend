@@ -190,7 +190,7 @@
              width:450px ">
           <h2
             style="font-size: 22px;  background-color: #fff; color: #3333338f;padding-top:20px">
-            <select class="px-2 mx-4" [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()">
+            <select class="px-2 mx-4"  [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()">
               <option selected="selected">أختار السنة</option>
               <option *ngFor="let year of years">{{ year }}</option>
             </select>

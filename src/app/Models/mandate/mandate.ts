@@ -5,11 +5,11 @@ export class Mandate {
   count: number;
   deputationDaysIds: []
   departmentAccept: number
-
+   notice:boolean;
   constructor(id: number, no: number, degree: string, name: string, department: string,
               deputationUniversity: string, deputationPeriod: number, deputationDays: DeputationDays[],
               note: string, departmentRecordNum: number, deputationDaysIds: [], departmentAccept: number,
-              count: number) {
+              count: number,notice:boolean) {
     this.id = id;
     this.no = no;
     this.degree = degree;
@@ -23,6 +23,7 @@ export class Mandate {
     this.count = count;
     this.deputationDaysIds = deputationDaysIds;
     this.departmentAccept = departmentAccept
+    this.notice=notice
   }
 
   degree: string;

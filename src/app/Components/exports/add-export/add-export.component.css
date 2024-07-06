@@ -48,10 +48,10 @@ form {
   border: none;
 }
 
-.input-data input:focus~label,
-.input-data input:valid~label,
-.input-data textarea:focus~label,
-.input-data textarea:valid~label {
+.input-data input:focus ~ label,
+.input-data input:valid ~ label,
+.input-data textarea:focus ~ label,
+.input-data textarea:valid ~ label {
   transform: translateY(-35px);
   font-size: 15px;
   color: var(--color);
@@ -66,6 +66,8 @@ form {
   transition: .3s ease;
   text-align: center;
   direction: rtl;
+  font-weight: bold;
+  font-size: 15px
 }
 
 .wrapper .input-data .underLine {
@@ -90,16 +92,17 @@ form {
   bottom: -123px;
 }
 
-.input-data input:focus~.underLine::before,
-.input-data input:valid~.underLine::before,
-.input-data textarea:focus~.underLine-text::before,
-.input-data textarea:valid~.underLine-text::before {
+.input-data input:focus ~ .underLine::before,
+.input-data input:valid ~ .underLine::before,
+.input-data textarea:focus ~ .underLine-text::before,
+.input-data textarea:valid ~ .underLine-text::before {
   transform: scaleX(1);
 }
 
 .input-container {
   width: 45%;
 }
-small{
+
+small {
   color: red;
 }

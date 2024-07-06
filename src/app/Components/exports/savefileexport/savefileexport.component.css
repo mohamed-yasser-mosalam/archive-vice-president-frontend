@@ -67,6 +67,8 @@ form {
   transition: .3s ease;
   text-align: center;
   direction: rtl;
+  font-size:25px;
+  font-weight: bold;
 }
 
 .wrapper .input-data .underLine {

@@ -32,6 +32,7 @@ export class AddImportComponent implements OnInit {
       recipientName: [''],
       num: ['', [Validators.required, Validators.minLength(1)]],
       expectResponseDate: [''],
+      secure:['0']
     });
   }
 

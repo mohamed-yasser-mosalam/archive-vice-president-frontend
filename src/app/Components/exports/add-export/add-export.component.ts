@@ -49,9 +49,6 @@ export class AddExportComponent implements OnInit {
     if (this.exportForm.valid) {
       this.addExportFile(this.exportForm.value);
     }
-    console.log(this.exportForm.value)
   }
-  onFileChange(event: any, value: number) {
-    this.exportForm.patchValue({ secure: value });
-  }
+
 }

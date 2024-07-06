@@ -208,14 +208,13 @@
               </thead>
               <tbody>
               <tr *ngFor="let item of allDaysOfMandate">
-                <td  [style.color]="item.notice ? 'red' : 'inherit'" *ngIf="item.notice">{{ item.name }}</td>
-                <td  [style.color]="item.notice ? 'red' : 'inherit'" *ngIf="item.notice"><label *ngFor="let days of item.deputationDays"
+                <td  [style.color]="item.notice ? 'red' : 'inherit'">{{ item.name }}</td>
+                <td  [style.color]="item.notice ? 'red' : 'inherit'"><label *ngFor="let days of item.deputationDays"
                            style="margin-left: 10px">{{ days.day }} </label></td>
-                <td [style.color]="item.notice ? 'red' : 'inherit'" *ngIf="item.notice">{{item.count}}</td>
+                <td [style.color]="item.notice ? 'red' : 'inherit'">{{item.count}}</td>
               </tr>
               </tbody>
             </table>
-
           </div>
         </div>
       </div>

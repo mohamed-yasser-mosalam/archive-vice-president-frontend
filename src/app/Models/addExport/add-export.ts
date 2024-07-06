@@ -6,6 +6,7 @@ export class AddExport {
   date: Date;
   numberOfAttachments: number;
   no: number;
+  secure:number
 
 
   constructor(
@@ -15,7 +16,8 @@ export class AddExport {
     num: string,
     date: Date,
     numberOfAttachments: number,
-    no: number
+    no: number,
+    secure:number
   ) {
     this.receiver = receiver;
     this.summary = summary;
@@ -24,5 +26,6 @@ export class AddExport {
     this.date = date;
     this.numberOfAttachments = numberOfAttachments
     this.no = no
+    this.secure=secure
   }
 }

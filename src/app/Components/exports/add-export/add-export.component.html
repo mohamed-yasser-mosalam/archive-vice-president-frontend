@@ -44,17 +44,23 @@
             <input type="text" required id="num" name="num"  formControlName="num">
             <label for="num">ملف الحفظ</label>
             <small *ngIf="exportForm.get('num')?.invalid">* مطلوب</small>
-
           </div>
           <div class="input-data" style="width:45%; margin-left:auto;">
             <input type="text" id="recipientName" name="recipientName" formControlName="recipientName"  >
             <label for="recipientName">المستلم</label>
           </div>
         </div>
-        <div class="input-data" style="width:45%; margin-left:auto;">
-          <input type="date" id="recipientDate" name="recipientDate" formControlName="recipientDate" >
-          <label for="recipientDate">تاريح الاستلام</label>
+        <div class="d-flex" >
+          <div class="d-flex" style="width:30%;margin-left:250px">
+            <input type="radio" formControlName="secure" value="1" style="margin-left: 30px">
+            <label >سري</label>
+          </div>
+          <div class="input-data" style="width:45%; margin-left:auto;">
+            <input type="date" id="recipientDate" name="recipientDate" formControlName="recipientDate" >
+            <label for="recipientDate">تاريح الاستلام</label>
+          </div>
         </div>
+
 
         <button type="submit" class="btn  " [disabled]="!exportForm.valid"
                 style="width:100px; padding:1px;color: var(--color);background: var(--bg_hover);font-size:22px;margin-right:10%"> حفظ

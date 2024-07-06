@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import {ExportServiceService} from "../../../Services/ExportsServices/export-service.service";
+import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
 
 @Component({
   selector: 'app-add-export',
@@ -12,10 +13,11 @@ import {ExportServiceService} from "../../../Services/ExportsServices/export-ser
 export class AddExportComponent implements OnInit {
   numberOfExportFile: any;
   exportForm: FormGroup;
+  roleOfUser = this.auth.getUserRoles()
 
 
   constructor(private exportService: ExportServiceService, private router: Router,
-              private fb: FormBuilder, private http: HttpClient) {}
+              private fb: FormBuilder, private auth: AuthenticationServiceService) {}
   ngOnInit(): void {
     this.getExportCount();
     this.exportForm = this.fb.group({
@@ -27,6 +29,7 @@ export class AddExportComponent implements OnInit {
       num: ['', [Validators.required, Validators.minLength(1)]],
       numberOfAttachments: ['', [Validators.required, Validators.minLength(1)]],
       recipientDate: [''],
+      secure:['0']
     });
   }
 
@@ -46,5 +49,9 @@ export class AddExportComponent implements OnInit {
     if (this.exportForm.valid) {
       this.addExportFile(this.exportForm.value);
     }
+    console.log(this.exportForm.value)
+  }
+  onFileChange(event: any, value: number) {
+    this.exportForm.patchValue({ secure: value });
   }
 }

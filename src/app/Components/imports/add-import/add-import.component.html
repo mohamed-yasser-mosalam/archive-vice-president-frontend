@@ -92,7 +92,7 @@
                 style="width:100px; padding:1px;color: var(--color);background: var(--bg_hover);
                 font-size:22px;margin-right:10%;margin-top: 10px"> حفظ
         </button>
-        <div  style="margin-left:88%;bottom: 0">
+        <div  style="margin-left:88%;bottom: 0" *ngIf="roleOfUser=='admin'">
           <input type="radio" formControlName="secure" value="1" style="margin-left: 30px;bottom: 0">
           <span style="font-size:20px">سري</span>
         </div>

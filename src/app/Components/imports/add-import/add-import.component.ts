@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ImportServiceService} from "../../../Services/ImportsServices/import-service.service";
 import {HttpClient} from "@angular/common/http";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
 
 @Component({
   selector: 'app-add-import',
@@ -11,11 +12,12 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class AddImportComponent implements OnInit {
   numberOfImportFile: any;
   importForm: FormGroup;
+  roleOfUser=this.auth.getUserRoles();
 
   constructor(
     private importService: ImportServiceService,
     private fb: FormBuilder,
-    private http: HttpClient
+    private auth: AuthenticationServiceService
   ) {}
 
   ngOnInit(): void {

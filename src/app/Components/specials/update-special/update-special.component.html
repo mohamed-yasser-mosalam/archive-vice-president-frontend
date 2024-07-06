@@ -1,12 +1,11 @@
 <app-navbar></app-navbar>
 <div class="row" style="background-color: var(--bg_main);">
   <div class="d-flex justify-content-between">
-    <div class="col-2"></div>
     <div class="col-6">
       <form [formGroup]="form" (ngSubmit)="updateSpecialFile(form.value)">
 
         <div class="wrapper">
-          <legend class="text-center">تحديث ملف خاص</legend>
+          <legend class="text-center">تعديل ملف خاص</legend>
           <div style="display: flex;  justify-content: space-between;">
 
             <div class="input-container">
@@ -53,7 +52,7 @@
                 <small *ngIf="form.get('numberOfAttachments')?.invalid">* مطلوب</small>
               </div>
             <div class="input-data">
-              <input type="text" required id="notes" name="notes" formControlName="notes">
+              <input type="text"  id="notes" name="notes" formControlName="notes">
               <div class="underLine"></div>
               <label for="notes">ملاحظات </label>
             </div>
@@ -117,7 +116,7 @@
           </div>
 
           <button type="submit" class="btn m-auto" style="color: var(--color);background-color: var(--bg_hover);width:150px;height:30px;"
-                  [disabled]="!form.valid">تأكيد التحديث</button>
+                  [disabled]="!form.valid">حفظ </button>
         </div>
       </form>
     </div>

@@ -4,12 +4,13 @@
 }
 
 form {
-  margin-top: 8%;
+  margin-top: 5%;
   background-color: var(--bg);
   color: var(--color);
-  zoom: 80%;
+  zoom:85%;
+  width: 900px;
+  margin-left:200px!important;
 }
-
 .wrapper {
   padding: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

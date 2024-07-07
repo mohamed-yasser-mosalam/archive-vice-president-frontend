@@ -55,7 +55,7 @@
 
           <div style="margin-left: 82%;margin-top: 20px">
             <input type="checkbox" id="showSubjects" name="showSubjects" formControlName="showSubjects" >
-            <label for="showSubjects" style="font-weight: bold;font-size: 20px;margin-left: 10px">مجلس الكلية  </label>
+            <label for="showSubjects" style="font-weight: bold;font-size: 20px;margin-left: 10px">بيانات الخطاب</label>
           </div>
 
           <div *ngIf="form.get('showSubjects')?.value" formArrayName="subjects" style="overflow:auto;background-color: var(--bg);">

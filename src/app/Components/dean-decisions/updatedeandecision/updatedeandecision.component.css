@@ -35,7 +35,7 @@ form{
   direction: rtl;
   background-color: var(--bg);
   color: var(--color);
- }
+}
 
 .wrapper .input-data textarea {
   border: none;
@@ -58,7 +58,8 @@ form{
   transition: .3s ease;
   text-align: center;
   margin-bottom: 30px;
-  font-size: 20px;
+  font-size:25px;
+  font-weight: bold;
 }
 
 .wrapper .input-data .underLine {

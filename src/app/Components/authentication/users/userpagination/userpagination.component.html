@@ -49,7 +49,7 @@
                 </button>
                 </div>
               </ng-template>
-              <button class="btn  profile-button" type="submit" routerLink="/change-password-by-admin/{{page}}">تغيير
+              <button *ngIf="username!='admin'" class="btn  profile-button" type="submit" routerLink="/change-password-by-admin/{{page}}">تغيير
                 الرقم
                 السري
               </button>

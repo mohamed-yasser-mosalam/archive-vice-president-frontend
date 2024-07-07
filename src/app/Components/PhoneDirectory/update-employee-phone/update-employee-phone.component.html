@@ -27,7 +27,7 @@
         </div>
         <div class="d-flex">
           <div class="input-data" style="width:40%; margin:auto;">
-            <input type="text" formControlName="mobile">
+            <input type="text" formControlName="phone">
             <label>الموبايل</label>
 
           </div>
@@ -36,9 +36,15 @@
             <label>العنوان</label>
           </div>
         </div>
-        <div class="input-data" style="width:45%; margin-left:auto;">
-          <input type="text" formControlName="email">
-          <label>الايميل</label>
+        <div class="d-flex">
+          <div class="input-data" style="width:40%; margin:auto;">
+            <input type="text" id="mobile" name="mobile" formControlName="mobile">
+            <label for="mobile">الطوارئ</label>
+          </div>
+          <div class="input-data" style="width:45%; margin-left:auto;">
+            <input type="text" id="email" name="email" formControlName="email">
+            <label for="email">الايميل</label>
+          </div>
         </div>
         <div class="input-data" style="width:45%; margin-left:auto;">
           <input type="text" formControlName="notes">

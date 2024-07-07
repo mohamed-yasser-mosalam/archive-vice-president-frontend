@@ -6,7 +6,7 @@
 
       <div class="wrapper " style="direction: ltr;">
         <legend class="text-center">ادخال أرقام أعضاء هيئة التدريس</legend>
-        
+
         <div class="d-flex">
           <div class="input-data" style="width:30%; margin-left:auto;">
             <input type="number" required id="serial" name="serial" formControlName="serial">
@@ -32,8 +32,8 @@
         </div>
         <div class="d-flex">
           <div class="input-data" style="width:40%; margin:auto;">
-            <input type="text" required id="mobile" name="mobile"  formControlName="mobile">
-            <label for="mobile">الموبايل</label>
+            <input type="text" required id="phone" name="phone"  formControlName="phone">
+            <label for="phone">الموبايل</label>
 
           </div>
           <div class="input-data" style="width:45%; margin-left:auto;">
@@ -41,10 +41,17 @@
             <label for="address">العنوان</label>
           </div>
         </div>
-        <div class="input-data" style="width:45%; margin-left:auto;">
-          <input type="text" id="email" name="email" formControlName="email" >
-          <label for="email">الايميل</label>
+        <div class="d-flex">
+          <div class="input-data" style="width:40%; margin:auto;">
+            <input type="text" id="mobile" name="mobile" formControlName="mobile">
+            <label for="mobile">الطوارئ</label>
+          </div>
+          <div class="input-data" style="width:45%; margin-left:auto;">
+            <input type="text" id="email" name="email" formControlName="email">
+            <label for="email">الايميل</label>
+          </div>
         </div>
+
         <div class="input-data" style="width:45%; margin-left:auto;">
           <input type="text" id="notes" name="notes" formControlName="notes" >
           <label for="notes">الملاحظات</label>

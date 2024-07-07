@@ -29,7 +29,7 @@ export class UpdateMandateComponent implements OnInit {
       degree: ['', Validators.required],
       deputationUniversity: ['', Validators.required],
       deputationPeriod: ['', Validators.required],
-      deputationDaysIds: [[], Validators.required],
+      deputationDaysIds: [[]],
       departmentAccept: ['', Validators.required],
       departmentDate: ['', Validators.required],
       departmentRecordNum: ['', Validators.required],

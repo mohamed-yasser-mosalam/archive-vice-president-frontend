@@ -66,11 +66,24 @@ export class AddSpecialComponent implements OnInit{
     this.getDecisions(subjectIndex).removeAt(decisionIndex);
   }
 
-  AddSpecialFile(data) {
+  AddSpecialFile(data: any) {
+    // Initialize an array to store valid subjects
+    let validSubjects: any[] = [];
+
+     data.subjects.forEach((subject: any) => {
+      if (subject.head.trim() !== '' && subject.decision.length > 0) {
+        validSubjects.push(subject);
+      }
+    });
+
+    data.subjects = validSubjects;
+
+    // Submit data
     this.specialService.addSpecialFile(data).subscribe(() => {
       window.location.reload();
     });
   }
+
 
   getSpecailCount(): void {
     this.specialService.getSpecialNumber().subscribe((numberOfSpecialFiles: any) => {

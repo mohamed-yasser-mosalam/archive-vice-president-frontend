@@ -19,12 +19,14 @@
               </svg>
               حذف المرفق
             </button>
-            <button printSectionId="'print-section-' + i"  ngxPrint
+            <button printSectionId="'print-section-' + i" ngxPrint
                     class="btn"
                     style="width:150px;padding:1px;margin-top:10px;margin-left:20px;color: var(--color);background: var(--bg_hover);font-size:15px;z-index: 33333333333;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
+                   viewBox="0 0 16 16">
                 <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
-                <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+                <path
+                  d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
               </svg>
               طباعة
             </button>
@@ -32,7 +34,8 @@
         </ng-template>
       </ngb-carousel>
       <form class="col-md-7" style="zoom: 70%;direction: ltr" [formGroup]="showSpecial">
-        <legend class="text-center" style="font-weight: bold;margin-top: 30px;margin-left:90px;color: var(--color);"> الملفات الخاصة (0/3)
+        <legend class="text-center" style="font-weight: bold;margin-top: 30px;margin-left:90px;color: var(--color);">
+          الملفات الخاصة (0/3)
         </legend>
 
         <div class="wrapper">
@@ -50,9 +53,16 @@
                   <label for="importNum">رقم الخطاب</label>
                 </div>
               </div>
-              <div class="input-data" style="top:32px;margin-left: 15px;">
-                <input type="text" required readonly id="sender" formControlName="sender">
-                <label for="sender">الجهة</label>
+
+              <div class="d-flex">
+                <div class="input-data" style="margin-left: 10px; bottom:-30px;width: 100%">
+                  <input type="text" readonly required id="createdBy" formControlName="createdBy">
+                  <label for="createdBy">أنشأ بواسطة </label>
+                </div>
+                <div class="input-data" style="top:32px;width: 100%">
+                  <input type="text" required readonly id="sender" formControlName="sender">
+                  <label for="sender">الجهة</label>
+                </div>
               </div>
             </div>
             <div class="input-container">
@@ -79,22 +89,20 @@
             </div>
           </div>
 
-          <div class="d-flex" >
-            <div class="input-data"style="margin-left: 10px; bottom:-30px">
-              <input type="text" readonly required id="createdBy" formControlName="createdBy">
-              <label for="createdBy">أنشأ بواسطة </label>
-            </div>
+          <div class="d-flex">
 
-            <div class="input-data"style="margin-left: 10px; bottom:-30px">
+
+            <div class="input-data" style="margin-left: 10px; bottom:-30px">
               <input type="text" readonly required id="summary" formControlName="summary">
               <label for="summary">ملخص الخطاب</label>
             </div>
           </div>
 
-          <div class="input-data"style="margin-left: 80px; bottom:-30px;width: 90%">
+          <div class="input-data" style="margin-left: 80px; bottom:-30px;width: 90%">
             <input type="text" readonly required id="notes" formControlName="notes">
             <label for="notes"> ملاحظات </label>
           </div>
+
 
           <div class="col-8 position-relative"
                style="background-color: var(--bg_main); height: 250px; overflow: auto; border-radius: 8px;
@@ -121,10 +129,14 @@
 
 
           <div class="input-data" style=" margin-left: 100px ">
-            <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px" >
-              <button type="submit" style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-weight:bold ;;font-size:25px" routerLink='/special_pagination?page=/{{no}}'
-              >حفظ المرفقات</button>
-              <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
+            <form (ngSubmit)="onSubmit()" enctype="multipart/form-data"
+                  style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px">
+              <button type="submit"
+                      style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-weight:bold ;;font-size:25px"
+                      routerLink='/special_pagination?page=/{{no}}'
+              >حفظ المرفقات
+              </button>
+              <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;"/>
             </form>
 
 
@@ -137,15 +149,16 @@
               </button>
 
               <button
-                      type="submit" class="btn "
-                      style="width: 23%; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-weight:bold ;"
-                      routerLink="/update-special/{{id}}">
+                type="submit" class="btn "
+                style="width: 23%; padding:10px;margin: 8px;color: var(--color);background: var(--color1);font-weight:bold ;"
+                routerLink="/update-special/{{id}}">
                 تعديل
               </button>
 
             </div>
             <div class="  pag" style="margin: 0 0 30px;margin-left: 29%">
-              <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change($event)"
+              <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength"
+                              (pageChange)="change($event)"
                               [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
                               routerLink="/special_pagination?page=/{{page}}">
               </ngb-pagination>

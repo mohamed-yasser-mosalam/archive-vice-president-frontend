@@ -12,6 +12,7 @@ import {AuthenticationServiceService} from "../../../Services/Security/authentic
 export class AddImportComponent implements OnInit {
   numberOfImportFile: any;
   importForm: FormGroup;
+  importArchive:any
   roleOfUser=this.auth.getUserRoles();
 
   constructor(
@@ -21,6 +22,8 @@ export class AddImportComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log( this.getAllImportsArchive())
+    this.getAllImportsArchive();
     this.getImportCount();
     this.importForm = this.fb.group({
       no: [''],
@@ -48,10 +51,17 @@ export class AddImportComponent implements OnInit {
       this.numberOfImportFile = numberOfImportFiles + 1;
     });
   }
+  getAllImportsArchive(){
+    this.importService.getAllImportArchive().subscribe((importArchive:any)=>{
+      this.importArchive=importArchive
+    })
+  }
 
   onSubmit(): void {
     if (this.importForm.valid) {
       this.addImportFile(this.importForm.value);
     }
   }
+
+
 }

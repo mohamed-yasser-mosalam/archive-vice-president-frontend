@@ -14,7 +14,9 @@ export class ImportServiceService {
   getAllImports() {
     return this.http.get(`${this.base}/import/imports`)
   }
-
+  getAllImportArchive(){
+    return this.http.get(`${this.base}/archive/archive-type?typeNumber=1`)
+  }
   getAllLastImports() {
     return this.http.get(`${this.base}/import/all-imports`)
   }

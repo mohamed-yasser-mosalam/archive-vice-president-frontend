@@ -3,6 +3,7 @@ import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SpecialService} from "../../../Services/SpecialService/special.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {AllFilesService} from "../../../Services/AllFile/all-files.service";
 
 @Component({
   selector: 'app-add-special',
@@ -12,9 +13,9 @@ import {HttpClient} from "@angular/common/http";
 export class AddSpecialComponent implements OnInit{
   form: FormGroup;
   numberOfSpecialFile: any;
-
+  specialArchive:any
   constructor(private fb: FormBuilder, private specialService: SpecialService, private router: Router,
-              private http: HttpClient) {
+              private http: HttpClient,private allFilesService:AllFilesService) {
     this.form = this.fb.group({
       incomeDate: [null, [Validators.required, Validators.minLength(1)]],
       sender: ['', [Validators.required, Validators.minLength(1)]],
@@ -90,8 +91,13 @@ export class AddSpecialComponent implements OnInit{
       this.numberOfSpecialFile = numberOfSpecialFiles + 1;
     });
   }
-
+  getSpecialArchive(): void {
+    this.allFilesService.getByType(3).subscribe((specialArchive: any) => {
+      this.specialArchive = specialArchive;
+    });
+  }
   ngOnInit(): void {
     this.getSpecailCount();
+    this.getSpecialArchive()
   }
 }

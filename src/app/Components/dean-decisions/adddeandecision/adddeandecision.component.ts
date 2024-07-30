@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {DeandecisionService} from "../../../Services/DeanDecision/deandecision.service";
+import {AllFilesService} from "../../../Services/AllFile/all-files.service";
 
 @Component({
   selector: 'app-adddeandecision',
@@ -10,10 +11,10 @@ import {DeandecisionService} from "../../../Services/DeanDecision/deandecision.s
 export class AdddeandecisionComponent implements OnInit {
   deanDecisionForm: FormGroup;
   numberOfDeanDecisions:any;
-
+  deanDecisionArchive:any
 
   constructor(private deanDecisionService: DeandecisionService,
-              private formGroup: FormBuilder) {
+              private formGroup: FormBuilder,private allFilesService:AllFilesService) {
   }
 
   deanForm() {
@@ -27,7 +28,8 @@ export class AdddeandecisionComponent implements OnInit {
 
   ngOnInit(): void {
     this.deanForm()
-    this.numberOfDeanDecision()
+    this.numberOfDeanDecision();
+    this.getDeanDecisionArchive()
   }
   numberOfDeanDecision(){
     this.deanDecisionService.getNumberOfDeanDecision().subscribe((result:any)=>{
@@ -37,6 +39,11 @@ export class AdddeandecisionComponent implements OnInit {
   addDeanDecision(data) {
     this.deanDecisionService.addDeanDecision(data).subscribe(() => {
       window.location.reload();
+    });
+  }
+  getDeanDecisionArchive(): void {
+    this.allFilesService.getByType(2).subscribe((deanDecisionArchive: any) => {
+      this.deanDecisionArchive = deanDecisionArchive;
     });
   }
   onSubmit() {

@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-2" style="background-color: var(--bg_main);"></div>
   <div class="col-9" style="background-color:var(--bg_main)">
-    <form class="col-8" style="zoom: 70%" [formGroup]="deanDecisionForm" (ngSubmit)="onSubmit()">
+    <form class="col-8"  [formGroup]="deanDecisionForm" (ngSubmit)="onSubmit()">
 
       <div class="wrapper " style="direction: ltr">
         <legend class="text-center"style="font-size:25px">ادخال قرار العميد</legend>
@@ -36,10 +36,16 @@
 
         </div>
         <div class="d-flex">
-          <div class="input-data" style="width:40%;margin-left: 60% ">
-            <input type="text" required id="num" name="num"  formControlName="num">
+          <div class="input-data" style="width:45%; margin-left:auto;">
             <label for="num">ملف الحفظ</label>
             <small *ngIf="deanDecisionForm.get('num')?.invalid">* مطلوب</small>
+            <select id="num" style="width:62%;margin-top:0px" required name="num" formControlName="num">
+              <option></option>
+              <option *ngFor="let item of deanDecisionArchive"
+                      [selected]="item.num" [value]="item.num"
+              >{{ item.name }} - {{ item.num }}
+              </option>
+            </select>
           </div>
 
         </div>

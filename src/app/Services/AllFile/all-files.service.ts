@@ -20,6 +20,10 @@ export class AllFilesService {
     return this.http.get<ArchiveFile>(`${this.base}/archive/archive-id?id=${id}`);
   }
 
+  getByType(type: number) {
+    return this.http.get<ArchiveFile>(`${this.base}/archive/archive-type?typeNumber=${type}`);
+  }
+
   saveArchiveFile(archiveFile: ArchiveFile) {
     return this.http.post(`${this.base}/archive/archive`, archiveFile);
   }
@@ -32,9 +36,11 @@ export class AllFilesService {
   deleteArchiveFile(typeNumber, num) {
     return this.http.delete(`${this.base}/archive/archive?typeNumber=${typeNumber}&num=${num}`);
   }
-  closeArchiveFile(data:any) {
-    return this.http.post(`${this.base}/archive/close`,data);
+
+  closeArchiveFile(data: any) {
+    return this.http.post(`${this.base}/archive/close`, data);
   }
+
   getStateCloseArchiveFile() {
     return this.http.get(`${this.base}/archive/can-closed`);
   }

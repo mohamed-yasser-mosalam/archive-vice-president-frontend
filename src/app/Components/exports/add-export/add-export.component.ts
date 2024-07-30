@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import {ExportServiceService} from "../../../Services/ExportsServices/export-service.service";
 import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
+import {AllFilesService} from "../../../Services/AllFile/all-files.service";
 
 @Component({
   selector: 'app-add-export',
@@ -14,11 +15,15 @@ export class AddExportComponent implements OnInit {
   numberOfExportFile: any;
   exportForm: FormGroup;
   roleOfUser = this.auth.getUserRoles()
+  allFiles: any;
 
 
   constructor(private exportService: ExportServiceService, private router: Router,
-              private fb: FormBuilder, private auth: AuthenticationServiceService) {}
+              private fb: FormBuilder, private auth: AuthenticationServiceService , private allFilesService: AllFilesService) {}
   ngOnInit(): void {
+    this.allFilesService.getByType(2).subscribe(
+      result =>this.allFiles = result
+    )
     this.getExportCount();
     this.exportForm = this.fb.group({
       receiver: ['', [Validators.required, Validators.minLength(4)]],

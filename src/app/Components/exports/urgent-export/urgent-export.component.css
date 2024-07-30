@@ -5,11 +5,10 @@
 }
 
 form {
-  margin-top: 8%;
+  margin-top: 5%;
   background-color: var(--bg);
   color: var(--color);
-  zoom: 80%;
-  width: 100%;
+  width: 75%;
 }
 
 .wrapper {
@@ -20,17 +19,17 @@ form {
 }
 
 .wrapper .input-data {
-  height: 40px;
+  height: 30px;
   width: 90%;
   position: relative;
-  margin: 35px 0;
+  margin: 20px 0;
 }
 
 .wrapper .input-data input {
   height: 100%;
   width: 100%;
   border: none;
-  font-size: 18px;
+  font-size: 1rem;
   border-bottom: 2px solid silver;
   direction: rtl;
   background-color: var(--bg);
@@ -39,7 +38,7 @@ form {
 
 .wrapper .input-data textarea {
   border: none;
-  font-size: 18px;
+  font-size: 1rem;
   border-bottom: 2px solid silver;
 }
 
@@ -49,10 +48,10 @@ form {
   border: none;
 }
 
-.input-data input:focus~label,
-.input-data input:valid~label,
-.input-data textarea:focus~label,
-.input-data textarea:valid~label {
+.input-data input:focus ~ label,
+.input-data input:valid ~ label,
+.input-data textarea:focus ~ label,
+.input-data textarea:valid ~ label {
   transform: translateY(-35px);
   font-size: 15px;
   color: var(--color);
@@ -68,7 +67,7 @@ form {
   text-align: center;
   direction: rtl;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px
 }
 
 .wrapper .input-data .underLine {
@@ -93,17 +92,17 @@ form {
   bottom: -123px;
 }
 
-.input-data input:focus~.underLine::before,
-.input-data input:valid~.underLine::before,
-.input-data textarea:focus~.underLine-text::before,
-.input-data textarea:valid~.underLine-text::before {
+.input-data input:focus ~ .underLine::before,
+.input-data input:valid ~ .underLine::before,
+.input-data textarea:focus ~ .underLine-text::before,
+.input-data textarea:valid ~ .underLine-text::before {
   transform: scaleX(1);
 }
 
 .input-container {
   width: 45%;
 }
-small{
+
+small {
   color: red;
-  font-size: large;
 }

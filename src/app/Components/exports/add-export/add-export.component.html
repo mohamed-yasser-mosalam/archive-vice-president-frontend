@@ -41,11 +41,11 @@
         </div>
         <div class="d-flex">
           <div class="input-data" style="width:60%; margin:auto;">
-            <select type="text" required id="num" name="num" formControlName="num">
-              <option *ngFor="let i of allFiles" value="{{i.num}}">{{ i.name }} - {{ i.num }}</option>
-            </select>
             <label for="num">ملف الحفظ</label>
             <small *ngIf="exportForm.get('num')?.invalid">* مطلوب</small>
+            <select type="text" style="width:62%;margin-top:0px" required id="num" name="num" formControlName="num">
+              <option *ngFor="let i of allFiles" value="{{i.num}}">{{ i.name }} - {{ i.num }}</option>
+            </select>
           </div>
           <div class="input-data" style="width:45%; margin-left:auto;">
             <input type="text" id="recipientName" name="recipientName" formControlName="recipientName">

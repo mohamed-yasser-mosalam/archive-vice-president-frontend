@@ -3,6 +3,7 @@ import {ImportServiceService} from "../../../Services/ImportsServices/import-ser
 import {HttpClient} from "@angular/common/http";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
+import {AllFilesService} from "../../../Services/AllFile/all-files.service";
 
 @Component({
   selector: 'app-add-import',
@@ -18,7 +19,8 @@ export class AddImportComponent implements OnInit {
   constructor(
     private importService: ImportServiceService,
     private fb: FormBuilder,
-    private auth: AuthenticationServiceService
+    private auth: AuthenticationServiceService,
+    private  allFilesService:AllFilesService
   ) {}
 
   ngOnInit(): void {
@@ -52,7 +54,7 @@ export class AddImportComponent implements OnInit {
     });
   }
   getAllImportsArchive(){
-    this.importService.getAllImportArchive().subscribe((importArchive:any)=>{
+    this.allFilesService.getByType(1).subscribe((importArchive:any)=>{
       this.importArchive=importArchive
     })
   }

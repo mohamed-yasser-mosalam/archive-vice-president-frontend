@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {ExportServiceService} from "../../../Services/ExportsServices/export-service.service";
 import {FormBuilder, Validators} from "@angular/forms";
+import {AllFilesService} from "../../../Services/AllFile/all-files.service";
 
 @Component({
   selector: 'app-urgent-export',
@@ -12,6 +13,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 export class UrgentExportComponent  implements OnInit{
   numberOfExportFile:any
   id=this.routes.snapshot.params['id']
+  allFiles: any;
   urgentForm = this.fb.group({
     receiver: ['', [Validators.required, Validators.minLength(4)]],
     summary: ['', [Validators.required, Validators.minLength(4)]],
@@ -23,12 +25,13 @@ export class UrgentExportComponent  implements OnInit{
   });
 
   ngOnInit(): void {
+    this.getExportArchive()
     this.getExportCount()
       this.urgentForm
   }
   constructor(private exportService: ExportServiceService,private routes: ActivatedRoute,
               private router: Router,private http:HttpClient,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,private  allFilesService:AllFilesService) {
 
   }
 
@@ -42,6 +45,11 @@ export class UrgentExportComponent  implements OnInit{
   getExportCount(): void {
     this.exportService.getExportNumber().subscribe((numberOfExportFiles: any) => {
       this.numberOfExportFile = numberOfExportFiles+1;
+    });
+  }
+  getExportArchive(): void {
+    this.allFilesService.getByType(2).subscribe((allFiles: any) => {
+      this.allFiles = allFiles;
     });
   }
   onSubmit(): void {

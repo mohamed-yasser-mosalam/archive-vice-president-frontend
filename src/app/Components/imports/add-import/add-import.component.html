@@ -75,11 +75,11 @@
           <div class="input-data" style="width:45%; margin-left:auto;">
             <label for="num">ملف الحفظ</label>
             <small *ngIf="importForm.get('num')?.invalid">* مطلوب</small>
-            <select id="num" style="width:62%;margin-top:15px" name="num" formControlName="num">
+            <select id="num" style="width:62%;margin-top:15px" required name="num" formControlName="num">
               <option></option>
               <option *ngFor="let item of importArchive"
                       [selected]="item.num" [value]="item.num"
-              >{{ item.name }}-{{ item.num }}
+              >{{ item.name }} - {{ item.num }}
               </option>
             </select>
           </div>

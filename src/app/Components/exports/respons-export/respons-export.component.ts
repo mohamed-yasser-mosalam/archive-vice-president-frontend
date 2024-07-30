@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {ImportServiceService} from "../../../Services/ImportsServices/import-service.service";
+import {AllFilesService} from "../../../Services/AllFile/all-files.service";
 
 @Component({
   selector: 'app-respons-export',
@@ -14,6 +15,7 @@ export class ResponsExportComponent implements OnInit {
   x = this.routes.snapshot.params['id'];
   numberOfImportFile: any;
   addExportResponse: FormGroup
+  importArchive:any
 
   constructor(
     private fb: FormBuilder,
@@ -21,19 +23,21 @@ export class ResponsExportComponent implements OnInit {
     private routes: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
-    private importService:ImportServiceService
+    private importService: ImportServiceService,
+    private allFilesService:AllFilesService
   ) {
   }
 
   ngOnInit(): void {
+    this.getImportArchive()
     this.getImportCount();
     this.addExportResponse = this.fb.group({
       no: [''],
       sender: ['', [Validators.required, Validators.minLength(4)]],
-      numberOfAttachments: ['',[Validators.required,]],
+      numberOfAttachments: ['', [Validators.required,]],
       incomeDate: ['', [Validators.required]],
-      incomingLetterDate: ['',  ],
-      incomingLetterNumber: ['' ],
+      incomingLetterDate: ['',],
+      incomingLetterNumber: [''],
       summary: ['', [Validators.required, Validators.minLength(4)]],
       recipientDate: [''],
       recipientName: [''],
@@ -53,7 +57,11 @@ export class ResponsExportComponent implements OnInit {
       this.numberOfImportFile = numberOfImportFiles + 1;
     });
   }
-
+   getImportArchive(){
+     this.allFilesService.getByType(1).subscribe((importArchive: any) => {
+       this.importArchive = importArchive
+     });
+   }
   onSubmit(): void {
     if (this.addExportResponse.valid) {
       this.addResponse(this.addExportResponse.value);

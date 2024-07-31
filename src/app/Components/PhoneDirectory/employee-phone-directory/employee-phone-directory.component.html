@@ -53,7 +53,8 @@
               <td>{{ item.phone }}</td>
               <td>{{ item.mobile}}</td>
               <td>{{ item.address }}</td>
-              <td>{{ item.email }}</td>
+              <td ><a style="color: black;text-decoration: black" href="mailto:{{ item.email }}">{{ item.email }}</a></td>
+
               <td>{{ item.notes }}</td>
               <td>
                 <button class="btn" routerLink="/update-employee-phone/{{item.id}}">

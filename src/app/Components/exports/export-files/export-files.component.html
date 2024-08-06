@@ -53,13 +53,13 @@
           <td>{{ item.recipientName }}</td>
           <td>{{ item.recipientDate }}</td>
           <td><a style="color: black;text-decoration: black"
-                 routerLink="/export-pagination?page=/{{ item.urgentNum }}">{{ item.urgentNum }}</a></td>
+                 [routerLink]="['/export-pagination']" [queryParams]="{page:item.urgentNum}">{{ item.urgentNum }}</a></td>
           <td>{{ item.urgentDate }}</td>
           <td><a style="color: black;text-decoration: black"
-                 routerLink="/import-pagination?page=/{{ item.responseNumber }}">{{ item.responseNumber }}</a></td>
+                 [routerLink]="['/import-pagination']" [queryParams]="{page:item.responseNumber}">{{ item.responseNumber }}</a></td>
           <td>{{ item.responseDate }}</td>
-          <td ><a *ngIf="item.saved!=0" style="color: black;text-decoration: black" routerLink = "/special_pagination?page=/{{item.saved}}">{{ item.saved }}</a></td>
-          <td>{{ item.typeNumber }}/{{ item.num }}</td>
+          <td ><a *ngIf="item.saved!=0" style="color: black;text-decoration: black"
+                  [routerLink]="['/special-pagination']" [queryParams]="{page:item.saved}">{{ item.saved }}</a></td>          <td>{{ item.typeNumber }}/{{ item.num }}</td>
           <td>
               <a [routerLink]="['/export-pagination']" [queryParams]="{page:item.no}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"

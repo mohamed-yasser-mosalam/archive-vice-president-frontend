@@ -16,7 +16,7 @@ export class ImportPaginationComponent implements OnInit {
   base = baseUrl + '/';
   id: any;
   no: number;
-  page= this.routes.snapshot.params['page']
+  page: number;
   pageLength: any;
   showImports: any;
   size: number = 1;
@@ -45,26 +45,22 @@ export class ImportPaginationComponent implements OnInit {
 
   constructor(
     private importService: ImportServiceService,
-    private routes: ActivatedRoute,
+    private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
     private auth: AuthenticationServiceService
   ) {}
 
   ngOnInit(): void {
-    this.loadCollectionSize();
-    this.getImportCount();
-    this.showImportFile();
-    this.form();
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 1;
+      this.loadCollectionSize();
+      this.getImportCount();
+      this.showImportFile();
+      this.form();
+    });
   }
 
-  // Load the current page number from local storage
-
-
-  // Save the current page number to local storage
-
-
-  // Load the collection size from local storage
   loadCollectionSize() {
     const savedSize = localStorage.getItem('collectionSize');
     if (savedSize) {
@@ -122,38 +118,18 @@ export class ImportPaginationComponent implements OnInit {
 
   change(event: number) {
     this.page = event;
+    this.router.navigate(['/import-pagination'], { queryParams: { page: this.page } });
     this.showImportFile();
-    this.importService.getImportPagination(event).subscribe((result) => {
-      this.showImport = new FormGroup({
-        createdBy: new FormControl(result['createdBy']),
-        numberOfAttachments: new FormControl(result['numberOfAttachments']),
-        numberOfImages: new FormControl(result['numberOfImages']),
-        sender: new FormControl(result['sender']),
-        incomeDate: new FormControl(result['incomeDate']),
-        no: new FormControl(result['no']),
-        incomingLetterDate: new FormControl(result['incomingLetterDate']),
-        incomingLetterNumber: new FormControl(result['incomingLetterNumber']),
-        summary: new FormControl(result['summary']),
-        responseSide: new FormControl(result['responseSide']),
-        recipientDate: new FormControl(result['recipientDate']),
-        responseDate: new FormControl(result['responseDate']),
-        responseNumber: new FormControl(result['responseNumber']),
-        recipientName: new FormControl(result['recipientName']),
-        num: new FormControl(result['num']),
-        expectResponseDate: new FormControl(result['expectResponseDate'])
-      });
-    });
-    const nextPageUrl = `/import-pagination?page=/${this.page}`;
-    this.router.navigate([nextPageUrl]);
     this.form();
   }
 
   deleteImage(index: number): void {
-    this.importService.deleteImage(this.pathOfDeleteImage, index).subscribe();
-    this.paths.splice(index, 1);
-    setTimeout(() => {
-      window.location.reload();
-    }, 50);
+    this.importService.deleteImage(this.pathOfDeleteImage, index).subscribe(() => {
+      this.paths.splice(index, 1);
+      setTimeout(() => {
+        window.location.reload();
+      }, 50);
+    });
   }
 
   selectedFiles: File[] = [];
@@ -176,9 +152,10 @@ export class ImportPaginationComponent implements OnInit {
       formData.append('files', this.selectedFiles[i]);
     }
 
-    this.importService.addImages(this.id, formData).subscribe(() => {});
-    setTimeout(() => {
-      window.location.reload();
-    }, 50);
+    this.importService.addImages(this.id, formData).subscribe(() => {
+      setTimeout(() => {
+        window.location.reload();
+      }, 50);
+    });
   }
 }

@@ -36,14 +36,18 @@ export class LastDeanDecisionPaginationComponent implements OnInit {
     private deanDecisionService: DeandecisionService,
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private route:ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.loadCollectionSize();
-    this.form();
-    this.getDeanDecisionById();
-    this.getNumberOfDeanDecision();
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 1;
+      this.loadCollectionSize();
+      this.form();
+      this.getDeanDecisionById();
+      this.getNumberOfDeanDecision();
+    })
   }
 
   form() {
@@ -95,6 +99,7 @@ export class LastDeanDecisionPaginationComponent implements OnInit {
 
   change(event): void {
     this.page = event;
+    this.router.navigate(['/last-dean-decision-pagination'], { queryParams: { page: this.page } });
     this.getDeanDecisionById();
     this.deanDecisionService.getDeanDecisionById(event).subscribe((result) => {
       this.deanDecisions = new FormGroup({
@@ -108,8 +113,6 @@ export class LastDeanDecisionPaginationComponent implements OnInit {
         typeNumber: new FormControl(result['typeNumber'])
       });
     });
-    const nextPageUrl = `/last-dean-decision-pagination?page=/${this.page}`;
-    this.router.navigate([nextPageUrl]);
     this.form();
   }
 }

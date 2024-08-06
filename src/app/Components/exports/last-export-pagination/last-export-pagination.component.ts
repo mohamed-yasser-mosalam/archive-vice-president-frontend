@@ -44,10 +44,13 @@ export class LastExportPaginationComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.loadCollectionSize();
-    this.getExportCount();
-    this.showExportFile();
-    this.form();
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 1;
+      this.loadCollectionSize();
+      this.getExportCount();
+      this.showExportFile();
+      this.form();
+    })
   }
 
   form() {
@@ -76,7 +79,9 @@ export class LastExportPaginationComponent implements OnInit {
     private router: Router,
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
-  ) {}
+    private route: ActivatedRoute
+  ) {
+  }
 
   // Load the collection size from local storage
   loadCollectionSize() {
@@ -87,11 +92,16 @@ export class LastExportPaginationComponent implements OnInit {
   }
 
   // Save the collection size to local storage
-  saveCollectionSize(size: number) {
+  saveCollectionSize(size
+                       :
+                       number
+  ) {
     localStorage.setItem('collectionSize', size.toString());
   }
 
-  showExportFile(): void {
+  showExportFile()
+    :
+    void {
     this.serviceExport.getExportsById(this.page).subscribe((getExport: any) => {
       this.showExports = getExport;
       this.paths = this.showExports.paths.map((path: string) => {
@@ -106,15 +116,19 @@ export class LastExportPaginationComponent implements OnInit {
     });
   }
 
-  getExportCount(): void {
+  getExportCount()
+    :
+    void {
     this.serviceExport.getLastExportNumber().subscribe((numberOfExportFiles: any) => {
       this.pageLength = numberOfExportFiles;
       this.saveCollectionSize(this.pageLength); // Save the collection size whenever it changes
     });
   }
 
-  change(event): void {
+  change(event):
+    void {
     this.page = event;
+    this.router.navigate(['/last-export-pagination'], { queryParams: { page: this.page } });
     this.showExportFile();
     this.serviceExport.getExportById(event).subscribe((result) => {
       this.showExport = new FormGroup({
@@ -134,8 +148,6 @@ export class LastExportPaginationComponent implements OnInit {
         recipientDate: new FormControl(result['recipientDate'])
       });
     });
-    const nextPageUrl = `/last-export-pagination?page=/${this.page}`;
-    this.router.navigate([nextPageUrl]);
     this.form();
   }
 }

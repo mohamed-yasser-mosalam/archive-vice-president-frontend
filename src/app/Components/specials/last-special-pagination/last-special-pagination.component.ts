@@ -42,6 +42,8 @@ export class LastSpecialPaginationComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 1;
     this.pageLength = localStorage.getItem('collectionsize') ? parseInt(localStorage.getItem('collectionsize')!) : 0;
     this.getSpecialCount();
     this.showSpecialFile();
@@ -60,11 +62,12 @@ export class LastSpecialPaginationComponent implements OnInit {
         num: new FormControl(result['num']),
       })
     })
+    });
 
   }
 
   constructor(private specialService: SpecialService, private routes: ActivatedRoute, private router: Router,
-              private http: HttpClient, private auth: AuthenticationServiceService
+              private route: ActivatedRoute, private auth: AuthenticationServiceService
   ) {
   }
 
@@ -94,6 +97,7 @@ export class LastSpecialPaginationComponent implements OnInit {
   }
 
   change(event) {
+    this.router.navigate(['/last-special-pagination'], { queryParams: { page: this.page } });
     this.page = event;
     this.showSpecialFile();
     this.specialService.getSpecialsById(event).subscribe((result) => {
@@ -111,8 +115,6 @@ export class LastSpecialPaginationComponent implements OnInit {
         num: new FormControl(result['num']),
       })
     })
-    const nextPageUrl = `/last-special-pagination?page/${this.page}`;
-    this.router.navigate([nextPageUrl]);
   }
 
 

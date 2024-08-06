@@ -16,7 +16,7 @@ export class ExportPaginationComponent implements OnInit {
   base = baseUrl + '/';
   no: number;
   roleOfUser = this.auth.getUserRoles();
-  page = this.routes.snapshot.params['page']
+  page: number;
   pageLength: number;
   showExports: any;
   size: number = 1;
@@ -45,15 +45,18 @@ export class ExportPaginationComponent implements OnInit {
   constructor(
     private exportService: ExportServiceService,
     private auth: AuthenticationServiceService,
-    private routes: ActivatedRoute,
+    private route: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.loadCollectionSize();
-    this.getExportCount();
-    this.showExportFile();
-    this.form();
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 1;
+      this.loadCollectionSize();
+      this.getExportCount();
+      this.showExportFile();
+      this.form();
+    });
   }
 
   loadCollectionSize() {
@@ -110,38 +113,19 @@ export class ExportPaginationComponent implements OnInit {
     });
   }
 
-  change(event: any): void {
+  change(event: number): void {
     this.page = event;
+    this.router.navigate(['/export-pagination'], { queryParams: { page: this.page } });
     this.showExportFile();
-    this.exportService.getExportByPagination(event).subscribe((result) => {
-      this.showExport = new FormGroup({
-        date: new FormControl(result['date']),
-        createdBy: new FormControl(result['createdBy']),
-        receiver: new FormControl(result['receiver']),
-        numberOfAttachments: new FormControl(result['numberOfAttachments']),
-        numberOfImages: new FormControl(result['numberOfImages']),
-        no: new FormControl(result['no']),
-        num: new FormControl(result['num']),
-        recipientName: new FormControl(result['recipientName']),
-        summary: new FormControl(result['summary']),
-        urgentDate: new FormControl(result['urgentDate']),
-        urgentNum: new FormControl(result['urgentNum']),
-        responseDate: new FormControl(result['responseDate']),
-        responseNumber: new FormControl(result['responseNumber']),
-        recipientDate: new FormControl(result['recipientDate'])
-      });
-    });
-    const nextPageUrl = `/export-pagination?page=/${this.page}`;
-    this.router.navigate([nextPageUrl]);
     this.form();
   }
 
   deleteImage(index: number): void {
-    this.exportService.deleteImage(this.pathOfDeleteImage, index).subscribe();
-    this.paths.splice(index, 1);
-    setTimeout(() => {
-      window.location.reload();
-    }, 50);
+    this.exportService.deleteImage(this.pathOfDeleteImage, index).subscribe(() => {
+      this.paths.splice(index, 1);
+      // Reload component data instead of the entire page
+      this.showExportFile();
+    });
   }
 
   selectedFiles: File[] = [];
@@ -163,9 +147,9 @@ export class ExportPaginationComponent implements OnInit {
     for (let i = 0; i < this.selectedFiles.length; i++) {
       formData.append('files', this.selectedFiles[i]);
     }
-    this.exportService.addImages(this.id, formData).subscribe(() => {});
-    setTimeout(() => {
-      window.location.reload();
-    }, 50);
+    this.exportService.addImages(this.id, formData).subscribe(() => {
+      // Reload component data instead of the entire page
+      this.showExportFile();
+    });
   }
 }

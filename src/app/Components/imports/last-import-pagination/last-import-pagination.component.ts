@@ -48,14 +48,18 @@ export class LastImportPaginationComponent implements OnInit {
     private routes: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
-    private auth: AuthenticationServiceService
+    private auth: AuthenticationServiceService,
+    private route:ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.loadCollectionSize();
-    this.getImportCount();
-    this.showImportFile();
-    this.form();
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 1;
+      this.loadCollectionSize();
+      this.getImportCount();
+      this.showImportFile();
+      this.form();
+    })
   }
 
   form() {
@@ -117,6 +121,7 @@ export class LastImportPaginationComponent implements OnInit {
 
   change(event) {
     this.page = event;
+    this.router.navigate(['/last-import-pagination'], { queryParams: { page: this.page } });
     this.showImportFile();
     this.importService.getImportsById(event).subscribe((result) => {
       this.showImport = new FormGroup({
@@ -138,8 +143,6 @@ export class LastImportPaginationComponent implements OnInit {
         expectResponseDate: new FormControl(result['expectResponseDate']),
       });
     });
-    const nextPageUrl = `/last-import-pagination?page=/${this.page}`;
-    this.router.navigate([nextPageUrl]);
     this.form();
   }
 }

@@ -41,9 +41,12 @@ export class SignPaginationComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.getSignNumber();
-    this.showSignFile();
-    this.form();
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 1;
+      this.getSignNumber();
+      this.showSignFile();
+      this.form();
+    })
   }
 
   form(){
@@ -74,7 +77,8 @@ export class SignPaginationComponent implements OnInit {
     private signService: SignsService,
     private auth: AuthenticationServiceService,
     private routes: ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private route:ActivatedRoute
 
   ) {
   }
@@ -94,6 +98,7 @@ export class SignPaginationComponent implements OnInit {
 
   change(event): void {
     this.page = event;
+    this.router.navigate(['/sign-pagination'], { queryParams: { page: this.page } });
     this.showSignFile();
     this.signService.getSignsByPage(event).subscribe((result) => {
       this.signForm = new FormGroup({
@@ -117,8 +122,6 @@ export class SignPaginationComponent implements OnInit {
         depend: new FormControl(result['depend']),
     });
     });
-    const nextPageUrl = `/sign-pagination?page=/${this.page}`;
-    this.router.navigate([nextPageUrl]);
     this.form();
   }
 

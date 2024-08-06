@@ -150,12 +150,12 @@ const routes: Routes = [
     canActivate: [AuthenticationServiceService, CanActivate]
   },
   {
-    path: 'export-pagination?page=/:page',
+    path: 'export-pagination',
     component: ExportPaginationComponent,
     canActivate: [CanActivate]
   },
   {
-    path: 'import-pagination?page=/:page',
+    path: 'import-pagination',
     component: ImportPaginationComponent,
     canActivate: [CanActivate]
   },
@@ -210,7 +210,7 @@ const routes: Routes = [
     canActivate: [CanActivate]
   },
   {
-    path: 'special_pagination?page=/:page',
+    path: 'special-pagination',
     component: SpecialPaginationComponent,
     canActivate: [CanActivate]
   },
@@ -265,7 +265,7 @@ const routes: Routes = [
     canActivate: [CanActivate]
   },
   {
-    path: 'dean-decision-pagination?page=/:page',
+    path: 'dean-decision-pagination',
     component: DeanDecisionPaginationComponent,
     canActivate: [CanActivate]
   },
@@ -285,22 +285,22 @@ const routes: Routes = [
     canActivate: [CanActivate]
   },
   {
-    path: 'last-export-pagination?page=/:page',
+    path: 'last-export-pagination',
     component: LastExportPaginationComponent,
     canActivate: [CanActivate]
   },
   {
-    path: 'last-import-pagination?page=/:page',
+    path: 'last-import-pagination',
     component: LastImportPaginationComponent,
     canActivate: [CanActivate]
   },
   {
-    path: 'last-special-pagination?page/:page',
+    path: 'last-special-pagination',
     component: LastSpecialPaginationComponent,
     canActivate: [CanActivate]
   },
   {
-    path: 'last-dean-decision-pagination?page=/:page',
+    path: 'last-dean-decision-pagination',
     component: LastDeanDecisionPaginationComponent,
     canActivate: [CanActivate]
   },
@@ -311,12 +311,12 @@ const routes: Routes = [
     canActivate: [CanActivate]
   },
   {
-    path: 'sign-pagination?page=/:page',
+    path: 'sign-pagination',
     component: SignPaginationComponent,
     canActivate: [CanActivate]
   },
   {
-    path: 'all-sign-pagination?page=/:page',
+    path: 'last-sign-pagination',
     component: AllSignsPaginationComponent,
     canActivate: [CanActivate]
   },

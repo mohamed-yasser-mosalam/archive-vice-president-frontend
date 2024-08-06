@@ -44,30 +44,33 @@ export class SpecialPaginationComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.loadCollectionSize();
-    this.getSpecialCount();
-    this.showSpecialFile();
-    this.specialService.getSpecialsByPagination(this.page).subscribe((result) => {
-      this.showSpecial = new FormGroup({
-        createdBy: new FormControl(result['createdBy']),
-        no: new FormControl(result['no']),
-        name: new FormControl(result['name']),
-        summary: new FormControl(result['summary']),
-        numberOfAttachments: new FormControl(result['numberOfAttachments']),
-        numberOfImages: new FormControl(result['numberOfImages']),
-        incomeDate: new FormControl(result['incomeDate']),
-        sender: new FormControl(result['sender']),
-        importNum: new FormControl(result['importNum']),
-        typeNumber: new FormControl(result['typeNumber']),
-        num: new FormControl(result['num']),
-        notes:new FormControl(result['notes']),
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 1;
+      this.loadCollectionSize();
+      this.getSpecialCount();
+      this.showSpecialFile();
+      this.specialService.getSpecialsByPagination(this.page).subscribe((result) => {
+        this.showSpecial = new FormGroup({
+          createdBy: new FormControl(result['createdBy']),
+          no: new FormControl(result['no']),
+          name: new FormControl(result['name']),
+          summary: new FormControl(result['summary']),
+          numberOfAttachments: new FormControl(result['numberOfAttachments']),
+          numberOfImages: new FormControl(result['numberOfImages']),
+          incomeDate: new FormControl(result['incomeDate']),
+          sender: new FormControl(result['sender']),
+          importNum: new FormControl(result['importNum']),
+          typeNumber: new FormControl(result['typeNumber']),
+          num: new FormControl(result['num']),
+          notes:new FormControl(result['notes']),
+        });
       });
     });
-
-  }
+    }
 
   constructor(private specialService: SpecialService, private routes: ActivatedRoute, private router: Router,
-              private auth: AuthenticationServiceService) {
+              private auth: AuthenticationServiceService, private route: ActivatedRoute,
+  ) {
   }
 
   showSpecialFile() {
@@ -105,6 +108,7 @@ export class SpecialPaginationComponent implements OnInit {
 
   change(event:any) {
     this.page = event;
+    this.router.navigate(['/special-pagination'], { queryParams: { page: this.page } });
     this.showSpecialFile();
     this.specialService.getSpecialsByPagination(event).subscribe((result) => {
       this.showSpecial = new FormGroup({
@@ -122,8 +126,6 @@ export class SpecialPaginationComponent implements OnInit {
         notes:new FormControl(result['notes']),
       });
     });
-    const nextPageUrl = `/special_pagination?page=/${this.page}`;
-    this.router.navigate([nextPageUrl]);
     this.showSpecial;
   }
 

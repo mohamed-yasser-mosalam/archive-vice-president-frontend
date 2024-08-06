@@ -25,9 +25,11 @@ export class AuthenticationServiceService implements OnInit {
       .pipe(map(
         response => {
           sessionStorage.setItem("token", `Bearer ${response.token}`)
+          sessionStorage.setItem("id", response.id)
           return response;
         }))
   }
+
 
   /** get token from sessionStorage */
 
@@ -45,7 +47,8 @@ export class AuthenticationServiceService implements OnInit {
 
 
   getuserId() {
-    return this.decodeToken().id || '';
+    // return this.decodeToken().id || '';
+    return sessionStorage.getItem('id') || ''
   }
 
   getName() {

@@ -14,7 +14,7 @@
             </button>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-danger" routerLink="/import-pagination?page=/{{1}}"
+            <button class="btn btn-outline-danger" [routerLink]="['/import-pagination']" [queryParams]="{page:1}"
                     style="background-color:#b92323;color:white ">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
                    class="bi bi-box-arrow-in-down"
@@ -28,7 +28,7 @@
             </button>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-success" routerLink="/export-pagination?page=/{{1}}"
+            <button class="btn btn-outline-success"  [routerLink]="['/export-pagination']" [queryParams]="{page:1}"
                     style="background-color: green;color:white">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-box-arrow-up"
                    viewBox="0 0 16 16" style="color: var(--color)">
@@ -41,7 +41,7 @@
             </button>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-secondary" routerLink="/special_pagination?page=/{{1}}"
+            <button class="btn btn-outline-secondary"  [routerLink]="['/special-pagination']" [queryParams]="{page:1}"
                     style="background-color: rgb(0,0,203);color: white">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-bookmark"
                    viewBox="0 0 16 16" style="color: var(--color)">
@@ -62,7 +62,7 @@
             </button>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-light" routerLink="/dean-decision-pagination?page=/{{1}}"
+            <button class="btn btn-outline-light" [routerLink]="['/dean-decision-pagination']" [queryParams]="{page:1}"
                     style="color: black;background-color: white">
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
                 <path
@@ -72,7 +72,7 @@
             </button>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-light" routerLink="/sign-pagination?page=/{{1}}"
+            <button class="btn btn-outline-light" [routerLink]="['/sign-pagination']" [queryParams]="{page:1}"
                     style="color: black;background-color: white">
               <!--            <a routerLink="/allsigns">-->
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
@@ -282,19 +282,27 @@
                 <p> الفاكس والإشارات </p>
               </a>
             </li>
-
           </ul>
+          <!--          <a routerLink="/about" style="margin-top: 0">-->
+          <!--            <button type="button"  class="btn btn-outline-light" style="color: black;background-color: white">-->
+          <!--              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 16 16">-->
+          <!--                <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>-->
+          <!--                <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5z"/>-->
+          <!--              </svg>-->
+          <!--              حول-->
+          <!--            </button>-->
+          <!--          </a>-->
         </div>
 
-          <a routerLink="/login">
-            <button type="submit" class="btn w-100" style="color: var(--color);background:var(--bg_main)">
-              خروج
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--color)">
-                <path
-                  d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/>
-              </svg>
-            </button>
-          </a>
+        <a routerLink="/login">
+          <button type="submit" class="btn w-100" style="color: var(--color);background:var(--bg_main)">
+            خروج
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--color)">
+              <path
+                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/>
+            </svg>
+          </button>
+        </a>
       </div>
     </div>
   </div>

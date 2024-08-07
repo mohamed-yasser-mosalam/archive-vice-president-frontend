@@ -11,12 +11,12 @@ import baseUrl from "../../../url";
   styleUrls: ['./update-export.component.css']
 })
 export class UpdateExportComponent implements OnInit {
-  pathOfDeleteImage:any
-  base=baseUrl+'/'
+  pathOfDeleteImage: any
+  base = baseUrl + '/'
   showExports: any;
   paths: string[];
   id = this.routes.snapshot.params['id']
-  no:number;
+  no: number;
   roleOfUser = this.auth.getUserRoles()
   editExport = new FormGroup({
     date: new FormControl(''),
@@ -56,15 +56,16 @@ export class UpdateExportComponent implements OnInit {
   }
 
   constructor(private exportService: ExportServiceService, private routes: ActivatedRoute, private router: Router,
-              private auth:AuthenticationServiceService
-   ) {
+              private auth: AuthenticationServiceService
+  ) {
   }
 
   update() {
     this.exportService.updateExport(this.id, this.editExport.value)
-      .subscribe(( ) => {
-       this.router.navigate([`/export-pagination?page=/`, this.no])
-    })
+      .subscribe(() => {
+        this.router.navigate(['/export-pagination'], {queryParams: {page: this.no}});
+
+      })
   }
 
   showExportFile() {
@@ -74,11 +75,12 @@ export class UpdateExportComponent implements OnInit {
         return this.base + path;
       });
       this.pathOfDeleteImage = this.showExports.paths;
-      this.no=this.showExports.no;
-     })
+      this.no = this.showExports.no;
+    })
   }
+
   deleteImage(index: number): void {
-    this.exportService.deleteImage(this.pathOfDeleteImage,index).subscribe();
+    this.exportService.deleteImage(this.pathOfDeleteImage, index).subscribe();
     this.paths.splice(index, 1);
     setTimeout(() => {
       window.location.reload();

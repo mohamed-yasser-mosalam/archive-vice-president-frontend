@@ -230,7 +230,7 @@ export class UpdateSpecialComponent implements OnInit {
 
   updateSpecialFile(data:any): void {
     this.specialService.updateSpecial(this.specialFileId, data).subscribe(() => {
-       this.router.navigate([`/special_pagination?page=/`,this.no]);
+      this.router.navigate(['/special-pagination'], { queryParams: { page: this.no } });
     });
   }
   showSpecialFile() {

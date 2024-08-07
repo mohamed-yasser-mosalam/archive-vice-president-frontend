@@ -80,7 +80,8 @@ export class UpdateSignComponent implements OnInit {
   }
   updateSign( ){
     this.signService.updateSigns(this.page,this.editSignForm.value).subscribe(( ) => {
-      this.router.navigate([`/sign-pagination?page=/`, this.id])
+      this.router.navigate(['/sign-pagination'], { queryParams: { page: this.id } });
+
     })
   }
 

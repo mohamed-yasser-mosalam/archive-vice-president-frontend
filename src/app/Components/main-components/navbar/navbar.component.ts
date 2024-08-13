@@ -31,6 +31,5 @@ export class NavbarComponent implements OnInit {
     this.img = this.base + this.auth.getUserImage()
     this.id = this.auth.getuserId()
     this.userName = this.auth.getUserName()
-
   }
 }

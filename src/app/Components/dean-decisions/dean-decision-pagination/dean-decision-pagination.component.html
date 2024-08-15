@@ -84,7 +84,7 @@
                   style=" margin-bottom: 45px;margin-right:100px; display: flex;font-size:25px">
               <button type="submit"
                       style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-size:25px"
-                      routerLink="/dean-decision-pagination?page=/{{no}}">حفظ المرفقات
+                      [routerLink]="['/dean-decision-pagination']" [queryParams]="{page:no}">حفظ المرفقات
               </button>
               <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;"/>
             </form>

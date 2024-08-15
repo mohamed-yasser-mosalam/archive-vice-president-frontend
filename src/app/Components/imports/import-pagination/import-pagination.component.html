@@ -134,7 +134,7 @@
                   style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px;width:65%">
               <button type="submit"
                       style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-size:25px"
-                      routerLink="/import-pagination?page=/{{no}}">حفظ المرفقات</button>
+                      [routerLink]="['/import-pagination']" [queryParams]="{page:no}">حفظ المرفقات</button>
               <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;" />
             </form>
 <button type="submit" class="btn  "

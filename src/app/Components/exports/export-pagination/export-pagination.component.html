@@ -130,7 +130,7 @@
             >
               <button type="submit" class="btn"
                       style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-size:25px"
-                      routerLink="/export-pagination?page=/{{no}}">حفظ المرفقات
+                      [routerLink]="['/export-pagination']" [queryParams]="{page:no}">حفظ المرفقات
               </button>
               <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;"/>
             </form>

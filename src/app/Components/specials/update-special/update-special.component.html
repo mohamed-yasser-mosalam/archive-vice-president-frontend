@@ -51,12 +51,15 @@
                 <label for="numberOfAttachments">عدد المرفقات</label>
                 <small *ngIf="form.get('numberOfAttachments')?.invalid">* مطلوب</small>
               </div>
-            <div class="input-data">
-              <input type="text"  id="notes" name="notes" formControlName="notes">
-              <div class="underLine"></div>
-              <label for="notes">ملاحظات </label>
-            </div>
+
           </div>
+
+          </div>
+
+          <div class="input-data">
+            <input type="text"  id="notes" name="notes" formControlName="notes">
+            <div class="underLine"></div>
+            <label for="notes">ملاحظات </label>
           </div>
 
           <div formArrayName="subjects" style="overflow:auto;background-color: var(--bg);">

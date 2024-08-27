@@ -19,7 +19,7 @@
               </svg>
               حذف المرفق
             </button>
-            <button printSectionId="'print-section-' + i" ngxPrint
+            <button [printSectionId]="'print-section-' + i" ngxPrint
                     class="btn"
                     style="width:150px;padding:1px;margin-top:10px;margin-left:20px;color: var(--color);background: var(--bg_hover);font-size:15px;z-index: 33333333333;">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"

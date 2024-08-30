@@ -3,7 +3,7 @@
 <div class="row" style="background-color: var(--bg);">
   <div class="d-flex justify-content-between">
     <div class="w-100"
-      style="
+         style="
       zoom:80%;
     background-color: var(--bg);
     text-align: center;
@@ -31,84 +31,90 @@
 
         <table>
           <thead>
-            <tr>
-              <th scope="col">رقم الخطاب</th>
-              <th scope="col"> الملخص</th>
-              <th scope="col">انشأ بواسطة</th>
-              <th scope="col">اخر تعديل تم بواسطة</th>
-              <th scope="col">تاريخ الانشاء</th>
-              <th scope="col"> تاريخ اخر تعديل</th>
-              <th scope="col"> نوع الملف</th>
+          <tr>
+            <th scope="col">رقم الخطاب</th>
+            <th scope="col"> الملخص</th>
+            <th scope="col">انشأ بواسطة</th>
+            <th scope="col">اخر تعديل تم بواسطة</th>
+            <th scope="col">تاريخ الانشاء</th>
+            <th scope="col"> تاريخ اخر تعديل</th>
+            <th scope="col"> نوع الملف</th>
 
-            </tr>
+          </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of showUserActivity | search:searchText">
-              <td>{{ item.no }}</td>
-              <td>{{item.summary}}</td>
-              <td>{{item.createdBy}}</td>
-              <td>{{item.lastModifiedBy}}</td>
-              <td>{{item.createdDate}}</td>
-              <td>{{item.lastModifiedDate}}</td>
-              <td>{{item.type}}</td>
-              <td *ngIf="item.type=='خاص';else first">
-                <a routerLink="/special_pagination?page=/{{item.no}}">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                       class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
-                    <path fill-rule="evenodd"
-                          d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
-                    <path fill-rule="evenodd"
-                          d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
-                  </svg>
-                </a>
-              </td>
-              <ng-template #first>
-                <a *ngIf="item.type=='صادر' ; else second" routerLink="/export-pagination?page=/{{item.no}}">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                       class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
-                    <path fill-rule="evenodd"
-                          d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
-                    <path fill-rule="evenodd"
-                          d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
-                  </svg>
-                </a>
-              </ng-template>
-              <ng-template #second>
-                <a *ngIf="item.type =='وارد';else third" routerLink="/import-pagination?page=/{{item.no}}">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                       class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
-                    <path fill-rule="evenodd"
-                          d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
-                    <path fill-rule="evenodd"
-                          d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
-                  </svg>
-                </a>
-              </ng-template>
+          <tr *ngFor="let item of showUserActivity | search:searchText">
+            <td>{{ item.no }}</td>
+            <td>{{ item.summary }}</td>
+            <td>{{ item.createdBy }}</td>
+            <td>{{ item.lastModifiedBy }}</td>
+            <td>{{ item.createdDate }}</td>
+            <td>{{ item.lastModifiedDate }}</td>
+            <td>{{ item.type }}</td>
+            <td *ngIf="item.type=='خاص';else first">
 
-              <ng-template #third>
-                <a *ngIf="item.type =='أشارات';else fourth" routerLink="/sign-pagination?page=/{{item.no}}">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                       class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
-                    <path fill-rule="evenodd"
-                          d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
-                    <path fill-rule="evenodd"
-                          d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
-                  </svg>
-                </a>
-              </ng-template>
-              <ng-template #fourth>
-                <a *ngIf="item.type =='قرارت عميد الكلية';" routerLink="/dean-decision-pagination?page=/{{item.no}}">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                       class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
-                    <path fill-rule="evenodd"
-                          d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
-                    <path fill-rule="evenodd"
-                          d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
-                  </svg>
-                </a>
-              </ng-template>
+              <a
+                [routerLink]="['/special_pagination']" [queryParams]="{page:item.no}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
+                  <path fill-rule="evenodd"
+                        d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                  <path fill-rule="evenodd"
+                        d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                </svg>
+              </a>
+            </td>
+            <ng-template #first>
+              <a *ngIf="item.type=='صادر' ; else second"
+                 [routerLink]="['/export-pagination']" [queryParams]="{page:item.no}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
+                  <path fill-rule="evenodd"
+                        d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                  <path fill-rule="evenodd"
+                        d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                </svg>
+              </a>
+            </ng-template>
+            <ng-template #second>
+              <a *ngIf="item.type =='وارد';else third"
+                 [routerLink]="['/import-pagination']" [queryParams]="{page:item.no}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
+                  <path fill-rule="evenodd"
+                        d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                  <path fill-rule="evenodd"
+                        d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                </svg>
+              </a>
+            </ng-template>
 
-            </tr>
+            <ng-template #third>
+              <a *ngIf="item.type =='أشارات';else fourth"
+                 [routerLink]="['/sign-pagination']" [queryParams]="{page:item.no}">
+               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
+                  <path fill-rule="evenodd"
+                        d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                  <path fill-rule="evenodd"
+                        d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                </svg>
+              </a>
+            </ng-template>
+            <ng-template #fourth>
+              <a *ngIf="item.type =='قرارت عميد الكلية';"
+                 [routerLink]="['/dean-decision-pagination']" [queryParams]="{page:item.no}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
+                  <path fill-rule="evenodd"
+                        d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                  <path fill-rule="evenodd"
+                        d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                </svg>
+              </a>
+            </ng-template>
+
+          </tr>
           </tbody>
         </table>
 

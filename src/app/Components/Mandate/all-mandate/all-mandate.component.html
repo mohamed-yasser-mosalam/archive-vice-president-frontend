@@ -88,7 +88,9 @@
                 d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
             </svg>
           </td>
-          <td><a  routerLink = "/special_pagination?page=/{{item.departmentSpecialNum}}" style="color: black;text-decoration: black">{{ item.departmentRecordNum }} </a></td>
+          <td><a
+            [routerLink]="['/special-pagination']" [queryParams]="{page:item.departmentSpecialNum}"
+            style="color: black;text-decoration: black">{{ item.departmentRecordNum }} </a></td>
 
           <td>{{ item.departmentDate }}</td>
           <td>
@@ -101,7 +103,8 @@
             </label>
           </td>
           <ng-template #departmentAccept><span style="color: red">X</span></ng-template>
-          <td><a  routerLink = "/special_pagination?page=/{{item.facultySpecialNum}}" style="color: black;text-decoration: black">{{ item.facultyRecordNum }} </a></td>
+          <td><a [routerLink]="['/special-pagination']" [queryParams]="{page:item.facultySpecialNum}"
+                 style="color: black;text-decoration: black">{{ item.facultyRecordNum }} </a></td>
           <td>{{ item.facultyDate }}</td>
           <td>
             <label *ngIf="item.facultyAccept;else facultyAccept">
@@ -114,7 +117,7 @@
           </td>
           <ng-template #facultyAccept><span style="color: red">X</span></ng-template>
           <td>
-            <a routerLink="/import-pagination?page=/{{item.universityRecordNum}}"
+            <a [routerLink]="['/import-pagination']" [queryParams]="{page:item.universityRecordNum}"
                style="color: black;text-decoration: black">
               {{ item.universityRecordNum }}
             </a></td>

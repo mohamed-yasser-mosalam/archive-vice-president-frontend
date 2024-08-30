@@ -4,94 +4,89 @@
       <div class="menu">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <button class="btn " routerLink="/home" style="background-color:#000;color: white">
+            <a class=" main btn main btn-dark " routerLink="/home" style="background-color:#000;color: white;width:150px">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-house"
-                   viewBox="0 0 16 16" style="color: var(--color)">
+                   viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px;margin-right: 5px">
                 <path
                   d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
               </svg>
               الصفحة الرئيسية
-            </button>
+            </a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-danger" [routerLink]="['/import-pagination']" [queryParams]="{page:1}"
-                    style="background-color:#b92323;color:white ">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+            <a class="main " [routerLink]="['/import-pagination']" [queryParams]="{page:1}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill=" var(--color)"
                    class="bi bi-box-arrow-in-down"
-                   viewBox="0 0 16 16" style="color: var(--color)">
+                   viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
                 <path fill-rule="evenodd"
                       d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
                 <path fill-rule="evenodd"
                       d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
               </svg>
               الخطابات الواردة
-            </button>
+            </a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-success"  [routerLink]="['/export-pagination']" [queryParams]="{page:1}"
-                    style="background-color: green;color:white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-box-arrow-up"
-                   viewBox="0 0 16 16" style="color: var(--color)">
+            <a class=" main"  [routerLink]="['/export-pagination']" [queryParams]="{page:1}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill=" var(--color)" class="bi bi-box-arrow-up"
+                   viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
                 <path fill-rule="evenodd"
                       d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
                 <path fill-rule="evenodd"
                       d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708z"/>
               </svg>
               الخطابات الصادرة
-            </button>
+            </a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-secondary"  [routerLink]="['/special-pagination']" [queryParams]="{page:1}"
-                    style="background-color: rgb(0,0,203);color: white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-bookmark"
-                   viewBox="0 0 16 16" style="color: var(--color)">
+            <a class="main"  [routerLink]="['/special-pagination']" [queryParams]="{page:1}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill=" var(--color)" class="bi bi-bookmark"
+                   viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
                 <path
                   d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
               </svg>
               ملفات الحفظ
-            </button>
+            </a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-light"  routerLink="/mandate-dashboard"
-                    style="color: white;background-color:dimgray">
-              <!--            <a routerLink="/allsigns">-->
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map" viewBox="0 0 16 16">
+            <a class="main "  routerLink="/mandate-dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-map"
+                   viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
                 <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
               </svg>
               الإنتدابات
-            </button>
+            </a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-light" [routerLink]="['/dean-decision-pagination']" [queryParams]="{page:1}"
-                    style="color: black;background-color: white">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+            <a class="main " [routerLink]="['/dean-decision-pagination']" [queryParams]="{page:1}">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                   width="24px" fill=" var(--color)" style="color: var(--color);margin-left: 10px">
                 <path
                   d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q56 0 105.5-17.5T676-227l-57-57q-29 21-64.5 32.5T480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 39-12 75t-33 65l57 57q32-41 50-91t18-106q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-160q22 0 42.5-5.5T561-342l-61-61q-5 2-10 2.5t-10 .5q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 6-.5 11.5T557-458l60 60q11-18 17-38.5t6-43.5q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Z"/>
               </svg>
               قرارات العميد
-            </button>
+            </a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-light" [routerLink]="['/sign-pagination']" [queryParams]="{page:1}"
-                    style="color: black;background-color: white">
+            <a class="main " [routerLink]="['/sign-pagination']" [queryParams]="{page:1}">
               <!--            <a routerLink="/allsigns">-->
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                   fill=" var(--color)" style="color: var(--color);margin-left: 10px">
                 <path
                   d="m480-320 160-160-160-160-56 56 64 64H320v80h168l-64 64 56 56Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
               </svg>
               الإشارات
-            </button>
+            </a>
           </li>
           <div class="dropdown">
-            <button class="btn btn-outline-light" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    style="color: black;background-color: white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                   class="bi bi-telephone-fill" viewBox="0 0 16 16">
+            <a class="drop" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=" var(--color)"
+                   class="bi bi-telephone-fill" viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
                 <path fill-rule="evenodd"
                       d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
               </svg>
               دليل الأتصال
-            </button>
+            </a>
 
             <ul class="dropdown-menu" style="background-color: var(--bg);">
 
@@ -135,25 +130,24 @@
           </div>
 
           <li class="nav-item">
-            <button class=" btn btn-outline-light" routerLink="/all-files" style="color: black;background-color: white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-archive"
-                   viewBox="0 0 16 16" style="color: var(--color)">
+            <a class="main" routerLink="/all-files">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill=" var(--color)" class="bi bi-archive"
+                   viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
                 <path
                   d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
               </svg>
               ملفات الأرشيف
-            </button>
+            </a>
           </li>
 
           <div class="dropdown" *ngIf="userRole=='admin'">
-            <button class="btn btn-outline-light " type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    style="color: black;background-color: white">
+            <a class="drop" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
                 <path
                   d="M40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm720 0v-120q0-44-24.5-84.5T666-434q51 6 96 20.5t84 35.5q36 20 55 44.5t19 53.5v120H760ZM360-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm400-160q0 66-47 113t-113 47q-11 0-28-2.5t-28-5.5q27-32 41.5-71t14.5-81q0-42-14.5-81T544-792q14-5 28-6.5t28-1.5q66 0 113 47t47 113ZM120-240h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0 320Zm0-400Z"/>
               </svg>
               اعدادات المستخدمين
-            </button>
+            </a>
             <ul class="dropdown-menu" style="background-color: var(--bg);">
               <li class="nav-item dropdown-item" *ngIf="userRole=='admin'">
                 <a routerLink="/user-activity">
@@ -214,13 +208,13 @@
           </div>
         </ul>
         <div class="dropdown">
-          <button class="btn btn-outline-light" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                  style="color: black;background-color: white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder" viewBox="0 0 16 16">
+          <a class="drop" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=" var(--color)"
+                 class="bi bi-folder" viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
               <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z"/>
             </svg>
             السنوات السابقة
-          </button>
+          </a>
           <ul class="dropdown-menu" style="background-color: var(--bg);">
             <li class="nav-item dropdown-item">
               <a routerLink="/last-imports">
@@ -283,25 +277,26 @@
               </a>
             </li>
           </ul>
-          <!--          <a routerLink="/about" style="margin-top: 0">-->
-          <!--            <button type="button"  class="btn btn-outline-light" style="color: black;background-color: white">-->
-          <!--              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 16 16">-->
-          <!--                <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>-->
-          <!--                <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5z"/>-->
-          <!--              </svg>-->
-          <!--              حول-->
-          <!--            </button>-->
-          <!--          </a>-->
+
+<!--            <button type="button" routerLink="/about" class="btn btn-outline-light" style="color: black;background-color: white">-->
+<!--              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"-->
+<!--                   class="bi bi-file-earmark-person" viewBox="0 0 16 16">-->
+<!--                <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>-->
+<!--                <path-->
+<!--                  d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5z"/>-->
+<!--              </svg>-->
+<!--              حول-->
+<!--            </button>-->
         </div>
 
-        <a routerLink="/login">
-          <button type="submit" class="btn w-100" style="color: var(--color);background:var(--bg_main)">
-            خروج
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--color)">
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/>
-            </svg>
-          </button>
+        <a routerLink="/login"  class=" log-out btn btn-danger"
+           style="color:white;background-color:red;width: 150px">
+          خروج
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white"
+               style="color: var(--color);margin-left: 10px;margin-right: 5px">
+            <path
+              d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/>
+          </svg>
         </a>
       </div>
     </div>

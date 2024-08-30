@@ -22,7 +22,6 @@
 }
 
 
-
 .menu {
   width: 170px;
   height: 93vh;
@@ -35,6 +34,7 @@
 .dropdown-toggle {
   color: var(--color);
   font-weight: bold;
+
 }
 
 ul {
@@ -43,31 +43,31 @@ ul {
 }
 
 ul li a,
-.dropdown-toggle {
+.dropdown-toggle,
+.drop {
+  color: black;
   width: 15em;
   padding: 5px 5px;
   margin: 5px 0;
   border-radius: 8px;
   display: flex;
   align-items: center;
-  gap:5px;
-}
-li a{
-  color :black;
+  gap: 5px;
+  font-size: 15px;
   font-weight: bold;
 }
-li a:hover,
-li a:active{
-  background-color: var(--bg_main);
-  color :var( --color);
+
+li a {
+  color: black;
   font-weight: bold;
-  width: 150px;
 }
+
 
 .dropdown-toggle:hover {
   background-color: var(--bg_main);
-  color :var( --color);
+  color: var(--color);
 }
+
 .sidebar .menu .menu-item:hover,
 .sidebar .menu .menu-item.selected {
   background-color: var(--bg_main); /* Change background color for hover and selected item */
@@ -76,26 +76,33 @@ li a:active{
 }
 
 .btn {
-  width: 150px;
+  /*width: 150px;*/
   height: 30px;
   margin-top: 12px;
-  font-size:15px;
+  font-size: 15px;
   font-weight: bold;
+
 }
 
-/* .btn:hover {
-  text-decoration: none;
-  background-color: var(--bg_hover);
+.main {
+  margin-right: 10px;
+}
 
-} */
 
 .dropdown-item {
   background-color: var(--bg);
   color: var(--color);
 }
 
+/*.drop{*/
+/*  color: black;*/
+/*  font-weight: bold;*/
+/*  padding: 5px 5px;*/
+/*  margin: 5px 0;*/
+/*  font-size: 15px;*/
+/*}*/
 .log-out {
-  position: absolute;
   bottom: 0;
- }
+  margin-top: 30px
+}
 

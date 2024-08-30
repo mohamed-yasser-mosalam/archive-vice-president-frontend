@@ -4,9 +4,9 @@
       <div class="menu">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="main btn" routerLink="/home"
-               style="width:150px;background-color: var(--color4);color: white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-house"
+            <a class="main " routerLink="/home" routerLinkActive="bg-primary"
+               style="width:150px;color: black">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-house"
                    viewBox="0 0 16 16" style="color: var(--color3);margin-left: 10px;margin-right: 5px">
                 <path
                   d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
@@ -15,7 +15,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="main " [routerLink]="['/import-pagination']" [queryParams]="{page:1}">
+            <a class="main " [routerLink]="['/import-pagination']" routerLinkActive="bg-primary"
+               [queryParams]="{page:1}" style="width:150px;color: black">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill=" var(--color)"
                    class="bi bi-box-arrow-in-down"
                    viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
@@ -28,7 +29,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class=" main"  [routerLink]="['/export-pagination']" [queryParams]="{page:1}">
+            <a class=" main"  [routerLink]="['/export-pagination']" [queryParams]="{page:1}"
+               routerLinkActive="bg-primary" style="width:150px;color: black">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill=" var(--color)" class="bi bi-box-arrow-up"
                    viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
                 <path fill-rule="evenodd"
@@ -40,7 +42,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="main"  [routerLink]="['/special-pagination']" [queryParams]="{page:1}">
+            <a class="main"  [routerLink]="['/special-pagination']" [queryParams]="{page:1}"
+               routerLinkActive="bg-primary" style="width:150px;color: black">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill=" var(--color)" class="bi bi-bookmark"
                    viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
                 <path
@@ -50,8 +53,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="main "  routerLink="/mandate-dashboard">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-map"
+            <a class="main "  routerLink="/mandate-dashboard"
+               routerLinkActive="bg-primary" style="width:150px;color: black">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-map"
                    viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
                 <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
               </svg>
@@ -59,8 +63,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="main " [routerLink]="['/dean-decision-pagination']" [queryParams]="{page:1}">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+            <a class="main " [routerLink]="['/dean-decision-pagination']" [queryParams]="{page:1}"
+               routerLinkActive="bg-primary" style="width:150px;color: black">
+
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                    width="24px" fill=" var(--color)" style="color: var(--color);margin-left: 10px">
                 <path
                   d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q56 0 105.5-17.5T676-227l-57-57q-29 21-64.5 32.5T480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 39-12 75t-33 65l57 57q32-41 50-91t18-106q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-160q22 0 42.5-5.5T561-342l-61-61q-5 2-10 2.5t-10 .5q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 6-.5 11.5T557-458l60 60q11-18 17-38.5t6-43.5q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Z"/>
@@ -69,8 +75,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="main " [routerLink]="['/sign-pagination']" [queryParams]="{page:1}">
-              <!--            <a routerLink="/allsigns">-->
+            <a class="main " [routerLink]="['/sign-pagination']" [queryParams]="{page:1}"
+               routerLinkActive="bg-primary" style="width:150px;color: black">
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                    fill=" var(--color)" style="color: var(--color);margin-left: 10px">
                 <path
@@ -80,7 +86,8 @@
             </a>
           </li>
           <div class="dropdown">
-            <a class="drop" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="drop" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+               routerLinkActive="bg-primary" style="width:150px;color: black">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=" var(--color)"
                    class="bi bi-telephone-fill" viewBox="0 0 16 16" style="color: var(--color);margin-left: 10px">
                 <path fill-rule="evenodd"

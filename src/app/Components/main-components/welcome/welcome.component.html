@@ -148,7 +148,8 @@
 
               <a>
                 <button type="button" class="btn btn w-10"
-                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:var(--color);background: var(--bg_main);width:70px"
+                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;
+                        color:var(--color3);background: var(--color4);width:70px"
                         routerLink="/add-import-file">
                   اضافة
                 </button>
@@ -187,8 +188,9 @@
              style="background-color: #fff; height: 250px; overflow: auto; border-radius: 8px; zoom:95%;width:400px ">
           <h2
             style="font-size: 22px;  background-color: #fff; color: #3333338f;padding-top:20px">
-            <select class="px-2 mx-4" [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()">
-              <option selected="selected">أختار السنة</option>
+            <select class="px-2 mx-4" [(ngModel)]="selectedYear" (change)="getNumberOfLetterForYears()"
+            style="border-radius:10px">
+              <option selected="selected">إختار السنة</option>
               <option *ngFor="let year of years">{{ year }}</option>
             </select>
             <a style=" text-decoration:none;color: black;font-weight: bolder;margin-top: 30px;font-size: 20px"> عدد
@@ -239,7 +241,8 @@
 
               <a>
                 <button type="button" class="btn btn w-10"
-                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:var(--color);background: var(--bg_main);width:70px"
+                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;
+                        color:var(--color3);background: var(--color4);width:70px"
                         routerLink="/add-export-file">
 
                   اضافة

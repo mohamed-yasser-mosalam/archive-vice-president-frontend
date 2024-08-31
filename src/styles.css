@@ -3,13 +3,13 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   --bg: #ffffff;
-  --bg_main:#E6E6E6;
+  --bg_main: #efefef;
   --bg_hover: #ccc4c2;
   --color: black;
   --color1: white;
   --color2: #eee;
   --color3:white;
-  --color4:  #143e81;
+  --color4: gray;
   transition: all 0.5s ease;
 
   /**table design */

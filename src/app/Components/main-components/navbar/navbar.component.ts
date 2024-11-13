@@ -5,6 +5,7 @@ import {OverlayContainer} from "@angular/cdk/overlay";
 import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
 import {UserService} from "../../../Services/user/user.service";
 import baseUrl from "../../../url";
+import {TaskService} from "../../../Services/Task/task.service";
 
 
 @Component({
@@ -19,10 +20,13 @@ export class NavbarComponent implements OnInit {
   userName: string;
   pathOfDeleteImage: any
   base = baseUrl + '/'
+  notify: boolean = false;
+
 
   constructor(
     private auth: AuthenticationServiceService,
     private overlay: OverlayContainer,
+    private taskService: TaskService
   ) {
   }
 
@@ -31,5 +35,8 @@ export class NavbarComponent implements OnInit {
     this.img = this.base + this.auth.getUserImage()
     this.id = this.auth.getuserId()
     this.userName = this.auth.getUserName()
+    this.taskService.findByDate().subscribe((res) => {
+      this.notify = res.length > 0;
+    })
   }
 }

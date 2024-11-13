@@ -1,0 +1,12 @@
+textarea{
+  width: 1000px;
+  height: 200px;
+}
+button {
+  margin: 1% 40% 1% 50%;
+  width: 10%;
+
+}
+.form-label{
+  margin: 1%;
+}

@@ -123,6 +123,9 @@ import { UpdateFacultyPhoneComponent } from './Components/PhoneDirectory/update-
 import { UpdateTeachingPhoneComponent } from './Components/PhoneDirectory/update-teaching-phone/update-teaching-phone.component';
 import { UnSpecialMandateComponent } from './Components/Mandate/un-special-mandate/un-special-mandate.component';
 import { AllLastMandateComponent } from './Components/Mandate/all-last-mandate/all-last-mandate.component';
+import { TaskComponent } from './Components/Task/task/task.component';
+import { AddTaskComponent } from './Components/Task/add-task/add-task.component';
+import { UpdateTaskComponent } from './Components/Task/update-task/update-task.component';
 
 @NgModule({
   declarations: [
@@ -212,6 +215,9 @@ import { AllLastMandateComponent } from './Components/Mandate/all-last-mandate/a
     UpdateTeachingPhoneComponent,
     UnSpecialMandateComponent,
     AllLastMandateComponent,
+    TaskComponent,
+    AddTaskComponent,
+    UpdateTaskComponent,
 
   ],
   imports: [

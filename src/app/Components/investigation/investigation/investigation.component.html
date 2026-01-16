@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+
+<div class="row" style="background-color: var(--bg);">
+  <div class="d-flex justify-content-between">
+    <div style="
+    zoom: 80%;
+    text-align: center;
+    position: sticky;
+    overflow: auto;
+    height:733px;
+    border-radius: 8px;
+    width:100%">
+      <div class="d-flex"
+           style="
+        font-size: 20px;
+        padding: 10px 35%;
+        background-color: var(--bg);
+        color: var(--color);
+        position: sticky;
+        top: 0;
+        font-weight: bold">
+        <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
+        <div class="input-data">
+          <h2 style="font-weight: bold;margin-left: 50px"> التحقيقات </h2>
+        </div>
+
+        <div>
+          <button routerLink = "/add-investigation" class="btn btn-primary"> أضافة </button>
+        </div>
+      </div>
+      <table>
+        <thead>
+        <tr>
+          <th scope="col">القيد</th>
+          <th scope="col">اسم الطالب</th>
+          <th scope="col">الفرقة</th>
+          <th scope="col">العام الجامعي</th>
+          <th scope="col">الفصل الدراسي</th>
+          <th scope="col">المادة محل الغش</th>
+          <th scope="col">نوع التحقيق</th>
+          <th scope="col">تاريخ الامتحان</th>
+          <th scope="col">المتعلقات</th>
+          <th scope="col"> المحقق</th>
+          <th scope="col">تاريخ التحقيق</th>
+          <th scope="col">نتيجة التحقيق</th>
+          <th scope="col">نتيجة الاستئناف</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of investigations | search:searchText">
+          <td>{{ item.id }}</td>
+          <td>{{ item.studentName }}</td>
+          <td>{{ item.academicYear }} </td>
+          <td>{{ item.year }} </td>
+          <td>{{ item.semester }} </td>
+          <td>{{ item.exam }}</td>
+          <td>{{ item.investigationKind }}</td>
+          <td>{{ item.examDate }}</td>
+          <td>{{ item.belongings }}</td>
+          <td>{{ item.investigationName }}</td>
+          <td>{{ item.investigationDate }}</td>
+          <td>{{ item.investigationResult }}</td>
+          <td>{{ item.result }}</td>
+          <td>
+            <a routerLink="/update-investigation/{{item.id}}">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0f0">
+                <path
+                  d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
+              </svg>
+            </a>
+
+          </td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>

@@ -55,10 +55,6 @@ import {
 import {
   LastDeanDecisionPaginationComponent
 } from './Components/dean-decisions/last-dean-decision-pagination/last-dean-decision-pagination.component';
-import {AddSignComponent} from './Components/signs/add-sign/add-sign.component';
-import {UpdateSignComponent} from './Components/signs/update-sign/update-sign.component';
-import {AllSignComponent} from './Components/signs/all-sign/all-sign.component';
-import {SignPaginationComponent} from './Components/signs/sign-pagination/sign-pagination.component';
 import {ErrorPageComponent} from './Components/error-page/error-page.component';
 import {
   ShowUserInformationComponent
@@ -106,8 +102,6 @@ import { EmployeePhoneDirectoryComponent } from './Components/PhoneDirectory/emp
 import { AddEmployeePhoneComponent } from './Components/PhoneDirectory/add-employee-phone/add-employee-phone.component';
 import { AddArchiveFileComponent } from './Components/all-files/add-archive-file/add-archive-file.component';
 import { UpdateArchiveFileComponent } from './Components/all-files/update-archive-file/update-archive-file.component';
-import { AllSignsComponent } from './Components/signs/all-signs/all-signs.component';
-import { AllSignsPaginationComponent } from './Components/signs/all-signs-pagination/all-signs-pagination.component';
 import { LetterOfSpecificYearComponent } from './Components/main-components/letter-of-specific-year/letter-of-specific-year.component';
 import { AllMandateComponent } from './Components/Mandate/all-mandate/all-mandate.component';
 import { AddMandateComponent } from './Components/Mandate/add-mandate/add-mandate.component';
@@ -126,6 +120,9 @@ import { AllLastMandateComponent } from './Components/Mandate/all-last-mandate/a
 import { TaskComponent } from './Components/Task/task/task.component';
 import { AddTaskComponent } from './Components/Task/add-task/add-task.component';
 import { UpdateTaskComponent } from './Components/Task/update-task/update-task.component';
+import { InvestigationComponent } from './Components/investigation/investigation/investigation.component';
+import { InsertInvestigationComponent } from './Components/investigation/insert-investigation/insert-investigation.component';
+import { UpdateInvestigationComponent } from './Components/investigation/update-investigation/update-investigation.component';
 
 @NgModule({
   declarations: [
@@ -183,10 +180,6 @@ import { UpdateTaskComponent } from './Components/Task/update-task/update-task.c
     LastImportPaginationComponent,
     LastSpecialPaginationComponent,
     LastDeanDecisionPaginationComponent,
-    AddSignComponent,
-    UpdateSignComponent,
-    AllSignComponent,
-    SignPaginationComponent,
     ErrorPageComponent,
     ShowUserInformationComponent,
     UserpaginationComponent,
@@ -198,8 +191,6 @@ import { UpdateTaskComponent } from './Components/Task/update-task/update-task.c
     AddEmployeePhoneComponent,
     AddArchiveFileComponent,
     UpdateArchiveFileComponent,
-    AllSignsComponent,
-    AllSignsPaginationComponent,
     LetterOfSpecificYearComponent,
     AllMandateComponent,
     AddMandateComponent,
@@ -218,6 +209,9 @@ import { UpdateTaskComponent } from './Components/Task/update-task/update-task.c
     TaskComponent,
     AddTaskComponent,
     UpdateTaskComponent,
+    InvestigationComponent,
+    InsertInvestigationComponent,
+    UpdateInvestigationComponent
 
   ],
   imports: [

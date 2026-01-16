@@ -45,8 +45,8 @@ export class WelcomeService {
     return this.http.get(`${this.base}/special/count-special-by-year?year=${selectedYear}`)
   }
 
-  getNumberOfSigns() {
-    return this.http.get(`${this.base}/sign/count-current`)
+  getNumberOfInvestigation() {
+    return this.http.get(`${this.base}/investigation/count-current`)
   }
 
   getNumberOfDeanDecision() {

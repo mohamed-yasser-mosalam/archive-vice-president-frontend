@@ -9,6 +9,11 @@ table {
   direction: rtl;
 }
 
+.btn {
+  margin: 2px 0 0 90px;
+  height:35px;
+  width:50px;
+}
 thead tr {
   position: sticky;
   top: 50px;

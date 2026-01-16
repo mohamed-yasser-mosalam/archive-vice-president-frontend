@@ -38,10 +38,6 @@ import {
 import {
   LastDeanDecisionPaginationComponent
 } from './Components/dean-decisions/last-dean-decision-pagination/last-dean-decision-pagination.component'
-import {AllSignComponent} from './Components/signs/all-sign/all-sign.component'
-import {SignPaginationComponent} from './Components/signs/sign-pagination/sign-pagination.component'
-import {AddSignComponent} from './Components/signs/add-sign/add-sign.component'
-import {UpdateSignComponent} from './Components/signs/update-sign/update-sign.component'
 import {ErrorPageComponent} from './Components/error-page/error-page.component'
 import {
   ShowUserInformationComponent
@@ -87,8 +83,6 @@ import {
 import {AddEmployeePhoneComponent} from './Components/PhoneDirectory/add-employee-phone/add-employee-phone.component'
 import {AddArchiveFileComponent} from './Components/all-files/add-archive-file/add-archive-file.component'
 import {UpdateArchiveFileComponent} from './Components/all-files/update-archive-file/update-archive-file.component'
-import {AllSignsComponent} from './Components/signs/all-signs/all-signs.component'
-import {AllSignsPaginationComponent} from './Components/signs/all-signs-pagination/all-signs-pagination.component'
 import {
   LetterOfSpecificYearComponent
 } from './Components/main-components/letter-of-specific-year/letter-of-specific-year.component'
@@ -117,6 +111,13 @@ import {AllLastMandateComponent} from "./Components/Mandate/all-last-mandate/all
 import {TaskComponent} from "./Components/Task/task/task.component";
 import {AddTaskComponent} from "./Components/Task/add-task/add-task.component";
 import {UpdateTaskComponent} from "./Components/Task/update-task/update-task.component";
+import {InvestigationComponent} from "./Components/investigation/investigation/investigation.component";
+import {
+  InsertInvestigationComponent
+} from "./Components/investigation/insert-investigation/insert-investigation.component";
+import {
+  UpdateInvestigationComponent
+} from "./Components/investigation/update-investigation/update-investigation.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -339,24 +340,6 @@ const routes: Routes = [
     component: LastDeanDecisionPaginationComponent,
     canActivate: [CanActivate]
   },
-  {path: 'signs', component: AllSignComponent, canActivate: [CanActivate]},
-  {
-    path: 'all-signs',
-    component: AllSignsComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'sign-pagination',
-    component: SignPaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'last-sign-pagination',
-    component: AllSignsPaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {path: 'add-sign', component: AddSignComponent, canActivate: [CanActivate]},
-  {path: 'update-sign/:page', component: UpdateSignComponent},
   {
     path: 'show-user-information/:username',
     component: ShowUserInformationComponent,
@@ -491,11 +474,29 @@ const routes: Routes = [
     path: 'add-task',
     component: AddTaskComponent,
     canActivate: [CanActivate]
-  }, {
+  },
+  {
     path: 'update-task/:id',
     component: UpdateTaskComponent,
     canActivate: [CanActivate]
   },
+  {
+    path: 'investigation',
+    component: InvestigationComponent,
+    canActivate: [CanActivate]
+  },
+  {
+    path: 'add-investigation',
+    component: InsertInvestigationComponent,
+    canActivate: [CanActivate]
+  },
+
+  {
+    path: 'update-investigation/:id',
+    component: UpdateInvestigationComponent,
+    canActivate: [CanActivate]
+  },
+
 
   {path: '**', component: ErrorPageComponent}
 ]

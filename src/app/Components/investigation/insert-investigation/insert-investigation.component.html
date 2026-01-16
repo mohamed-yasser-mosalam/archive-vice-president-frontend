@@ -1,0 +1,81 @@
+<app-navbar></app-navbar>
+
+<div class="d-flex justify-content-between">
+  <div class="col-10 container row w-100" dir="rtl">
+    <form (submit)="insert()" #addTaskForm="ngForm" class="row align-items-center">
+      <div class="w-25 mt-2" >
+        <label for="studentName" class="form-label">اسم الطالب</label>
+        <input type="text" class="form-control" id="studentName" name="studentName" [(ngModel)]="investigation.studentName" required>
+      </div>
+
+      <div class="w-25 mt-2">
+        <label for="academicYear" class="form-label">الفرقة</label>
+        <input type="text" class="form-control" id="academicYear" name="academicYear" [(ngModel)]="investigation.academicYear" required>
+      </div>
+
+      <div class="w-25 mt-2" >
+        <label for="studentName" class="form-label">العام الجامعي</label>
+        <input type="text" class="form-control" id="studentName" name="year" [(ngModel)]="investigation.year" >
+      </div>
+
+      <div class="w-25 mt-2">
+        <label for="academicYear" class="form-label">الفصل الدراسي</label>
+        <input type="text" class="form-control" id="academicYear" name="semester" [(ngModel)]="investigation.semester" >
+      </div>
+
+      <div class="w-25 mt-2">
+        <label for="department" class="form-label">القسم</label>
+        <input type="text" class="form-control" id="department" name="department" [(ngModel)]="investigation.department" >
+      </div>
+
+      <div class="w-25 mt-2">
+        <label for="exam" class="form-label">المادة</label>
+        <input type="text" class="form-control" id="exam" name="exam" [(ngModel)]="investigation.exam" >
+      </div>
+
+      <div class="w-25 mt-2">
+        <label for="investigationKind" class="form-label">نوع التحقيق</label>
+        <input type="text" class="form-control" id="investigationKind" name="investigationKind" [(ngModel)]="investigation.investigationKind" >
+      </div>
+
+      <div class="w-25 mt-2">
+        <label for="examDate" class="form-label">تاريخ الامتحان</label>
+        <input type="date" class="form-control" id="examDate" name="examDate" [(ngModel)]="investigation.examDate" >
+      </div>
+
+      <div class="w-25 mt-2">
+        <label for="investigationName" class="form-label">اسم المحقق</label>
+        <input type="text" class="form-control" id="investigationName" name="investigationName" [(ngModel)]="investigation.investigationName"  >
+      </div>
+
+      <div class="w-25 mt-2">
+        <label for="investigationResult" class="form-label">نتيجة التحقيق</label>
+        <textarea class="form-control" id="investigationResult" name="investigationResult" [(ngModel)]="investigation.investigationResult" ></textarea>
+      </div>
+
+      <div class="w-25 mt-2">
+        <label for="investigationDate" class="form-label">تاريخ التحقيق</label>
+        <input type="date" class="form-control" id="investigationDate" name="investigationDate" [(ngModel)]="investigation.investigationDate" >
+      </div>
+
+      <div class="w-50 mt-2">
+        <label for="belongings" class="form-label">المتعلقات</label>
+        <input type="text" class="form-control" id="belongings" name="belongings" [(ngModel)]="investigation.belongings" placeholder="أدخل المتعلقات" >
+      </div>
+
+      <div class="w-50 mt-2">
+        <label for="belongings" class="form-label">نتيجة الاستئناف</label>
+        <input type="text" class="form-control" id="belongings" name="result" [(ngModel)]="investigation.result" placeholder="نتيجة الاستئناف" >
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-3" [disabled]="addTaskForm.invalid">حفظ</button>
+    </form>
+  </div>
+  <div>
+    <app-sidebar></app-sidebar>
+  </div>
+</div>
+
+
+
+

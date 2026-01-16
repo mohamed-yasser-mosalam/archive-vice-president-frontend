@@ -117,16 +117,9 @@
                     </svg>
                   </a>
 
-                  <div class="subjects input-container"
-                       style="display:inline-flex;width:100%;margin-top:0!important;margin-left: 10px">
+ 	
 
-                    <div class="input-data" style="margin-top: 0!important;margin-right:10px">
-                      <input type="text" required name="summary" formControlName="summary">
-                      <div class="underLine"></div>
-                      <label for="summary"> موضوع </label>
-                      <small *ngIf="form.get('summary')?.invalid">* مطلوب</small>
-                    </div>
-                  </div>
+                 
 
                   <div class="input-data" style="margin-top: 0!important;margin-right:10px ">
                     <small *ngIf="form.get('qarar')?.invalid">* مطلوب</small>
@@ -134,6 +127,17 @@
                     <div class="underLine"></div>
                     <label for="qarar">القرار </label>
                   </div>
+
+                  <div class="subjects input-container"
+                  style="display:inline-flex;width:100%;margin-top:0!important;margin-left: 10px">
+
+               <div class="input-data" style="margin-top: 0!important;margin-right:10px">
+                 <input type="text" required name="summary" formControlName="summary">
+                 <div class="underLine"></div>
+                 <label for="summary"> موضوع </label>
+                 <small *ngIf="form.get('summary')?.invalid">* مطلوب</small>
+               </div>
+             </div>
 
                 </div>
               </div>

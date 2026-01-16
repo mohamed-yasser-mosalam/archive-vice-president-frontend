@@ -22,7 +22,7 @@ export class WelcomeComponent implements OnInit {
   NumberOfFileNotCome: any;
   NumberOfImportantLetter: any;
   NumberOfAllExports: any;
-  NumberOfAllSigns: any;
+  NumberOfAllInvestigation: any;
   NumberOfAllDeanDecisions: any;
   NumberOfAllImports: any;
   numberOfAllSpecial: any;
@@ -57,7 +57,7 @@ export class WelcomeComponent implements OnInit {
     this.getLetterHasGone();
     this.getNumberOfAllSpecials();
     this.getYears();
-    this.getNumberOfSigns();
+    this.getNumberOfInvestigation();
     this.getNumberOfAllDeanDecisions();
     // this.getNumberOfLetterForYears();
   }
@@ -117,9 +117,9 @@ export class WelcomeComponent implements OnInit {
     })
   }
 
-  private getNumberOfSigns() {
-    this.welcomeservice.getNumberOfSigns().subscribe((numberOfAllSigns) => {
-      this.NumberOfAllSigns = numberOfAllSigns;
+  private getNumberOfInvestigation () {
+    this.welcomeservice.getNumberOfInvestigation().subscribe((numberOfAllSigns) => {
+      this.NumberOfAllInvestigation = numberOfAllSigns;
     })
   }
 

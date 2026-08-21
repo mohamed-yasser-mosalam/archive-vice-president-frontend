@@ -123,6 +123,7 @@ import { UpdateTaskComponent } from './Components/Task/update-task/update-task.c
 import { InvestigationComponent } from './Components/investigation/investigation/investigation.component';
 import { InsertInvestigationComponent } from './Components/investigation/insert-investigation/insert-investigation.component';
 import { UpdateInvestigationComponent } from './Components/investigation/update-investigation/update-investigation.component';
+import { InvestigationPaginationComponent } from './Components/investigation/investigation-pagination/investigation-pagination.component';
 
 @NgModule({
   declarations: [
@@ -211,7 +212,8 @@ import { UpdateInvestigationComponent } from './Components/investigation/update-
     UpdateTaskComponent,
     InvestigationComponent,
     InsertInvestigationComponent,
-    UpdateInvestigationComponent
+    UpdateInvestigationComponent,
+    InvestigationPaginationComponent
 
   ],
   imports: [

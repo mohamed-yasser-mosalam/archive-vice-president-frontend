@@ -2,7 +2,7 @@
 
 <div class="d-flex justify-content-between">
   <div class="col-10 container row w-100" dir="rtl">
-    <form (submit)="insert()" #addTaskForm="ngForm" class="row align-items-center">
+    <form (submit)="update()" #addTaskForm="ngForm" class="row align-items-center">
       <div class="w-25 mt-2" >
         <label for="studentName" class="form-label">اسم الطالب</label>
         <input type="text" class="form-control" id="studentName" name="studentName" [(ngModel)]="investigation.studentName" required>
@@ -75,7 +75,3 @@
     <app-sidebar></app-sidebar>
   </div>
 </div>
-
-
-
-

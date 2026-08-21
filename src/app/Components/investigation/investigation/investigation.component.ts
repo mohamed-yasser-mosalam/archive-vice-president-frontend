@@ -27,4 +27,8 @@ export class InvestigationComponent implements OnInit {
     this.searchText = searchValue
   }
 
+  getPage(item: Investigation): number {
+    return this.investigations.indexOf(item) + 1;
+  }
+
 }

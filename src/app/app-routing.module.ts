@@ -118,6 +118,9 @@ import {
 import {
   UpdateInvestigationComponent
 } from "./Components/investigation/update-investigation/update-investigation.component";
+import {
+  InvestigationPaginationComponent
+} from "./Components/investigation/investigation-pagination/investigation-pagination.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -494,6 +497,11 @@ const routes: Routes = [
   {
     path: 'update-investigation/:id',
     component: UpdateInvestigationComponent,
+    canActivate: [CanActivate]
+  },
+  {
+    path: 'investigation-pagination',
+    component: InvestigationPaginationComponent,
     canActivate: [CanActivate]
   },
 

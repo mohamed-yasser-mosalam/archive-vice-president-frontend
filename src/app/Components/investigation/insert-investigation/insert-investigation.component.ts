@@ -17,6 +17,10 @@ export class InsertInvestigationComponent {
   }
 
   insert() {
-      this.service.insert(this.investigation).subscribe(res=> this.router.navigateByUrl('/investigation'));
+      this.service.insert(this.investigation).subscribe(() => {
+        this.service.getCount().subscribe(count => {
+          this.router.navigate(['/investigation-pagination'], { queryParams: { page: count } });
+        });
+      });
   }
 }

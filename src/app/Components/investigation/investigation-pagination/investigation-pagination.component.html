@@ -1,0 +1,175 @@
+<app-navbar></app-navbar>
+<div class="row" style="background-color: var(--bg);">
+  <div class="d-flex justify-content-between">
+    <div class="row w-100">
+      <ngb-carousel class="col-md-4">
+        <ng-template ngbSlide *ngFor="let item of paths; let i = index">
+          <div class="carousel-wrapper" style="margin-top: 0px; margin-left: 20px;" [id]="'print-section-' + i">
+            <img src="{{item}}" style="height:83vh">
+          </div>
+          <div class="d-flex">
+            <button *ngIf="roleOfUser == 'admin' || roleOfUser == 'manager'" type="submit" (click)="deleteImage(i)"
+                    class="btn"
+                    style="width:150px; padding:1px; margin-top:10px; margin-left:30px; color: var(--color); background: var(--bg_hover); font-size:15px; z-index: 33333333333;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
+                   viewBox="0 0 16 16">
+                <path
+                  d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a2 2 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+              </svg>
+              حذف المرفق
+            </button>
+            <button [printSectionId]="'print-section-' + i" ngxPrint
+                    class="btn"
+                    style="width:150px; padding:1px; margin-top:10px; margin-left:20px; color: var(--color); background: var(--bg_hover); font-size:15px; z-index: 33333333333;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
+                   viewBox="0 0 16 16">
+                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+                <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1 1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+              </svg>
+              طباعة
+            </button>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+      <form class="col-md-7" style="zoom:55%;direction: ltr" [formGroup]="showForm">
+
+        <div class="wrapper">
+          <legend class="text-center" style="font-weight: bold;font-size: 30px; color: var(--color);"> التحقيقات
+          </legend>
+
+          <div class="d-flex">
+            <div class="input-data" style="width:45%; margin-left:auto;">
+              <input type="text" readonly id="studentName" formControlName="studentName">
+              <div class="underLine"></div>
+              <label for="studentName">اسم الطالب</label>
+            </div>
+            <div class="input-data" style="width:45%; margin-left:auto;">
+              <input type="number" readonly id="id" formControlName="id">
+              <div class="underLine"></div>
+              <label for="id">رقم القيد</label>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="input-data" style="width:30%; margin-left:auto;">
+              <input type="text" readonly id="academicYear" formControlName="academicYear">
+              <div class="underLine"></div>
+              <label for="academicYear">الفرقة</label>
+            </div>
+            <div class="input-data" style="width:30%; margin-left:auto;">
+              <input type="text" readonly id="year" formControlName="year">
+              <div class="underLine"></div>
+              <label for="year">العام الجامعي</label>
+            </div>
+            <div class="input-data" style="width:30%; margin-left:auto;">
+              <input type="text" readonly id="semester" formControlName="semester">
+              <div class="underLine"></div>
+              <label for="semester">الفصل الدراسي</label>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="input-data" style="width:30%; margin-left:auto;">
+              <input type="text" readonly id="department" formControlName="department">
+              <div class="underLine"></div>
+              <label for="department">القسم</label>
+            </div>
+            <div class="input-data" style="width:30%; margin-left:auto;">
+              <input type="text" readonly id="exam" formControlName="exam">
+              <div class="underLine"></div>
+              <label for="exam">المادة</label>
+            </div>
+            <div class="input-data" style="width:30%; margin-left:auto;">
+              <input type="number" readonly id="numberOfImages" formControlName="numberOfImages">
+              <div class="underLine"></div>
+              <label for="numberOfImages">عدد المرفقات الفعلي</label>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="input-data" style="width:45%; margin-left:auto;">
+              <input type="text" readonly id="investigationKind" formControlName="investigationKind">
+              <div class="underLine"></div>
+              <label for="investigationKind">نوع التحقيق</label>
+            </div>
+            <div class="input-data" style="width:45%; margin-left:auto;">
+              <input type="date" readonly id="examDate" formControlName="examDate">
+              <div class="underLine"></div>
+              <label for="examDate">تاريخ الامتحان</label>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="input-data" style="width:45%; margin-left:auto;">
+              <input type="text" readonly id="investigationName" formControlName="investigationName">
+              <div class="underLine"></div>
+              <label for="investigationName">اسم المحقق</label>
+            </div>
+            <div class="input-data" style="width:45%; margin-left:auto;">
+              <input type="date" readonly id="investigationDate" formControlName="investigationDate">
+              <div class="underLine"></div>
+              <label for="investigationDate">تاريخ التحقيق</label>
+            </div>
+          </div>
+          <div class="input-data" style="width:96%; margin-left: auto;">
+            <input readonly id="investigationResult" formControlName="investigationResult">
+            <div class="underLine"></div>
+            <label for="investigationResult">نتيجة التحقيق</label>
+          </div>
+          <div class="d-flex">
+            <div class="input-data" style="width:45%; margin-left:auto;">
+              <input type="text" readonly id="belongings" formControlName="belongings">
+              <div class="underLine"></div>
+              <label for="belongings">المتعلقات</label>
+            </div>
+            <div class="input-data" style="width:45%; margin-left:auto;">
+              <input type="text" readonly id="result" formControlName="result">
+              <div class="underLine"></div>
+              <label for="result">نتيجة الاستئناف</label>
+            </div>
+          </div>
+
+          <div class="input-data" style="bottom: 0px;margin-left:5%">
+            <form (ngSubmit)="onSubmit()" enctype="multipart/form-data"
+                  style=" margin-bottom: 45px;margin-right:250px; display: flex;font-size:25px"
+            >
+              <button type="submit" class="btn"
+                      style="width:450px; padding:1px; margin-right:50px;color: var(--color);background: var(--color1);font-size:25px"
+                      [routerLink]="['/investigation-pagination']" [queryParams]="{page:page}">حفظ المرفقات
+              </button>
+              <input type="file" name="files" multiple (change)="onFileSelected($event)" style="margin-right: 10px;"/>
+            </form>
+            <div style="margin-left: 3%">
+
+              <button type="submit" class="btn  "
+                      style="width:200px; padding:10px;margin: 8px; background-color: var(--color1);color: var(--color);font-size:25px"
+                      routerLink="/add-investigation">
+                تسجيل جديد
+              </button>
+              <button type="submit" class="btn "
+                      style="width:200px; padding:10px;margin: 8px; background-color: var(--color1);color: var(--color);font-size:25px"
+                      routerLink="/update-investigation/{{id}}">
+                تعديل
+              </button>
+              <button type="submit" class="btn "
+                      style="width:200px; padding:10px;margin: 8px; background-color: var(--color1);color: var(--color);font-size:25px"
+                      routerLink="/investigation">
+                القائمة
+              </button>
+            </div>
+
+            <div class="col-md-9 pag" style="margin-top:30px;bottom:0px;margin-left:35%">
+              <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength"
+                              (pageChange)="change($event)"
+                              [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
+                             >
+              </ngb-pagination>
+
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <div>
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>

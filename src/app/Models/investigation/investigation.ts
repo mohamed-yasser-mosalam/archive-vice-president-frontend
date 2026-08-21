@@ -15,6 +15,7 @@ export interface Investigation {
   investigationName: string,
   investigationResult: string,
   investigationDate: string,
+  paths?: string[],
+  numberOfImages?: number,
 
 }
-

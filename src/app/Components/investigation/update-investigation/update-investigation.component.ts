@@ -11,7 +11,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class UpdateInvestigationComponent implements OnInit {
 
   id: number;
-  task: any
   investigation: Investigation = {} as Investigation;
 
   constructor(private service: InvestigationService, private activatedRoute: ActivatedRoute , private router : Router) {
@@ -22,7 +21,7 @@ export class UpdateInvestigationComponent implements OnInit {
     this.service.findById(this.id).subscribe(res => this.investigation = res);
   }
 
-  insert() {
-    this.service.insert(this.investigation).subscribe(res=> this.router.navigateByUrl('/investigation'));
+  update() {
+    this.service.update(this.investigation, this.id).subscribe(() => this.router.navigateByUrl('/investigation'));
   }
 }

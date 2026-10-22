@@ -16,6 +16,10 @@ export class InvestigationService {
     return this.http.get<Investigation[]>(`${this.url}/investigation`);
   }
 
+  findAllYears() {
+    return this.http.get<Investigation[]>(`${this.url}/investigation/all`);
+  }
+
   findById(id: number) {
     return this.http.get<Investigation>(`${this.url}/investigation/${id}`);
   }
@@ -24,8 +28,16 @@ export class InvestigationService {
     return this.http.get<Investigation>(`${this.url}/investigation/pagination?page=${page}`);
   }
 
+  getAllByPagination(page: number) {
+    return this.http.get<Investigation>(`${this.url}/investigation/all-pagination?page=${page}`);
+  }
+
   getCount() {
     return this.http.get<number>(`${this.url}/investigation/count-current`);
+  }
+
+  getAllCount() {
+    return this.http.get<number>(`${this.url}/investigation/count`);
   }
 
   insert(investigation: Investigation) {

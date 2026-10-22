@@ -124,6 +124,8 @@ import { InvestigationComponent } from './Components/investigation/investigation
 import { InsertInvestigationComponent } from './Components/investigation/insert-investigation/insert-investigation.component';
 import { UpdateInvestigationComponent } from './Components/investigation/update-investigation/update-investigation.component';
 import { InvestigationPaginationComponent } from './Components/investigation/investigation-pagination/investigation-pagination.component';
+import { LastInvestigationComponent } from './Components/investigation/last-investigation/last-investigation.component';
+import { LastInvestigationPaginationComponent } from './Components/investigation/last-investigation-pagination/last-investigation-pagination.component';
 
 @NgModule({
   declarations: [
@@ -213,7 +215,9 @@ import { InvestigationPaginationComponent } from './Components/investigation/inv
     InvestigationComponent,
     InsertInvestigationComponent,
     UpdateInvestigationComponent,
-    InvestigationPaginationComponent
+    InvestigationPaginationComponent,
+    LastInvestigationComponent,
+    LastInvestigationPaginationComponent
 
   ],
   imports: [

@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+
+<div class="row" style="background-color: var(--bg);">
+  <div class="d-flex justify-content-between">
+    <div style="
+    zoom: 80%;
+    text-align: center;
+    position: sticky;
+    overflow: auto;
+    height:733px;
+    border-radius: 8px;
+    width:100%">
+      <div class="d-flex"
+           style="
+        font-size: 20px;
+        padding: 10px 35%;
+        background-color: var(--bg);
+        color: var(--color);
+        position: sticky;
+        top: 0;
+        font-weight: bold">
+        <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
+        <div class="input-data">
+          <h2 style="font-weight: bold;margin-left: 50px"> جميع التحقيقات </h2>
+        </div>
+      </div>
+      <table>
+        <thead>
+        <tr>
+          <th scope="col">القيد</th>
+          <th scope="col">اسم الطالب</th>
+          <th scope="col">الفرقة</th>
+          <th scope="col">العام الجامعي</th>
+          <th scope="col">الفصل الدراسي</th>
+          <th scope="col">المادة محل الغش</th>
+          <th scope="col">نوع التحقيق</th>
+          <th scope="col">تاريخ الامتحان</th>
+          <th scope="col">المتعلقات</th>
+          <th scope="col"> المحقق</th>
+          <th scope="col">تاريخ التحقيق</th>
+          <th scope="col">نتيجة التحقيق</th>
+          <th scope="col">نتيجة الاستئناف</th>
+          <th scope="col">عدد المرفقات</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of investigations | search:searchText">
+          <td>{{ item.id }}</td>
+          <td>{{ item.studentName }}</td>
+          <td>{{ item.academicYear }} </td>
+          <td>{{ item.year }} </td>
+          <td>{{ item.semester }} </td>
+          <td>{{ item.exam }}</td>
+          <td>{{ item.investigationKind }}</td>
+          <td>{{ item.examDate }}</td>
+          <td>{{ item.belongings }}</td>
+          <td>{{ item.investigationName }}</td>
+          <td>{{ item.investigationDate }}</td>
+          <td>{{ item.investigationResult }}</td>
+          <td>{{ item.result }}</td>
+          <td><span style="color: red">{{ item.numberOfImages || 0 }}</span></td>
+          <td>
+            <a [routerLink]="['/last-investigation-pagination']" [queryParams]="{page: getPage(item)}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                   class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color:var(--color)">
+                <path fill-rule="evenodd"
+                      d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                <path fill-rule="evenodd"
+                      d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+              </svg>
+            </a>
+            <a routerLink="/update-investigation/{{item.id}}">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0f0">
+                <path
+                  d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
+              </svg>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>

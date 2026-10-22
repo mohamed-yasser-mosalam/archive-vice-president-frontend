@@ -121,6 +121,10 @@ import {
 import {
   InvestigationPaginationComponent
 } from "./Components/investigation/investigation-pagination/investigation-pagination.component";
+import {LastInvestigationComponent} from "./Components/investigation/last-investigation/last-investigation.component";
+import {
+  LastInvestigationPaginationComponent
+} from "./Components/investigation/last-investigation-pagination/last-investigation-pagination.component";
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
@@ -502,6 +506,16 @@ const routes: Routes = [
   {
     path: 'investigation-pagination',
     component: InvestigationPaginationComponent,
+    canActivate: [CanActivate]
+  },
+  {
+    path: 'last-investigations',
+    component: LastInvestigationComponent,
+    canActivate: [CanActivate]
+  },
+  {
+    path: 'last-investigation-pagination',
+    component: LastInvestigationPaginationComponent,
     canActivate: [CanActivate]
   },
 

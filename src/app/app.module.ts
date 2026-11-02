@@ -64,6 +64,7 @@ import {MainComponentsComponent} from "./Components/main-components/main-compone
 import {NavbarComponent} from "./Components/main-components/navbar/navbar.component";
 import {SidebarComponent} from "./Components/main-components/sidebar/sidebar.component";
 import {WelcomeComponent} from "./Components/main-components/welcome/welcome.component";
+import {ToolsComponent} from "./Components/main-components/tools/tools.component";
 import {ExportFilesComponent} from "./Components/exports/export-files/export-files.component";
 import {ImportFilesComponent} from "./Components/imports/import-files/import-files.component";
 import {AddImportComponent} from "./Components/imports/add-import/add-import.component";
@@ -134,6 +135,7 @@ import { LastInvestigationPaginationComponent } from './Components/investigation
     NavbarComponent,
     SidebarComponent,
     WelcomeComponent,
+    ToolsComponent,
     ExportFilesComponent,
     ImportFilesComponent,
     LoginComponent,

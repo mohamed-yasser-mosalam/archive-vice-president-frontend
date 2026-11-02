@@ -27,7 +27,7 @@ export class WelcomeComponent implements OnInit {
   NumberOfAllImports: any;
   numberOfAllSpecial: any;
   years: any;
-  selectedYear: number = new Date().getFullYear();
+  selectedYear?: number;
   numberOfLetterForYears: any
   numberOfExportLetterForSpecificYear: any = 0;
   numberOfImportLetterForSpecificYear: any = 0;

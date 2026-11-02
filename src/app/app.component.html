@@ -1,1 +1,9 @@
- <router-outlet></router-outlet>
+<div class="app-shell" [class.bare]="!showShell">
+  <app-sidebar *ngIf="showShell"></app-sidebar>
+  <div class="app-main">
+    <app-navbar *ngIf="showShell"></app-navbar>
+    <main class="app-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

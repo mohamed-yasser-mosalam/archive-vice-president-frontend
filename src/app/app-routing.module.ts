@@ -44,6 +44,7 @@ import {
 } from './Components/authentication/users/show-user-information/show-user-information.component'
 import {UserpaginationComponent} from './Components/authentication/users/userpagination/userpagination.component'
 import {WelcomeComponent} from './Components/main-components/welcome/welcome.component'
+import {ToolsComponent} from './Components/main-components/tools/tools.component'
 import {ImportFilesComponent} from './Components/imports/import-files/import-files.component'
 import {ExportFilesComponent} from './Components/exports/export-files/export-files.component'
 import {FileHasGoneComponent} from './Components/imports/file-has-gone/file-has-gone.component'
@@ -128,6 +129,7 @@ import {
 
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
+  {path: 'tools', component: ToolsComponent, canActivate: [CanActivate]},
   {
     path: 'get-all-imports',
     component: ImportFilesComponent,

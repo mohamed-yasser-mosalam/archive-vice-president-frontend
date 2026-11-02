@@ -1,63 +1,52 @@
-<app-navbar></app-navbar>
-<div class="row">
-  <div class="col-2" style="background-color: var(--bg_main);"></div>
-  <div class="col-9" style="background-color:var(--bg_main)">
-    <form class="col-8"  [formGroup]="deanDecisionForm" (ngSubmit)="onSubmit()">
+<div class="page page-narrow">
+  <form class="form-card"  [formGroup]="deanDecisionForm" (ngSubmit)="onSubmit()">
 
-      <div class="wrapper " style="direction: ltr">
-        <legend class="text-center"style="font-size:25px">ادخال قرار العميد</legend>
+        <div class="wrapper ">
+          <legend class="text-center"style="font-size:25px">ادخال قرار العميد</legend>
 
-        <div class="input-data" style="width:20%; margin-left:auto;">
-          <input type="number" readonly id="no" name="no">
-          <label for="no" style="margin-right: 85%;color: black;margin-bottom:-5px"
-                 readonly>{{ numberOfDeanDecisions }}</label>
-          <label for="no" style="color: black">رقم القيد</label>
-        </div>
-        <div class="d-flex">
-
-
-<!--          <div class="input-data" style="width:30%; margin-left:auto;">-->
-<!--            <input type="text"  id="numberOfAttachments" name="numberOfAttachments"-->
-<!--                   formControlName="numberOfAttachments">-->
-<!--            <label for="numberOfAttachments">عدد المرفقات</label>-->
-<!--            <small *ngIf="deanDecisionForm.get('numberOfAttachments')?.invalid">* مطلوب</small>-->
-
-<!--          </div>-->
-          <div class="input-data" style="width:30%; margin-left:auto;">
-            <input type="date" required id="date" name="date" formControlName="date">
-            <label for="date">تاريخ  </label>
-            <small *ngIf="deanDecisionForm.get('date')?.invalid">* مطلوب</small>
+          <div class="input-data">
+            <input type="text" readonly id="no" name="no" [value]="numberOfDeanDecisions ?? ''">
+            <label for="no">رقم القيد</label>
           </div>
-        </div>
-        <div class="input-data" style="width:96%; margin-left: auto;">
-          <input cols="40" rows="1"  required id="summary" name="summary" formControlName="summary">
-          <label for="summary">موضوع القرار</label>
-          <small *ngIf="deanDecisionForm.get('summary')?.invalid">* مطلوب</small>
+          <div class="d-flex">
 
-        </div>
-        <div class="d-flex">
-          <div class="input-data" style="width:45%; margin-left:auto;">
-            <label for="num">ملف الحفظ</label>
-            <small *ngIf="deanDecisionForm.get('num')?.invalid">* مطلوب</small>
-            <select id="num" style="width:62%;margin-top:0px" required name="num" formControlName="num">
-              <option></option>
-              <option *ngFor="let item of deanDecisionArchive"
-                      [selected]="item.num" [value]="item.num"
-              >{{ item.name }} - {{ item.num }}
-              </option>
-            </select>
+
+  <!--          <div class="input-data">-->
+  <!--            <input type="text"  id="numberOfAttachments" name="numberOfAttachments"-->
+  <!--                   formControlName="numberOfAttachments">-->
+  <!--            <label for="numberOfAttachments">عدد المرفقات</label>-->
+  <!--            <small *ngIf="deanDecisionForm.get('numberOfAttachments')?.invalid">* مطلوب</small>-->
+
+  <!--          </div>-->
+            <div class="input-data">
+              <input type="date" required id="date" name="date" formControlName="date">
+              <label for="date">تاريخ  </label>
+              <small *ngIf="deanDecisionForm.get('date')?.invalid">* مطلوب</small>
+            </div>
+          </div>
+          <div class="input-data">
+            <input cols="40" rows="1"  required id="summary" name="summary" formControlName="summary">
+            <label for="summary">موضوع القرار</label>
+            <small *ngIf="deanDecisionForm.get('summary')?.invalid">* مطلوب</small>
+
+          </div>
+          <div class="d-flex">
+            <div class="input-data">
+              <label for="num">ملف الحفظ</label>
+              <small *ngIf="deanDecisionForm.get('num')?.invalid">* مطلوب</small>
+              <select id="num" required name="num" formControlName="num">
+                <option></option>
+                <option *ngFor="let item of deanDecisionArchive"
+                        [selected]="item.num" [value]="item.num"
+                >{{ item.name }} - {{ item.num }}
+                </option>
+              </select>
+            </div>
+
           </div>
 
+          <button type="submit" class="btn btn-primary" [disabled]="!deanDecisionForm.valid"> حفظ
+          </button>
         </div>
-
-        <button type="submit" class="btn  " [disabled]="!deanDecisionForm.valid"
-                style="width:100px; padding:1px;color: white;background: #333333;font-size:22px;margin-right:10%"> حفظ
-        </button>
-      </div>
-    </form>
-  </div>
-  <div class="col-1">
-    <app-sidebar></app-sidebar>
-  </div>
+      </form>
 </div>
-

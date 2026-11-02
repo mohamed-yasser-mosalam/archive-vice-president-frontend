@@ -1,29 +1,28 @@
-<app-navbar></app-navbar>
+<div class="page page-narrow">
+  <form class="form-card" (submit)="update(task.id)" #addTaskFrom="ngForm">
+    <legend>تعديل المهمة</legend>
 
-<div class="d-flex justify-content-between">
-  <div class="col-10 container row w-100" dir="rtl">
-    <form (submit)="update(task.id)" #addTaskFrom="ngForm" class="row align-items-center">
-      <div class="w-50 mt-2" style="margin-left: 30px">
-        <label for="subject" class="form-label">الموضوع</label>
-        <input type="text" class="form-control" id="subject" name="subject"
+    <div class="form-row">
+      <div class="input-data">
+        <label for="subject">الموضوع</label>
+        <input type="text" id="subject" name="subject"
                [(ngModel)]="task.subject" placeholder="أدخل الموضوع" required>
       </div>
-      <div class="w-25 mt-2">
-        <label for="date" class="form-label">التاريخ</label>
-        <input type="date" class="form-control" id="date" name="date"
-               [(ngModel)]="task.date" required>
+      <div class="input-data">
+        <label for="date">التاريخ</label>
+        <input type="date" id="date" name="date" [(ngModel)]="task.date" required>
       </div>
-      <div class="w-75" style="margin-top: -90px">
-        <label for="content" class="form-label">المحتوى</label>
-        <textarea type="text" class="form-control" id="content" name="content"
-                  [(ngModel)]="task.content" placeholder="أدخل المحتوى" required></textarea>
-      </div>
+    </div>
+
+    <div class="input-data">
+      <label for="content">المحتوى</label>
+      <textarea id="content" name="content" rows="5"
+                [(ngModel)]="task.content" placeholder="أدخل المحتوى" required></textarea>
+    </div>
+
+    <div class="form-actions">
       <button type="submit" class="btn btn-primary" [disabled]="addTaskFrom.invalid">حفظ</button>
-    </form>
-  </div>
-  <div>
-    <app-sidebar></app-sidebar>
-  </div>
+      <button type="button" class="btn btn-outline-secondary" routerLink="/tasks">إلغاء</button>
+    </div>
+  </form>
 </div>
-
-

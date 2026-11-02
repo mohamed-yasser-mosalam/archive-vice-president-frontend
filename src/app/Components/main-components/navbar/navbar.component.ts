@@ -21,6 +21,8 @@ export class NavbarComponent implements OnInit {
   pathOfDeleteImage: any
   base = baseUrl + '/'
   notify: boolean = false;
+  imgFailed = false;
+  today = new Date().toLocaleDateString('ar-EG', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
 
 
   constructor(

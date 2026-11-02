@@ -1,0 +1,108 @@
+.tool-section {
+  margin-bottom: 28px;
+}
+
+.tool-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.tool-section-head h2 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.tool-section-head span {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tool-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  font-family: var(--font);
+  text-align: right;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.tool-card:hover {
+  color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+.tool-icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--tone-bg);
+  color: var(--tone);
+}
+
+.tool-icon svg,
+.tool-arrow {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tool-icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+.tool-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tool-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tool-desc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.tool-arrow {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform .15s ease, color .15s ease;
+}
+
+.tool-card:hover .tool-arrow {
+  color: var(--primary-600);
+  transform: translateX(-3px);
+}

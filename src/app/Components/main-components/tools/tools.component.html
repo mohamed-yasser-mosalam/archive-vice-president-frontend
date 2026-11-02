@@ -1,0 +1,52 @@
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">الأدوات</h1>
+      <p class="page-subtitle">دليل الاتصال، أرشيف السنوات السابقة، وإدارة المستخدمين</p>
+    </div>
+  </div>
+
+  <section class="tool-section" *ngFor="let section of sections">
+    <div class="tool-section-head">
+      <h2>{{ section.title }}</h2>
+      <span>{{ section.subtitle }}</span>
+    </div>
+
+    <div class="tool-grid">
+      <ng-container *ngFor="let item of section.items">
+        <a class="tool-card" *ngIf="item.link; else actionCard" [routerLink]="item.link">
+          <ng-container *ngTemplateOutlet="cardBody; context: {$implicit: item}"></ng-container>
+        </a>
+        <ng-template #actionCard>
+          <button type="button" class="tool-card" (click)="item.action && item.action()">
+            <ng-container *ngTemplateOutlet="cardBody; context: {$implicit: item}"></ng-container>
+          </button>
+        </ng-template>
+      </ng-container>
+    </div>
+  </section>
+</div>
+
+<ng-template #cardBody let-item>
+  <span class="tool-icon" [ngClass]="item.tone" [ngSwitch]="item.icon">
+    <svg *ngSwitchCase="'users'" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-5-6.7"/></svg>
+    <svg *ngSwitchCase="'badge'" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M8 17a4 4 0 0 1 8 0"/></svg>
+    <svg *ngSwitchCase="'phone'" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+    <svg *ngSwitchCase="'inbox'" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+    <svg *ngSwitchCase="'outbox'" viewBox="0 0 24 24"><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/><path d="M4 21h16"/></svg>
+    <svg *ngSwitchCase="'bookmark'" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+    <svg *ngSwitchCase="'briefcase'" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>
+    <svg *ngSwitchCase="'search'" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <svg *ngSwitchCase="'file'" viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
+    <svg *ngSwitchCase="'signal'" viewBox="0 0 24 24"><path d="M4 20V14M9 20V10M14 20V6M19 20V3"/></svg>
+    <svg *ngSwitchCase="'user-plus'" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M19 8v6M16 11h6"/></svg>
+    <svg *ngSwitchCase="'activity'" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+    <svg *ngSwitchCase="'download'" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3"/><path d="M4 11v6c0 1.7 3.6 3 8 3"/><path d="M18 13v8m-3-3 3 3 3-3"/></svg>
+    <svg *ngSwitchCase="'upload'" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3"/><path d="M4 11v6c0 1.7 3.6 3 8 3"/><path d="M18 21v-8m-3 3 3-3 3 3"/></svg>
+  </span>
+  <span class="tool-text">
+    <span class="tool-title">{{ item.title }}</span>
+    <span class="tool-desc">{{ item.description }}</span>
+  </span>
+  <svg class="tool-arrow" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+</ng-template>

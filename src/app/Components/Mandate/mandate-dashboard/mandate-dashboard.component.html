@@ -1,227 +1,187 @@
-<app-navbar></app-navbar>
-<div class="row w-auto" style="background-color: var(--bg_main);">
-  <div class="d-flex justify-content-between">
-    <div class="dashboard w-100" style=" height: 93vh">
-      <div class="row" style="margin-left:2%">
-
-        <div class="col-md-1" style="margin-right:100px">
-          <div class="box">
-            <div class="data">
-              <p>
-                <a routerLink="/not-special-mandate">
-                  الإنتدابات الغير إستثنائية</a>
-              </p>
-              <span> {{ numberOfAllNotSpecial }}</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-1" style="margin-right:100px!important;">
-          <div class="box">
-            <div class="data">
-              <p>
-                <a routerLink="/special-mandate">الإنتدابات الاستثنائية</a>
-              </p>
-              <span> {{ numberOfSpecialMandate }}</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-1" style="margin-right:100px!important;">
-          <div class="box">
-            <div class="data">
-              <p>
-                <a routerLink="/current-mandate">الإنتدابات الحالية</a>
-              </p>
-              <span> {{ numberOfCurrentMandate }}</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-1" style="margin-right:96px!important;">
-          <div class="box">
-            <div class="data">
-              <p>
-                <a routerLink="/all-refused-mandate">
-                  المرفوضة</a>
-              </p>
-              <span> {{ numberOfAllRefusedMandate }}</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-1" style="margin-right:95px!important;">
-          <div class="box">
-            <div class="data">
-              <p>
-                <a routerLink="/all-accept-mandate">
-                  الموافق عليها</a>
-              </p>
-              <span> {{ numberOfAllAcceptsMandate }}</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-1" style="margin-right:95px!important;">
-          <div class="box">
-            <div class="data">
-              <p>
-                <a routerLink="/all-mandate">الإنتدابات</a>
-              </p>
-              <span> {{ numberOfAllMandate }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row" style="margin-left:30px;">
-        <div class="col-5 mx-1 mt-1"
-             style="background-color: #fff; height: 250px;  border-radius: 8px; zoom:95%;width:400px ">
-          <div
-            style="background-color: #fff; overflow: auto; height: 250px; text-align:center;  border-radius: 8px;">
-            <h2>
-
-              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px;margin-left:5%"
-              >اعضاء هيئة التدريس المتواجدين بالكلية</a>
-            </h2>
-            <table class="table" style="direction: rtl">
-              <thead style=" position: sticky; top: 44px; background-color: #fff;">
-              <tr>
-                <th scope="col">اسم الدكتور</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let item of showAllTodayDoctors">
-                <td>{{ item.name }}</td>
-              </tr>
-              </tbody>
-            </table>
-
-          </div>
-
-        </div>
-
-        <div class="col-6 mt-1 mx-1"
-             style="background-color: #fff; height:250px; overflow: auto; border-radius: 8px;
-              zoom:95%;width:745px;margin-left:54px!important;">
-          <div
-            style="background-color: #fff; overflow: auto; height: 250px; border-radius: 8px;">
-            <h2
-              style="font-size: 22px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-
-              <a>
-                <button type="button" class="btn btn w-10"
-                        style="padding:5px;font-weight:bold;margin-left:10px;margin-right:560px;margin-top:10px;color:var(--color);background: var(--bg_main);width:70px"
-                        routerLink="/add-mandate">
-
-                  اضافة
-                </button>
-              </a>
-
-              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px"
-               >منتدبين اليوم</a>
-            </h2>
-            <table class="table" style="direction: rtl">
-              <thead style=" position: sticky; top: 44px; background-color: #fff;">
-              <tr>
-                <th scope="col">اسم الدكتور</th>
-                <th scope="col">الجامعة المنتدب إليها</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let item of showAllTodayMandate">
-                <td>{{ item.name }}</td>
-                <td>{{ item.deputationUniversity }}</td>
-              </tr>
-              </tbody>
-            </table>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="row" style="margin-left:30px;margin-top: 10px">
-        <div class="col-5 mx-1 mt-1"
-             style="background-color: #fff; height: 250px;  border-radius: 8px; zoom:95%;width:400px ">
-          <div
-            style="background-color: #fff; overflow: auto; height: 250px; text-align:center;  border-radius: 8px;">
-            <button type="button" class="btn btn w-10" *ngIf="roleOfUser=='admin'"
-                    style="padding:5px;font-weight:bold;margin-top:10px;margin-left:10px;color:var(--color);background: var(--bg_main);width:70px"
-                    routerLink="/add-special-university">
-              اضافة
-            </button>
-            <h2>
-                <label
-                  style="font-size: 20px;font-weight: lighter;color: red">
-                  <div class="wrapper" >
-                    <label style="font-size:15px"></label>
-                  </div>
-                </label> الجامعات الإستثنائية
-            </h2>
-            <table class="table" style="direction: rtl">
-              <thead style=" position: sticky; background-color: #fff;">
-              <tr>
-                <th scope="col">اسم  الجامعة</th>
-                <th scope="col">حذف  </th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let item of specialUniversity">
-                <td>{{ item.university }}</td>
-                <td>
-                  <a class="btn" (click)="deleteSpecialUniversity(item.university)">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-trash"
-                       viewBox="0 0 16 16">
-                    <path
-                      d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-                    <path
-                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-                  </svg>
-                </a>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-
-        </div>
-
-        <div class=" mt-1"
-             style="background-color: #fff; height:250px; overflow: auto; border-radius: 8px;
-              zoom:95%;width:745px;margin-left:54px">
-          <div
-            style="background-color: #fff; overflow: auto; height: 250px; border-radius: 8px;">
-
-            <h2
-              style="font-size: 22px; padding: 5px 0; background-color: #fff; color: #3333338f; position: sticky; top: 0; width: 100%;">
-              <a style=" text-decoration:none;color: black;font-weight: bold;font-size: 20px">
-                <label
-                  style="font-size: 20px;font-weight: lighter;color: red;margin-left: 85%">
-                  <div class="wrapper" >
-                    <label style="font-size:15px"></label>
-                  </div>
-                </label> أيام الإنتدابات
-              </a>            </h2>
-            <table class="table" style="direction: rtl">
-              <thead style=" position: sticky; background-color: #fff;">
-              <tr>
-                <th scope="col">اسم الدكتور</th>
-                <th scope="col">أيام الإنتدابات</th>
-                <th scope="col"> اجمالي عدد الأيام</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let item of allDaysOfMandate">
-                <td  [style.color]="item.notice ? 'red' : 'inherit'">{{ item.name }}</td>
-                <td  [style.color]="item.notice ? 'red' : 'inherit'"><label *ngFor="let days of item.deputationDays"
-                           style="margin-left: 10px">{{ days.day }} </label></td>
-                <td [style.color]="item.notice ? 'red' : 'inherit'">{{item.count}}</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="page">
+  <div class="page-header">
     <div>
-      <app-sidebar></app-sidebar>
+      <h1 class="page-title">الإنتدابات</h1>
+      <p class="page-subtitle">متابعة انتدابات أعضاء هيئة التدريس وأيام التواجد بالكلية</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-outline-secondary" routerLink="/all-mandate">عرض كل الإنتدابات</button>
+      <button class="btn btn-primary" routerLink="/add-mandate">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        إضافة انتداب
+      </button>
     </div>
   </div>
-</div>
 
+  <div class="kpi-grid cols-3">
+    <a class="kpi" routerLink="/all-mandate">
+      <span class="kpi-icon tone-blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>
+      </span>
+      <span class="kpi-body">
+        <span class="kpi-label">إجمالي الإنتدابات</span>
+        <span class="kpi-value">{{ numberOfAllMandate ?? '—' }}</span>
+      </span>
+      <span class="kpi-link">عرض الكل</span>
+    </a>
+    <a class="kpi" routerLink="/current-mandate">
+      <span class="kpi-icon tone-teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      </span>
+      <span class="kpi-body">
+        <span class="kpi-label">الإنتدابات الحالية</span>
+        <span class="kpi-value">{{ numberOfCurrentMandate ?? '—' }}</span>
+      </span>
+      <span class="kpi-link">عرض الكل</span>
+    </a>
+    <a class="kpi" routerLink="/special-mandate">
+      <span class="kpi-icon tone-violet">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>
+      </span>
+      <span class="kpi-body">
+        <span class="kpi-label">الإنتدابات الاستثنائية</span>
+        <span class="kpi-value">{{ numberOfSpecialMandate ?? '—' }}</span>
+      </span>
+      <span class="kpi-link">عرض الكل</span>
+    </a>
+  </div>
+
+  <div class="status-grid cols-3">
+    <a class="status" routerLink="/all-accept-mandate">
+      <span class="status-bar tone-green"></span>
+      <span class="status-label">الموافق عليها</span>
+      <span class="status-value">{{ numberOfAllAcceptsMandate ?? 0 }}</span>
+    </a>
+    <a class="status" routerLink="/all-refused-mandate">
+      <span class="status-bar tone-red"></span>
+      <span class="status-label">المرفوضة</span>
+      <span class="status-value">{{ numberOfAllRefusedMandate ?? 0 }}</span>
+    </a>
+    <a class="status" routerLink="/not-special-mandate">
+      <span class="status-bar tone-slate"></span>
+      <span class="status-label">الغير استثنائية</span>
+      <span class="status-value">{{ numberOfAllNotSpecial ?? 0 }}</span>
+    </a>
+  </div>
+
+  <div class="panel-grid">
+    <section class="card-panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="title-dot tone-teal"></span>
+          أعضاء هيئة التدريس المتواجدون بالكلية اليوم
+          <span class="pill">{{ showAllTodayDoctors?.length || 0 }}</span>
+        </div>
+      </div>
+      <div class="panel-table-wrap">
+        <table class="data-table">
+          <thead>
+          <tr>
+            <th>اسم عضو هيئة التدريس</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of showAllTodayDoctors">
+            <td>{{ item.name }}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="empty-state" *ngIf="!showAllTodayDoctors?.length">لا يوجد أعضاء متواجدون اليوم</div>
+      </div>
+    </section>
+
+    <section class="card-panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="title-dot tone-blue"></span>
+          المنتدبون اليوم
+          <span class="pill">{{ showAllTodayMandate.length || 0 }}</span>
+        </div>
+        <button class="btn btn-sm btn-outline-secondary" routerLink="/add-mandate">إضافة</button>
+      </div>
+      <div class="panel-table-wrap">
+        <table class="data-table">
+          <thead>
+          <tr>
+            <th>اسم عضو هيئة التدريس</th>
+            <th>الجامعة المنتدب إليها</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of showAllTodayMandate">
+            <td>{{ item.name }}</td>
+            <td>{{ item.deputationUniversity }}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="empty-state" *ngIf="!showAllTodayMandate.length">لا يوجد منتدبون اليوم</div>
+      </div>
+    </section>
+  </div>
+
+  <div class="panel-grid panel-grid-wide">
+    <section class="card-panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="title-dot tone-amber"></span>
+          أيام الإنتدابات
+        </div>
+        <span class="legend-note"><span class="pill pill-danger">أحمر</span> تجاوز الحد المسموح</span>
+      </div>
+      <div class="panel-table-wrap">
+        <table class="data-table">
+          <thead>
+          <tr>
+            <th>اسم عضو هيئة التدريس</th>
+            <th>أيام الإنتداب</th>
+            <th>إجمالي الأيام</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of allDaysOfMandate" [class.row-alert]="item.notice">
+            <td>{{ item.name }}</td>
+            <td>
+              <span class="day-chip" *ngFor="let days of item.deputationDays">{{ days.day }}</span>
+            </td>
+            <td><span class="pill" [class.pill-danger]="item.notice">{{ item.count }}</span></td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="empty-state" *ngIf="!allDaysOfMandate.length">لا توجد بيانات</div>
+      </div>
+    </section>
+
+    <section class="card-panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="title-dot tone-violet"></span>
+          الجامعات الاستثنائية
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-secondary" *ngIf="roleOfUser=='admin'"
+                routerLink="/add-special-university">إضافة</button>
+      </div>
+      <div class="panel-table-wrap">
+        <table class="data-table">
+          <thead>
+          <tr>
+            <th>اسم الجامعة</th>
+            <th class="col-actions"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of specialUniversity">
+            <td>{{ item.university }}</td>
+            <td class="col-actions">
+              <button type="button" class="btn btn-sm btn-danger btn-icon" title="حذف"
+                      (click)="deleteSpecialUniversity(item.university)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M6 6l1 14h10l1-14"/><path d="M10 11v6M14 11v6"/></svg>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="empty-state" *ngIf="!specialUniversity?.length">لا توجد جامعات استثنائية</div>
+      </div>
+    </section>
+  </div>
+</div>

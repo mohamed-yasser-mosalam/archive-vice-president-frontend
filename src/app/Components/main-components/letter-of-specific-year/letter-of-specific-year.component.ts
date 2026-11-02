@@ -16,7 +16,7 @@ import {SpecialService} from "../../../Services/SpecialService/special.service";
 })
 export class LetterOfSpecificYearComponent implements OnInit {
   years: any;
-  selectedYear: number = new Date().getFullYear();
+  selectedYear?: number;
   numberOfLetterForYears: any
   numberOfExportLetterForSpecificYear: any = 0;
   numberOfImportLetterForSpecificYear: any = 0;

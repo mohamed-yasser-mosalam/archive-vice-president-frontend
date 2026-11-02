@@ -1,123 +1,101 @@
-<app-navbar></app-navbar>
-
-<div class="row" style="background-color: var(--bg);">
-
-  <div class="d-flex justify-content-between">
-    <div class="row w-100">
-      <ngb-carousel class="col-md-4">
-        <ng-template ngbSlide *ngFor="let item of paths;let i=index">
-          <div class="carousel-wrapper" style="margin-top: 2px;margin-left: 20px " [id]="'print-section-' + i">
-            <img src="{{item}}" style="height:83vh">
-          </div>
-          <div class="d-flex">
-
-            <button [printSectionId]="'print-section-' + i"  ngxPrint
-                    class="btn"
-                    style="width:150px;padding:1px;margin-top:10px;margin-left:27%;color: var(--color);background: var(--bg_hover);font-size:15px;z-index: 50">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
-                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
-                <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
-              </svg>
-              طباعة
-            </button>
-          </div>
-        </ng-template>
-      </ngb-carousel>
-      <form class="col-md-7" style="zoom:55%;direction: ltr" [formGroup]="showExport">
+<div class="page">
+  <div class="detail-layout">
+    <div class="detail-main">
+      <form class="form-card" [formGroup]="showExport">
 
         <div class="wrapper">
-          <legend class="text-center" style="font-weight: bold;font-size: 30px; color: var(--color);"> جميع الخطابات الصادرة
+          <legend class="text-center"> جميع الخطابات الصادرة
             (0/2)</legend>
 
           <div class="d-flex">
-            <div class="input-data" style="width:45%; margin-left:auto;">
+            <div class="input-data">
               <input type="number" readonly id="num" name="num" formControlName="num">
               <div class="underLine"></div>
               <label for="num">ملف الحفظ</label>
             </div>
-            <div class="input-data" style="width:45%; margin-left:auto;">
+            <div class="input-data">
               <input type="number" readonly id="no" formControlName="no">
               <div class="underLine"></div>
               <label for="no">رقم القيد</label>
             </div>
           </div>
           <div class="d-flex">
-            <div class="input-data" style="width:30%; margin-left:auto;">
+            <div class="input-data">
               <input type="text" readonly id="receiver" formControlName="receiver">
               <div class="underLine"></div>
               <label for="receiver">الحهه الصادر لها الخطاب</label>
             </div>
             <div class="d-flex">
-              <div class="input-data" style="width:40%; margin-left:auto;">
+              <div class="input-data">
                 <input type="number" readonly id="numberOfImages" formControlName="numberOfImages">
                 <div class="underLine"></div>
                 <label for="numberOfImages"> عدد المرفقات الفعلي</label>
               </div>
-              <div class="input-data" style="width:40%; margin-left:auto;">
+              <div class="input-data">
                 <input type="number" readonly id="numberOfAttachments" formControlName="numberOfAttachments">
                 <div class="underLine"></div>
                 <label for="numberOfAttachments">عدد المرفقات</label>
               </div>
             </div>
-            <div class="input-data" style="width:30%; margin-left:auto;">
+            <div class="input-data">
               <input type="Date" readonly id="date" formControlName="date">
               <div class="underLine"></div>
               <label for="date">تاريخ الصادر</label>
             </div>
           </div>
-          <div class="input-data" style="width:96%; margin-left: auto;">
+          <div class="input-data">
             <input cols="40" rows="1" readonly id="summary" formControlName="summary">
             <div class="underLine"></div>
             <label for="summary">ملخص الخطاب</label>
           </div>
           <div class="d-flex">
-            <div class="input-data" style="width:45%; margin-left:auto;">
+            <div class="input-data">
               <input type="date" readonly id="recipientDate" name="recipientDate" formControlName="recipientDate">
               <div class="underLine"></div>
               <label for="recipientDate">تاريح الاستلام</label>
             </div>
-            <div class="input-data" style="width:45%; margin-left:auto;">
+            <div class="input-data">
               <input type="text" readonly id="recipientName" formControlName="recipientName">
               <div class="underLine"></div>
               <label for="recipientName">المستلم</label>
             </div>
           </div>
           <div class="d-flex">
-            <div class="input-data" style="width:45%; margin-left:auto;">
+            <div class="input-data">
               <input type="date" readonly id="urgentDate" formControlName="urgentDate">
               <div class="underLine"></div>
               <label for="urgentDate">تاربخ الاستعجال</label>
             </div>
-            <div class="input-data" style="width:45%; margin-left:auto;">
+            <div class="input-data">
               <input type="number" readonly id="urgentNum" formControlName="urgentNum">
               <div class="underLine"></div>
               <label for="urgentNum">رقم الاستعجال</label>
             </div>
           </div>
           <div class="d-flex">
-            <div class="input-data" style="width:45%; margin-left:auto;">
+            <div class="input-data">
               <input type="date" readonly id="responseDate" formControlName="responseDate">
               <div class="underLine"></div>
               <label for="responseDate">تاريخ الرد</label>
             </div>
-            <div class="input-data" style="width:45%; margin-left:auto;">
+            <div class="input-data">
               <input type="number" readonly id="responseNumber" name="responseNumber" formControlName="responseNumber">
               <div class="underLine"></div>
               <label for="responseNumber">رقم الرد الوارد</label>
             </div>
           </div>
 
-          <div class="input-data" style="width:35%; margin-left:auto;">
+          <div class="input-data">
             <input type="text" required readonly id="createdBy" formControlName="createdBy">
             <label for="createdBy">أنشأ بواسطة</label>
           </div>
 
 
-          <div class="input-data" style="bottom: 0px;margin-left:5%">
+          <div class="input-data">
 
 
 
-            <div class="col-md-9 pag" style="margin-top:50px;bottom:0px;margin-left:45%">
+            <div class="detail-pager">
               <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength" (pageChange)="change($event)"
                               [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false">
               </ngb-pagination>
@@ -128,8 +106,28 @@
 
       </form>
     </div>
-    <div>
-      <app-sidebar></app-sidebar>
-    </div>
+
+    <aside class="detail-media">
+      <div class="detail-media-title">المرفقات</div>
+      <div class="empty-state no-attachments" *ngIf="!paths || !paths.length">لا توجد مرفقات لهذا السجل</div>
+      <ngb-carousel class="w-100">
+        <ng-template ngbSlide *ngFor="let item of paths;let i=index">
+          <div class="carousel-wrapper" [id]="'print-section-' + i">
+            <img src="{{item}}">
+          </div>
+          <div class="d-flex">
+
+            <button [printSectionId]="'print-section-' + i"  ngxPrint
+                    class="btn btn-outline-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+                <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+              </svg>
+              طباعة
+            </button>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </aside>
   </div>
 </div>

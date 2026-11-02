@@ -1,42 +1,35 @@
-<div style="height: 100vh;">
-  <div style="display: flex;justify-content: space-between;">
-  <img src="assets\logo\Zagazig university.logo.png" style="height:70px;width: 70px ; margin-top: 10px ; margin-left: 10px">
-  <img src="assets\logo\fci.zu.jpeg" style="height:80px;width: 80px; margin-top: 10px; margin-right: 10px">
-</div>
-  <div class="card-container">
-    <div class="card-body w-50 position-relative" style="padding: 50px;text-align: center;">
-      <form (ngSubmit)="login()" [formGroup]="loginParentGroup">
-        <legend style="color:#143e81;margin-bottom:20px">تسجيل الدخول</legend>
-        <div formGroupName="user">
-          <div class="input-group form-group" style="margin: auto">
-            <input formControlName="username" type="text" class="form-control" style="background-color: #ddd;"  placeholder="اسم المستخدم">
-            <small *ngIf="loginParentGroup.get('username')?.invalid">* مطلوب</small>
-          </div>
-          <div class="input-group form-group mt-3" style="margin: auto">
-            <input formControlName="password" type="password" class="form-control"  style="background-color: #ddd;" placeholder="الرقم السري">
-            <small *ngIf="loginParentGroup.get('password')?.invalid">* مطلوب</small>
-          </div>
-          <div class="form-group my-3 ml-2">
-            <button type="submit" class="btn login_btn"
-              style="height:35px;margin-top: 30px;width:160px">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z" />
-                <path fill-rule="evenodd"
-                  d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
-              </svg>
-          الدخول للبرنامج
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="archive" style="">
-      <legend class="text-center" style=" font-weight: bold;font-size:40px; color:#fff">
-        برنامج الأرشيف الإلكتروني
+<div class="login-page">
+  <img class="corner-logo logo-right" src="assets/logo/Zagazig university.logo.png" alt="">
+  <img class="corner-logo logo-left" src="assets/logo/fci.zu.jpeg" alt="">
 
-      </legend>
-    </div>
+  <div class="login-wrap">
+    <form class="login-card" (ngSubmit)="login()" [formGroup]="loginParentGroup">
+      <div class="login-head">
+        <span class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg>
+        </span>
+        <h1>برنامج الأرشيف الإلكتروني</h1>
+        <p class="login-hint">سجل الدخول بحسابك للمتابعة</p>
+      </div>
+
+      <div formGroupName="user">
+        <div class="input-data">
+          <label for="username">اسم المستخدم</label>
+          <input id="username" formControlName="username" type="text" placeholder="اسم المستخدم" autocomplete="username">
+          <small *ngIf="loginParentGroup.get('username')?.invalid">* مطلوب</small>
+        </div>
+        <div class="input-data">
+          <label for="password">الرقم السري</label>
+          <input id="password" formControlName="password" type="password" placeholder="الرقم السري" autocomplete="current-password">
+          <small *ngIf="loginParentGroup.get('password')?.invalid">* مطلوب</small>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg w-100">
+          الدخول للبرنامج
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
+        </button>
+      </div>
+    </form>
+
+    <div class="brand-foot">كلية الحاسبات والمعلومات · جامعة الزقازيق</div>
   </div>
 </div>

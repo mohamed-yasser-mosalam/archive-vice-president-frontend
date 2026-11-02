@@ -1,72 +1,52 @@
-
-
-<app-navbar></app-navbar>
-
-<div class="row" style="background-color: var(--bg);">
-  <div class="d-flex justify-content-between">
-    <div style="
-    zoom: 80%;
-    text-align: center;
-    position: sticky;
-    overflow: auto;
-    height:733px;
-    border-radius: 8px;
-    width:100%">
-      <div class="d-flex"
-           style="
-        font-size: 20px;
-        padding: 10px 35%;
-        background-color: var(--bg);
-        color: var(--color);
-        position: sticky;
-        top: 0;
-        font-weight: bold">
-        <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
-        <div class="input-data">
-          <h2 style="font-weight: bold">جميع الملفات الخاصة لمكتب العميد</h2>
-        </div>
-      </div>
-      <table>
-        <thead>
-        <tr>
-          <th scope="col">رقم القيد</th>
-          <th scope="col">رقم id</th>
-          <th scope="col">رقم الخطاب</th>
-          <th scope="col">تاريخ الورود</th>
-          <th scope="col">عدد المرفقات</th>
-          <th scope="col">الجهة الوارد منها</th>
-          <th scope="col">ملخص الخطاب</th>
-          <th scope="col">رقم الملف</th>
-          <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let item of specialFile| search:searchText">
-          <td>{{item.no}}</td>
-          <td>{{item.id}}</td>
-          <td>{{item.importNum}}</td>
-          <td>{{item.incomeDate}}</td>
-          <td>{{ item.numberOfAttachments }} | <span style="color: red">{{ item.numberOfImages }}</span></td>
-          <td>{{item.sender}}</td>
-          <td>{{item.summary}}</td>
-          <td>{{item.typeNumber}}/{{item.num}}</td>
-          <td>
-            <a [routerLink]="['/last-special-pagination']" [queryParams]="{page:item.id}">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                   class="bi bi-box-arrow-left" viewBox="0 0 16 16" style="color: var(--color)">
-                <path fill-rule="evenodd"
-                      d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
-                <path fill-rule="evenodd"
-                      d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
-              </svg>
-            </a>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
+<div class="page">
+  <div class="page-header">
     <div>
-      <app-sidebar></app-sidebar>
+      <h1 class="page-title">جميع الملفات الخاصة لمكتب العميد</h1>
     </div>
+    <div class="page-actions">
+      <app-search (searchTextChange)=onsearchTextEntered($event)></app-search>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <table class="data-table">
+      <thead>
+      <tr>
+        <th scope="col">رقم القيد</th>
+        <th scope="col">رقم id</th>
+        <th scope="col">رقم الخطاب</th>
+        <th scope="col">تاريخ الورود</th>
+        <th scope="col">عدد المرفقات</th>
+        <th scope="col">الجهة الوارد منها</th>
+        <th scope="col">ملخص الخطاب</th>
+        <th scope="col">رقم الملف</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of specialFile| search:searchText">
+        <td>{{item.no}}</td>
+        <td>{{item.id}}</td>
+        <td>{{item.importNum}}</td>
+        <td>{{item.incomeDate}}</td>
+        <td>{{ item.numberOfAttachments }} | <span class="count-attached">{{ item.numberOfImages }}</span></td>
+        <td>{{item.sender}}</td>
+        <td>{{item.summary}}</td>
+        <td>{{item.typeNumber}}/{{item.num}}</td>
+        <td>
+          <a [routerLink]="['/last-special-pagination']" [queryParams]="{page:item.id}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                 class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                    d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
+              <path fill-rule="evenodd"
+                    d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+            </svg>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="empty-state" *ngIf="!specialFile || !specialFile.length">لا توجد بيانات لعرضها</div>
   </div>
 </div>

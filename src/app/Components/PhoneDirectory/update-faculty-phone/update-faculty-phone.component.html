@@ -1,37 +1,30 @@
-<app-navbar></app-navbar>
-<div class="row">
-  <div class="col-2" style="background-color: var(--bg_main);"></div>
-  <div class="col-9" style="background-color:var(--bg_main)">
-    <form class="col-8"  [formGroup]="editFacultyPhone" (ngSubmit)="update()">
-        <div class="wrapper " style="direction: ltr;">
-            <legend class="text-center">تعديل دليل تليفونات كلية الحاسبات والمعلومات</legend>
+<div class="page page-narrow">
+  <form class="form-card"  [formGroup]="editFacultyPhone" (ngSubmit)="update()">
+      <div class="wrapper ">
+          <legend class="text-center">تعديل دليل تليفونات كلية الحاسبات والمعلومات</legend>
 
 
-            <div class="d-flex">
-              <div class="input-data" style="width:30%; margin-left:auto;">
-                <input type="text" readonly formControlName="serial" style="margin-top: 10px">
-                <label style="margin-top: 20px">القيد</label>
-              </div>
-
-            </div>
-            <div class="input-data" style="width:96%; margin-left: auto;">
-              <input cols="40" rows="1"  required formControlName="side">
-              <label>الجهة</label>
-
-
-            </div>
-            <div class="d-flex">
-              <div class="input-data" style="width:45%; margin-left:auto;">
-                <input type="text" required formControlName="phone">
-                <label>الرقم</label>
-              </div>
+          <div class="d-flex">
+            <div class="input-data">
+              <input type="text" readonly formControlName="serial">
+              <label>القيد</label>
             </div>
 
-              <button type="submit" class="btn w-25" style="background-color: var(--bg_main);">حفظ</button>
-        </div>
-    </form>
-  </div>
-  <div class="col-1">
-    <app-sidebar></app-sidebar>
-  </div>
+          </div>
+          <div class="input-data">
+            <input cols="40" rows="1"  required formControlName="side">
+            <label>الجهة</label>
+
+
+          </div>
+          <div class="d-flex">
+            <div class="input-data">
+              <input type="text" required formControlName="phone">
+              <label>الرقم</label>
+            </div>
+          </div>
+
+            <button type="submit" class="btn btn-primary">حفظ</button>
+      </div>
+  </form>
 </div>

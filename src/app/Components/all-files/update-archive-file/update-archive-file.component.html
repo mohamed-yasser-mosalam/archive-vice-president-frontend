@@ -1,25 +1,15 @@
-<app-navbar></app-navbar>
-<div class="row">
-  <div class="col-2" style="background-color: var(--bg_main);"></div>
-  <div class="col-8" style="background-color:var(--bg_main)">
-    <form class="col-8"  [formGroup]="updateArchiveFile" (ngSubmit)="update()">
-        <div class="wrapper " style="direction: ltr;">
-            <legend class="text-center">تعديل ملف الارشيف</legend>
+<div class="page page-narrow">
+  <form class="form-card"  [formGroup]="updateArchiveFile" (ngSubmit)="update()">
+      <div class="wrapper ">
+          <legend class="text-center">تعديل ملف الارشيف</legend>
 
 
-            <div class="input-data" style="width:90%; margin-left:auto;">
-                <input type="text"id="name" formControlName="name">
-                <label >اسم الملف</label>
-              </div>
+          <div class="input-data">
+              <input type="text"id="name" formControlName="name">
+              <label >اسم الملف</label>
+            </div>
 
-              <button type="submit" class="btn w-25" style="background-color: var(--bg_main);">حفظ</button>
-        </div>
-    </form>
-  </div>
-  <div class="col-2 position-relative">
-    <app-sidebar></app-sidebar>
-  </div>
+            <button type="submit" class="btn btn-primary">حفظ</button>
+      </div>
+  </form>
 </div>
-
-
-

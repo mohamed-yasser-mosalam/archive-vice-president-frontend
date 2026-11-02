@@ -1,81 +1,52 @@
-<app-navbar></app-navbar>
-<div class="row w-auto" style="background-color: var(--bg_main);">
-  <div class="d-flex justify-content-between">
-    <div class="container rounded bg-white " style="zoom:95%;">
-      <form class="row" [formGroup]="showAllUsers">
-
-        <div class="col-md-5 border-right"
-             style="direction: rtl;margin-right: 100px;margin-left: 150px;margin-top:60px">
-          <div class="p-3 py-5">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <h2 class="text-right">بيانات المستخدم</h2>
-            </div>
-            <div class="row mt-2">
-              <div class="col-md-6"><label class="labels">الاسم الاول</label>
-                <input type="text" class="form-control" readonly
-                       placeholder="الأسم الأول" value="" formControlName="firstName">
-              </div>
-              <div class="col-md-6"><label class="labels">الاسم الثاني</label>
-                <input type="text" class="form-control" readonly
-                       value=""
-                       placeholder="الأسم الثاني" formControlName="lastName">
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-md-12"><label class="labels">اسم المستخدم</label>
-                <input type="text" class="form-control" readonly
-                       placeholder="اسم المستخدم" formControlName="username">
-              </div>
-
-            </div>
-            <div class="row mt-3">
-              <div class="col-md-12"><label class="labels">رقم الموبايل</label>
-                <input type="text" class="form-control" readonly formControlName="phone"></div>
-              <div class="col-md-12"><label class="labels">الصلاحية</label>
-                <input type="text" class="form-control" readonly formControlName="roles"></div>
-
-            </div>
-
-            <div class="text-center row mt-4">
-              <div class="col-md-6" *ngIf="isActive==1;else notactive" >
-                <button class="btn  profile-button" (click)="unActivateUser(username)" type="button" *ngIf="user.roles!='admin'">
-                  الغاء تفعيل
-                </button>
-              </div>
-              <ng-template #notactive>
-                <div class="col-md-6"  >
-                <button class="btn  profile-button" (click)="activatedUser(username)" type="button" >
-                  تفعيل
-                </button>
-                </div>
-              </ng-template>
-              <button *ngIf="username!='admin'" class="btn  profile-button" type="submit" routerLink="/change-password-by-admin/{{page}}">تغيير
-                الرقم
-                السري
-              </button>
-            </div>
-            <div class="col-md-5 pag" style="margin-top:30px;bottom:0px;margin-right:30%;direction: ltr">
-              <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength"
-                              (pageChange)="change($event)"
-                              [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
-                              routerLink="/user-pagination?page=/{{page}}">
-              </ngb-pagination>
-
-            </div>
-          </div>
+<div class="page page-narrow">
+  <div class="profile-layout">
+  <form class="form-card" [formGroup]="showAllUsers">
+    <legend>بيانات المستخدم</legend>
+      <div class="form-row">
+        <div class="input-data">
+          <label>الاسم الأول</label>
+          <input type="text" readonly formControlName="firstName">
         </div>
-        <div class="col-md-3 border-right">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5"
-               style="margin-top: 20px">
-            <img class="rounded-circle mt-5"
-                 style="height:200px;width:200px; margin-left: 15px; border-radius:100%;margin-top:50px"
-                 src={{img}}>
-          </div>
+        <div class="input-data">
+          <label>الاسم الثاني</label>
+          <input type="text" readonly formControlName="lastName">
         </div>
-      </form>
+      </div>
+      <div class="form-row">
+        <div class="input-data">
+          <label>اسم المستخدم</label>
+          <input type="text" readonly formControlName="username">
+        </div>
+        <div class="input-data">
+          <label>رقم الموبايل</label>
+          <input type="text" readonly formControlName="phone">
+        </div>
+        <div class="input-data">
+          <label>الصلاحية</label>
+          <input type="text" readonly formControlName="roles">
+        </div>
+      </div>
+    <div class="form-actions">
+      <ng-container *ngIf="isActive==1;else notactive">
+        <button class="btn btn-danger" (click)="unActivateUser(username)" type="button" *ngIf="user.roles!='admin'">إلغاء التفعيل</button>
+      </ng-container>
+      <ng-template #notactive>
+        <button class="btn btn-success" (click)="activatedUser(username)" type="button">تفعيل</button>
+      </ng-template>
+      <button *ngIf="username!='admin'" class="btn btn-outline-secondary" type="button" routerLink="/change-password-by-admin/{{page}}">تغيير الرقم السري</button>
+      <div class="detail-pager">
+        <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="pageLength"
+                        (pageChange)="change($event)"
+                        [maxSize]="1" [boundaryLinks]="true" [ellipses]="false" [rotate]="false"
+                        routerLink="/user-pagination?page=/{{page}}">
+        </ngb-pagination>
+      </div>
     </div>
-    <div>
-      <app-sidebar></app-sidebar>
-    </div>
+  </form>
+  <aside class="profile-card">
+    <img class="profile-avatar" [src]="img" alt="">
+    <div class="profile-name">{{ username }}</div>
+    <span class="pill" [class.pill-success]="isActive==1" [class.pill-danger]="isActive!=1">{{ isActive==1 ? 'مفعل' : 'غير مفعل' }}</span>
+  </aside>
   </div>
 </div>

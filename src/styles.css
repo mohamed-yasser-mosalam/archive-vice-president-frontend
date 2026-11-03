@@ -1624,3 +1624,25 @@ button.row-action {
   border-color: #f3c7c7;
   background: var(--danger-50);
 }
+
+/* Colored icon tiles (same look as the Tools page) */
+.kpi-icon[class*="tone-"],
+.kpi:hover .kpi-icon[class*="tone-"] {
+  background: var(--tone-bg);
+  border-color: transparent;
+  color: var(--tone);
+}
+
+/* Light tinted buttons */
+.btn.btn-soft {
+  background: var(--tone-bg);
+  border-color: color-mix(in srgb, var(--tone) 20%, transparent);
+  color: var(--tone);
+  box-shadow: none;
+}
+
+.btn.btn-soft:hover {
+  background: color-mix(in srgb, var(--tone) 12%, white);
+  border-color: color-mix(in srgb, var(--tone) 32%, transparent);
+  color: var(--tone);
+}

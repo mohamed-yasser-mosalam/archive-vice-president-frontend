@@ -1,0 +1,59 @@
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">إدارة النسخ الاحتياطية</h1>
+      <span class="busy-note" *ngIf="busy">جاري التنفيذ...</span>
+    </div>
+    <div class="page-actions">
+      <button type="button" class="btn btn-primary" [disabled]="busy" (click)="create()">إنشاء نسخة احتياطية</button>
+    </div>
+  </div>
+
+  <div class="table-card schedule-card">
+    <h2 class="schedule-title">جدولة النسخ الاحتياطي</h2>
+    <div class="schedule-form">
+      <label class="schedule-check">
+        <input type="checkbox" class="form-check-input" name="enabled" [(ngModel)]="form.enabled">
+        تفعيل النسخ الاحتياطي التلقائي
+      </label>
+      <select class="form-select" name="day" aria-label="اليوم" [(ngModel)]="form.day">
+        <option [ngValue]="null">يومياً</option>
+        <option *ngFor="let d of days" [ngValue]="d.value">{{ d.label }}</option>
+      </select>
+      <input type="time" class="form-control" name="time" aria-label="الوقت" [(ngModel)]="form.time">
+      <button type="button" class="btn btn-primary" [disabled]="busy" (click)="saveSchedule()">حفظ الجدولة</button>
+    </div>
+    <div class="schedule-summary">{{ scheduleSummary() }}</div>
+  </div>
+
+  <div class="table-card">
+    <table class="data-table">
+      <thead>
+      <tr>
+        <th scope="col">النوع</th>
+        <th scope="col">التاريخ</th>
+        <th scope="col">الوقت</th>
+        <th scope="col">الحجم</th>
+        <th scope="col">إجراءات</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let b of backups">
+        <td>
+          <div>{{ typeLabel(b.name) }}</div>
+          <div class="file-name">{{ b.name }}</div>
+        </td>
+        <td>{{ formatDate(b.createdAt) }}</td>
+        <td>{{ formatTime(b.createdAt) }}</td>
+        <td>{{ formatSize(b.size) }}</td>
+        <td>
+          <button type="button" class="row-action" [disabled]="busy" (click)="restore(b)">استرجاع</button>
+          <button type="button" class="row-action" [disabled]="busy" (click)="download(b)">تحميل</button>
+          <button type="button" class="row-action row-action-danger" [disabled]="busy" (click)="remove(b)">حذف</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="empty-state" *ngIf="!backups.length">لا توجد نسخ احتياطية</div>
+  </div>
+</div>

@@ -1646,3 +1646,8 @@ button.row-action {
   border-color: color-mix(in srgb, var(--tone) 32%, transparent);
   color: var(--tone);
 }
+
+/* SweetAlert2 RTL */
+.swal-rtl {
+  direction: rtl;
+}

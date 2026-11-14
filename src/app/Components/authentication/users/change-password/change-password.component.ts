@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {AuthenticationServiceService} from "../../../../Services/Security/authentication-service.service";
 import {UpdateUserInformationService} from "../../../../Services/updateUserInformation/update-user-information.service";
 import baseUrl from "../../../../url";
+import {AlertService} from "../../../../Services/alert/alert.service";
 
 @Component({
   selector: 'app-change-password',
@@ -18,6 +19,7 @@ export class ChangePasswordComponent implements OnInit {
   constructor(private updateUserInformationService: UpdateUserInformationService,
               private router: Router,
               private auth: AuthenticationServiceService,
+              private alert: AlertService,
   ) {
   }
 
@@ -38,7 +40,7 @@ export class ChangePasswordComponent implements OnInit {
         // if(this.errorMessage!=null){
         //   alert('الرقم السري المدخل غير صحيح')
         // }
-        alert(err.error.message)
+        this.alert.error(err)
       }
     )
 

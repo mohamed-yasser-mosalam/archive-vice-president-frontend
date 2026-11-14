@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationServiceService} from '../../../Services/Security/authentication-service.service';
-import {DatabaseService} from '../../../Services/databasebacup/database.service';
 
 interface ToolLink {
   title: string;
@@ -27,7 +26,7 @@ export class ToolsComponent implements OnInit {
   userRole = '';
   sections: ToolSection[] = [];
 
-  constructor(private auth: AuthenticationServiceService, private dataBaseService: DatabaseService) {
+  constructor(private auth: AuthenticationServiceService) {
   }
 
   ngOnInit(): void {
@@ -63,22 +62,11 @@ export class ToolsComponent implements OnInit {
           {title: 'المستخدمين', description: 'عرض حسابات المستخدمين وتفعيلها', icon: 'users', tone: 'tone-blue', link: '/user-pagination?page=/1'},
           {title: 'إضافة مستخدم', description: 'إنشاء حساب مستخدم جديد', icon: 'user-plus', tone: 'tone-green', link: '/register'},
           {title: 'نشاط المستخدمين', description: 'سجل العمليات التي قام بها المستخدمون', icon: 'activity', tone: 'tone-violet', link: '/user-activity'},
-          {title: 'نسخة احتياطية', description: 'حفظ نسخة احتياطية من قاعدة البيانات', icon: 'download', tone: 'tone-teal', action: () => this.backUp()},
-          {title: 'استرجاع نسخة احتياطية', description: 'استرجاع قاعدة البيانات من آخر نسخة', icon: 'upload', tone: 'tone-red', action: () => this.restore()},
+          {title: 'نسخة احتياطية', description: 'عرض وإدارة النسخ الاحتياطية', icon: 'download', tone: 'tone-teal', link: '/backups'},
         ]
       },
     ];
     this.sections = all.filter(s => !s.adminOnly || this.userRole == 'admin');
   }
 
-  backUp() {
-    this.dataBaseService.backupDatabase().subscribe(value => alert(value));
-  }
-
-  restore() {
-    if (!confirm('سيتم استبدال البيانات الحالية بآخر نسخة احتياطية. هل تريد المتابعة؟')) {
-      return;
-    }
-    this.dataBaseService.restoreDatabase().subscribe(value => alert(value));
-  }
 }

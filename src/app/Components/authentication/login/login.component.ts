@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
 import {Router} from "@angular/router";
+import {AlertService} from "../../../Services/alert/alert.service";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private formChildGroup: FormBuilder,
               private auth: AuthenticationServiceService,
-              private router: Router
+              private router: Router,
+              private alert: AlertService
   ) {
   }
 
@@ -43,7 +45,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl("/home")
       },
       error: error => {
-        alert(error.error.message)
+        this.alert.error(error)
       }
     })
 

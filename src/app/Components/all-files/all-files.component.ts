@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AllFiles} from "../../Models/AllFiles/all-files";
 import {AllFilesService} from "../../Services/AllFile/all-files.service";
+import {AlertService} from "../../Services/alert/alert.service";
 
 @Component({
   selector: 'app-all-files',
@@ -12,7 +13,7 @@ export class AllFilesComponent implements OnInit {
   searchText: string;
   stateOfClose:boolean;
 
-  constructor(private allFilesService: AllFilesService) {
+  constructor(private allFilesService: AllFilesService, private alert: AlertService) {
   }
 
   getAllFiles() {
@@ -33,15 +34,14 @@ export class AllFilesComponent implements OnInit {
   deleteArchiveFile(typeNumber: number, num: number) {
     this.allFilesService.deleteArchiveFile(typeNumber, num).subscribe((result: any) => {
         this.allFilesService.getAllFile();
+        setTimeout(() => {
+          window.location.reload();
+        }, 50);
       },
       (error: any) => {
-        alert(error.error.message)
+        this.alert.error(error).then(() => window.location.reload());
       }
     )
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 50);
   }
 
   closeArchive(data: any) {

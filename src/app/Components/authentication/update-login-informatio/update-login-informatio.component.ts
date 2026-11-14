@@ -4,6 +4,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
 import {UpdateUserInformationService} from "../../../Services/updateUserInformation/update-user-information.service";
 import baseUrl from "../../../url";
+import {AlertService} from "../../../Services/alert/alert.service";
 
 @Component({
   selector: 'app-update-login-informatio',
@@ -47,6 +48,7 @@ export class UpdateLoginInformatioComponent implements OnInit {
               private router: Router,
               private updateUserInformationService: UpdateUserInformationService,
               private routes: ActivatedRoute,
+              private alert: AlertService,
   ) {
   }
 
@@ -54,7 +56,7 @@ export class UpdateLoginInformatioComponent implements OnInit {
     this.updateUserInformationService.update(this.id, this.editUserName.value).subscribe((result: any) => {
       this.router.navigateByUrl('/login');
       this.auth.clearToken();
-      },error => alert(error.error.message)
+      },error => this.alert.error(error)
     )
   }
 

@@ -1,0 +1,64 @@
+.busy-note {
+  color: var(--text-muted, #6b7280);
+  font-size: 0.9rem;
+}
+
+.file-name {
+  color: var(--text-muted, #6b7280);
+  font-size: 0.8rem;
+  direction: ltr;
+  text-align: right;
+}
+
+.row-action[disabled],
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.row-action {
+  width: auto;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+.row-action + .row-action {
+  margin-inline-start: 6px;
+}
+
+.data-table td:last-child {
+  white-space: nowrap;
+}
+
+.schedule-card {
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.schedule-title {
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+}
+
+.schedule-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.schedule-form .form-select,
+.schedule-form .form-control {
+  width: auto;
+}
+
+.schedule-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.schedule-summary {
+  margin-top: 12px;
+  color: var(--text-muted, #6b7280);
+}

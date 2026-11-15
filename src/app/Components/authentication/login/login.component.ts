@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationServiceService} from "../../../Services/Security/authentication-service.service";
 import {Router} from "@angular/router";
 import {AlertService} from "../../../Services/alert/alert.service";
+import {PermissionService} from "../../../Services/Security/permission.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(private formChildGroup: FormBuilder,
               private auth: AuthenticationServiceService,
               private router: Router,
-              private alert: AlertService
+              private alert: AlertService,
+              private permissions: PermissionService
   ) {
   }
 
@@ -41,7 +43,8 @@ export class LoginComponent implements OnInit {
       this.loginParentGroup.controls['user'].value.username,
       this.loginParentGroup.controls['user'].value.password
     ).subscribe({
-      next: respose => {
+      next: async respose => {
+        await this.permissions.load()
         this.router.navigateByUrl("/home")
       },
       error: error => {

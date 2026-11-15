@@ -4,6 +4,7 @@ import {map, Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import baseUrl from "../../url";
 import {jwtDecode} from "jwt-decode";
+import {PermissionService} from "./permission.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ import {jwtDecode} from "jwt-decode";
 export class AuthenticationServiceService implements OnInit {
   base = baseUrl
 
-  constructor(private http: HttpClient, private router: Router, private routes: ActivatedRoute) {
+  constructor(private http: HttpClient, private router: Router, private routes: ActivatedRoute,
+              private permissions: PermissionService) {
 
   }
 
@@ -73,6 +75,7 @@ export class AuthenticationServiceService implements OnInit {
 
   clearToken() {
     sessionStorage.clear()
+    this.permissions.clear()
   }
 
   canActivate(): any {

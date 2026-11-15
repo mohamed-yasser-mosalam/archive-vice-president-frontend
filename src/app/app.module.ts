@@ -1,7 +1,9 @@
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {CanDirective} from './Directives/can.directive';
+import {PermissionService} from './Services/Security/permission.service';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {LoginComponent} from './Components/authentication/login/login.component';
@@ -129,9 +131,15 @@ import { InvestigationPaginationComponent } from './Components/investigation/inv
 import { LastInvestigationComponent } from './Components/investigation/last-investigation/last-investigation.component';
 import { LastInvestigationPaginationComponent } from './Components/investigation/last-investigation-pagination/last-investigation-pagination.component';
 
+/** On a page reload with a saved token, load permissions before the first screen renders. */
+export function loadPermissions(perms: PermissionService) {
+  return () => sessionStorage.getItem('token') ? perms.load() : Promise.resolve();
+}
+
 @NgModule({
   declarations: [
     AppComponent,
+    CanDirective,
     MainComponentsComponent,
     NavbarComponent,
     SidebarComponent,
@@ -246,6 +254,7 @@ import { LastInvestigationPaginationComponent } from './Components/investigation
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceterBaseAuthService, multi: true},
+    {provide: APP_INITIALIZER, useFactory: loadPermissions, deps: [PermissionService], multi: true},
   ],
   exports: [
     NavbarComponent,

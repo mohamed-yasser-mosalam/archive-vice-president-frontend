@@ -17,7 +17,6 @@ export class UpdateExportComponent implements OnInit {
   paths: string[];
   id = this.routes.snapshot.params['id']
   no: number;
-  roleOfUser = this.auth.getUserRoles()
   editExport = new FormGroup({
     date: new FormControl(''),
     receiver: new FormControl(''),

@@ -16,7 +16,6 @@ export class LastExportPaginationComponent implements OnInit {
   base = baseUrl + '/';
   id = this.routes.snapshot.params['page'];
   no: number;
-  roleOfUser = this.auth.getUserRoles();
   page = this.routes.snapshot.params['page'];
   pageLength: any;
   showExports: any;

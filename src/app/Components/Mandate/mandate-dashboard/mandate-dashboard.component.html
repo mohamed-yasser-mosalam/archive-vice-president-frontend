@@ -157,7 +157,7 @@
           <span class="title-dot tone-violet"></span>
           الجامعات الاستثنائية
         </div>
-        <button type="button" class="btn btn-sm btn-outline-secondary" *ngIf="roleOfUser=='admin'"
+        <button type="button" class="btn btn-sm btn-outline-secondary" *appCan="'UNIVERSITY_CREATE'"
                 routerLink="/add-special-university">إضافة</button>
       </div>
       <div class="panel-table-wrap">

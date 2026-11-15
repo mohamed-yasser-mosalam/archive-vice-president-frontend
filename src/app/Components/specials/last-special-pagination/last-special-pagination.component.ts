@@ -18,7 +18,6 @@ export class LastSpecialPaginationComponent implements OnInit {
   summary: string;
   createdBy:string;
   no:any;
-  roleOfUser = this.auth.getUserRoles()
   page = this.routes.snapshot.params['page'];
   pageLength: any;
   showSpecials: any;

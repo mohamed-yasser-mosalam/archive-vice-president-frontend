@@ -10,6 +10,7 @@ import {
   UpdateLoginInformatioComponent
 } from './Components/authentication/update-login-informatio/update-login-informatio.component'
 import {UsersComponent} from './Components/authentication/users/users/users.component'
+import {permissionGuard} from "./Services/Security/permission.guard";
 import {CanActivate} from './auth.guard'
 import {ChangePasswordComponent} from './Components/authentication/users/change-password/change-password.component'
 import {SpecialfileComponent} from './Components/specials/specialfile/specialfile.component'
@@ -22,7 +23,6 @@ import {
   ChangePasswordByAdminComponent
 } from './Components/authentication/users/change-password-by-admin/change-password-by-admin.component'
 import {LastSpecialComponent} from './Components/specials/last-special/last-special.component'
-import {AuthenticationServiceService} from './Services/Security/authentication-service.service'
 import {AuthGuardService} from './Services/guard/auth-guard.service'
 import {DeandecisionComponent} from './Components/dean-decisions/deandecision/deandecision.component'
 import {SavefileexportComponent} from './Components/exports/savefileexport/savefileexport.component'
@@ -131,397 +131,89 @@ import {
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
   {path: 'tools', component: ToolsComponent, canActivate: [CanActivate]},
-  {path: 'backups', component: BackupManagementComponent, canActivate: [CanActivate]},
-  {
-    path: 'get-all-imports',
-    component: ImportFilesComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'get-all-exports',
-    component: ExportFilesComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'file-has-gone',
-    component: FileHasGoneComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'file-had-gone',
-    component: FileHadGoneComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'file-not-come',
-    component: FileNotComeComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'important-letter',
-    component: ImportantLetterComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'today-exports',
-    component: TodayExportsComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'today-imports',
-    component: TodayImportsComponent,
-    canActivate: [CanActivate]
-  },
+  {path: 'backups', component: BackupManagementComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'BACKUP_READ'}},
+  {path: 'get-all-imports', component: ImportFilesComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_READ'}},
+  {path: 'get-all-exports', component: ExportFilesComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_READ'}},
+  {path: 'file-has-gone', component: FileHasGoneComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_READ'}},
+  {path: 'file-had-gone', component: FileHadGoneComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_READ'}},
+  {path: 'file-not-come', component: FileNotComeComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_READ'}},
+  {path: 'important-letter', component: ImportantLetterComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_READ'}},
+  {path: 'today-exports', component: TodayExportsComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_READ'}},
+  {path: 'today-imports', component: TodayImportsComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_READ'}},
   {path: 'login', component: LoginComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {
-    path: 'add-export-file',
-    component: AddExportComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-import-file',
-    component: AddImportComponent,
-    canActivate: [CanActivate]
-  },
-  {path: 'update-import/:id', component: UpdateImportComponent},
-  {path: 'update-export/:id', component: UpdateExportComponent},
-  {
-    path: 'all-files',
-    component: AllFilesComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-    canActivate: [AuthenticationServiceService, CanActivate]
-  },
-  {
-    path: 'export-pagination',
-    component: ExportPaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'import-pagination',
-    component: ImportPaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-urgent/:id',
-    component: UrgentExportComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-export-response/:id',
-    component: ResponsExportComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-import-response/:id',
-    component: ResponsImportComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'update-user-information/:id',
-    component: UpdateLoginInformatioComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'users',
-    component: UsersComponent,
-    canActivate: [AuthenticationServiceService, CanActivate]
-  },
-  {
-    path: 'change-password/:username',
-    component: ChangePasswordComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'archive-export/:id',
-    component: ArchiveExportComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'archive-import/:id',
-    component: ArchiveImportComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'archive-special/:id',
-    component: ArchiveSpecialComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'special-file',
-    component: SpecialfileComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'special-pagination',
-    component: SpecialPaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-special-file',
-    component: AddSpecialComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'user-activity',
-    component: UserActivityComponent,
-    canActivate: [AuthenticationServiceService, CanActivate]
-  },
-  {
-    path: 'change-password-by-admin/:id',
-    component: ChangePasswordByAdminComponent,
-    canActivate: [AuthenticationServiceService, CanActivate]
-  },
-  {
-    path: 'update-special/:id',
-    component: UpdateSpecialComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'last-exports',
-    component: LastExportComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'last-imports',
-    component: LastImportComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'last-specials',
-    component: LastSpecialComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'save-file-export/:id',
-    component: SavefileexportComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'save-file-import/:id',
-    component: SavefileimportComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'dean-decisions',
-    component: DeandecisionComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'dean-decision-pagination',
-    component: DeanDecisionPaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'update-dean-decision/:page',
-    component: UpdatedeandecisionComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-dean-decision',
-    component: AdddeandecisionComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'last-dean-decision',
-    component: LastDeanDecisionComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'last-export-pagination',
-    component: LastExportPaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'last-import-pagination',
-    component: LastImportPaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'last-special-pagination',
-    component: LastSpecialPaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'last-dean-decision-pagination',
-    component: LastDeanDecisionPaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'show-user-information/:username',
-    component: ShowUserInformationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'user-pagination?page=/:page',
-    component: UserpaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-faculty-phone',
-    component: AddFacultyPhoneComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-teaching-phone',
-    component: AddTeachingPhoneComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-emoloyee-phone',
-    component: AddEmployeePhoneComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'faculty-phone-directly',
-    component: FacultyPhoneDirectoryComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'teaching-phone-directly',
-    component: TeachingPhoneDirectoryComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'employee-phone-directly',
-    component: EmployeePhoneDirectoryComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-archive-file',
-    component: AddArchiveFileComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'update-archive-file/:id',
-    component: UpdateArchiveFileComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'letter-of-specific-year',
-    component: LetterOfSpecificYearComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'mandate-dashboard',
-    component: MandateDashboardComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'all-mandate',
-    component: AllMandateComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'all-last-mandates',
-    component: AllLastMandateComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'all-accept-mandate',
-    component: AcceptMandateComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'all-refused-mandate',
-    component: RefusedMandateComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'not-special-mandate',
-    component: UnSpecialMandateComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-mandate',
-    component: AddMandateComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'current-mandate',
-    component: CurrentMandateComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'special-mandate',
-    component: SpecialMandateComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-special-university',
-    component: AddSpecialUniversityComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'update-mandate/:id',
-    component: UpdateMandateComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'update-employee-phone/:id',
-    component: UpdateEmployeePhoneComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'update-faculty-phone/:id',
-    component: UpdateFacultyPhoneComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'update-teaching-phone/:id',
-    component: UpdateTeachingPhoneComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'tasks',
-    component: TaskComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-task',
-    component: AddTaskComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'update-task/:id',
-    component: UpdateTaskComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'investigation',
-    component: InvestigationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'add-investigation',
-    component: InsertInvestigationComponent,
-    canActivate: [CanActivate]
-  },
+  {path: 'add-export-file', component: AddExportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_CREATE'}},
+  {path: 'add-import-file', component: AddImportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_CREATE'}},
+  {path: 'update-import/:id', component: UpdateImportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_EDIT'}},
+  {path: 'update-export/:id', component: UpdateExportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_EDIT'}},
+  {path: 'all-files', component: AllFilesComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'ARCHIVE_FILE_READ'}},
+  {path: 'register', component: RegisterComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'USER_CREATE'}},
+  {path: 'export-pagination', component: ExportPaginationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_READ'}},
+  {path: 'import-pagination', component: ImportPaginationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_READ'}},
+  {path: 'add-urgent/:id', component: UrgentExportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_EDIT'}},
+  {path: 'add-export-response/:id', component: ResponsExportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_EDIT'}},
+  {path: 'add-import-response/:id', component: ResponsImportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_EDIT'}},
+  {path: 'update-user-information/:id', component: UpdateLoginInformatioComponent, canActivate: [CanActivate]},
+  {path: 'users', component: UsersComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'USER_READ'}},
+  {path: 'change-password/:username', component: ChangePasswordComponent, canActivate: [CanActivate]},
+  {path: 'archive-export/:id', component: ArchiveExportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_EDIT'}},
+  {path: 'archive-import/:id', component: ArchiveImportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_EDIT'}},
+  {path: 'archive-special/:id', component: ArchiveSpecialComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'SPECIAL_EDIT'}},
+  {path: 'special-file', component: SpecialfileComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'SPECIAL_READ'}},
+  {path: 'special-pagination', component: SpecialPaginationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'SPECIAL_READ'}},
+  {path: 'add-special-file', component: AddSpecialComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'SPECIAL_CREATE'}},
+  {path: 'user-activity', component: UserActivityComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'USER_ACTIVITY_READ'}},
+  {path: 'change-password-by-admin/:id', component: ChangePasswordByAdminComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'USER_EDIT'}},
+  {path: 'update-special/:id', component: UpdateSpecialComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'SPECIAL_EDIT'}},
+  {path: 'last-exports', component: LastExportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_READ'}},
+  {path: 'last-imports', component: LastImportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_READ'}},
+  {path: 'last-specials', component: LastSpecialComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'SPECIAL_READ'}},
+  {path: 'save-file-export/:id', component: SavefileexportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_EDIT'}},
+  {path: 'save-file-import/:id', component: SavefileimportComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_EDIT'}},
+  {path: 'dean-decisions', component: DeandecisionComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'DEAN_DECISION_READ'}},
+  {path: 'dean-decision-pagination', component: DeanDecisionPaginationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'DEAN_DECISION_READ'}},
+  {path: 'update-dean-decision/:page', component: UpdatedeandecisionComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'DEAN_DECISION_EDIT'}},
+  {path: 'add-dean-decision', component: AdddeandecisionComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'DEAN_DECISION_CREATE'}},
+  {path: 'last-dean-decision', component: LastDeanDecisionComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'DEAN_DECISION_READ'}},
+  {path: 'last-export-pagination', component: LastExportPaginationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_READ'}},
+  {path: 'last-import-pagination', component: LastImportPaginationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_READ'}},
+  {path: 'last-special-pagination', component: LastSpecialPaginationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'SPECIAL_READ'}},
+  {path: 'last-dean-decision-pagination', component: LastDeanDecisionPaginationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'DEAN_DECISION_READ'}},
+  {path: 'show-user-information/:username', component: ShowUserInformationComponent, canActivate: [CanActivate]},
+  {path: 'user-pagination?page=/:page', component: UserpaginationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'USER_READ'}},
+  {path: 'add-faculty-phone', component: AddFacultyPhoneComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'PHONE_DIRECTORY_CREATE'}},
+  {path: 'add-teaching-phone', component: AddTeachingPhoneComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'PHONE_DIRECTORY_CREATE'}},
+  {path: 'add-emoloyee-phone', component: AddEmployeePhoneComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'PHONE_DIRECTORY_CREATE'}},
+  {path: 'faculty-phone-directly', component: FacultyPhoneDirectoryComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'PHONE_DIRECTORY_READ'}},
+  {path: 'teaching-phone-directly', component: TeachingPhoneDirectoryComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'PHONE_DIRECTORY_READ'}},
+  {path: 'employee-phone-directly', component: EmployeePhoneDirectoryComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'PHONE_DIRECTORY_READ'}},
+  {path: 'add-archive-file', component: AddArchiveFileComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'ARCHIVE_FILE_CREATE'}},
+  {path: 'update-archive-file/:id', component: UpdateArchiveFileComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'ARCHIVE_FILE_EDIT'}},
+  {path: 'letter-of-specific-year', component: LetterOfSpecificYearComponent, canActivate: [CanActivate]},
+  {path: 'mandate-dashboard', component: MandateDashboardComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'MANDATE_READ'}},
+  {path: 'all-mandate', component: AllMandateComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'MANDATE_READ'}},
+  {path: 'all-last-mandates', component: AllLastMandateComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'MANDATE_READ'}},
+  {path: 'all-accept-mandate', component: AcceptMandateComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'MANDATE_READ'}},
+  {path: 'all-refused-mandate', component: RefusedMandateComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'MANDATE_READ'}},
+  {path: 'not-special-mandate', component: UnSpecialMandateComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'MANDATE_READ'}},
+  {path: 'add-mandate', component: AddMandateComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'MANDATE_CREATE'}},
+  {path: 'current-mandate', component: CurrentMandateComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'MANDATE_READ'}},
+  {path: 'special-mandate', component: SpecialMandateComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'MANDATE_READ'}},
+  {path: 'add-special-university', component: AddSpecialUniversityComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'UNIVERSITY_CREATE'}},
+  {path: 'update-mandate/:id', component: UpdateMandateComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'MANDATE_EDIT'}},
+  {path: 'update-employee-phone/:id', component: UpdateEmployeePhoneComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'PHONE_DIRECTORY_EDIT'}},
+  {path: 'update-faculty-phone/:id', component: UpdateFacultyPhoneComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'PHONE_DIRECTORY_EDIT'}},
+  {path: 'update-teaching-phone/:id', component: UpdateTeachingPhoneComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'PHONE_DIRECTORY_EDIT'}},
+  {path: 'tasks', component: TaskComponent, canActivate: [CanActivate]},
+  {path: 'add-task', component: AddTaskComponent, canActivate: [CanActivate]},
+  {path: 'update-task/:id', component: UpdateTaskComponent, canActivate: [CanActivate]},
+  {path: 'investigation', component: InvestigationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'INVESTIGATION_READ'}},
+  {path: 'add-investigation', component: InsertInvestigationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'INVESTIGATION_CREATE'}},
 
-  {
-    path: 'update-investigation/:id',
-    component: UpdateInvestigationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'investigation-pagination',
-    component: InvestigationPaginationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'last-investigations',
-    component: LastInvestigationComponent,
-    canActivate: [CanActivate]
-  },
-  {
-    path: 'last-investigation-pagination',
-    component: LastInvestigationPaginationComponent,
-    canActivate: [CanActivate]
-  },
+  {path: 'update-investigation/:id', component: UpdateInvestigationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'INVESTIGATION_EDIT'}},
+  {path: 'investigation-pagination', component: InvestigationPaginationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'INVESTIGATION_READ'}},
+  {path: 'last-investigations', component: LastInvestigationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'INVESTIGATION_READ'}},
+  {path: 'last-investigation-pagination', component: LastInvestigationPaginationComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'INVESTIGATION_READ'}},
 
 
   {path: '**', component: ErrorPageComponent}

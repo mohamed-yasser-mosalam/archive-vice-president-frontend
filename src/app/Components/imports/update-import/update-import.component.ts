@@ -17,7 +17,6 @@ export class UpdateImportComponent implements OnInit {
   paths: any[];
   no:any
   x = this.routes.snapshot.params['id']
-  roleOfUser = this.auth.getUserRoles()
   editImport = new FormGroup({
     numberOfAttachments: new FormControl(''),
     sender: new FormControl(''),

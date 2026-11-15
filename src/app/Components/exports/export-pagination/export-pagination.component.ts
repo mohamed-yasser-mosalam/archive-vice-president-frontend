@@ -15,7 +15,6 @@ export class ExportPaginationComponent implements OnInit {
   id: number;
   base = baseUrl + '/';
   no: number;
-  roleOfUser = this.auth.getUserRoles();
   page: number;
   pageLength: number;
   showExports: any;

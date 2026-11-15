@@ -14,7 +14,6 @@ import {AllFilesService} from "../../../Services/AllFile/all-files.service";
 export class AddExportComponent implements OnInit {
   numberOfExportFile: any;
   exportForm: FormGroup;
-  roleOfUser = this.auth.getUserRoles()
   allFiles: any;
 
 

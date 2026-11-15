@@ -23,7 +23,6 @@ export class ImportPaginationComponent implements OnInit {
   paths: string[];
   isHasResponse: boolean;
   isHasSpecial: boolean;
-  roleOfUser = this.auth.getUserRoles();
   showImport = new FormGroup({
     createdBy: new FormControl(''),
     numberOfAttachments: new FormControl(''),

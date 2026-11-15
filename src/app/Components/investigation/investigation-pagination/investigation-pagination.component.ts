@@ -14,7 +14,6 @@ export class InvestigationPaginationComponent implements OnInit {
   pathOfDeleteImage: any;
   id: number;
   base = baseUrl + '/';
-  roleOfUser = this.auth.getUserRoles();
   page: number;
   pageLength: number;
   showInvestigation: any;

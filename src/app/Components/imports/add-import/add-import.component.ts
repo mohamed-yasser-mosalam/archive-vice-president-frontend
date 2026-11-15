@@ -14,7 +14,6 @@ export class AddImportComponent implements OnInit {
   numberOfImportFile: any;
   importForm: FormGroup;
   importArchive:any
-  roleOfUser=this.auth.getUserRoles();
 
   constructor(
     private importService: ImportServiceService,

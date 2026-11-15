@@ -26,7 +26,6 @@ export class MandateDashboardComponent implements OnInit {
   numberOfSpecialMandate: any;
   specialUniversity: any;
   numberOfAllNotSpecial: any;
-  roleOfUser=this.auth.getUserRoles();
   years: any;
   selectedYear: number = new Date().getFullYear();
   numberOfLetterForYears: any

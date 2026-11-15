@@ -1,7 +1,6 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
 import baseUrl from "../../url";
 import {jwtDecode} from "jwt-decode";
 import {PermissionService} from "./permission.service";
@@ -9,17 +8,10 @@ import {PermissionService} from "./permission.service";
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationServiceService implements OnInit {
+export class AuthenticationServiceService {
   base = baseUrl
 
-  constructor(private http: HttpClient, private router: Router, private routes: ActivatedRoute,
-              private permissions: PermissionService) {
-
-  }
-
-  ngOnInit(): void {
-    this.canActivate();
-
+  constructor(private http: HttpClient, private permissions: PermissionService) {
   }
 
   executeAuthentication(username: any, password: any): Observable<any> {
@@ -65,10 +57,6 @@ export class AuthenticationServiceService implements OnInit {
   }
 
 
-  getUserRoles() {
-    return this.decodeToken().jti || '';
-  }
-
   getUserImage() {
     return this.decodeToken().aud || '';
   }
@@ -77,11 +65,4 @@ export class AuthenticationServiceService implements OnInit {
     sessionStorage.clear()
     this.permissions.clear()
   }
-
-  canActivate(): any {
-    if (this.getUserRoles() != 'admin')
-      return this.router.navigateByUrl('/home');
-  }
-
-
 }

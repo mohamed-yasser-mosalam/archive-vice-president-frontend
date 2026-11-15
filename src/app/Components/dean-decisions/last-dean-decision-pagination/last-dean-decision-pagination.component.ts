@@ -17,7 +17,6 @@ export class LastDeanDecisionPaginationComponent implements OnInit {
   deanDecision: any;
   no: number;
   paths: string[];
-  roleOfUser = this.auth.getUserRoles();
   pageLength: number;
   size: number = 1;
   id = this.routes.snapshot.params['page'];

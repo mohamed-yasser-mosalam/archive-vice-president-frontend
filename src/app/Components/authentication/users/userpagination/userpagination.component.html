@@ -26,9 +26,21 @@
           <input type="text" readonly formControlName="roles">
         </div>
       </div>
+      <div class="form-row" *appCan="'admin'">
+        <div class="input-data">
+          <label for="role-select">تغيير الدور</label>
+          <select id="role-select" class="form-select" [(ngModel)]="selectedRoleId" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let r of roles" [ngValue]="r.id">{{ r.displayName }}</option>
+          </select>
+        </div>
+        <div class="input-data role-save">
+          <button class="btn btn-primary" type="button" (click)="saveRole()"
+                  [disabled]="selectedRoleId === null || selectedRoleId === user?.roleId">حفظ الدور</button>
+        </div>
+      </div>
     <div class="form-actions">
       <ng-container *ngIf="isActive==1;else notactive">
-        <button class="btn btn-danger" (click)="unActivateUser(username)" type="button" *ngIf="user.roles!='admin'">إلغاء التفعيل</button>
+        <button class="btn btn-danger" (click)="unActivateUser(username)" type="button" *ngIf="!isSystemRole()">إلغاء التفعيل</button>
       </ng-container>
       <ng-template #notactive>
         <button class="btn btn-success" (click)="activatedUser(username)" type="button">تفعيل</button>

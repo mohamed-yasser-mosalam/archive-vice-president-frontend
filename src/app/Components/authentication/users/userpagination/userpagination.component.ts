@@ -4,6 +4,10 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../../../Services/user/user.service";
 import {ActivateUserService} from "../../../../Services/ActivateUsers/activate-user.service";
+import {PermissionService} from "../../../../Services/Security/permission.service";
+import {RoleService} from "../../../../Services/roles/role.service";
+import {AlertService} from "../../../../Services/alert/alert.service";
+import {Role} from "../../../../Models/roles/role";
 
 @Component({
   selector: 'app-userpagination',
@@ -55,15 +59,41 @@ export class UserpaginationComponent implements OnInit {
       this.img=this.base+result.imagePath;
       this.username=this.user.username;
       this.isActive=this.user.isActive;
+      this.selectedRoleId = result.roleId ?? null;
     })
   }
+
+  /** Roles for the admin-only role picker. */
+  roles: Role[] = [];
+  selectedRoleId: number | null = null;
 
   constructor(
     private routes: ActivatedRoute,
     private userService: UserService,
     private activateUserService:ActivateUserService,
-    private router:Router
+    private router:Router,
+    private perms: PermissionService,
+    private roleService: RoleService,
+    private alert: AlertService
   ) {
+    if (this.perms.isAdmin())
+      this.roleService.list().subscribe(r => this.roles = r);
+  }
+
+  /** True when the shown user holds the built-in admin role (only known to admins, who load the roles). */
+  isSystemRole(): boolean {
+    return !!this.user && this.roles.some(r => r.system && r.id === this.user.roleId);
+  }
+
+  saveRole(): void {
+    if (this.selectedRoleId === null || !this.user) return;
+    this.roleService.assign(this.user.id, this.selectedRoleId).subscribe({
+      next: async () => {
+        await this.alert.success('تم تغيير دور المستخدم');
+        this.change(this.page);
+      },
+      error: e => this.alert.error(e)
+    });
   }
   unActivateUser(username:string){
     this.activateUserService.unActivateUser(username)

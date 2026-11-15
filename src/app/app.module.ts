@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CanDirective} from './Directives/can.directive';
+import {RolesComponent} from './Components/authentication/roles/roles.component';
 import {PermissionService} from './Services/Security/permission.service';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
@@ -140,6 +141,7 @@ export function loadPermissions(perms: PermissionService) {
   declarations: [
     AppComponent,
     CanDirective,
+    RolesComponent,
     MainComponentsComponent,
     NavbarComponent,
     SidebarComponent,

@@ -59,6 +59,7 @@ export class ToolsComponent implements OnInit {
         items: [
           {title: 'المستخدمين', description: 'عرض حسابات المستخدمين وتفعيلها', icon: 'users', tone: 'tone-blue', link: '/user-pagination?page=/1', permission: 'USER_READ'},
           {title: 'إضافة مستخدم', description: 'إنشاء حساب مستخدم جديد', icon: 'user-plus', tone: 'tone-green', link: '/register', permission: 'USER_CREATE'},
+          {title: 'الأدوار والصلاحيات', description: 'إنشاء الأدوار وتحديد صلاحيات كل قسم', icon: 'shield', tone: 'tone-amber', link: '/roles', permission: 'admin'},
           {title: 'نشاط المستخدمين', description: 'سجل العمليات التي قام بها المستخدمون', icon: 'activity', tone: 'tone-violet', link: '/user-activity', permission: 'USER_ACTIVITY_READ'},
           {title: 'نسخة احتياطية', description: 'عرض وإدارة النسخ الاحتياطية', icon: 'download', tone: 'tone-teal', link: '/backups', permission: 'BACKUP_READ'},
         ]

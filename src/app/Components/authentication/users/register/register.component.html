@@ -27,6 +27,13 @@
           <label>رقم الموبايل</label>
           <input type="text" placeholder="رقم الموبايل" formControlName="phone">
         </div>
+        <div class="input-data" *appCan="'admin'">
+          <label for="role">الدور</label>
+          <select id="role" class="form-select" formControlName="roleId">
+            <option [ngValue]="null">مستخدم (افتراضي)</option>
+            <option *ngFor="let r of roles" [ngValue]="r.id">{{ r.displayName }}</option>
+          </select>
+        </div>
       </div>
     <div class="form-actions">
       <button class="btn btn-primary" type="submit">حفظ</button>

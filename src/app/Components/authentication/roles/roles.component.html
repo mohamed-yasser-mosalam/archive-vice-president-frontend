@@ -1,0 +1,76 @@
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">الأدوار والصلاحيات</h1>
+      <span class="busy-note" *ngIf="busy">جاري التنفيذ...</span>
+    </div>
+    <div class="page-actions">
+      <button type="button" class="btn btn-primary" [disabled]="busy" (click)="newRole()">+ دور جديد</button>
+    </div>
+  </div>
+
+  <div class="roles-layout">
+    <div class="table-card role-list">
+      <button type="button" class="role-item" *ngFor="let r of roles"
+              [class.active]="selected?.id === r.id" (click)="select(r)">
+        <span class="role-name">{{ r.displayName }}</span>
+        <span class="role-meta">
+          <span class="badge-system" *ngIf="r.system">دور النظام</span>
+          {{ r.userCount }} مستخدم
+        </span>
+      </button>
+      <div class="role-item active" *ngIf="isNew">
+        <span class="role-name">{{ name || 'دور جديد' }}</span>
+      </div>
+    </div>
+
+    <div class="table-card role-editor" *ngIf="selected">
+      <div class="role-form">
+        <label for="role-name">اسم الدور</label>
+        <input id="role-name" type="text" class="form-control" name="name" [(ngModel)]="name"
+               [readonly]="readOnly" placeholder="مثال: أمين الوارد">
+      </div>
+
+      <p class="system-note" *ngIf="readOnly">
+        دور مدير النظام يملك جميع الصلاحيات دائماً ولا يمكن تعديله أو حذفه.
+      </p>
+
+      <div class="grid-wrap">
+        <table class="data-table perm-grid">
+          <thead>
+          <tr>
+            <th scope="col">القسم</th>
+            <th scope="col" *ngFor="let a of actions">
+              <label class="col-head">
+                <input type="checkbox" class="form-check-input" [checked]="columnChecked(a.key)"
+                       [disabled]="readOnly" (change)="toggleColumn(a.key)" [attr.aria-label]="'تحديد الكل: ' + a.label">
+                {{ a.label }}
+              </label>
+            </th>
+            <th scope="col">الكل</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of catalog">
+            <th scope="row">{{ c.label }}</th>
+            <td *ngFor="let a of actions">
+              <input type="checkbox" class="form-check-input" [checked]="grid[c.area][a.key]"
+                     [disabled]="readOnly" (change)="toggle(c.area, a.key)"
+                     [attr.aria-label]="a.label + ' - ' + c.label">
+            </td>
+            <td>
+              <input type="checkbox" class="form-check-input" [checked]="rowChecked(c.area)"
+                     [disabled]="readOnly" (change)="toggleRow(c.area)" [attr.aria-label]="'الكل - ' + c.label">
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="editor-actions" *ngIf="!readOnly">
+        <button type="button" class="btn btn-primary" [disabled]="busy || !name.trim()" (click)="save()">حفظ</button>
+        <button type="button" class="btn btn-outline-danger" *ngIf="!isNew" [disabled]="busy" (click)="remove()">حذف الدور</button>
+      </div>
+    </div>
+  </div>
+</div>

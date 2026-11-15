@@ -11,6 +11,7 @@ import {
 } from './Components/authentication/update-login-informatio/update-login-informatio.component'
 import {UsersComponent} from './Components/authentication/users/users/users.component'
 import {permissionGuard} from "./Services/Security/permission.guard";
+import {RolesComponent} from "./Components/authentication/roles/roles.component";
 import {CanActivate} from './auth.guard'
 import {ChangePasswordComponent} from './Components/authentication/users/change-password/change-password.component'
 import {SpecialfileComponent} from './Components/specials/specialfile/specialfile.component'
@@ -131,6 +132,7 @@ import {
 const routes: Routes = [
   {path: 'home', component: WelcomeComponent, canActivate: [CanActivate]},
   {path: 'tools', component: ToolsComponent, canActivate: [CanActivate]},
+  {path: 'roles', component: RolesComponent, canActivate: [CanActivate, permissionGuard], data: {admin: true}},
   {path: 'backups', component: BackupManagementComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'BACKUP_READ'}},
   {path: 'get-all-imports', component: ImportFilesComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'IMPORT_READ'}},
   {path: 'get-all-exports', component: ExportFilesComponent, canActivate: [CanActivate, permissionGuard], data: {permission: 'EXPORT_READ'}},

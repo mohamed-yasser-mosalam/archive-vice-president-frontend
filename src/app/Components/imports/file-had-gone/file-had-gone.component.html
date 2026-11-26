@@ -21,11 +21,7 @@
         <th scope="col">ملخص الخطاب</th>
         <th scope="col">المستلم</th>
         <th scope="col">تاريخ الاستلام</th>
-        <th scope="col">رقم الرد</th>
-        <th scope="col">تاريخ الرد</th>
-        <th scope="col">الجهة الصادر اليها</th>
         <th scope="col">رقم الملف</th>
-        <th scope="col">التاريخ المتوقع للرد</th>
         <th scope="col"></th>
       </tr>
       </thead>
@@ -36,13 +32,10 @@
         <td>{{ item.numberOfAttachments }} | <span class="count-attached">{{ item.numberOfImages }}</span></td>          <td>{{item.sender}}</td>
         <td>{{item.incomingLetterNumber}}</td>
         <td>{{item.incomingLetterDate}}</td>
-        <td>{{item.summary}}</td>
-        <td>{{item.recipientName}}</td>
+        <td class="cell-wide">{{item.summary}}</td>
+        <td class="cell-wide">{{item.recipientName}}</td>
         <td>{{item.recipientDate}}</td>
-        <td><a [routerLink]="['/export-pagination']" [queryParams]="{page:item.responseNumber}">{{ item.responseNumber }}</a></td>          <td>{{item.responseDate}}</td>
-        <td>{{item.responseSide}}</td>
         <td>{{item.typeNumber}}/{{item.num}}</td>
-        <td>{{item.expectResponseDate}}</td>
         <td>
             <a [routerLink]="['/import-pagination']" [queryParams]="{page:item.no}">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">

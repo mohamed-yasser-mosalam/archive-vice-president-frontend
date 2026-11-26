@@ -19,12 +19,7 @@
         <th scope="col">الجهة الصادر اليها</th>
         <th scope="col">ملخص الخطاب</th>
         <th scope="col">المستلم</th>
-        <th scope="col"> رقم الاستعجال</th>
-        <th scope="col">تاريخ الاستعجال</th>
-        <th scope="col"> رقم الرد</th>
-        <th scope="col"> تاريخ الرد</th>
         <th scope="col">رقم الملف</th>
-        <th scope="col"></th>
         <th></th>
       </tr>
       </thead>
@@ -34,12 +29,8 @@
         <td>{{ item.id }}</td>
         <td>{{ item.date }}</td>
         <td>{{ item.numberOfAttachments }} | <span class="count-attached">{{ item.numberOfImages }}</span></td>          <td>{{ item.receiver }}</td>
-        <td>{{ item.summary }}</td>
-        <td>{{ item.recipientName }}</td>
-        <td>{{ item.urgentNum }}</td>
-        <td>{{ item.urgentDate }}</td>
-        <td>{{ item.responseNumber }}</td>
-        <td>{{ item.responseDate }}</td>
+        <td class="cell-wide">{{ item.summary }}</td>
+        <td class="cell-wide">{{ item.recipientName }}</td>
         <td>{{ item.typeNumber }}/{{ item.num }}</td>
         <td>
           <a  [routerLink]="['/last-export-pagination']" [queryParams]="{page:item.id}">

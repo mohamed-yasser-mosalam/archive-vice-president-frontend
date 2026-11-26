@@ -19,10 +19,6 @@
         <th scope="col">ملخص الخطاب</th>
         <th scope="col">المستلم</th>
         <th scope="col"> تاريخ الاستلام</th>
-        <th scope="col"> رقم الاستعجال</th>
-        <th scope="col">تاريخ الاستعجال</th>
-        <th scope="col"> رقم الرد</th>
-        <th scope="col"> تاريخ الرد</th>
         <th scope="col">حفظ</th>
         <th scope="col">رقم الملف</th>
         <th></th>
@@ -34,15 +30,9 @@
         <td>{{ item.date }}</td>
         <td>{{ item.numberOfAttachments }} | <span class="count-attached">{{ item.numberOfImages }}</span></td>
         <td>{{ item.receiver }}</td>
-        <td>{{ item.summary }}</td>
-        <td>{{ item.recipientName }}</td>
+        <td class="cell-wide">{{ item.summary }}</td>
+        <td class="cell-wide">{{ item.recipientName }}</td>
         <td>{{ item.recipientDate }}</td>
-        <td><a
-               [routerLink]="['/export-pagination']" [queryParams]="{page:item.urgentNum}">{{ item.urgentNum }}</a></td>
-        <td>{{ item.urgentDate }}</td>
-        <td><a
-               [routerLink]="['/import-pagination']" [queryParams]="{page:item.responseNumber}">{{ item.responseNumber }}</a></td>
-        <td>{{ item.responseDate }}</td>
         <td ><a *ngIf="item.saved!=0"
                 [routerLink]="['/special-pagination']" [queryParams]="{page:item.saved}">{{ item.saved }}</a></td>          <td>{{ item.typeNumber }}/{{ item.num }}</td>
         <td>

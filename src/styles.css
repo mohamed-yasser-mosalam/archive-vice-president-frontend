@@ -807,12 +807,53 @@ input[type=file]::file-selector-button:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
-  overflow: auto;
-  max-height: calc(100vh - var(--topbar-height) - 140px);
+  /* Grow with the rows so the page has a single scrollbar; only wide
+     tables scroll sideways inside the card. */
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
-.table-card.auto-height {
-  max-height: none;
+/* Fit the table to the card width (no sideways scroll on laptop screens
+   and up): tighter padding, headers may wrap, and each cell is one line
+   whose long text ends with "…" and shows in full on hover (title is set
+   in AppComponent). Text columns get wider on bigger screens. */
+.app-content .table-card > table.data-table {
+  font-size: 12px;
+}
+
+.table-card > .data-table thead th {
+  padding: 10px 6px;
+  font-size: 11px;
+  line-height: 1.3;
+  white-space: normal;
+  vertical-align: bottom;
+}
+
+.table-card > .data-table tbody td {
+  padding: 10px 6px;
+  white-space: nowrap;
+  max-width: clamp(90px, 7.5vw, 260px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Main text columns (summary, recipient) get the most room */
+.table-card > .data-table tbody td.cell-wide {
+  max-width: clamp(130px, 11.5vw, 400px);
+}
+
+/* Very wide tables (15+ columns: mandates, investigations) can't fit on
+   one line per cell, so their text wraps and the columns shrink to fit. */
+.table-card > .data-table.grouped tbody td,
+.table-card > .data-table.wrap-cells tbody td {
+  white-space: normal;
+  max-width: none;
+  line-height: 1.35;
+}
+
+.table-card > .data-table tbody td svg {
+  max-width: 22px;
+  max-height: 22px;
 }
 
 .data-table,

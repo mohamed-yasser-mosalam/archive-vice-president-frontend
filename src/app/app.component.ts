@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {filter} from 'rxjs';
 
@@ -13,6 +13,15 @@ const BARE_ROUTES = ['login', '**'];
 export class AppComponent {
   title = 'Frontend';
   showShell = false;
+
+  // Table cells cut off with "…" show their full text as a tooltip
+  @HostListener('document:mouseover', ['$event'])
+  showTruncatedCellText(event: MouseEvent) {
+    const cell = (event.target as HTMLElement | null)?.closest?.('.table-card > .data-table td') as HTMLElement | null;
+    if (cell && !cell.title && cell.scrollWidth > cell.clientWidth) {
+      cell.title = cell.textContent?.trim() ?? '';
+    }
+  }
 
   constructor(router: Router, route: ActivatedRoute) {
     router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {

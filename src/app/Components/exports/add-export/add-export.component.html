@@ -1,5 +1,5 @@
 <div class="page page-narrow">
-  <form class="form-card" [formGroup]="exportForm" (ngSubmit)="onSubmit()">
+  <form class="form-card form-compact" [formGroup]="exportForm" (ngSubmit)="onSubmit()">
 
     <div class="wrapper ">
       <legend class="text-center">ادخال الصادر</legend>
@@ -10,9 +10,9 @@
       </div>
       <div class="d-flex">
         <div class="input-data">
-          <input type="text" required id="receiver" name="receiver" formControlName="receiver">
-          <label for="receiver">الجهة الصادر اليها الخطاب</label>
-          <small *ngIf="exportForm.get('receiver')?.invalid">* مطلوب</small>
+          <input type="date" id="date" name="date" formControlName="date">
+          <label for="date">تاريخ الصادر</label>
+          <small *ngIf="exportForm.get('date')?.invalid">* مطلوب</small>
         </div>
 
         <div class="input-data">
@@ -20,12 +20,12 @@
                  formControlName="numberOfAttachments" required>
           <label for="numberOfAttachments">عدد المرفقات</label>
           <small *ngIf="exportForm.get('numberOfAttachments')?.invalid">* مطلوب</small>
-
         </div>
+
         <div class="input-data">
-          <input type="date" id="date" name="date" formControlName="date">
-          <label for="date">تاريخ الصادر</label>
-          <small *ngIf="exportForm.get('date')?.invalid">* مطلوب</small>
+          <input type="text" required id="receiver" name="receiver" formControlName="receiver">
+          <label for="receiver">الجهة الصادر اليها الخطاب</label>
+          <small *ngIf="exportForm.get('receiver')?.invalid">* مطلوب</small>
         </div>
       </div>
       <div class="input-data">
@@ -36,15 +36,15 @@
       </div>
       <div class="d-flex">
         <div class="input-data">
+          <input type="text" id="recipientName" name="recipientName" formControlName="recipientName">
+          <label for="recipientName">المستلم</label>
+        </div>
+        <div class="input-data">
           <label for="num">ملف الحفظ</label>
           <small *ngIf="exportForm.get('num')?.invalid">* مطلوب</small>
           <select type="text" required id="num" name="num" formControlName="num">
             <option *ngFor="let i of allFiles" value="{{i.num}}">{{ i.name }} - {{ i.num }}</option>
           </select>
-        </div>
-        <div class="input-data">
-          <input type="text" id="recipientName" name="recipientName" formControlName="recipientName">
-          <label for="recipientName">المستلم</label>
         </div>
       </div>
       <div class="d-flex">

@@ -150,7 +150,7 @@
               </svg>
               حذف المرفق
             </button>
-            <button [printSectionId]="'print-section-' + i" ngxPrint
+            <button [printSectionId]="'print-section-' + i" [printStyle]="{img: {'display': 'block', 'height': '83vh', 'max-width': '100%', 'margin': '0 auto', 'object-fit': 'contain'}}" ngxPrint
                     class="btn btn-outline-secondary">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
                    viewBox="0 0 16 16">

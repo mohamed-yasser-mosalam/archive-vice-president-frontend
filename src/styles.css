@@ -1694,20 +1694,20 @@ button.row-action {
 }
 
 /* ---------------------------------------------------------------------
-   Compact form variant (add-import / add-export): fits one screen
+   Compact form variant (add-import / add-export and record pages): fits one screen
    without scrolling. "مطلوب" sits beside the label instead of under
    the input, so the layout never jumps.
    --------------------------------------------------------------------- */
-.form-card.form-compact {
+:is(.form-card.form-compact, .detail-main .form-card) {
   padding: 18px 24px 20px;
 }
 
-.form-card.form-compact legend {
+:is(.form-card.form-compact, .detail-main .form-card) legend {
   margin: 0 0 12px;
   padding-bottom: 10px;
 }
 
-.form-card.form-compact .input-data {
+:is(.form-card.form-compact, .detail-main .form-card) .input-data {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: baseline;
@@ -1715,22 +1715,271 @@ button.row-action {
   margin: 0 0 10px !important;
 }
 
-.form-card.form-compact .input-data > label {
+:is(.form-card.form-compact, .detail-main .form-card) .input-data > label {
   order: -2;
 }
 
-.form-card.form-compact .input-data > small {
+:is(.form-card.form-compact, .detail-main .form-card) .input-data > small {
   order: -1;
   font-size: 11px;
 }
 
-.form-card.form-compact .input-data > input,
-.form-card.form-compact .input-data > select {
+:is(.form-card.form-compact, .detail-main .form-card) .input-data > input,
+:is(.form-card.form-compact, .detail-main .form-card) .input-data > select {
   order: 0;
   flex: 0 0 100%;
   height: 36px;
 }
 
-.form-card.form-compact .wrapper > .btn {
+:is(.form-card.form-compact, .detail-main .form-card) .wrapper > .btn {
   margin-top: 4px;
+}
+
+/* Record pages: each field is one line (label beside a smaller box) */
+.detail-main .form-card .input-data {
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px !important;
+}
+
+.detail-main .form-card .input-data > label {
+  flex: 0 0 105px;
+  line-height: 1.25;
+}
+
+.detail-main .form-card .input-data > input,
+.detail-main .form-card .input-data > select {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 32px;
+}
+
+/* Record pages: fields flow two per row in their existing order (the
+   template's row/container divs are flattened), so no short field sits
+   alone on a full-width row. Long text and anything that isn't a field
+   (title, tables, upload area, pager) spans the full width. */
+.detail-main .form-card .wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 16px;
+  align-items: center;
+  grid-auto-flow: row dense;
+}
+
+.detail-main .form-card .wrapper div:not(.input-data):not(.detail-actions):has(.input-data) {
+  display: contents !important;
+}
+
+.detail-main .form-card .wrapper *:not(.input-data),
+.detail-main .form-card .input-data:has([formcontrolname="summary"], [formcontrolname="notes"], [formcontrolname="sender"], [formcontrolname="receiver"]) {
+  grid-column: 1 / -1;
+}
+
+.detail-main .form-card .wrapper .input-data {
+  grid-column: auto;
+  width: auto !important;
+}
+
+.detail-main .form-card .wrapper .input-data:has([formcontrolname="summary"], [formcontrolname="notes"], [formcontrolname="sender"], [formcontrolname="receiver"]) {
+  grid-column: 1 / -1;
+}
+
+/* Record pages: tighter action area under the form */
+.detail-main .detail-actions {
+  padding-top: 12px;
+}
+
+.detail-main .detail-actions .detail-pager {
+  margin-top: 4px;
+}
+
+/* ---------------------------------------------------------------------
+   Import record page: the classic 4-column order (as on the old main
+   layout), labels above the boxes. Column 1 is the right-most (RTL).
+   --------------------------------------------------------------------- */
+.detail-main .form-card.import-detail .wrapper {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "title   title   title   title"
+    "no      income  att     img"
+    "lnum    ldate   sender  sender"
+    "sum     sum     sum     sum"
+    "rnum    rdate   rside   rside"
+    "rname   rname   rcdate  rcdate"
+    "num     num     cby     exp"
+    "actions actions actions actions";
+  align-items: end;
+}
+
+.detail-main .form-card.import-detail .wrapper > legend      { grid-area: title; }
+.detail-main .form-card.import-detail .wrapper .detail-actions        { grid-area: actions; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#no)                   { grid-area: no; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#incomeDate)           { grid-area: income; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#numberOfAttachments)  { grid-area: att; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#numberOfImages)       { grid-area: img; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#incomingLetterNumber) { grid-area: lnum; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#incomingLetterDate)   { grid-area: ldate; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#sender)               { grid-area: sender; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#summary)              { grid-area: sum; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#responseNumber)       { grid-area: rnum; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#responseDate)         { grid-area: rdate; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#responseSide)         { grid-area: rside; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#recipientName)        { grid-area: rname; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#recipientDate)        { grid-area: rcdate; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#num)                  { grid-area: num; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#createdBy)            { grid-area: cby; }
+.detail-main .form-card.import-detail .wrapper .input-data:has(#expectResponseDate)   { grid-area: exp; }
+
+/* labels above the boxes */
+.detail-main .form-card.import-detail .input-data {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.detail-main .form-card.import-detail .input-data > label {
+  flex: none;
+}
+
+.detail-main .form-card.import-detail .input-data > input {
+  flex: none;
+  width: 100% !important;
+}
+
+/* ---------------------------------------------------------------------
+   Record pages: the classic field order from the old main layouts.
+   Column 1 is the right-most (RTL). Anything not placed here (minutes
+   table, upload area, pager) follows below at full width.
+   --------------------------------------------------------------------- */
+.detail-main .form-card.export-detail .wrapper {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-areas:
+    "title title title title title title"
+    "no no no num num num"
+    "date date att img rcv rcv"
+    "summary summary summary summary summary summary"
+    "recipientName recipientName recipientName recipientDate recipientDate recipientDate"
+    "urgentNum urgentNum urgentNum urgentDate urgentDate urgentDate"
+    "responseNumber responseNumber responseNumber responseDate responseDate responseDate"
+    "createdBy createdBy createdBy . . .";
+  align-items: end;
+}
+
+.detail-main .form-card.export-detail .wrapper > legend { grid-area: title; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="no"]) { grid-area: no; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="num"]) { grid-area: num; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="date"]) { grid-area: date; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="numberOfAttachments"]) { grid-area: att; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="numberOfImages"]) { grid-area: img; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="receiver"]) { grid-area: rcv; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="summary"]) { grid-area: summary; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="recipientName"]) { grid-area: recipientName; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="recipientDate"]) { grid-area: recipientDate; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="urgentNum"]) { grid-area: urgentNum; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="urgentDate"]) { grid-area: urgentDate; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="responseNumber"]) { grid-area: responseNumber; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="responseDate"]) { grid-area: responseDate; }
+.detail-main .form-card.export-detail .wrapper .input-data:has(> [formcontrolname="createdBy"]) { grid-area: createdBy; }
+
+.detail-main .form-card.investigation-detail .wrapper {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-areas:
+    "title title title title title title"
+    "id id id studentName studentName studentName"
+    "semester semester year year academicYear academicYear"
+    "numberOfImages numberOfImages exam exam department department"
+    "examDate examDate examDate investigationKind investigationKind investigationKind"
+    "investigationDate investigationDate investigationDate investigationName investigationName investigationName"
+    "investigationResult investigationResult investigationResult investigationResult investigationResult investigationResult"
+    "result result result belongings belongings belongings";
+  align-items: end;
+}
+
+.detail-main .form-card.investigation-detail .wrapper > legend { grid-area: title; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="id"]) { grid-area: id; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="studentName"]) { grid-area: studentName; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="semester"]) { grid-area: semester; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="year"]) { grid-area: year; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="academicYear"]) { grid-area: academicYear; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="numberOfImages"]) { grid-area: numberOfImages; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="exam"]) { grid-area: exam; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="department"]) { grid-area: department; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="examDate"]) { grid-area: examDate; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="investigationKind"]) { grid-area: investigationKind; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="investigationDate"]) { grid-area: investigationDate; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="investigationName"]) { grid-area: investigationName; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="investigationResult"]) { grid-area: investigationResult; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="result"]) { grid-area: result; }
+.detail-main .form-card.investigation-detail .wrapper .input-data:has(> [formcontrolname="belongings"]) { grid-area: belongings; }
+
+.detail-main .form-card.special-detail .wrapper {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "no att imp img"
+    "num incomeDate sender createdBy"
+    "summary summary summary summary"
+    "notes notes notes notes";
+  align-items: end;
+}
+
+.detail-main .form-card.special-detail .wrapper .input-data:has(> [formcontrolname="no"]) { grid-area: no; }
+.detail-main .form-card.special-detail .wrapper .input-data:has(> [formcontrolname="numberOfAttachments"]) { grid-area: att; }
+.detail-main .form-card.special-detail .wrapper .input-data:has(> [formcontrolname="importNum"]) { grid-area: imp; }
+.detail-main .form-card.special-detail .wrapper .input-data:has(> [formcontrolname="archiveId"]) { grid-area: imp; }
+.detail-main .form-card.special-detail .wrapper .input-data:has(> [formcontrolname="numberOfImages"]) { grid-area: img; }
+.detail-main .form-card.special-detail .wrapper .input-data:has(> [formcontrolname="num"]) { grid-area: num; }
+.detail-main .form-card.special-detail .wrapper .input-data:has(> [formcontrolname="incomeDate"]) { grid-area: incomeDate; }
+.detail-main .form-card.special-detail .wrapper .input-data:has(> [formcontrolname="sender"]) { grid-area: sender; }
+.detail-main .form-card.special-detail .wrapper .input-data:has(> [formcontrolname="createdBy"]) { grid-area: createdBy; }
+.detail-main .form-card.special-detail .wrapper .input-data:has(> [formcontrolname="summary"]) { grid-area: summary; }
+.detail-main .form-card.special-detail .wrapper .input-data:has(> [formcontrolname="notes"]) { grid-area: notes; }
+
+.detail-main .form-card.dean-detail .wrapper {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "title title"
+    "no num"
+    "date createdBy"
+    "summary summary";
+  align-items: end;
+}
+
+.detail-main .form-card.dean-detail .wrapper > legend { grid-area: title; }
+.detail-main .form-card.dean-detail .wrapper .input-data:has(> [formcontrolname="no"]) { grid-area: no; }
+.detail-main .form-card.dean-detail .wrapper .input-data:has(> [formcontrolname="num"]) { grid-area: num; }
+.detail-main .form-card.dean-detail .wrapper .input-data:has(> [formcontrolname="date"]) { grid-area: date; }
+.detail-main .form-card.dean-detail .wrapper .input-data:has(> [formcontrolname="createdBy"]) { grid-area: createdBy; }
+.detail-main .form-card.dean-detail .wrapper .input-data:has(> [formcontrolname="summary"]) { grid-area: summary; }
+
+/* labels above the boxes on these pages */
+.detail-main .form-card:is(.export-detail, .investigation-detail, .special-detail, .dean-detail) .input-data {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.detail-main .form-card:is(.export-detail, .investigation-detail, .special-detail, .dean-detail) .input-data > label {
+  flex: none;
+}
+
+.detail-main .form-card:is(.export-detail, .investigation-detail, .special-detail, .dean-detail) .input-data > input {
+  flex: none;
+  width: 100% !important;
+}
+
+/* a field-less .input-data (e.g. the pager holder) spans the full width */
+.detail-main .form-card .wrapper .input-data:not(:has(input, select, textarea)) {
+  grid-column: 1 / -1;
+}
+
+/* Record pages: multi-line read-only text (e.g. the dean decision subject) */
+.detail-main .form-card .input-data > textarea {
+  flex: none;
+  width: 100% !important;
+  height: auto;
+  min-height: 0;
+  padding: 6px 12px !important;
+  line-height: 1.6;
+  resize: none;
 }

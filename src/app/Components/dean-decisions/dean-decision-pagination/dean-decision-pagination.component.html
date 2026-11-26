@@ -1,7 +1,7 @@
 <div class="page">
   <div class="detail-layout">
     <div class="detail-main">
-      <form class="form-card" [formGroup]="deanDecisions">
+      <form class="form-card dean-detail" [formGroup]="deanDecisions">
 
         <div class="wrapper">
           <legend class="text-center"> قرارات العميد
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="input-data">
-            <input cols="40" rows="1" readonly id="summary" formControlName="summary">
+            <textarea rows="3" readonly id="summary" formControlName="summary"></textarea>
             <div class="underLine"></div>
             <label for="summary">موضوع  القرار</label>
           </div>

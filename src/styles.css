@@ -1983,3 +1983,9 @@ button.row-action {
   line-height: 1.6;
   resize: none;
 }
+
+/* Pagination runs left-to-right: going right means a higher page
+   (next » / last »» on the right, first «« / previous « on the left). */
+.pagination {
+  direction: ltr;
+}
